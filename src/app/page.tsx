@@ -199,9 +199,9 @@ export default function Home() {
               <CarouselContent>
                 {FEATURED_PRODUCTS.map((product, index) => (
                   <CarouselItem key={index}>
-                    <div className="flex flex-col items-center justify-center py-8 space-y-8">
+                    <div className="flex flex-col items-center justify-center py-4 md:py-8 space-y-6 md:space-y-8">
                       {/* Product Image */}
-                      <div className="relative h-[250px] md:h-[400px] w-full max-w-4xl px-4">
+                      <div className="relative h-[200px] sm:h-[250px] md:h-[400px] w-full max-w-4xl px-4">
                         {product.image?.imageUrl && (
                           <Image
                             src={product.image.imageUrl}
@@ -213,10 +213,10 @@ export default function Home() {
                         )}
                       </div>
                       
-                      {/* Product Info & Button */}
-                      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <h3 className="text-2xl md:text-4xl font-bold font-headline tracking-tight">{product.name}</h3>
-                        <Button asChild size="default" className="rounded-full px-8 bg-primary hover:bg-primary/90 font-bold h-10 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                      {/* Product Info & Button - Improved for responsiveness */}
+                      <div className="flex flex-row items-center justify-center gap-3 md:gap-6 px-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <h3 className="text-xl md:text-4xl font-bold font-headline tracking-tight text-foreground">{product.name}</h3>
+                        <Button asChild size="sm" className="rounded-full px-4 md:px-8 bg-primary hover:bg-primary/90 font-bold h-8 md:h-10 text-xs md:text-sm shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                           <Link href="/vehicles">More</Link>
                         </Button>
                       </div>
@@ -226,11 +226,11 @@ export default function Home() {
               </CarouselContent>
               {/* Navigation Controls */}
               <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between z-20 pointer-events-none">
-                <CarouselPrevious className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 ml-4">
-                  <ChevronLeft className="h-6 w-6 text-primary group-hover:scale-110" />
+                <CarouselPrevious className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 ml-2 md:ml-4">
+                  <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110" />
                 </CarouselPrevious>
-                <CarouselNext className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 mr-4">
-                  <ChevronRight className="h-6 w-6 text-primary group-hover:scale-110" />
+                <CarouselNext className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 mr-2 md:mr-4">
+                  <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110" />
                 </CarouselNext>
               </div>
             </Carousel>
