@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const VEHICLE_DATA = [
   {
-    category: "Pulsar",
+    category: "Daring",
     vehicles: [
       {
         name: "Pulsar N250",
@@ -75,7 +75,7 @@ export default function VehiclesPage() {
         </p>
       </div>
 
-      <Tabs defaultValue="Pulsar" className="w-full">
+      <Tabs defaultValue="Daring" className="w-full">
         <div className="flex justify-center mb-12">
           <TabsList className="bg-blue-50/50 p-1 border border-blue-100 h-auto flex flex-nowrap justify-start md:justify-center overflow-x-auto no-scrollbar max-w-full">
             {VEHICLE_DATA.map((cat) => (
