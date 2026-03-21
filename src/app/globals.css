@@ -1,30 +1,51 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 222 17% 13%; /* #1B1F27 */
-    --foreground: 210 20% 98%;
-    --card: 222 17% 15%;
-    --card-foreground: 210 20% 98%;
-    --popover: 222 17% 13%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 220 70% 60%; /* #5282E0 */
-    --primary-foreground: 210 20% 98%;
-    --secondary: 222 17% 20%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 222 17% 20%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 189 81% 70%; /* #75DCF0 */
-    --accent-foreground: 222 17% 13%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 222 17% 25%;
-    --input: 222 17% 25%;
-    --ring: 220 70% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
     --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212 72% 59%;
   }
 }
 
@@ -38,9 +59,9 @@
 }
 
 .glass-card {
-  @apply bg-card/50 backdrop-blur-md border border-white/10;
+  @apply bg-card/50 backdrop-blur-md border border-border/50;
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
 }
