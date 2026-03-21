@@ -213,7 +213,7 @@ export default function Home() {
                         )}
                       </div>
                       
-                      {/* Product Info & Button - Improved for responsiveness */}
+                      {/* Product Info & Button */}
                       <div className="flex flex-row items-center justify-center gap-3 md:gap-6 px-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <h3 className="text-xl md:text-4xl font-bold font-headline tracking-tight text-foreground">{product.name}</h3>
                         <Button asChild size="sm" className="rounded-full px-4 md:px-8 bg-primary hover:bg-primary/90 font-bold h-8 md:h-10 text-xs md:text-sm shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
@@ -235,6 +235,16 @@ export default function Home() {
               </div>
             </Carousel>
           </div>
+        </div>
+      </section>
+
+      {/* Early Bird Offer Heading Section */}
+      <section className="container mx-auto px-4 py-8 text-center">
+        <div className="inline-block relative">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
+            Early Bird <span className="text-accent">Offer</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-primary mx-auto mt-4 rounded-full" />
         </div>
       </section>
 
