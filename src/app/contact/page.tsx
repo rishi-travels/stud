@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -66,24 +66,6 @@ export default function ContactPage() {
               </div>
             </CardContent>
           </Card>
-
-          <Card className="glass-card">
-            <CardHeader>
-              <CardTitle className="text-2xl flex items-center gap-2">
-                <Clock className="h-6 w-6 text-accent" /> Business Hours
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex justify-between text-sm">
-                <span>Mon - Sat</span>
-                <span className="font-semibold">09:00 AM - 08:00 PM</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span>Sunday</span>
-                <span className="text-destructive font-semibold">Closed</span>
-              </div>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Contact Form */}
@@ -100,7 +82,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Phone Number</label>
-                  <Input placeholder="+91 99999 99999" required />
+                  <Input placeholder="+91 96285 10443" required />
                 </div>
               </div>
               <div className="space-y-2">
@@ -129,7 +111,7 @@ export default function ContactPage() {
         </Card>
       </div>
 
-      {/* Map Placeholder */}
+      {/* Map Section */}
       <section className="h-[400px] w-full rounded-3xl overflow-hidden grayscale opacity-80 hover:grayscale-0 transition-all duration-500 shadow-xl border border-border">
         <iframe
           src="https://www.google.com/maps?q=25.4540,82.9418&z=15&output=embed"
