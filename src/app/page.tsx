@@ -126,7 +126,7 @@ export default function Home() {
             className={cn(
               "h-1 rounded-full transition-all duration-300",
               idx === heroIndex 
-                ? "w-10 bg-accent" 
+                ? "w-10 bg-primary" 
                 : "w-4 bg-muted hover:bg-primary/40"
             )}
             aria-label={`Go to slide ${idx + 1}`}
