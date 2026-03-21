@@ -1,3 +1,6 @@
+"use client";
+
+import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bike, ShieldCheck, Zap, Award, ChevronLeft, ChevronRight } from "lucide-react";
@@ -5,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import Autoplay from "embla-carousel-autoplay";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const VEHICLES = [
   { name: "Pulsar N250", type: "Naked Sports", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
@@ -43,7 +48,13 @@ const FEATURED_PRODUCTS = [
 ];
 
 export default function Home() {
+  const isMobile = useIsMobile();
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
+
+  const autoplayPlugin = React.useMemo(
+    () => Autoplay({ delay: 1500, stopOnInteraction: false }),
+    []
+  );
 
   return (
     <div className="space-y-16 pb-24">
@@ -106,7 +117,11 @@ export default function Home() {
         </div>
 
         <div className="relative group/carousel">
-          <Carousel className="w-full">
+          <Carousel 
+            plugins={isMobile ? [autoplayPlugin] : []}
+            opts={{ loop: true }}
+            className="w-full"
+          >
             <CarouselContent className="-ml-4">
               {VEHICLES.map((vehicle, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
