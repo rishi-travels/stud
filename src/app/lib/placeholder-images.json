@@ -112,14 +112,14 @@
     {
       "id": "team-member-1",
       "description": "Raghvendra Mishra, Executive Director",
-      "imageUrl": "https://github.com/rishi-travels/img/blob/main/kishan.jpeg",
+      "imageUrl": "https://raw.githubusercontent.com/rishi-travels/img/main/kishan.jpeg",
       "imageHint": "man portrait"
     },
     {
       "id": "team-member-2",
       "description": "Ashwini Mishra, Managing Director",
-      "imageUrl": "https://picsum.photos/seed/team2/400/500",
-      "imageHint": "businesswoman portrait"
+      "imageUrl": "https://raw.githubusercontent.com/rishi-travels/img/main/kk.jpeg",
+      "imageHint": "business professional"
     },
     {
       "id": "team-member-3",
