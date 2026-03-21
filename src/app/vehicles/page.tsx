@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bike, Zap, Shield, Gauge } from "lucide-react";
@@ -24,7 +23,7 @@ const VEHICLE_DATA = [
         description: "Raw power meets aggressive styling for the modern street fighter.",
         specs: { engine: "199.5cc", Mileage: "36 kmpl", "fuel tank": "12 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-performance"),
-        tag: "Iconic"
+        tag: "Street Fighter"
       },
       {
         name: "Pulsar 125",
@@ -34,11 +33,11 @@ const VEHICLE_DATA = [
         tag: "Racing"
       },
       {
-        name: "Pulsar N160",
-        description: "Precision power for the urban street racer with segment-first dual-channel ABS.",
-        specs: { engine: "160.3cc", Mileage: "45 kmpl", "fuel tank": "14 L" },
-        image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
-        tag: "Street"
+        name: "Dominar 400",
+        description: "Born to tour. Experience ultimate performance with the most powerful Bajaj yet.",
+        specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
+        image: PlaceHolderImages.find(p => p.id === "dominar-400"),
+        tag: "Hyper Tourer"
       }
     ]
   },
@@ -74,16 +73,16 @@ const VEHICLE_DATA = [
       {
         name: "Chetak Premium",
         description: "The future of urban mobility. Timeless design, cutting-edge tech.",
-        specs: { range: "108 km", speed: "73 kmph", charge: "4.5 hrs" },
+        specs: { range: "126 km", speed: "73 kmph", charge: "4.5 hrs" },
         image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
-        tag: "EV"
+        tag: "Premium EV"
       },
       {
         name: "Platina 110",
         description: "Sleek, smart, and designed for the modern commuter with agile performance.",
-        specs: { range: "113 km", speed: "73 kmph", charge: "4.8 hrs" },
+        specs: { engine: "115.4cc", Mileage: "70 kmpl", "fuel tank": "11 L" },
         image: PlaceHolderImages.find(p => p.id === "platina-110"),
-        tag: "Smart EV"
+        tag: "Comfort"
       },
       {
         name: "Freedom 125",

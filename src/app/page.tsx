@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -17,7 +16,7 @@ const PERFORMANCE_VEHICLES = [
   { name: "Pulsar 150", type: "Classic Performance", image: PlaceHolderImages.find(p => p.id === "pulsar-150") },
   { name: "Pulsar NS200", type: "Street Fighter", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
   { name: "Pulsar 125", type: "Racing", image: PlaceHolderImages.find(p => p.id === "pulsar-125") },
-  { name: "Pulsar N160", type: "Street", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
+  { name: "Dominar 400", type: "Hyper Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
 ];
 
 const ECO_VEHICLES = [
