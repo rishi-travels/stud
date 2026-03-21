@@ -177,8 +177,8 @@ export default function Home() {
       </section>
 
       {/* Featured Products Gallery Section - Simplified Gallery */}
-      <section className="bg-gray-50/50 py-20 overflow-hidden">
-        <div className="container mx-auto px-4 text-center space-y-12">
+      <section className="bg-gray-50/50 py-12 overflow-hidden">
+        <div className="container mx-auto px-4 text-center space-y-8">
           <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
           
           <div className="relative max-w-5xl mx-auto">
@@ -186,9 +186,9 @@ export default function Home() {
               <CarouselContent>
                 {FEATURED_PRODUCTS.map((product, index) => (
                   <CarouselItem key={index}>
-                    <div className="flex flex-col items-center justify-center py-10">
+                    <div className="flex flex-col items-center justify-center py-4">
                       {/* Product Image Only */}
-                      <div className="relative h-[400px] md:h-[500px] w-full max-w-4xl px-4">
+                      <div className="relative h-[300px] md:h-[400px] w-full max-w-4xl px-4">
                         {product.image?.imageUrl && (
                           <Image
                             src={product.image.imageUrl}
