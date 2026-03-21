@@ -212,7 +212,7 @@ export default function Home() {
                       </div>
                       
                       {/* Product Info & Button */}
-                      <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <h3 className="text-3xl md:text-5xl font-bold font-headline tracking-tight">{product.name}</h3>
                         <Button asChild size="lg" className="rounded-full px-12 bg-primary hover:bg-primary/90 font-bold h-12 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                           <Link href="/vehicles">More</Link>
