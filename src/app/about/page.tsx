@@ -52,16 +52,6 @@ export default function AboutPage() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Our commitment to excellence is reflected in every aspect of our business, from the carefully selected range of Bajaj vehicles to our state-of-the-art service center.
             </p>
-            <div className="grid grid-cols-2 gap-8 pt-4">
-              <div>
-                <h4 className="text-4xl font-bold text-primary">25+</h4>
-                <p className="text-muted-foreground">Years of Experience</p>
-              </div>
-              <div>
-                <h4 className="text-4xl font-bold text-primary">50k+</h4>
-                <p className="text-muted-foreground">Happy Customers</p>
-              </div>
-            </div>
           </div>
           <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
             {serviceImg?.imageUrl && (
@@ -104,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team Carousel */}
-      <section className="container mx-auto px-4 pb-20">
+      <section className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <h2 className="text-4xl font-bold font-headline">Meet Our <span className="text-primary">Leadership Team</span></h2>
           <p className="text-muted-foreground">The experts dedicated to delivering excellence at every touchpoint.</p>
@@ -145,6 +135,22 @@ export default function AboutPage() {
             <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
             <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
           </Carousel>
+        </div>
+      </section>
+
+      {/* Achievement Stats */}
+      <section className="container mx-auto px-4 pb-20">
+        <div className="max-w-4xl mx-auto bg-primary text-primary-foreground rounded-[40px] p-12 md:p-16 shadow-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-center items-center">
+            <div className="space-y-2">
+              <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">25+</h4>
+              <p className="text-lg font-medium opacity-90 uppercase tracking-widest">Years of Experience</p>
+            </div>
+            <div className="space-y-2">
+              <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">50k+</h4>
+              <p className="text-lg font-medium opacity-90 uppercase tracking-widest">Happy Customers</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
