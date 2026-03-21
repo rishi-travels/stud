@@ -89,6 +89,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Vehicles Section */}
+      <section className="container mx-auto px-4 -mt-16 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {VEHICLES.map((vehicle, i) => (
+            <Card key={i} className="group overflow-hidden border-none shadow-2xl transition-all hover:scale-105 bg-white/90 backdrop-blur-md">
+              <div className="relative h-64 w-full">
+                {vehicle.image?.imageUrl && (
+                  <Image
+                    src={vehicle.image.imageUrl}
+                    alt={vehicle.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-ai-hint={vehicle.image.imageHint}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="text-xs font-bold uppercase tracking-widest text-accent">{vehicle.type}</p>
+                  <h3 className="text-2xl font-bold font-headline">{vehicle.name}</h3>
+                </div>
+              </div>
+              <CardContent className="p-4 flex justify-between items-center">
+                <Button variant="ghost" className="group-hover:text-primary p-0 h-auto font-bold" asChild>
+                  <Link href="/vehicles" className="flex items-center gap-2">
+                    Explore Details <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Why Choose Us - Chhaya Advantage */}
       <section className="bg-secondary/30 py-12">
         <div className="container mx-auto px-4">
@@ -238,4 +271,3 @@ export default function Home() {
     </div>
   );
 }
-
