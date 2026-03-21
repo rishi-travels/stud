@@ -1,14 +1,16 @@
+
 "use client";
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Bike, Info, Phone, Briefcase, LayoutGrid } from "lucide-react";
+import { Menu, X, Bike, Info, Phone, Briefcase, LayoutGrid, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/", icon: Bike },
   { name: "Vehicles", href: "/vehicles", icon: LayoutGrid },
+  { name: "Service", href: "/service", icon: Wrench },
   { name: "About", href: "/about", icon: Info },
   { name: "Careers", href: "/careers", icon: Briefcase },
   { name: "Contact", href: "/contact", icon: Phone },
@@ -55,7 +57,7 @@ export default function Navbar() {
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
-                    Access all pages of Chhaya Bajaj Auto including Home, Vehicles, About, Careers, and Contact.
+                    Access all pages of Chhaya Bajaj Auto including Home, Vehicles, Service, About, Careers, and Contact.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-12">

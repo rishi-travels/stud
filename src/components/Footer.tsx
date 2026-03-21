@@ -22,6 +22,8 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-blue-900 mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-blue-900/70 font-medium">
+              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/vehicles" className="hover:text-primary transition-colors">Vehicles</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
@@ -31,7 +33,8 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-blue-900 mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-blue-900/70 font-medium">
-              <li><Link href="#" className="hover:text-primary transition-colors">Service Booking</Link></li>
+              <li><Link href="/service" className="hover:text-primary transition-colors">Service Booking</Link></li>
+              <li><Link href="/service" className="hover:text-primary transition-colors">Maintenance Tips</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Spare Parts</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Warranty Info</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
