@@ -4,10 +4,10 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bike, ShieldCheck, Zap, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Bike, ShieldCheck, Zap, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Autoplay from "embla-carousel-autoplay";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -16,6 +16,9 @@ const VEHICLES = [
   { name: "Pulsar N250", type: "Naked Sports", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
   { name: "Dominar 400", type: "Sports Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
   { name: "Chetak Electric", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
+  { name: "Pulsar NS200", type: "Street Fighter", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
+  { name: "Avenger 220", type: "Cruise", image: PlaceHolderImages.find(p => p.id === "hero-style") },
+  { name: "Pulsar RS200", type: "Racing", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
 ];
 
 const HERO_SLIDES = [
@@ -45,7 +48,7 @@ export default function Home() {
       {/* Hero Section with Slideshow */}
       <section className="relative h-[85vh] w-full flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
-          <Carousel opts={{ loop: true }} className="w-full h-full">
+          <Carousel opts={{ loop: true }} plugins={[autoplayPlugin]} className="w-full h-full">
             <CarouselContent className="h-[85vh]">
               {HERO_SLIDES.map((slide, index) => (
                 <CarouselItem key={index} className="relative w-full h-full">
@@ -62,7 +65,6 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* Overlay Gradient for readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
           </Carousel>
@@ -91,33 +93,41 @@ export default function Home() {
 
       {/* Featured Vehicles Section */}
       <section className="container mx-auto px-4 -mt-16 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {VEHICLES.map((vehicle, i) => (
-            <Card key={i} className="group overflow-hidden border-none shadow-2xl transition-all hover:scale-105 bg-white/90 backdrop-blur-md">
-              <div className="relative h-64 w-full">
-                {vehicle.image?.imageUrl && (
-                  <Image
-                    src={vehicle.image.imageUrl}
-                    alt={vehicle.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    data-ai-hint={vehicle.image.imageHint}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white">
-                  <p className="text-xs font-bold uppercase tracking-widest text-accent">{vehicle.type}</p>
-                </div>
-              </div>
-              <CardContent className="p-4 flex justify-between items-center">
-                <span className="font-bold text-primary text-lg">{vehicle.name}</span>
-                <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold" asChild>
-                  <Link href="/vehicles">More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Carousel 
+          opts={{ align: "start", loop: true }} 
+          plugins={[autoplayPlugin]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-8">
+            {VEHICLES.map((vehicle, i) => (
+              <CarouselItem key={i} className="pl-8 basis-full md:basis-1/3">
+                <Card className="group overflow-hidden border-none shadow-2xl transition-all hover:scale-105 bg-white/90 backdrop-blur-md h-full">
+                  <div className="relative h-64 w-full">
+                    {vehicle.image?.imageUrl && (
+                      <Image
+                        src={vehicle.image.imageUrl}
+                        alt={vehicle.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={vehicle.image.imageHint}
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <p className="text-xs font-bold uppercase tracking-widest text-accent">{vehicle.type}</p>
+                    </div>
+                  </div>
+                  <CardContent className="p-4 flex justify-between items-center">
+                    <span className="font-bold text-primary text-lg">{vehicle.name}</span>
+                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold" asChild>
+                      <Link href="/vehicles">More</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </section>
 
       {/* Why Choose Us - Chhaya Advantage */}
@@ -161,7 +171,6 @@ export default function Home() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[600px]">
-          {/* Main Large Frame */}
           <div className="relative md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden group shadow-xl">
             {GALLERY_IMAGES[0]?.imageUrl && (
               <Image
@@ -178,7 +187,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Top Right Frame */}
           <div className="relative rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
             {GALLERY_IMAGES[1]?.imageUrl && (
               <Image
@@ -191,7 +199,6 @@ export default function Home() {
             )}
           </div>
 
-          {/* Middle Right Frame */}
           <div className="relative rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
             {GALLERY_IMAGES[2]?.imageUrl && (
               <Image
@@ -204,7 +211,6 @@ export default function Home() {
             )}
           </div>
 
-          {/* Bottom Wide Frame */}
           <div className="relative md:col-span-2 rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
             {GALLERY_IMAGES[3]?.imageUrl && (
               <Image
@@ -227,7 +233,6 @@ export default function Home() {
 
       {/* Promotions Area */}
       <div className="space-y-4">
-        {/* Early Bird Offer Heading Section */}
         <section className="container mx-auto px-4 text-center">
           <div className="inline-block relative">
             <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
@@ -237,7 +242,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Promotions Section - Festival Dhamaka */}
         <section className="container mx-auto px-4">
           <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center mb-8">
             {promoImg?.imageUrl ? (
@@ -258,7 +262,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Claim Offer Button to the right side */}
           <div className="flex justify-end">
             <Button className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-12 px-8 rounded-full text-base" asChild>
               <Link href="/contact">Claim Offer</Link>
