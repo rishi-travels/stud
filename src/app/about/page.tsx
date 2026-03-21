@@ -29,6 +29,12 @@ const TEAM_MEMBERS = [
     role: "Technical Director",
     image: PlaceHolderImages.find(p => p.id === "team-member-3"),
     bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
+  },
+  {
+    name: "Deepak Mishra",
+    role: "Sales Head",
+    image: PlaceHolderImages.find(p => p.id === "team-member-4"),
+    bio: "Deepak brings over a decade of sales leadership to help our customers drive home their dream Bajaj."
   }
 ];
 
