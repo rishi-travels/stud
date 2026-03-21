@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bike, ShieldCheck, Zap, Award } from "lucide-react";
@@ -12,41 +13,55 @@ const VEHICLES = [
   { name: "Chetak Electric", type: "Electric Scooter", price: "₹ 1.20 Lakh", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
 ];
 
+const HERO_SLIDES = [
+  PlaceHolderImages.find(p => p.id === "hero-stunt"),
+  PlaceHolderImages.find(p => p.id === "hero-style"),
+  PlaceHolderImages.find(p => p.id === "hero-performance"),
+];
+
 export default function Home() {
-  const heroImg = PlaceHolderImages.find(p => p.id === "hero-showroom");
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
 
   return (
     <div className="space-y-24 pb-24">
-      {/* Hero Section */}
+      {/* Hero Section with Slideshow */}
       <section className="relative h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {heroImg?.imageUrl ? (
-            <Image
-              src={heroImg.imageUrl}
-              alt={heroImg.description || "Hero"}
-              fill
-              className="object-cover opacity-40"
-              priority
-              data-ai-hint={heroImg.imageHint}
-            />
-          ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <Carousel opts={{ loop: true }} className="w-full h-full">
+            <CarouselContent className="h-[85vh]">
+              {HERO_SLIDES.map((slide, index) => (
+                <CarouselItem key={index} className="relative w-full h-full">
+                  {slide?.imageUrl ? (
+                    <Image
+                      src={slide.imageUrl}
+                      alt={slide.description || `Slide ${index + 1}`}
+                      fill
+                      className="object-cover opacity-60"
+                      priority={index === 0}
+                      data-ai-hint={slide.imageHint}
+                    />
+                  ) : null}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20 pointer-events-none" />
+          </Carousel>
         </div>
         
         <div className="container mx-auto px-4 relative z-10 space-y-8">
-          <div className="max-w-3xl space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline">
+          <div className="max-w-3xl space-y-6 bg-background/10 backdrop-blur-none p-6 rounded-2xl">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-foreground drop-shadow-md">
               Unleash the <span className="gradient-text">Power Within</span>
             </h1>
-            <p className="text-xl text-muted-foreground md:text-2xl max-w-2xl">
+            <p className="text-xl text-foreground md:text-2xl max-w-2xl font-medium drop-shadow-sm">
               Experience performance redefined at Chhaya Bajaj. Your gateway to the most iconic machines on the road.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg h-14 px-8">
                 <Link href="/contact">Book Test Ride</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
+              <Button size="lg" variant="outline" asChild className="bg-background/80 hover:bg-background text-lg h-14 px-8 border-primary">
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
@@ -91,8 +106,8 @@ export default function Home() {
                       <h3 className="text-2xl font-bold">{vehicle.name}</h3>
                       <p className="text-accent font-semibold">{vehicle.price}</p>
                     </div>
-                    <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary p-0">
-                      Learn More <ArrowRight className="h-4 w-4" />
+                    <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary p-0" asChild>
+                      <Link href="/contact">Learn More <ArrowRight className="h-4 w-4" /></Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -153,8 +168,8 @@ export default function Home() {
             <p className="text-lg text-foreground/90 leading-relaxed">
               Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
             </p>
-            <Button size="lg" className="bg-accent text-background hover:bg-accent/80 font-bold">
-              Claim Offer Now
+            <Button size="lg" className="bg-accent text-background hover:bg-accent/80 font-bold" asChild>
+              <Link href="/contact">Claim Offer Now</Link>
             </Button>
           </div>
         </div>

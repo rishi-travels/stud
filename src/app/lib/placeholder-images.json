@@ -2,10 +2,22 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-showroom",
-      "description": "Modern automotive showroom with Bajaj motorcycles",
-      "imageUrl": "https://picsum.photos/seed/showroom-1/1200/600",
-      "imageHint": "automotive showroom"
+      "id": "hero-stunt",
+      "description": "Professional stunt rider on a Pulsar motorcycle performing a wheelie",
+      "imageUrl": "https://picsum.photos/seed/stunt-1/1920/1080",
+      "imageHint": "motorcycle stunt"
+    },
+    {
+      "id": "hero-style",
+      "description": "Sleek and stylish Bajaj Dominar in a modern urban setting",
+      "imageUrl": "https://picsum.photos/seed/style-1/1920/1080",
+      "imageHint": "premium motorcycle"
+    },
+    {
+      "id": "hero-performance",
+      "description": "Racing action on a track with high-performance Bajaj Pulsar",
+      "imageUrl": "https://picsum.photos/seed/perf-1/1920/1080",
+      "imageHint": "motorcycle racing"
     },
     {
       "id": "pulsar-n250",
