@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,8 +13,22 @@ export default function Footer() {
               Varanasi's premier destination for Bajaj performance. We bring you innovation with world-class service and a legacy of trust.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-white/80 hover:text-accent transition-colors"><Facebook className="h-5 w-5" /></Link>
-              <Link href="#" className="text-white/80 hover:text-accent transition-colors"><Twitter className="h-5 w-5" /></Link>
+              <Link 
+                href="https://m.facebook.com/profile.php?id=111457522057376" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/80 hover:text-accent transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link 
+                href="https://wa.me/94153557605" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/80 hover:text-accent transition-colors"
+              >
+                <MessageCircle className="h-5 w-5" />
+              </Link>
               <Link 
                 href="https://www.instagram.com/chhayabajajbhopapur/" 
                 target="_blank" 
