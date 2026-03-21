@@ -3,27 +3,27 @@
   "placeholderImages": [
     {
       "id": "hero-1",
-      "description": "Bajaj Pulsar 200NS Action",
-      "imageUrl": "https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar-200NS-10340_5.jpg",
-      "imageHint": "pulsar 200ns"
-    },
-    {
-      "id": "hero-2",
       "description": "Bajaj Performance Concept Art",
       "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d4170217053.5b9bd43b46c8c.jpg",
       "imageHint": "motorcycle concept"
     },
     {
+      "id": "hero-2",
+      "description": "Bajaj Pulsar 200NS Action",
+      "imageUrl": "https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar-200NS-10340_5.jpg",
+      "imageHint": "pulsar 200ns"
+    },
+    {
       "id": "hero-3",
-      "description": "Bajaj Performance Racing",
-      "imageUrl": "https://wallpapercave.com/wp/wp2311648.jpg",
-      "imageHint": "bajaj pulsar"
+      "description": "Bajaj Pulsar N160",
+      "imageUrl": "https://superbikephotos.in/wp-content/uploads/2022/06/Bajaj-Pulsar-N160.png",
+      "imageHint": "pulsar n160"
     },
     {
       "id": "hero-4",
-      "description": "Bajaj Performance Blue Edition",
-      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.lR_ZHdUP-mx8PkDyDgciogHaE8?pid=ImgDet&w=474&h=316&rs=1&o=7&rm=3",
-      "imageHint": "bajaj pulsar blue"
+      "description": "Bajaj Pulsar N250",
+      "imageUrl": "https://stat.overdrive.in/wp-content/odgallery/2021/10/61286_2022_Bajaj_Pulsar_N250_1.jpg",
+      "imageHint": "pulsar n250"
     },
     {
       "id": "hero-5",

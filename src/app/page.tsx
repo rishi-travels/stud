@@ -31,7 +31,6 @@ const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-2"),
   PlaceHolderImages.find(p => p.id === "hero-3"),
   PlaceHolderImages.find(p => p.id === "hero-4"),
-  PlaceHolderImages.find(p => p.id === "hero-5"),
 ].filter((img): img is any => !!img);
 
 export default function Home() {
@@ -49,17 +48,17 @@ export default function Home() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       nextHero();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [nextHero]);
 
   const autoplayPlugin = React.useMemo(
-    () => Autoplay({ delay: 1500, stopOnInteraction: false }),
+    () => Autoplay({ delay: 3000, stopOnInteraction: false }),
     []
   );
 
   const autoplayPlugin3 = React.useMemo(
-    () => Autoplay({ delay: 2500, stopOnInteraction: false }),
+    () => Autoplay({ delay: 4000, stopOnInteraction: false }),
     []
   );
 

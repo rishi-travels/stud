@@ -95,6 +95,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'superbikephotos.in',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'stat.overdrive.in',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
