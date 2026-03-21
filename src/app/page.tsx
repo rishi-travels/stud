@@ -54,7 +54,7 @@ export default function Home() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       nextHero();
-    }, 2000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [nextHero]);
 
