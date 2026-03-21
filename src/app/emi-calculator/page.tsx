@@ -2,13 +2,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calculator, Wallet, Percent, Calendar } from "lucide-react";
+import { Wallet, Percent, Calendar } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
-import { PieChart, Pie } from "recharts";
 
 export default function EMICalculator() {
   const [price, setPrice] = useState(150000);
@@ -16,7 +14,6 @@ export default function EMICalculator() {
   const [interest, setInterest] = useState(9.5);
   const [tenure, setTenure] = useState(24);
   const [emi, setEmi] = useState(0);
-  const [totalInterest, setTotalInterest] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
@@ -27,38 +24,18 @@ export default function EMICalculator() {
     if (principal > 0 && monthlyRate > 0) {
       const emiValue = (principal * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
       const totalPayable = emiValue * n;
-      const interestPayable = totalPayable - principal;
 
       setEmi(Math.round(emiValue));
-      setTotalInterest(Math.round(interestPayable));
       setTotalAmount(Math.round(totalPayable));
     } else if (principal > 0 && monthlyRate === 0) {
       const emiValue = principal / n;
       setEmi(Math.round(emiValue));
-      setTotalInterest(0);
       setTotalAmount(principal);
     } else {
       setEmi(0);
-      setTotalInterest(0);
       setTotalAmount(0);
     }
   }, [price, downPayment, interest, tenure]);
-
-  const chartConfig = {
-    principal: {
-      label: "Principal Amount",
-      color: "hsl(var(--primary))",
-    },
-    interest: {
-      label: "Interest Amount",
-      color: "hsl(var(--accent))",
-    },
-  } satisfies ChartConfig;
-
-  const chartData = [
-    { name: "principal", value: price - downPayment, fill: "var(--color-principal)" },
-    { name: "interest", value: totalInterest, fill: "var(--color-interest)" },
-  ];
 
   return (
     <div className="container mx-auto px-4 py-20 space-y-12">
@@ -114,53 +91,24 @@ export default function EMICalculator() {
 
         {/* Results */}
         <div className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="bg-primary/10 border-primary/20">
-              <CardContent className="p-6 text-center space-y-2">
-                <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Monthly EMI</p>
-                <p className="text-4xl font-bold text-primary">₹ {emi.toLocaleString()}</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-accent/10 border-accent/20">
-              <CardContent className="p-6 text-center space-y-2">
-                <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Total Interest</p>
-                <p className="text-4xl font-bold text-accent">₹ {totalInterest.toLocaleString()}</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="glass-card flex flex-col items-center p-8">
-            <h3 className="text-xl font-bold mb-8">Payment Breakdown</h3>
-            <ChartContainer config={chartConfig} className="w-full h-[300px]">
-              <PieChart>
-                <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-                <Pie
-                  data={chartData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={100}
-                  paddingAngle={5}
-                  dataKey="value"
-                  nameKey="name"
-                />
-              </PieChart>
-            </ChartContainer>
-            <div className="flex justify-center gap-8 mt-4">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-primary" />
-                <span className="text-sm text-muted-foreground">Principal</span>
+          <Card className="bg-primary/10 border-primary/20">
+            <CardContent className="p-12 text-center space-y-6">
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Monthly EMI</p>
+                <p className="text-6xl font-extrabold text-primary">₹ {emi.toLocaleString()}</p>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-accent" />
-                <span className="text-sm text-muted-foreground">Interest</span>
+              <div className="pt-8 border-t border-primary/10">
+                <p className="text-sm text-muted-foreground">Total Payable Amount</p>
+                <p className="text-3xl font-bold">₹ {totalAmount.toLocaleString()}</p>
               </div>
-            </div>
-            <div className="mt-8 pt-8 border-t border-border w-full text-center">
-              <p className="text-sm text-muted-foreground">Total Payable Amount</p>
-              <p className="text-3xl font-bold">₹ {totalAmount.toLocaleString()}</p>
-            </div>
+            </CardContent>
           </Card>
+          
+          <div className="bg-muted/50 rounded-xl p-6 border border-border">
+            <p className="text-sm text-muted-foreground italic text-center">
+              * The figures shown above are indicative and for illustrative purposes only. Actual interest rates and loan eligibility may vary by bank.
+            </p>
+          </div>
         </div>
       </div>
     </div>
