@@ -58,6 +58,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: '4.bp.blogspot.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

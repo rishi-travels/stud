@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "hero-1",
-      "description": "Bajaj Pulsar 2024 Banner",
-      "imageUrl": "https://cdn.bajajauto.com/-/media/assets/bajajauto/bikes/pulsar-k-2024/hero-banner/web-banner.webp",
-      "imageHint": "pulsar banner"
+      "description": "Bajaj Pulsar 200NS Action",
+      "imageUrl": "https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar-200NS-10340_5.jpg",
+      "imageHint": "pulsar 200ns"
     },
     {
       "id": "hero-2",
@@ -15,9 +15,9 @@
     },
     {
       "id": "hero-3",
-      "description": "Bajaj Pulsar 200NS Action",
-      "imageUrl": "https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar-200NS-10340_5.jpg",
-      "imageHint": "pulsar 200ns"
+      "description": "Bajaj Promotional Poster",
+      "imageUrl": "https://4.bp.blogspot.com/-SE5II1KuI14/XEXVz3z5EDI/AAAAAAAAEG0/kWJeBXINOdwsjaGQ7MY-uE0JJmCKeZFbwCEwYBhgL/s1600/Press%2BRelese%2Bvert-01.jpg",
+      "imageHint": "bajaj poster"
     },
     {
       "id": "hero-ns400",
