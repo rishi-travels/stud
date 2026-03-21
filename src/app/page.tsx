@@ -139,9 +139,9 @@ export default function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-8 gap-2">
-            <CarouselPrevious className="static translate-y-0" />
-            <CarouselNext className="static translate-y-0" />
+          <div className="flex justify-center mt-12 gap-6">
+            <CarouselPrevious className="static translate-y-0 h-14 w-14 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/20 bg-background" />
+            <CarouselNext className="static translate-y-0 h-14 w-14 rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-accent/20 bg-background" />
           </div>
         </Carousel>
       </section>
