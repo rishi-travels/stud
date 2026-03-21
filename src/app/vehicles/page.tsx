@@ -100,6 +100,22 @@ const VEHICLE_DATA = [
         specs: { range: "108 km", speed: "73 kmph", charge: "4.5 hrs" },
         image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
         tag: "EV"
+      },
+      {
+        name: "Chetak Urbane",
+        price: "₹ 1.23 Lakh",
+        description: "Sleek, smart, and designed for the modern commuter with agile performance.",
+        specs: { range: "113 km", speed: "73 kmph", charge: "4.8 hrs" },
+        image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
+        tag: "Smart EV"
+      },
+      {
+        name: "Freedom 125",
+        price: "₹ 0.95 Lakh",
+        description: "The world's first integrated performance commuter with multiple fuel options.",
+        specs: { engine: "125cc", power: "9.5 PS", torque: "9.7 Nm" },
+        image: PlaceHolderImages.find(p => p.id === "freedom-125"),
+        tag: "Innovative"
       }
     ]
   }
