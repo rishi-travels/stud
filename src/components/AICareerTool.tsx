@@ -6,7 +6,7 @@ import { Sparkles, Loader2, Briefcase, Info, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { recommendCareerPathway, type AICareerPathwayOutput } from "@/ai/flows/ai-career-pathway-tool";
 
@@ -46,9 +46,6 @@ export default function AICareerTool() {
           <CardTitle className="flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-accent" /> Apply For Job
           </CardTitle>
-          <CardDescription>
-            Submit your background and let our AI suggest suitable roles and improvements for your automotive career.
-          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleAnalyze} className="space-y-6">
