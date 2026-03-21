@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Users, History, Target, Heart, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -63,32 +63,6 @@ export default function AboutPage() {
                 data-ai-hint={serviceImg.imageHint}
               />
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="bg-secondary/20 py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <h2 className="text-4xl font-bold font-headline">Our Core <span className="text-primary">Values</span></h2>
-            <p className="text-muted-foreground">The principles that guide everything we do at Chhaya Bajaj.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { icon: History, title: "Heritage", text: "Honoring our roots while driving towards a technologically advanced future." },
-              { icon: Target, title: "Precision", text: "Meticulous attention to detail in every service and sales interaction." },
-              { icon: Heart, title: "Customer-First", text: "Building genuine relationships founded on trust and transparency." }
-            ].map((val, i) => (
-              <div key={i} className="text-center space-y-4 p-8 glass-card rounded-2xl">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <val.icon className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">{val.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{val.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
