@@ -118,9 +118,14 @@ export default function AICareerTool() {
               />
             </div>
 
-            <Button type="submit" disabled={loading} className="w-full bg-accent text-background hover:bg-accent/80 font-bold py-6 text-lg">
-              {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Submit Application"}
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button type="submit" disabled={loading} className="flex-1 bg-accent text-background hover:bg-accent/80 font-bold py-6 text-lg">
+                {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Submit"}
+              </Button>
+              <Button type="button" variant="outline" className="flex-1 border-primary text-primary hover:bg-primary/10 font-bold py-6 text-lg">
+                Direct Message
+              </Button>
+            </div>
           </form>
         </CardContent>
       </Card>
