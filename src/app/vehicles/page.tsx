@@ -13,41 +13,36 @@ const VEHICLE_DATA = [
     vehicles: [
       {
         name: "Pulsar N250",
-        price: "₹ 1.51 Lakh",
         description: "The ultimate naked sports machine with DNA of performance.",
-        specs: { engine: "249cc", power: "24.5 PS", torque: "21.5 Nm" },
+        specs: { engine: "249cc", Mileage: "35 kmpl", "fuel tank": "14 L" },
         image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
         tag: "Best Seller"
       },
       {
         name: "Pulsar NS200",
-        price: "₹ 1.48 Lakh",
         description: "Raw power meets aggressive styling for the modern street fighter.",
-        specs: { engine: "199.5cc", power: "24.5 PS", torque: "18.74 Nm" },
+        specs: { engine: "199.5cc", Mileage: "36 kmpl", "fuel tank": "12 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-performance"),
         tag: "Iconic"
       },
       {
         name: "Pulsar RS200",
-        price: "₹ 1.72 Lakh",
         description: "The fastest Pulsar yet with aerodynamic design and race-bred performance.",
-        specs: { engine: "199.5cc", power: "24.5 PS", torque: "18.7 Nm" },
+        specs: { engine: "199.5cc", Mileage: "35 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-performance"),
         tag: "Racing"
       },
       {
         name: "Pulsar N160",
-        price: "₹ 1.30 Lakh",
         description: "Precision power for the urban street racer with segment-first dual-channel ABS.",
-        specs: { engine: "160.3cc", power: "16 PS", torque: "14.65 Nm" },
+        specs: { engine: "160.3cc", Mileage: "45 kmpl", "fuel tank": "14 L" },
         image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
         tag: "Street"
       },
       {
         name: "Pulsar 150",
-        price: "₹ 1.15 Lakh",
         description: "The classic performance icon that redefined the 150cc segment in India.",
-        specs: { engine: "149.5cc", power: "14 PS", torque: "13.25 Nm" },
+        specs: { engine: "149.5cc", Mileage: "48 kmpl", "fuel tank": "15 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-performance"),
         tag: "Classic"
       }
@@ -58,33 +53,29 @@ const VEHICLE_DATA = [
     vehicles: [
       {
         name: "Dominar 400",
-        price: "₹ 2.29 Lakh",
         description: "Engineered for those who want to dominate every road and landscape.",
-        specs: { engine: "373.3cc", power: "40 PS", torque: "35 Nm" },
+        specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "dominar-400"),
         tag: "Premium"
       },
       {
         name: "Dominar 250",
-        price: "₹ 1.84 Lakh",
         description: "The perfect entry into the world of sports touring.",
-        specs: { engine: "248.8cc", power: "27 PS", torque: "23.5 Nm" },
+        specs: { engine: "248.8cc", Mileage: "32 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-style"),
         tag: "Tourer"
       },
       {
         name: "Avenger Cruise 220",
-        price: "₹ 1.43 Lakh",
         description: "Classic cruiser styling with chrome accents for a regal riding experience.",
-        specs: { engine: "220cc", power: "19.03 PS", torque: "17.55 Nm" },
+        specs: { engine: "220cc", Mileage: "40 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-style"),
         tag: "Cruiser"
       },
       {
         name: "Avenger Street 160",
-        price: "₹ 1.16 Lakh",
         description: "The perfect urban cruiser with a sporty, stealthy appearance.",
-        specs: { engine: "160cc", power: "15 PS", torque: "13.7 Nm" },
+        specs: { engine: "160cc", Mileage: "45 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-style"),
         tag: "Urban"
       }
@@ -95,7 +86,6 @@ const VEHICLE_DATA = [
     vehicles: [
       {
         name: "Chetak Premium",
-        price: "₹ 1.47 Lakh",
         description: "The future of urban mobility. Timeless design, cutting-edge tech.",
         specs: { range: "108 km", speed: "73 kmph", charge: "4.5 hrs" },
         image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
@@ -103,7 +93,6 @@ const VEHICLE_DATA = [
       },
       {
         name: "Chetak Urbane",
-        price: "₹ 1.23 Lakh",
         description: "Sleek, smart, and designed for the modern commuter with agile performance.",
         specs: { range: "113 km", speed: "73 kmph", charge: "4.8 hrs" },
         image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
@@ -111,9 +100,8 @@ const VEHICLE_DATA = [
       },
       {
         name: "Freedom 125",
-        price: "₹ 0.95 Lakh",
         description: "The world's first integrated performance commuter with multiple fuel options.",
-        specs: { engine: "125cc", power: "9.5 PS", torque: "9.7 Nm" },
+        specs: { engine: "125cc", Mileage: "65 kmpl", "fuel tank": "2 L (CNG + Petrol)" },
         image: PlaceHolderImages.find(p => p.id === "freedom-125"),
         tag: "Innovative"
       }
@@ -169,7 +157,6 @@ export default function VehiclesPage() {
                   </div>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle className="text-3xl font-bold font-headline">{vehicle.name}</CardTitle>
-                    <span className="text-xl font-extrabold text-primary">{vehicle.price}</span>
                   </CardHeader>
                   <CardContent className="space-y-6 flex-1 flex flex-col">
                     <p className="text-muted-foreground leading-relaxed">
