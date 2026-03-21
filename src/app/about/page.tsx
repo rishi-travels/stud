@@ -20,7 +20,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Ashwini Mishra",
-    role: "Head of Sales",
+    role: "Managing Director",
     image: PlaceHolderImages.find(p => p.id === "team-member-2"),
     bio: "Ashwini ensures every customer finds their perfect ride through personalized consultation."
   },
