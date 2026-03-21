@@ -22,7 +22,7 @@ export default function CareersPage() {
           We're always looking for talented people to join our talent pool for future opportunities.
         </p>
         <Button size="lg" variant="outline" className="h-14 px-12 border-primary text-primary hover:bg-primary/10">
-          Submit General Application
+          Direct Message
         </Button>
       </section>
     </div>
