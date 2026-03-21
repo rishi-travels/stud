@@ -20,13 +20,6 @@ const PERFORMANCE_VEHICLES = [
   { name: "Pulsar N160", type: "Street", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
 ];
 
-const TOURING_VEHICLES = [
-  { name: "Dominar 400", type: "Sports Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
-  { name: "Dominar 250", type: "Tourer", image: PlaceHolderImages.find(p => p.id === "hero-style") },
-  { name: "Avenger 220", type: "Cruise", image: PlaceHolderImages.find(p => p.id === "hero-style") },
-  { name: "Avenger 160", type: "Urban Cruise", image: PlaceHolderImages.find(p => p.id === "hero-style") },
-];
-
 const ECO_VEHICLES = [
   { name: "Chetak Premium", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
   { name: "Chetak Urbane", type: "Smart EV", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
