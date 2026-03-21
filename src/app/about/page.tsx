@@ -1,8 +1,14 @@
-
 import Image from "next/image";
-import { Users, History, Target, Heart, Linkedin, Mail } from "lucide-react";
+import { Users, History, Target, Heart, Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const TEAM_MEMBERS = [
   {
@@ -98,47 +104,55 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Specific Team Grid */}
+      {/* Leadership Team Carousel */}
       <section className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <h2 className="text-4xl font-bold font-headline">Meet Our <span className="text-primary">Leadership Team</span></h2>
           <p className="text-muted-foreground">The experts dedicated to delivering excellence at every touchpoint.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TEAM_MEMBERS.map((member, i) => (
-            <Card key={i} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow group">
-              <div className="relative h-[400px] w-full">
-                {member.image?.imageUrl && (
-                  <Image
-                    src={member.image.imageUrl}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    data-ai-hint={member.image.imageHint}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <div className="flex gap-4">
-                    <Linkedin className="h-5 w-5 text-white cursor-pointer hover:text-primary transition-colors" />
-                    <Mail className="h-5 w-5 text-white cursor-pointer hover:text-primary transition-colors" />
-                  </div>
-                </div>
-              </div>
-              <CardContent className="p-6 space-y-2 text-center">
-                <h3 className="text-2xl font-bold">{member.name}</h3>
-                <p className="text-primary font-semibold text-sm uppercase tracking-wider">{member.role}</p>
-                <p className="text-muted-foreground text-sm pt-2">{member.bio}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="relative max-w-5xl mx-auto px-12">
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <CarouselContent>
+              {TEAM_MEMBERS.map((member, i) => (
+                <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow group h-full">
+                    <div className="relative h-[350px] w-full">
+                      {member.image?.imageUrl && (
+                        <Image
+                          src={member.image.imageUrl}
+                          alt={member.name}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          data-ai-hint={member.image.imageHint}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div className="flex gap-4">
+                          <Linkedin className="h-5 w-5 text-white cursor-pointer hover:text-primary transition-colors" />
+                          <Mail className="h-5 w-5 text-white cursor-pointer hover:text-primary transition-colors" />
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-6 space-y-2 text-center">
+                      <h3 className="text-xl font-bold">{member.name}</h3>
+                      <p className="text-primary font-semibold text-xs uppercase tracking-wider">{member.role}</p>
+                      <p className="text-muted-foreground text-xs pt-2 line-clamp-3">{member.bio}</p>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
+            <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
+          </Carousel>
         </div>
       </section>
 
       {/* General Team Description Section */}
       <section className="container mx-auto px-4 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
+          <div className="order-2 lg:order-1 relative h-[450px] rounded-3xl overflow-hidden shadow-xl">
             {teamImg?.imageUrl && (
               <Image
                 src={teamImg.imageUrl}
@@ -148,20 +162,27 @@ export default function AboutPage() {
                 data-ai-hint={teamImg.imageHint}
               />
             )}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent" />
           </div>
-          <div className="space-y-6 order-1 lg:order-2">
-            <h2 className="text-4xl font-bold font-headline">The People <span className="text-primary">Behind the Brand</span></h2>
+          <div className="space-y-8 order-1 lg:order-2">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-bold font-headline">The People <span className="text-primary">Behind the Brand</span></h2>
+              <div className="h-1.5 w-20 bg-accent rounded-full" />
+            </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our team consists of automotive enthusiasts, seasoned engineers, and customer service experts who share a common goal: delivering the best experience possible.
+              Beyond our leadership, Chhaya Bajaj is powered by over 150 passionate automotive enthusiasts, seasoned engineers, and customer service specialists. Each member of our staff is committed to a singular goal: making your journey safe and thrilling.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We invest heavily in continuous training to ensure our staff stays at the cutting edge of automotive technology and service standards.
+              We foster a culture of continuous learning, ensuring our technicians are certified in the latest engine diagnostics and electric vehicle maintenance for the Chetak lineup.
             </p>
-            <div className="flex items-center space-x-4 pt-4">
-              <div className="bg-accent/10 p-3 rounded-full">
-                <Users className="h-6 w-6 text-accent" />
+            <div className="flex items-center space-x-6 pt-4">
+              <div className="bg-primary/10 p-4 rounded-2xl">
+                <Users className="h-8 w-8 text-primary" />
               </div>
-              <span className="font-semibold text-lg">Over 150+ Dedicated Employees</span>
+              <div className="space-y-1">
+                <p className="text-2xl font-bold text-primary">150+ Employees</p>
+                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Dedicated to Your Experience</p>
+              </div>
             </div>
           </div>
         </div>
