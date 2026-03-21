@@ -53,7 +53,7 @@ export default function Home() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 1000);
+    }, 2000);
     return () => clearInterval(timer);
   }, []);
 
