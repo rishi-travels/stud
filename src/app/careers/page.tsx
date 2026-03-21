@@ -5,7 +5,7 @@ export default function CareersPage() {
   return (
     <div className="container mx-auto px-4 py-20 space-y-24">
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline">Join the <span className="text-primary">Chhaya Family</span></h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline">Join the <span className="text-primary">Bajaj Family</span></h1>
         <p className="text-muted-foreground text-lg">
           We're looking for passionate individuals who want to redefine the future of automotive service and retail. Build your career with an industry leader.
         </p>
