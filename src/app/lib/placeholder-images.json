@@ -155,6 +155,12 @@
       "description": "Bajaj Pulsar 150",
       "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/336517730/JO/GH/OG/3535906/bajaj-motorcycle-pulsar-150-500x500.png",
       "imageHint": "pulsar 150"
+    },
+    {
+      "id": "ct-110",
+      "description": "Bajaj CT110",
+      "imageUrl": "https://cdn1.acedms.com/uploads/category/Bajaj/20200929121742000000-4608132226621049345.jpg",
+      "imageHint": "commuter bike"
     }
   ]
 }
