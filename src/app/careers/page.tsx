@@ -18,7 +18,6 @@ export default function CareersPage() {
 
       {/* Application of Interest */}
       <section className="bg-primary/5 rounded-3xl p-8 md:p-16 text-center space-y-8">
-        <h2 className="text-3xl font-bold font-headline">Don't see a <span className="text-primary">perfect fit?</span></h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
           Send us your resume anyway! We're always looking for talented people to join our talent pool for future opportunities.
         </p>
