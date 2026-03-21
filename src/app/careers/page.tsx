@@ -22,7 +22,7 @@ export default function CareersPage() {
           We're always looking for talented people to join our talent pool for future opportunities.
         </p>
         <Button size="lg" variant="outline" className="h-14 px-12 border-primary text-primary hover:bg-primary/10" asChild>
-          <a href="https://wa.me/919628510443" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer">
             Chat on WhatsApp
           </a>
         </Button>
