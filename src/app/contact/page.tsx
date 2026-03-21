@@ -132,7 +132,7 @@ export default function ContactPage() {
       {/* Map Placeholder */}
       <section className="h-[400px] w-full rounded-3xl overflow-hidden grayscale opacity-80 hover:grayscale-0 transition-all duration-500 shadow-xl border border-border">
         <iframe
-          src="https://www.google.com/maps?q=25.4542317,82.9401267&z=15&output=embed"
+          src="https://www.google.com/maps?q=25.4540,82.9418&z=15&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
