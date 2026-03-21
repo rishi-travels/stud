@@ -3,21 +3,21 @@
   "placeholderImages": [
     {
       "id": "hero-1",
-      "description": "Bajaj Pulsar NS400 Right View",
-      "imageUrl": "https://imgd.aeplcdn.com/1056x594/n/cw/ec/206496/pulsar-ns400-right-side-view-9.jpeg?isig=0&wm=3&q=80",
-      "imageHint": "pulsar ns400"
+      "description": "Bajaj Pulsar 2024 Banner",
+      "imageUrl": "https://cdn.bajajauto.com/-/media/assets/bajajauto/bikes/pulsar-k-2024/hero-banner/web-banner.webp",
+      "imageHint": "pulsar banner"
     },
     {
       "id": "hero-2",
-      "description": "Bajaj Performance Concept",
-      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/29c605173963959.6499a305dce44.jpg",
-      "imageHint": "motorcycle design"
+      "description": "Bajaj Performance Concept Art",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d4170217053.5b9bd43b46c8c.jpg",
+      "imageHint": "motorcycle concept"
     },
     {
       "id": "hero-3",
-      "description": "Bajaj OnlineKhabar Feature",
-      "imageUrl": "https://english.onlinekhabar.com/wp-content/uploads/2023/07/Screenshot-2023-07-23-124950.png",
-      "imageHint": "bajaj style"
+      "description": "Bajaj Pulsar 200NS Action",
+      "imageUrl": "https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar-200NS-10340_5.jpg",
+      "imageHint": "pulsar 200ns"
     },
     {
       "id": "hero-ns400",
