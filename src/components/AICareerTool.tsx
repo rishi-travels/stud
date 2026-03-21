@@ -44,7 +44,7 @@ export default function AICareerTool() {
         <div className="bg-gradient-to-r from-primary/20 to-accent/20 h-2 w-full" />
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-accent" /> AI Career Pathway Assistant
+            <Sparkles className="h-6 w-6 text-accent" /> Apply For Job
           </CardTitle>
           <CardDescription>
             Submit your background and let our AI suggest suitable roles and improvements for your automotive career.
