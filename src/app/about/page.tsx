@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Users, History, Target, Heart, Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { Users, History, Target, Heart, Linkedin, Mail } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -33,7 +33,6 @@ const TEAM_MEMBERS = [
 
 export default function AboutPage() {
   const serviceImg = PlaceHolderImages.find(p => p.id === "service-center");
-  const teamImg = PlaceHolderImages.find(p => p.id === "team-members");
 
   return (
     <div className="py-20 space-y-32">
@@ -105,7 +104,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team Carousel */}
-      <section className="container mx-auto px-4">
+      <section className="container mx-auto px-4 pb-20">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <h2 className="text-4xl font-bold font-headline">Meet Our <span className="text-primary">Leadership Team</span></h2>
           <p className="text-muted-foreground">The experts dedicated to delivering excellence at every touchpoint.</p>
@@ -146,45 +145,6 @@ export default function AboutPage() {
             <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
             <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
           </Carousel>
-        </div>
-      </section>
-
-      {/* General Team Description Section */}
-      <section className="container mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative h-[450px] rounded-3xl overflow-hidden shadow-xl">
-            {teamImg?.imageUrl && (
-              <Image
-                src={teamImg.imageUrl}
-                alt="Our Team"
-                fill
-                className="object-cover"
-                data-ai-hint={teamImg.imageHint}
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent" />
-          </div>
-          <div className="space-y-8 order-1 lg:order-2">
-            <div className="space-y-4">
-              <h2 className="text-4xl font-bold font-headline">The People <span className="text-primary">Behind the Brand</span></h2>
-              <div className="h-1.5 w-20 bg-accent rounded-full" />
-            </div>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Beyond our leadership, Chhaya Bajaj is powered by over 150 passionate automotive enthusiasts, seasoned engineers, and customer service specialists. Each member of our staff is committed to a singular goal: making your journey safe and thrilling.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We foster a culture of continuous learning, ensuring our technicians are certified in the latest engine diagnostics and electric vehicle maintenance for the Chetak lineup.
-            </p>
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="bg-primary/10 p-4 rounded-2xl">
-                <Users className="h-8 w-8 text-primary" />
-              </div>
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-primary">150+ Employees</p>
-                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Dedicated to Your Experience</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>
