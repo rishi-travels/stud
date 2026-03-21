@@ -1,3 +1,4 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -5,8 +6,8 @@ import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Chhaya Bajaj Auto | Premium Bajaj Dealership',
-  description: 'Experience the thrill of Bajaj performance with Chhaya Bajaj Auto. Explore our range of motorcycles, scooters, and electric vehicles.',
+  title: 'Uday Autosales | Premium Bajaj Dealership in Varanasi',
+  description: 'Experience the thrill of Bajaj performance with Uday Autosales. Explore our range of motorcycles, scooters, and electric vehicles.',
 };
 
 export default function RootLayout({

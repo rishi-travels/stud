@@ -32,13 +32,6 @@ const ECO_VEHICLES = [
   { name: "Freedom 125", type: "Innovative", image: PlaceHolderImages.find(p => p.id === "freedom-125") },
 ];
 
-const GALLERY_IMAGES = [
-  PlaceHolderImages.find(p => p.id === "gallery-1"),
-  PlaceHolderImages.find(p => p.id === "gallery-2"),
-  PlaceHolderImages.find(p => p.id === "gallery-3"),
-  PlaceHolderImages.find(p => p.id === "hero-performance"),
-];
-
 const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-1"),
   PlaceHolderImages.find(p => p.id === "hero-2"),
@@ -73,15 +66,15 @@ export default function Home() {
   );
 
   return (
-    <div className="space-y-16 pb-24">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[85vh] w-full flex items-center overflow-hidden bg-black">
+    <div className="space-y-0 pb-24">
+      {/* Hero Section - Banner Mode */}
+      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           {HERO_IMAGES.map((img, idx) => (
             <div
               key={img.id}
               className={`absolute inset-0 transition-opacity duration-1000 ${
-                idx === heroIndex ? "opacity-90" : "opacity-0"
+                idx === heroIndex ? "opacity-100" : "opacity-0"
               }`}
             >
               <Image
@@ -95,33 +88,55 @@ export default function Home() {
               />
             </div>
           ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-10 space-y-8">
-          <div className="max-w-3xl space-y-6">
-            <h1 className="text-4xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-white drop-shadow-2xl italic">
-              Unleash the <span className="text-accent">Power</span> <br />
-              Within
-            </h1>
-            <p className="text-lg text-white/90 md:text-2xl max-w-2xl font-medium drop-shadow-md">
-              Experience the thrill of performance and the elegance of style. Chhaya Bajaj brings you the ultimate road machines.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg h-14 px-8 border-0">
-                <Link href="/contact">Book Test Ride</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-lg h-14 px-8 border-white/30">
-                <Link href="/contact">Contact Us</Link>
-              </Button>
+        {/* Banner Badges Overlay (Optional stylistic element from image) */}
+        <div className="absolute bottom-0 w-full bg-black/40 backdrop-blur-md py-3 hidden md:block">
+          <div className="container mx-auto px-4 flex justify-between items-center text-white text-[10px] uppercase font-bold tracking-widest">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Fastest In Segment</span>
+              <span className="flex items-center gap-1"><Bike className="h-3 w-3 text-accent" /> Most Powerful Engine</span>
+              <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-accent" /> Dual Channel ABS</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white/60">DEFINITELY DARING</span>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Welcome Section - As per reference image */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 text-center max-w-4xl space-y-12">
+          <div className="space-y-2">
+            <h2 className="text-3xl md:text-5xl font-bold font-headline text-accent">Welcome to</h2>
+            <h1 className="text-4xl md:text-7xl font-bold font-headline text-blue-950">Uday Autosales</h1>
+          </div>
+          
+          <div className="space-y-6 text-muted-foreground text-lg md:text-xl leading-relaxed font-medium">
+            <p>
+              Uday Autosales Pvt. Ltd. is founded by Udai Raj Singh. Uday Autosales Pvt. Ltd. is one of the most respected, loved and renowned business house of Varanasi.
+            </p>
+            <p>
+              With growth as the ultimate vision, the group has diversified into a variety of businesses, maintaining a focus on excellence and customer satisfaction.
+            </p>
+          </div>
+          
+          <div className="pt-8">
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg h-14 px-12 rounded-full font-bold">
+              <Link href="/vehicles">Explore Collection</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Performance Section */}
-      <section className="container mx-auto px-4 -mt-16 relative z-20">
+      <section className="container mx-auto px-4 py-12">
+        <div className="mb-8 space-y-2">
+          <h2 className="text-3xl font-bold font-headline">Daring <span className="text-primary">Collection</span></h2>
+          <div className="h-1 w-20 bg-accent rounded-full" />
+        </div>
         <Carousel 
           opts={{ align: "start", loop: true }} 
           plugins={[autoplayPlugin]}
@@ -129,49 +144,6 @@ export default function Home() {
         >
           <CarouselContent className="-ml-8">
             {PERFORMANCE_VEHICLES.map((vehicle, i) => (
-              <CarouselItem key={i} className="pl-8 basis-full md:basis-1/3">
-                <Card className="group overflow-hidden border-none shadow-2xl transition-all hover:scale-105 bg-white/90 backdrop-blur-md h-full">
-                  <div className="relative h-64 w-full">
-                    {vehicle.image?.imageUrl && (
-                      <Image
-                        src={vehicle.image.imageUrl}
-                        alt={vehicle.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        data-ai-hint={vehicle.image.imageHint}
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <p className="text-xs font-bold uppercase tracking-widest text-accent">{vehicle.type}</p>
-                    </div>
-                  </div>
-                  <CardContent className="p-4 flex justify-between items-center">
-                    <span className="font-bold text-primary text-lg">{vehicle.name}</span>
-                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold" asChild>
-                      <Link href="/vehicles">More</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </section>
-
-      {/* Daring Collection */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline">Daring <span className="text-primary">Collection</span></h2>
-          <div className="h-1 w-20 bg-accent rounded-full" />
-        </div>
-        <Carousel 
-          opts={{ align: "start", loop: true }} 
-          plugins={[autoplayPlugin2]}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-8">
-            {TOURING_VEHICLES.map((vehicle, i) => (
               <CarouselItem key={i} className="pl-8 basis-full md:basis-1/3">
                 <Card className="group overflow-hidden border-none shadow-xl transition-all hover:translate-y-[-4px] bg-white h-full border border-border">
                   <div className="relative h-64 w-full">
@@ -202,7 +174,7 @@ export default function Home() {
       </section>
 
       {/* Comfort Collection */}
-      <section className="container mx-auto px-4 py-8">
+      <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
           <h2 className="text-3xl font-bold font-headline">Comfort <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
@@ -243,13 +215,13 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Why Choose Us - Chhaya Advantage */}
-      <section className="bg-secondary/30 py-12">
+      {/* Why Choose Us - Advantage */}
+      <section className="bg-secondary/30 py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-4xl font-bold font-headline">The Chhaya <span className="text-primary">Advantage</span></h2>
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-bold font-headline">The Uday <span className="text-primary">Advantage</span></h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Setting the gold standard in automotive retail and service for over two decades.
+              Varanasi's most trusted destination for Bajaj performance and excellence.
             </p>
           </div>
 
@@ -258,7 +230,7 @@ export default function Home() {
               { icon: ShieldCheck, title: "Trusted Service", desc: "Expert technicians with years of certified experience." },
               { icon: Zap, title: "Flash Delivery", desc: "Minimal waiting times with our streamlined process." },
               { icon: Bike, title: "Wide Selection", desc: "The complete range of Bajaj motorcycles and scooters." },
-              { icon: Award, title: "Award Winning", desc: "Recognized multiple times for excellence in customer satisfaction." }
+              { icon: Award, title: "Legacy of Trust", desc: "Founded by Udai Raj Singh, building trust across Varanasi." }
             ].map((feature, i) => (
               <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-border space-y-4 hover:translate-y-[-5px] transition-transform">
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
@@ -273,115 +245,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Gallery Frame Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-4xl font-bold font-headline">Glimpse <span className="text-primary">Gallery</span></h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A glimpse of the premium experience and high-performance machines waiting for you.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[600px]">
-          <div className="relative md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden group shadow-xl">
-            {GALLERY_IMAGES[0]?.imageUrl && (
-              <Image
-                src={GALLERY_IMAGES[0].imageUrl}
-                alt="Main Gallery"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ai-hint={GALLERY_IMAGES[0].imageHint}
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <span className="text-white text-xl font-bold font-headline italic">Modern Showroom</span>
-            </div>
-          </div>
-
-          <div className="relative rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
-            {GALLERY_IMAGES[1]?.imageUrl && (
-              <Image
-                src={GALLERY_IMAGES[1].imageUrl}
-                alt="Gallery 2"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ai-hint={GALLERY_IMAGES[1].imageHint}
-              />
-            )}
-          </div>
-
-          <div className="relative rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
-            {GALLERY_IMAGES[2]?.imageUrl && (
-              <Image
-                src={GALLERY_IMAGES[2].imageUrl}
-                alt="Gallery 3"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ai-hint={GALLERY_IMAGES[2].imageHint}
-              />
-            )}
-          </div>
-
-          <div className="relative md:col-span-2 rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
-            {GALLERY_IMAGES[3]?.imageUrl && (
-              <Image
-                src={GALLERY_IMAGES[3].imageUrl}
-                alt="Gallery 4"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ai-hint={GALLERY_IMAGES[3].imageHint}
-              />
-            )}
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-              <Button variant="secondary" asChild className="rounded-full font-bold">
-                <Link href="/about">View Full Journey</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Promotions Area */}
-      <div className="space-y-4">
-        <section className="container mx-auto px-4 text-center">
-          <div className="inline-block relative">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
-              Early Bird <span className="text-accent">Offer</span>
-            </h2>
-            <div className="h-1.5 w-24 bg-primary mx-auto mt-4 rounded-full" />
-          </div>
-        </section>
-
-        <section className="container mx-auto px-4">
-          <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center mb-8">
-            {promoImg?.imageUrl ? (
-              <Image
-                src={promoImg.imageUrl}
-                alt="Promotion"
-                fill
-                className="object-cover"
-                data-ai-hint={promoImg.imageHint}
-              />
-            ) : null}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-            <div className="relative z-10 p-8 md:p-16 space-y-6 max-w-2xl">
-              <h2 className="text-4xl font-bold font-headline">Festival Festive <span className="text-accent">Dhamaka</span></h2>
-              <p className="text-lg text-foreground/90 leading-relaxed">
-                Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
-              </p>
-            </div>
-          </div>
-          
-          <div className="flex justify-end">
-            <Button className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-12 px-8 rounded-full text-base" asChild>
-              <Link href="/contact">Claim Offer</Link>
-            </Button>
-          </div>
-        </section>
-      </div>
     </div>
   );
 }

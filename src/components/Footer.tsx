@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
@@ -7,9 +8,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold font-headline tracking-tighter text-white">CHHAYA BAJAJ</h3>
+            <h3 className="text-xl font-bold font-headline tracking-tighter text-white uppercase">UDAY AUTOSALES</h3>
             <p className="text-sm text-white/70 font-medium">
-              Your trusted partner in automotive excellence. We bring you the best of Bajaj's performance and innovation with world-class service.
+              Varanasi's premier destination for Bajaj performance. Founded by Udai Raj Singh, we bring you innovation with world-class service.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-white/80 hover:text-accent transition-colors"><Facebook className="h-5 w-5" /></Link>
@@ -58,7 +59,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-white/40">
-          <p>&copy; {new Date().getFullYear()} Chhaya Bajaj Auto. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Uday Autosales Pvt. Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -24,7 +25,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold tracking-tighter text-white font-headline">
-              CHHAYA <span className="text-accent">BAJAJ</span>
+              UDAY <span className="text-accent">AUTOSALES</span>
             </span>
           </Link>
 
@@ -56,7 +57,7 @@ export default function Navbar() {
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
-                    Access all pages of Chhaya Bajaj Auto including Home, Vehicles, Service, About, Careers, and Contact.
+                    Access all pages of Uday Autosales including Home, Vehicles, Service, About, Careers, and Contact.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-12">
