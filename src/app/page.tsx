@@ -138,11 +138,11 @@ export default function Home() {
       <section className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4 text-center max-w-4xl space-y-6">
           <div className="space-y-1">
-            <h2 className="text-2xl md:text-3xl font-bold font-headline text-accent">Welcome to</h2>
-            <h1 className="text-3xl md:text-5xl font-bold font-headline text-blue-950">Chhaya Bajaj</h1>
+            <h2 className="text-2xl md:text-3xl font-bold font-headline text-accent uppercase tracking-wider italic">Welcome to</h2>
+            <h1 className="text-4xl md:text-6xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">Chhaya Bajaj</h1>
           </div>
           
-          <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed font-medium">
+          <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed font-medium max-w-3xl mx-auto">
             <p>
               Chhaya Bajaj is one of the most respected, loved and renowned business house of Varanasi. We bring you the world-class performance and reliability of Bajaj vehicles.
             </p>
@@ -156,10 +156,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Early Bird Offer Section */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
+          <div className="absolute inset-0 opacity-10">
+             {PlaceHolderImages.find(p => p.id === "hero-performance")?.imageUrl && (
+              <Image
+                src={PlaceHolderImages.find(p => p.id === "hero-performance")!.imageUrl}
+                alt="Promotion background"
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-8 md:p-16">
+            <div className="space-y-8">
+              <div className="inline-block bg-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase italic">
+                Exclusive Promotion
+              </div>
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl font-extrabold font-headline italic uppercase tracking-tighter leading-none">
+                  Early Bird <span className="text-accent">Offer</span>
+                </h2>
+                <p className="text-xl text-blue-100/80 font-medium">
+                  Be among the first 50 bookings this month and unlock exclusive benefits worth up to <span className="text-white font-bold">₹10,000*</span>.
+                </p>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  "Free Extended Warranty",
+                  "Complimentary Service Kit",
+                  "Loyalty Bonus Points",
+                  "Instant Delivery Option"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-semibold">
+                    <div className="bg-accent p-1 rounded-full shrink-0">
+                      <Zap className="h-3 w-3 text-white" />
+                    </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Button size="lg" asChild className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-10 rounded-full h-14 text-lg w-full sm:w-auto">
+                <Link href="/contact">Book Now & Save</Link>
+              </Button>
+            </div>
+            <div className="hidden lg:block relative h-[450px]">
+               {PlaceHolderImages.find(p => p.id === "promotion-1")?.imageUrl && (
+                <Image
+                  src={PlaceHolderImages.find(p => p.id === "promotion-1")!.imageUrl}
+                  alt="Special Offer"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  data-ai-hint="motorcycle offer"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Daring Collection */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline">Daring <span className="text-primary">Collection</span></h2>
+          <h2 className="text-3xl font-bold font-headline italic uppercase">Daring <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>
         <Carousel 
@@ -201,7 +261,7 @@ export default function Home() {
       {/* Comfort Collection */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline">Comfort <span className="text-primary">Collection</span></h2>
+          <h2 className="text-3xl font-bold font-headline italic uppercase">Comfort <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>
         <Carousel 
@@ -244,7 +304,7 @@ export default function Home() {
       <section className="bg-secondary/30 py-20">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl font-bold font-headline">The Chhaya <span className="text-primary">Advantage</span></h2>
+            <h2 className="text-4xl font-bold font-headline italic uppercase">The Chhaya <span className="text-primary">Advantage</span></h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Varanasi's most trusted destination for Bajaj performance and excellence.
             </p>
