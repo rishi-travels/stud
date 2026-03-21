@@ -269,8 +269,8 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Repositioned Button - Center, below image, above footer */}
-        <div className="flex justify-center">
+        {/* Shipped Button to the right side */}
+        <div className="flex justify-end">
           <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-14 px-12 rounded-full text-lg" asChild>
             <Link href="/contact">Claim Offer Now</Link>
           </Button>
