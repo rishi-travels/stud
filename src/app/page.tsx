@@ -193,10 +193,10 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Featured Eco Section */}
+      {/* Featured Comfort Section */}
       <section className="container mx-auto px-4 py-8">
         <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline">Eco-Friendly <span className="text-primary">Mobility</span></h2>
+          <h2 className="text-3xl font-bold font-headline">Comfort <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>
         <Carousel 
