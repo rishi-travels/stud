@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
@@ -45,15 +44,15 @@ export default function Footer() {
             <h4 className="font-bold text-blue-900 mb-4">Contact Details</h4>
             <div className="flex items-start space-x-3 text-sm text-blue-900/70 font-medium">
               <MapPin className="h-5 w-5 text-primary shrink-0" />
-              <span>123 Automotive Plaza, Main Road, City Center, PIN - 400001</span>
+              <span>Kachare, Bhopapur, Varanasi, Uttar Pradesh</span>
             </div>
             <div className="flex items-center space-x-3 text-sm text-blue-900/70 font-medium">
               <Phone className="h-5 w-5 text-primary shrink-0" />
-              <span>+91 98765 43210</span>
+              <span>+91 96285 10443</span>
             </div>
             <div className="flex items-center space-x-3 text-sm text-blue-900/70 font-medium">
               <Mail className="h-5 w-5 text-primary shrink-0" />
-              <span>support@chhayabajaj.com</span>
+              <span>intelcorei5136@gmail.com</span>
             </div>
           </div>
         </div>

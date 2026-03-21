@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
@@ -40,7 +39,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold">Our Location</h4>
-                  <p className="text-muted-foreground text-sm">123 Automotive Plaza, City Center, State - 400001</p>
+                  <p className="text-muted-foreground text-sm">Kachare, Bhopapur, Varanasi, Uttar Pradesh</p>
                 </div>
               </div>
 
@@ -50,8 +49,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold">Call Us</h4>
-                  <p className="text-muted-foreground text-sm">+91 98765 43210</p>
-                  <p className="text-muted-foreground text-sm">+91 98765 01234</p>
+                  <p className="text-muted-foreground text-sm">+91 96285 10443</p>
+                  <p className="text-muted-foreground text-sm">+91 96285 10575</p>
                 </div>
               </div>
 
@@ -61,8 +60,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold">Email Us</h4>
-                  <p className="text-muted-foreground text-sm">sales@chhayabajaj.com</p>
-                  <p className="text-muted-foreground text-sm">service@chhayabajaj.com</p>
+                  <p className="text-muted-foreground text-sm">intelcorei5136@gmail.com</p>
                 </div>
               </div>
             </CardContent>
@@ -133,7 +131,7 @@ export default function ContactPage() {
       {/* Map Placeholder */}
       <section className="h-[400px] w-full rounded-3xl overflow-hidden grayscale opacity-80 hover:grayscale-0 transition-all duration-500">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12094.57348593182!2d-74.0059413252651!3d40.72586666928451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f988156a9%3A0xd5434159e207f235!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1625000000000!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57662.33649520442!2d82.9500645607062!3d25.31764522332679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2db768153095%3A0x33e30f148887413!2sVaranasi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1711200000000!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}
