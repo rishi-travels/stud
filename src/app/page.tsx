@@ -214,10 +214,6 @@ export default function Home() {
                       {/* Product Info & Button */}
                       <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <h3 className="text-3xl md:text-5xl font-bold font-headline tracking-tight">{product.name}</h3>
-                        <div className="space-y-1">
-                          <p className="text-2xl font-bold text-primary">{product.price}</p>
-                          <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">{product.disclaimer}</p>
-                        </div>
                         <Button asChild size="lg" className="rounded-full px-12 bg-primary hover:bg-primary/90 font-bold h-12 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                           <Link href="/vehicles">More</Link>
                         </Button>
