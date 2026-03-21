@@ -254,7 +254,10 @@ export default function Home() {
             <p className="text-lg text-foreground/90 leading-relaxed">
               Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
             </p>
-            <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold" asChild>
+          </div>
+          {/* Shifted Button to Bottom Right with Animation */}
+          <div className="absolute bottom-8 right-8 z-20">
+            <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl" asChild>
               <Link href="/contact">Claim Offer Now</Link>
             </Button>
           </div>
