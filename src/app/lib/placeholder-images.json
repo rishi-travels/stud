@@ -78,6 +78,30 @@
       "description": "Amit Verma, Technical Director",
       "imageUrl": "https://picsum.photos/seed/team3/400/500",
       "imageHint": "professional engineer"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Modern Showroom Interior",
+      "imageUrl": "https://picsum.photos/seed/gallery1/800/600",
+      "imageHint": "car showroom"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Happy Customer Delivery",
+      "imageUrl": "https://picsum.photos/seed/gallery2/800/600",
+      "imageHint": "happy delivery"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Technical Precision in Workshop",
+      "imageUrl": "https://picsum.photos/seed/gallery3/800/600",
+      "imageHint": "engine repair"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Test Ride Event",
+      "imageUrl": "https://picsum.photos/seed/gallery4/800/600",
+      "imageHint": "bike event"
     }
   ]
 }

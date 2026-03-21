@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -29,6 +30,13 @@ const TEAM_MEMBERS = [
     image: PlaceHolderImages.find(p => p.id === "team-member-3"),
     bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
   }
+];
+
+const GALLERY_IMAGES = [
+  PlaceHolderImages.find(p => p.id === "gallery-1"),
+  PlaceHolderImages.find(p => p.id === "gallery-2"),
+  PlaceHolderImages.find(p => p.id === "gallery-3"),
+  PlaceHolderImages.find(p => p.id === "gallery-4"),
 ];
 
 export default function AboutPage() {
@@ -112,23 +120,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Achievement Stats */}
+      {/* Gallery Section */}
       <section className="container mx-auto px-4 pb-20">
-        <div className="max-w-5xl mx-auto bg-white text-primary rounded-[40px] p-12 md:p-16 shadow-xl border border-primary/5">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center items-center">
-            <div className="space-y-2">
-              <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">25+</h4>
-              <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Years of Experience</p>
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 className="text-4xl font-bold font-headline">Our Journey in <span className="text-primary">Pictures</span></h2>
+          <p className="text-muted-foreground">A glimpse into the life and energy at Chhaya Bajaj.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {GALLERY_IMAGES.map((img, i) => (
+            <div key={i} className={`relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow group ${i === 0 || i === 3 ? 'md:col-span-1 lg:col-span-2' : ''} h-[300px]`}>
+              {img?.imageUrl && (
+                <Image
+                  src={img.imageUrl}
+                  alt={img.description}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  data-ai-hint={img.imageHint}
+                />
+              )}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                <p className="text-white font-bold text-center text-lg">{img?.description}</p>
+              </div>
             </div>
-            <div className="space-y-2">
-              <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">50k+</h4>
-              <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Happy Customers</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">17+</h4>
-              <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Dedicated Employees</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
