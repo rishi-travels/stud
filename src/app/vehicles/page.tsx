@@ -13,28 +13,28 @@ const VEHICLE_DATA = [
     category: "Daring",
     vehicles: [
       {
-        name: "Pulsar 150",
+        name: "Pulsar",
         description: "The classic performance icon that redefined the 150cc segment in India. Perfect blend of power and economy.",
         specs: { engine: "149.5cc", Mileage: "48 kmpl", "fuel tank": "15 L" },
         image: PlaceHolderImages.find(p => p.id === "pulsar-150"),
         tag: "Classic"
       },
       {
-        name: "Pulsar NS200",
+        name: "Pulsar NS",
         description: "Raw power meets aggressive styling for the modern street fighter.",
         specs: { engine: "199.5cc", Mileage: "36 kmpl", "fuel tank": "12 L" },
         image: PlaceHolderImages.find(p => p.id === "hero-performance"),
         tag: "Street Fighter"
       },
       {
-        name: "Pulsar 125",
+        name: "Pulsar N",
         description: "The fastest Pulsar in the entry segment with race-bred performance.",
         specs: { engine: "124.4cc", Mileage: "51 kmpl", "fuel tank": "11.5 L" },
         image: PlaceHolderImages.find(p => p.id === "pulsar-125"),
         tag: "Racing"
       },
       {
-        name: "Dominar 400",
+        name: "Dominar",
         description: "Born to tour. Experience ultimate performance with the most powerful Bajaj yet.",
         specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "dominar-400"),
