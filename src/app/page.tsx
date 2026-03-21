@@ -22,7 +22,7 @@ const PERFORMANCE_VEHICLES = [
 
 const ECO_VEHICLES = [
   { name: "Chetak Premium", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
-  { name: "Chetak Urbane", type: "Smart EV", image: PlaceHolderImages.find(p => p.id === "chetak-urbane") },
+  { name: "Platina 110", type: "Comfort Commuter", image: PlaceHolderImages.find(p => p.id === "platina-110") },
   { name: "Freedom 125", type: "Innovative", image: PlaceHolderImages.find(p => p.id === "freedom-125") },
 ];
 
