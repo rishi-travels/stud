@@ -71,6 +71,22 @@ const VEHICLE_DATA = [
         specs: { engine: "248.8cc", power: "27 PS", torque: "23.5 Nm" },
         image: PlaceHolderImages.find(p => p.id === "hero-style"),
         tag: "Tourer"
+      },
+      {
+        name: "Avenger Cruise 220",
+        price: "₹ 1.43 Lakh",
+        description: "Classic cruiser styling with chrome accents for a regal riding experience.",
+        specs: { engine: "220cc", power: "19.03 PS", torque: "17.55 Nm" },
+        image: PlaceHolderImages.find(p => p.id === "hero-style"),
+        tag: "Cruiser"
+      },
+      {
+        name: "Avenger Street 160",
+        price: "₹ 1.16 Lakh",
+        description: "The perfect urban cruiser with a sporty, stealthy appearance.",
+        specs: { engine: "160cc", power: "15 PS", torque: "13.7 Nm" },
+        image: PlaceHolderImages.find(p => p.id === "hero-style"),
+        tag: "Urban"
       }
     ]
   },
