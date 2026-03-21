@@ -151,10 +151,10 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Featured Touring Section */}
+      {/* Featured Daring Section */}
       <section className="container mx-auto px-4 py-8">
         <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline">Touring <span className="text-primary">Collection</span></h2>
+          <h2 className="text-3xl font-bold font-headline">Daring <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>
         <Carousel 
