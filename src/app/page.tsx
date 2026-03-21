@@ -31,6 +31,7 @@ const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-2"),
   PlaceHolderImages.find(p => p.id === "hero-3"),
   PlaceHolderImages.find(p => p.id === "hero-4"),
+  PlaceHolderImages.find(p => p.id === "hero-5"),
 ].filter((img): img is any => !!img);
 
 export default function Home() {

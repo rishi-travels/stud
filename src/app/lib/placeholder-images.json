@@ -26,6 +26,12 @@
       "imageHint": "bajaj pulsar blue"
     },
     {
+      "id": "hero-5",
+      "description": "Bajaj Pulsar Selection",
+      "imageUrl": "https://th.bing.com/th/id/R.a55bcd39ac12b8768b20ebc8068bf670?rik=%2b3DhBF3H0tOpDQ&riu=http%3a%2f%2f5.imimg.com%2fdata5%2fNQ%2fLI%2fMY-10203475%2fselection_335-1000x1000.png&ehk=y6Ju7sJLL5jpRSsLXPRDqiJaAjZq5uTot5e6%2foY9wgs%3d&risl=&pid=ImgRaw&r=0",
+      "imageHint": "bajaj pulsar selection"
+    },
+    {
       "id": "hero-ns400",
       "description": "Premium Bajaj motorcycle in action",
       "imageUrl": "https://cdn.bajajauto.com/-/media/assets/bajajauto/home-page/banners/web/pulsar-n160-web.webp",
