@@ -92,11 +92,16 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        'fade-in-out': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         float: 'float 4s ease-in-out infinite',
+        'fade-in-out': 'fade-in-out 3s ease-in-out infinite',
       },
     },
   },

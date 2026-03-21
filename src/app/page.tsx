@@ -195,7 +195,8 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <div className="inline-block relative mb-12 animate-in fade-in slide-in-from-top-4 duration-1000 animate-float">
             <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
-              Featured <span className="text-primary">Products</span>
+              <span className="inline-block animate-fade-in-out">Featured</span>{" "}
+              <span className="inline-block animate-fade-in-out [animation-delay:1.5s] text-primary">Products</span>
             </h2>
             <div className="h-1.5 w-24 bg-accent mx-auto mt-4 rounded-full" />
           </div>
