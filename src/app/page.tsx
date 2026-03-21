@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="space-y-24 pb-24">
       {/* Hero Section with Slideshow */}
-      <section className="relative h-[85vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[85vh] w-full flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <Carousel opts={{ loop: true }} className="w-full h-full">
             <CarouselContent className="h-[85vh]">
@@ -36,7 +36,7 @@ export default function Home() {
                       src={slide.imageUrl}
                       alt={slide.description || `Slide ${index + 1}`}
                       fill
-                      className="object-cover opacity-60"
+                      className="object-cover opacity-70 transition-opacity duration-1000"
                       priority={index === 0}
                       data-ai-hint={slide.imageHint}
                     />
@@ -44,24 +44,26 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20 pointer-events-none" />
+            {/* Overlay Gradient for readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
           </Carousel>
         </div>
         
         <div className="container mx-auto px-4 relative z-10 space-y-8">
-          <div className="max-w-3xl space-y-6 bg-background/10 backdrop-blur-none p-6 rounded-2xl">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-foreground drop-shadow-md">
-              Unleash the <span className="gradient-text">Power Within</span>
+          <div className="max-w-3xl space-y-6">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-white drop-shadow-2xl">
+              Unleash the <span className="text-accent">Power</span> <br />
+              Within
             </h1>
-            <p className="text-xl text-foreground md:text-2xl max-w-2xl font-medium drop-shadow-sm">
-              Experience performance redefined at Chhaya Bajaj. Your gateway to the most iconic machines on the road.
+            <p className="text-xl text-white/90 md:text-2xl max-w-2xl font-medium drop-shadow-md">
+              Experience the thrill of performance and the elegance of style. Chhaya Bajaj brings you the ultimate road machines.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg h-14 px-8">
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg h-14 px-8 border-0">
                 <Link href="/contact">Book Test Ride</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="bg-background/80 hover:bg-background text-lg h-14 px-8 border-primary">
+              <Button size="lg" variant="outline" asChild className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-lg h-14 px-8 border-white/30">
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
@@ -84,7 +86,7 @@ export default function Home() {
           <CarouselContent className="-ml-4">
             {VEHICLES.map((vehicle, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="overflow-hidden border-border bg-card/40 hover:border-primary/50 transition-all group">
+                <Card className="overflow-hidden border-border bg-card hover:border-primary/50 transition-all group shadow-sm hover:shadow-md">
                   <div className="relative h-64 w-full">
                     {vehicle.image?.imageUrl ? (
                       <Image
@@ -106,7 +108,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold">{vehicle.name}</h3>
                       <p className="text-accent font-semibold">{vehicle.price}</p>
                     </div>
-                    <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary p-0" asChild>
+                    <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary p-0 h-auto py-2 px-4" asChild>
                       <Link href="/contact">Learn More <ArrowRight className="h-4 w-4" /></Link>
                     </Button>
                   </CardContent>
@@ -138,8 +140,8 @@ export default function Home() {
               { icon: Bike, title: "Wide Selection", desc: "The complete range of Bajaj motorcycles and scooters." },
               { icon: Award, title: "Award Winning", desc: "Recognized multiple times for excellence in customer satisfaction." }
             ].map((feature, i) => (
-              <div key={i} className="glass-card p-8 rounded-2xl space-y-4 hover:translate-y-[-5px] transition-transform">
-                <div className="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center">
+              <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-border space-y-4 hover:translate-y-[-5px] transition-transform">
+                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold">{feature.title}</h4>
@@ -168,7 +170,7 @@ export default function Home() {
             <p className="text-lg text-foreground/90 leading-relaxed">
               Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
             </p>
-            <Button size="lg" className="bg-accent text-background hover:bg-accent/80 font-bold" asChild>
+            <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold" asChild>
               <Link href="/contact">Claim Offer Now</Link>
             </Button>
           </div>

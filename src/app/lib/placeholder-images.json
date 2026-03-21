@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "hero-stunt",
-      "description": "Professional stunt rider on a Pulsar motorcycle performing a wheelie",
-      "imageUrl": "https://picsum.photos/seed/stunt-1/1920/1080",
-      "imageHint": "motorcycle stunt"
+      "description": "Professional rider on a black Bajaj motorcycle performing a high-speed maneuver",
+      "imageUrl": "https://picsum.photos/seed/bajaj-stunt/1920/1080",
+      "imageHint": "black motorcycle stunt"
     },
     {
       "id": "hero-style",
