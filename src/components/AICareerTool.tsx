@@ -62,7 +62,7 @@ export default function AICareerTool() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">Current Role (Optional)</label>
+                <label className="text-sm font-medium">Job Role</label>
                 <Input 
                   placeholder="e.g. Sales Associate, Mechanic..." 
                   value={formData.currentJobRole}
