@@ -247,44 +247,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Early Bird Offer Heading Section */}
-      <section className="container mx-auto px-4 py-8 text-center">
-        <div className="inline-block relative">
-          <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
-            Early Bird <span className="text-accent">Offer</span>
-          </h2>
-          <div className="h-1.5 w-24 bg-primary mx-auto mt-4 rounded-full" />
-        </div>
-      </section>
-
-      {/* Promotions Section - Festival Dhamaka */}
-      <section className="container mx-auto px-4">
-        <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center mb-8">
-          {promoImg?.imageUrl ? (
-            <Image
-              src={promoImg.imageUrl}
-              alt="Promotion"
-              fill
-              className="object-cover"
-              data-ai-hint={promoImg.imageHint}
-            />
-          ) : null}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-          <div className="relative z-10 p-8 md:p-16 space-y-6 max-w-2xl">
-            <h2 className="text-4xl font-bold font-headline">Festival Festive <span className="text-accent">Dhamaka</span></h2>
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
-            </p>
+      {/* Promotions Area */}
+      <div className="space-y-4">
+        {/* Early Bird Offer Heading Section */}
+        <section className="container mx-auto px-4 text-center">
+          <div className="inline-block relative">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
+              Early Bird <span className="text-accent">Offer</span>
+            </h2>
+            <div className="h-1.5 w-24 bg-primary mx-auto mt-4 rounded-full" />
           </div>
-        </div>
-        
-        {/* Claim Offer Button to the right side */}
-        <div className="flex justify-end">
-          <Button className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-12 px-8 rounded-full text-base" asChild>
-            <Link href="/contact">Claim Offer</Link>
-          </Button>
-        </div>
-      </section>
+        </section>
+
+        {/* Promotions Section - Festival Dhamaka */}
+        <section className="container mx-auto px-4">
+          <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center mb-8">
+            {promoImg?.imageUrl ? (
+              <Image
+                src={promoImg.imageUrl}
+                alt="Promotion"
+                fill
+                className="object-cover"
+                data-ai-hint={promoImg.imageHint}
+              />
+            ) : null}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+            <div className="relative z-10 p-8 md:p-16 space-y-6 max-w-2xl">
+              <h2 className="text-4xl font-bold font-headline">Festival Festive <span className="text-accent">Dhamaka</span></h2>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
+              </p>
+            </div>
+          </div>
+          
+          {/* Claim Offer Button to the right side */}
+          <div className="flex justify-end">
+            <Button className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-12 px-8 rounded-full text-base" asChild>
+              <Link href="/contact">Claim Offer</Link>
+            </Button>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
