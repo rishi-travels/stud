@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
+import { PieChart, Pie } from "recharts";
 
 export default function EMICalculator() {
   const [price, setPrice] = useState(150000);
@@ -44,9 +44,20 @@ export default function EMICalculator() {
     }
   }, [price, downPayment, interest, tenure]);
 
+  const chartConfig = {
+    principal: {
+      label: "Principal Amount",
+      color: "hsl(var(--primary))",
+    },
+    interest: {
+      label: "Interest Amount",
+      color: "hsl(var(--accent))",
+    },
+  } satisfies ChartConfig;
+
   const chartData = [
-    { name: "Principal", value: price - downPayment, color: "hsl(var(--primary))" },
-    { name: "Interest", value: totalInterest, color: "hsl(var(--accent))" },
+    { name: "principal", value: price - downPayment, fill: "var(--color-principal)" },
+    { name: "interest", value: totalInterest, fill: "var(--color-interest)" },
   ];
 
   return (
@@ -120,26 +131,21 @@ export default function EMICalculator() {
 
           <Card className="glass-card flex flex-col items-center p-8">
             <h3 className="text-xl font-bold mb-8">Payment Breakdown</h3>
-            <div className="w-full h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={chartData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={100}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {chartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
+            <ChartContainer config={chartConfig} className="w-full h-[300px]">
+              <PieChart>
+                <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+                <Pie
+                  data={chartData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={100}
+                  paddingAngle={5}
+                  dataKey="value"
+                  nameKey="name"
+                />
+              </PieChart>
+            </ChartContainer>
             <div className="flex justify-center gap-8 mt-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-primary" />
