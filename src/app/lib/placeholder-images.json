@@ -4,55 +4,55 @@
     {
       "id": "hero-stunt",
       "description": "Professional rider on a black Bajaj motorcycle performing a high-speed maneuver",
-      "imageUrl": "https://picsum.photos/seed/bajaj-stunt/1920/1080",
-      "imageHint": "black motorcycle stunt"
+      "imageUrl": "https://picsum.photos/seed/bajaj-stunt-style/1920/1080",
+      "imageHint": "motorcycle stunt"
     },
     {
       "id": "hero-style",
       "description": "Sleek and stylish Bajaj Dominar in a modern urban setting",
-      "imageUrl": "https://picsum.photos/seed/style-1/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/bajaj-urban-style/1920/1080",
       "imageHint": "premium motorcycle"
     },
     {
       "id": "hero-performance",
       "description": "Racing action on a track with high-performance Bajaj Pulsar",
-      "imageUrl": "https://picsum.photos/seed/perf-1/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/bajaj-racing/1920/1080",
       "imageHint": "motorcycle racing"
     },
     {
       "id": "pulsar-n250",
       "description": "Bajaj Pulsar N250 in black",
-      "imageUrl": "https://picsum.photos/seed/pulsar-1/600/400",
+      "imageUrl": "https://picsum.photos/seed/pulsar-n250/600/400",
       "imageHint": "motorcycle sports"
     },
     {
       "id": "dominar-400",
       "description": "Bajaj Dominar 400 touring bike",
-      "imageUrl": "https://picsum.photos/seed/dominar-1/600/400",
+      "imageUrl": "https://picsum.photos/seed/dominar-400/600/400",
       "imageHint": "touring motorcycle"
     },
     {
       "id": "chetak-electric",
       "description": "Bajaj Chetak Electric Scooter",
-      "imageUrl": "https://picsum.photos/seed/chetak-1/600/400",
+      "imageUrl": "https://picsum.photos/seed/chetak-electric/600/400",
       "imageHint": "electric scooter"
     },
     {
       "id": "service-center",
       "description": "State of the art Bajaj service center",
-      "imageUrl": "https://picsum.photos/seed/service-1/800/500",
+      "imageUrl": "https://picsum.photos/seed/bajaj-service/800/500",
       "imageHint": "mechanic workshop"
     },
     {
       "id": "team-members",
       "description": "Professional team at Chhaya Bajaj",
-      "imageUrl": "https://picsum.photos/seed/team-1/800/500",
+      "imageUrl": "https://picsum.photos/seed/bajaj-team/800/500",
       "imageHint": "business team"
     },
     {
       "id": "promotion-1",
       "description": "Festival offer promotion",
-      "imageUrl": "https://picsum.photos/seed/promo-1/800/400",
+      "imageUrl": "https://picsum.photos/seed/bajaj-promo/800/400",
       "imageHint": "sale promotion"
     }
   ]

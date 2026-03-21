@@ -36,7 +36,7 @@ export default function Home() {
                       src={slide.imageUrl}
                       alt={slide.description || `Slide ${index + 1}`}
                       fill
-                      className="object-cover opacity-70 transition-opacity duration-1000"
+                      className="object-cover opacity-80 transition-opacity duration-1000"
                       priority={index === 0}
                       data-ai-hint={slide.imageHint}
                     />
