@@ -7,9 +7,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const VEHICLES = [
-  { name: "Pulsar N250", type: "Naked Sports", price: "₹ 1.51 Lakh", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
-  { name: "Dominar 400", type: "Sports Tourer", price: "₹ 2.29 Lakh", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
-  { name: "Chetak Electric", type: "Electric Scooter", price: "₹ 1.20 Lakh", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
+  { name: "Pulsar N250", type: "Naked Sports", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
+  { name: "Dominar 400", type: "Sports Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
+  { name: "Chetak Electric", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
 ];
 
 const HERO_SLIDES = [
@@ -134,8 +134,8 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-0 -translate-x-1/2 lg:-left-12 h-14 w-14 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/20 bg-background z-20" />
-            <CarouselNext className="absolute right-0 translate-x-1/2 lg:-right-12 h-14 w-14 rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-accent/20 bg-background z-20" />
+            <CarouselPrevious className="absolute left-0 -translate-x-1/2 lg:-left-12 h-14 w-14 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/20 bg-transparent z-20" />
+            <CarouselNext className="absolute right-0 translate-x-1/2 lg:-right-12 h-14 w-14 rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-accent/20 bg-transparent z-20" />
           </Carousel>
         </div>
       </section>
