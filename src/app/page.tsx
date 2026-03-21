@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bike, ShieldCheck, Zap, Award, ChevronLeft, ChevronRight } from "lucide-react";
@@ -47,7 +46,7 @@ export default function Home() {
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
 
   return (
-    <div className="space-y-24 pb-24">
+    <div className="space-y-16 pb-24">
       {/* Hero Section with Slideshow */}
       <section className="relative h-[85vh] w-full flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
@@ -97,7 +96,7 @@ export default function Home() {
 
       {/* Featured Vehicles Carousel */}
       <section className="container mx-auto px-4">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-8">
           <div className="space-y-4">
             <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Lineup</span></h2>
             <p className="text-muted-foreground text-lg max-w-xl">
@@ -148,9 +147,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us - Chhaya Advantage */}
-      <section className="bg-secondary/30 py-24">
+      <section className="bg-secondary/30 py-12">
         <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-16">
+          <div className="text-center space-y-4 mb-12">
             <h2 className="text-4xl font-bold font-headline">The Chhaya <span className="text-primary">Advantage</span></h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Setting the gold standard in automotive retail and service for over two decades.
@@ -164,7 +163,7 @@ export default function Home() {
               { icon: Bike, title: "Wide Selection", desc: "The complete range of Bajaj motorcycles and scooters." },
               { icon: Award, title: "Award Winning", desc: "Recognized multiple times for excellence in customer satisfaction." }
             ].map((feature, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-border space-y-4 hover:translate-y-[-5px] transition-transform">
+              <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-border space-y-4 hover:translate-y-[-5px] transition-transform">
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
@@ -176,8 +175,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Gallery Section - Simplified Gallery */}
-      <section className="bg-gray-50/50 py-12 overflow-hidden">
+      {/* Featured Products Gallery Section */}
+      <section className="bg-gray-50/50 py-10 overflow-hidden">
         <div className="container mx-auto px-4 text-center space-y-8">
           <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
           
@@ -188,7 +187,7 @@ export default function Home() {
                   <CarouselItem key={index}>
                     <div className="flex flex-col items-center justify-center py-4">
                       {/* Product Image Only */}
-                      <div className="relative h-[300px] md:h-[400px] w-full max-w-4xl px-4">
+                      <div className="relative h-[250px] md:h-[350px] w-full max-w-4xl px-4">
                         {product.image?.imageUrl && (
                           <Image
                             src={product.image.imageUrl}
@@ -219,7 +218,7 @@ export default function Home() {
 
       {/* Promotions Section - Festival Dhamaka */}
       <section className="container mx-auto px-4">
-        <div className="relative rounded-3xl overflow-hidden min-h-[400px] flex items-center">
+        <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center">
           {promoImg?.imageUrl ? (
             <Image
               src={promoImg.imageUrl}
