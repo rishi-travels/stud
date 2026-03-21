@@ -19,10 +19,10 @@ const TEAM_MEMBERS = [
     bio: "With over 25 years in the automotive industry, Raghvendra leads the vision of Chhaya Bajaj."
   },
   {
-    name: "Priya Sharma",
+    name: "Ashwini Mishra",
     role: "Head of Sales",
     image: PlaceHolderImages.find(p => p.id === "team-member-2"),
-    bio: "Priya ensures every customer finds their perfect ride through personalized consultation."
+    bio: "Ashwini ensures every customer finds their perfect ride through personalized consultation."
   },
   {
     name: "Amit Verma",
