@@ -78,7 +78,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Full Name</label>
-                  <Input placeholder="John Doe" required />
+                  <Input placeholder="e.g. Abhi Mishra" required />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Phone Number</label>
