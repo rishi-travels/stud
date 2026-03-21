@@ -114,7 +114,7 @@ export default function ContactPage() {
                   className="flex-1 border-primary text-primary hover:bg-primary/10 py-6 text-lg font-bold"
                   asChild
                 >
-                  <a href="https://wa.me/919628510443" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer">
                     Direct Message
                   </a>
                 </Button>
