@@ -14,6 +14,7 @@ export default function AICareerTool() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AICareerPathwayOutput | null>(null);
   const [formData, setFormData] = useState({
+    name: "",
     skills: "",
     interests: "",
     currentJobRole: "",
@@ -24,8 +25,9 @@ export default function AICareerTool() {
     e.preventDefault();
     setLoading(true);
     try {
+      // Prepending the name to the skills for better AI context
       const output = await recommendCareerPathway({
-        skills: formData.skills,
+        skills: `Applicant Name: ${formData.name}\n\nCore Skills: ${formData.skills}`,
         interests: formData.interests,
         currentJobRole: formData.currentJobRole,
         resumeText: formData.resumeText
@@ -51,11 +53,11 @@ export default function AICareerTool() {
           <form onSubmit={handleAnalyze} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium">Your Core Skills</label>
+                <label className="text-sm font-medium">Your Name</label>
                 <Input 
-                  placeholder="e.g. Mechanical engineering, customer service..." 
-                  value={formData.skills}
-                  onChange={(e) => setFormData({...formData, skills: e.target.value})}
+                  placeholder="John Doe" 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required 
                 />
               </div>
@@ -67,6 +69,15 @@ export default function AICareerTool() {
                   onChange={(e) => setFormData({...formData, currentJobRole: e.target.value})}
                 />
               </div>
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Your Core Skills</label>
+              <Input 
+                placeholder="e.g. Mechanical engineering, customer service..." 
+                value={formData.skills}
+                onChange={(e) => setFormData({...formData, skills: e.target.value})}
+                required 
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Career Interests & Preferences</label>
