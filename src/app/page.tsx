@@ -12,13 +12,24 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Autoplay from "embla-carousel-autoplay";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const VEHICLES = [
+const PERFORMANCE_VEHICLES = [
   { name: "Pulsar N250", type: "Naked Sports", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
-  { name: "Dominar 400", type: "Sports Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
-  { name: "Chetak Electric", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
   { name: "Pulsar NS200", type: "Street Fighter", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
-  { name: "Avenger 220", type: "Cruise", image: PlaceHolderImages.find(p => p.id === "hero-style") },
   { name: "Pulsar RS200", type: "Racing", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
+  { name: "Pulsar N160", type: "Street", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
+];
+
+const TOURING_VEHICLES = [
+  { name: "Dominar 400", type: "Sports Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
+  { name: "Dominar 250", type: "Tourer", image: PlaceHolderImages.find(p => p.id === "hero-style") },
+  { name: "Avenger 220", type: "Cruise", image: PlaceHolderImages.find(p => p.id === "hero-style") },
+  { name: "Avenger 160", type: "Urban Cruise", image: PlaceHolderImages.find(p => p.id === "hero-style") },
+];
+
+const ECO_VEHICLES = [
+  { name: "Chetak Premium", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
+  { name: "Chetak Urbane", type: "Smart EV", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
+  { name: "Freedom 125", type: "Innovative", image: PlaceHolderImages.find(p => p.id === "freedom-125") },
 ];
 
 const HERO_SLIDES = [
@@ -40,6 +51,16 @@ export default function Home() {
 
   const autoplayPlugin = React.useMemo(
     () => Autoplay({ delay: 1500, stopOnInteraction: false }),
+    []
+  );
+
+  const autoplayPlugin2 = React.useMemo(
+    () => Autoplay({ delay: 2000, stopOnInteraction: false }),
+    []
+  );
+
+  const autoplayPlugin3 = React.useMemo(
+    () => Autoplay({ delay: 2500, stopOnInteraction: false }),
     []
   );
 
@@ -91,7 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Vehicles Section */}
+      {/* Featured Performance Section */}
       <section className="container mx-auto px-4 -mt-16 relative z-20">
         <Carousel 
           opts={{ align: "start", loop: true }} 
@@ -99,7 +120,7 @@ export default function Home() {
           className="w-full"
         >
           <CarouselContent className="-ml-8">
-            {VEHICLES.map((vehicle, i) => (
+            {PERFORMANCE_VEHICLES.map((vehicle, i) => (
               <CarouselItem key={i} className="pl-8 basis-full md:basis-1/3">
                 <Card className="group overflow-hidden border-none shadow-2xl transition-all hover:scale-105 bg-white/90 backdrop-blur-md h-full">
                   <div className="relative h-64 w-full">
@@ -115,6 +136,90 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 text-white">
                       <p className="text-xs font-bold uppercase tracking-widest text-accent">{vehicle.type}</p>
+                    </div>
+                  </div>
+                  <CardContent className="p-4 flex justify-between items-center">
+                    <span className="font-bold text-primary text-lg">{vehicle.name}</span>
+                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold" asChild>
+                      <Link href="/vehicles">More</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </section>
+
+      {/* Featured Touring Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="mb-8 space-y-2">
+          <h2 className="text-3xl font-bold font-headline">Touring <span className="text-primary">Collection</span></h2>
+          <div className="h-1 w-20 bg-accent rounded-full" />
+        </div>
+        <Carousel 
+          opts={{ align: "start", loop: true }} 
+          plugins={[autoplayPlugin2]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-8">
+            {TOURING_VEHICLES.map((vehicle, i) => (
+              <CarouselItem key={i} className="pl-8 basis-full md:basis-1/3">
+                <Card className="group overflow-hidden border-none shadow-xl transition-all hover:translate-y-[-4px] bg-white h-full border border-border">
+                  <div className="relative h-64 w-full">
+                    {vehicle.image?.imageUrl && (
+                      <Image
+                        src={vehicle.image.imageUrl}
+                        alt={vehicle.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={vehicle.image.imageHint}
+                      />
+                    )}
+                    <div className="absolute bottom-4 left-4">
+                      <p className="bg-primary/90 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full tracking-widest">{vehicle.type}</p>
+                    </div>
+                  </div>
+                  <CardContent className="p-4 flex justify-between items-center">
+                    <span className="font-bold text-primary text-lg">{vehicle.name}</span>
+                    <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold" asChild>
+                      <Link href="/vehicles">More</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </section>
+
+      {/* Featured Eco Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="mb-8 space-y-2">
+          <h2 className="text-3xl font-bold font-headline">Eco-Friendly <span className="text-primary">Mobility</span></h2>
+          <div className="h-1 w-20 bg-accent rounded-full" />
+        </div>
+        <Carousel 
+          opts={{ align: "start", loop: true }} 
+          plugins={[autoplayPlugin3]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-8">
+            {ECO_VEHICLES.map((vehicle, i) => (
+              <CarouselItem key={i} className="pl-8 basis-full md:basis-1/3">
+                <Card className="group overflow-hidden border-none shadow-xl transition-all hover:translate-y-[-4px] bg-white h-full border border-border">
+                  <div className="relative h-64 w-full">
+                    {vehicle.image?.imageUrl && (
+                      <Image
+                        src={vehicle.image.imageUrl}
+                        alt={vehicle.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={vehicle.image.imageHint}
+                      />
+                    )}
+                    <div className="absolute bottom-4 left-4">
+                      <p className="bg-accent/90 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full tracking-widest">{vehicle.type}</p>
                     </div>
                   </div>
                   <CardContent className="p-4 flex justify-between items-center">
