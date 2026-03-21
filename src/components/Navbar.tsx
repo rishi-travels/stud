@@ -19,11 +19,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-blue-300 bg-blue-200/95 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-blue-950/95 backdrop-blur-lg">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold tracking-tighter text-primary font-headline">
+            <span className="text-2xl font-bold tracking-tighter text-white font-headline">
               CHHAYA <span className="text-accent">BAJAJ</span>
             </span>
           </Link>
@@ -34,12 +34,12 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold transition-colors text-blue-900 hover:text-accent"
+                className="text-sm font-semibold transition-colors text-white/90 hover:text-accent"
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-primary hover:bg-primary/90 font-bold">
+            <Button asChild className="bg-accent hover:bg-accent/90 font-bold text-white border-0">
               <Link href="/contact">Book a Test Ride</Link>
             </Button>
           </div>
@@ -48,11 +48,11 @@ export default function Navbar() {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-blue-900">
+                <Button variant="ghost" size="icon" className="text-white">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-blue-200 border-l border-blue-300">
+              <SheetContent side="right" className="bg-blue-950 border-l border-white/10 text-white">
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
@@ -65,13 +65,13 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center space-x-4 text-lg font-bold text-blue-900 hover:text-accent"
+                      className="flex items-center space-x-4 text-lg font-bold text-white/90 hover:text-accent"
                     >
                       <item.icon className="h-5 w-5" />
                       <span>{item.name}</span>
                     </Link>
                   ))}
-                  <Button asChild className="w-full mt-4 font-bold">
+                  <Button asChild className="w-full mt-4 font-bold bg-accent hover:bg-accent/90">
                     <Link href="/contact" onClick={() => setIsOpen(false)}>
                       Book a Test Ride
                     </Link>
