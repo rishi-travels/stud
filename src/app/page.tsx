@@ -105,42 +105,39 @@ export default function Home() {
           </div>
         </div>
 
-        <Carousel className="w-full">
-          <CarouselContent className="-ml-4">
-            {VEHICLES.map((vehicle, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="overflow-hidden border-border bg-card hover:border-primary/50 transition-all group shadow-sm hover:shadow-md">
-                  <div className="relative h-64 w-full">
-                    {vehicle.image?.imageUrl ? (
-                      <Image
-                        src={vehicle.image.imageUrl}
-                        alt={vehicle.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={vehicle.image.imageHint}
-                      />
-                    ) : null}
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-                        {vehicle.type}
-                      </span>
+        <div className="relative group/carousel">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-4">
+              {VEHICLES.map((vehicle, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="overflow-hidden border-border bg-card hover:border-primary/50 transition-all group shadow-sm hover:shadow-md">
+                    <div className="relative h-64 w-full">
+                      {vehicle.image?.imageUrl ? (
+                        <Image
+                          src={vehicle.image.imageUrl}
+                          alt={vehicle.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          data-ai-hint={vehicle.image.imageHint}
+                        />
+                      ) : null}
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                          {vehicle.type}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex justify-between items-center">
+                    <CardContent className="p-6">
                       <h3 className="text-2xl font-bold">{vehicle.name}</h3>
-                      <p className="text-accent font-semibold">{vehicle.price}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="flex justify-center mt-12 gap-6">
-            <CarouselPrevious className="static translate-y-0 h-14 w-14 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/20 bg-background" />
-            <CarouselNext className="static translate-y-0 h-14 w-14 rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-accent/20 bg-background" />
-          </div>
-        </Carousel>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-0 -translate-x-1/2 lg:-left-12 h-14 w-14 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/20 bg-background z-20" />
+            <CarouselNext className="absolute right-0 translate-x-1/2 lg:-right-12 h-14 w-14 rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-accent/20 bg-background z-20" />
+          </Carousel>
+        </div>
       </section>
 
       {/* Why Choose Us - Chhaya Advantage */}
