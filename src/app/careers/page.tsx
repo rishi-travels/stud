@@ -21,8 +21,10 @@ export default function CareersPage() {
         <p className="text-primary font-bold text-xl max-w-2xl mx-auto">
           We're always looking for talented people to join our talent pool for future opportunities.
         </p>
-        <Button size="lg" variant="outline" className="h-14 px-12 border-primary text-primary hover:bg-primary/10">
-          Contact
+        <Button size="lg" variant="outline" className="h-14 px-12 border-primary text-primary hover:bg-primary/10" asChild>
+          <a href="https://wa.me/919628510443" target="_blank" rel="noopener noreferrer">
+            Chat on WhatsApp
+          </a>
         </Button>
       </section>
     </div>
