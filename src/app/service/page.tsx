@@ -17,8 +17,8 @@ const SERVICES = [
     icon: Settings,
   },
   {
-    title: "Brake & Suspension",
-    desc: "Expert adjustment and part replacement for maximum safety and comfort.",
+    title: "Genuine Spare Parts",
+    desc: "We stock and use only 100% authentic Bajaj genuine parts for all repairs and replacements.",
     icon: ShieldCheck,
   },
   {
