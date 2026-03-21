@@ -107,7 +107,6 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
                   <p className="text-xs font-bold uppercase tracking-widest text-accent">{vehicle.type}</p>
-                  <h3 className="text-2xl font-bold font-headline">{vehicle.name}</h3>
                 </div>
               </div>
               <CardContent className="p-4 flex justify-between items-center">
