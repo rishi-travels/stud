@@ -46,7 +46,7 @@ const GALLERY_IMAGES = [
 ];
 
 export default function AboutPage() {
-  const serviceImg = PlaceHolderImages.find(p => p.id === "service-center");
+  const introImg = PlaceHolderImages.find(p => p.id === "service-center");
 
   return (
     <div className="py-20 space-y-32">
@@ -68,13 +68,13 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-            {serviceImg?.imageUrl && (
+            {introImg?.imageUrl && (
               <Image
-                src={serviceImg.imageUrl}
-                alt="Service Center"
+                src={introImg.imageUrl}
+                alt="Chhaya Bajaj Showroom"
                 fill
                 className="object-cover"
-                data-ai-hint={serviceImg.imageHint}
+                data-ai-hint={introImg.imageHint}
               />
             )}
           </div>
