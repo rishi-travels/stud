@@ -161,7 +161,7 @@ export default function Home() {
       {/* Daring Collection */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline italic uppercase">Daring <span className="text-primary">Collection</span></h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-headline italic uppercase">Daring <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>
         <Carousel 
@@ -203,7 +203,7 @@ export default function Home() {
       {/* Comfort Collection */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
-          <h2 className="text-3xl font-bold font-headline italic uppercase">Comfort <span className="text-primary">Collection</span></h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-headline italic uppercase">Comfort <span className="text-primary">Collection</span></h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>
         <Carousel 
