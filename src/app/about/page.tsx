@@ -1,6 +1,29 @@
+
 import Image from "next/image";
-import { Users, History, Target, Heart } from "lucide-react";
+import { Users, History, Target, Heart, Linkedin, Mail } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Card, CardContent } from "@/components/ui/card";
+
+const TEAM_MEMBERS = [
+  {
+    name: "Rajesh Chhaya",
+    role: "Managing Director",
+    image: PlaceHolderImages.find(p => p.id === "team-member-1"),
+    bio: "With over 25 years in the automotive industry, Rajesh leads the vision of Chhaya Bajaj."
+  },
+  {
+    name: "Priya Sharma",
+    role: "Head of Sales",
+    image: PlaceHolderImages.find(p => p.id === "team-member-2"),
+    bio: "Priya ensures every customer finds their perfect ride through personalized consultation."
+  },
+  {
+    name: "Amit Verma",
+    role: "Technical Director",
+    image: PlaceHolderImages.find(p => p.id === "team-member-3"),
+    bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
+  }
+];
 
 export default function AboutPage() {
   const serviceImg = PlaceHolderImages.find(p => p.id === "service-center");
@@ -75,10 +98,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Specific Team Grid */}
       <section className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 className="text-4xl font-bold font-headline">Meet Our <span className="text-primary">Leadership Team</span></h2>
+          <p className="text-muted-foreground">The experts dedicated to delivering excellence at every touchpoint.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {TEAM_MEMBERS.map((member, i) => (
+            <Card key={i} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow group">
+              <div className="relative h-[400px] w-full">
+                {member.image?.imageUrl && (
+                  <Image
+                    src={member.image.imageUrl}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    data-ai-hint={member.image.imageHint}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div className="flex gap-4">
+                    <Linkedin className="h-5 w-5 text-white cursor-pointer hover:text-primary transition-colors" />
+                    <Mail className="h-5 w-5 text-white cursor-pointer hover:text-primary transition-colors" />
+                  </div>
+                </div>
+              </div>
+              <CardContent className="p-6 space-y-2 text-center">
+                <h3 className="text-2xl font-bold">{member.name}</h3>
+                <p className="text-primary font-semibold text-sm uppercase tracking-wider">{member.role}</p>
+                <p className="text-muted-foreground text-sm pt-2">{member.bio}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* General Team Description Section */}
+      <section className="container mx-auto px-4 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative h-[400px] rounded-3xl overflow-hidden">
+          <div className="order-2 lg:order-1 relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
             {teamImg?.imageUrl && (
               <Image
                 src={teamImg.imageUrl}
@@ -98,7 +158,9 @@ export default function AboutPage() {
               We invest heavily in continuous training to ensure our staff stays at the cutting edge of automotive technology and service standards.
             </p>
             <div className="flex items-center space-x-4 pt-4">
-              <Users className="h-6 w-6 text-accent" />
+              <div className="bg-accent/10 p-3 rounded-full">
+                <Users className="h-6 w-6 text-accent" />
+              </div>
               <span className="font-semibold text-lg">Over 150+ Dedicated Employees</span>
             </div>
           </div>

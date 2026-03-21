@@ -60,6 +60,24 @@
       "description": "Bajaj Freedom 125 motorcycle in white and red",
       "imageUrl": "https://picsum.photos/seed/freedom125/800/600",
       "imageHint": "commuter motorcycle"
+    },
+    {
+      "id": "team-member-1",
+      "description": "Rajesh Chhaya, Managing Director",
+      "imageUrl": "https://picsum.photos/seed/team1/400/500",
+      "imageHint": "businessman portrait"
+    },
+    {
+      "id": "team-member-2",
+      "description": "Priya Sharma, Head of Sales",
+      "imageUrl": "https://picsum.photos/seed/team2/400/500",
+      "imageHint": "businesswoman portrait"
+    },
+    {
+      "id": "team-member-3",
+      "description": "Amit Verma, Technical Director",
+      "imageUrl": "https://picsum.photos/seed/team3/400/500",
+      "imageHint": "professional engineer"
     }
   ]
 }
