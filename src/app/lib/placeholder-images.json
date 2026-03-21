@@ -2,6 +2,24 @@
 {
   "placeholderImages": [
     {
+      "id": "hero-1",
+      "description": "Bajaj Pulsar NS400 Right View",
+      "imageUrl": "https://imgd.aeplcdn.com/1056x594/n/cw/ec/206496/pulsar-ns400-right-side-view-9.jpeg?isig=0&wm=3&q=80",
+      "imageHint": "pulsar ns400"
+    },
+    {
+      "id": "hero-2",
+      "description": "Bajaj Performance Concept",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/29c605173963959.6499a305dce44.jpg",
+      "imageHint": "motorcycle design"
+    },
+    {
+      "id": "hero-3",
+      "description": "Bajaj OnlineKhabar Feature",
+      "imageUrl": "https://english.onlinekhabar.com/wp-content/uploads/2023/07/Screenshot-2023-07-23-124950.png",
+      "imageHint": "bajaj style"
+    },
+    {
       "id": "hero-ns400",
       "description": "Premium Bajaj motorcycle in action",
       "imageUrl": "https://cdn.bajajauto.com/-/media/assets/bajajauto/home-page/banners/web/pulsar-n160-web.webp",
