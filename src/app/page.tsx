@@ -89,59 +89,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Vehicles Carousel */}
-      <section className="container mx-auto px-4">
-        <div className="flex items-end justify-between mb-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Lineup</span></h2>
-            <p className="text-muted-foreground text-lg max-w-xl">
-              From high-octane performance to sustainable urban mobility.
-            </p>
-          </div>
-        </div>
-
-        <div className="relative group/carousel">
-          <Carousel 
-            plugins={isMobile ? [autoplayPlugin] : []}
-            opts={{ loop: true }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {VEHICLES.map((vehicle, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden border-border bg-card hover:border-primary/50 transition-all group shadow-sm hover:shadow-md">
-                    <div className="relative h-64 w-full">
-                      {vehicle.image?.imageUrl ? (
-                        <Image
-                          src={vehicle.image.imageUrl}
-                          alt={vehicle.name}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          data-ai-hint={vehicle.image.imageHint}
-                        />
-                      ) : null}
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-                          {vehicle.type}
-                        </span>
-                      </div>
-                    </div>
-                    <CardContent className="p-6 flex items-center justify-between">
-                      <h3 className="text-2xl font-bold">{vehicle.name}</h3>
-                      <Button variant="outline" size="sm" asChild className="border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-full px-5 transition-all">
-                        <Link href="/vehicles">
-                          More
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      </section>
-
       {/* Why Choose Us - Chhaya Advantage */}
       <section className="bg-secondary/30 py-12">
         <div className="container mx-auto px-4">
@@ -176,7 +123,7 @@ export default function Home() {
       {/* Gallery Frame Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-4xl font-bold font-headline">Showroom <span className="text-primary">Gallery</span></h2>
+          <h2 className="text-4xl font-bold font-headline">Glimpse <span className="text-primary">Gallery</span></h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A glimpse of the premium experience and high-performance machines waiting for you.
           </p>
@@ -291,3 +238,4 @@ export default function Home() {
     </div>
   );
 }
+
