@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -214,7 +215,7 @@ export default function Home() {
                       </div>
                       
                       {/* Product Info & Button */}
-                      <div className="flex flex-row items-center justify-center gap-3 md:gap-6 px-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                      <div className="flex flex-row items-center justify-center gap-3 md:gap-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <h3 className="text-xl md:text-4xl font-bold font-headline tracking-tight text-foreground">{product.name}</h3>
                         <Button asChild size="sm" className="rounded-full px-4 md:px-8 bg-primary hover:bg-primary/90 font-bold h-8 md:h-10 text-xs md:text-sm shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                           <Link href="/vehicles">More</Link>
@@ -271,8 +272,8 @@ export default function Home() {
         
         {/* Shipped Button to the right side */}
         <div className="flex justify-end">
-          <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-14 px-12 rounded-full text-lg" asChild>
-            <Link href="/contact">Claim Offer Now</Link>
+          <Button className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-12 px-8 rounded-full text-base" asChild>
+            <Link href="/contact">Claim Offer</Link>
           </Button>
         </div>
       </section>
