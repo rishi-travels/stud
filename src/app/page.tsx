@@ -193,7 +193,7 @@ export default function Home() {
       {/* Featured Products Gallery Section */}
       <section className="bg-gray-50/50 py-16 overflow-hidden">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-block relative mb-12 animate-in fade-in slide-in-from-top-4 duration-1000">
+          <div className="inline-block relative mb-12 animate-in fade-in slide-in-from-top-4 duration-1000 animate-float">
             <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
               Featured <span className="text-primary">Products</span>
             </h2>
