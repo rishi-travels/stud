@@ -23,21 +23,19 @@ export default function AICareerTool() {
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
+    email: "",
     jobRole: "",
-    interests: "",
-    resumeText: ""
+    address: ""
   });
 
   const handleAnalyze = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      // Mapping the updated form data to the AI flow input
       const output = await recommendCareerPathway({
-        skills: `Applicant Name: ${formData.name}\nPhone: ${formData.phoneNumber}\nApplying for: ${formData.jobRole}`,
-        interests: formData.interests,
+        skills: `Applicant Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phoneNumber}\nAddress: ${formData.address}`,
+        interests: `Highly interested in the ${formData.jobRole} position at Chhaya Bajaj Auto.`,
         currentJobRole: formData.jobRole,
-        resumeText: formData.resumeText
       });
       setResult(output);
     } catch (error) {
@@ -79,46 +77,49 @@ export default function AICareerTool() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Job Role</label>
-              <Select 
-                onValueChange={(value) => setFormData({...formData, jobRole: value})}
-                required
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a job role" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Manager">Manager</SelectItem>
-                  <SelectItem value="Mechanic">Mechanic</SelectItem>
-                  <SelectItem value="Salesman">Salesman</SelectItem>
-                  <SelectItem value="Computer Operator">Computer Operator</SelectItem>
-                </SelectContent>
-              </Select>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Email Address</label>
+                <Input 
+                  type="email"
+                  placeholder="john@example.com" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required 
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Job Role</label>
+                <Select 
+                  onValueChange={(value) => setFormData({...formData, jobRole: value})}
+                  required
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a job role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Manager">Manager</SelectItem>
+                    <SelectItem value="Mechanic">Mechanic</SelectItem>
+                    <SelectItem value="Salesman">Salesman</SelectItem>
+                    <SelectItem value="Computer Operator">Computer Operator</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium">Career Interests & Preferences</label>
+              <label className="text-sm font-medium">Residential Address</label>
               <Textarea 
-                placeholder="What kind of work excites you? e.g. Electric vehicles, customer service..." 
-                value={formData.interests}
-                onChange={(e) => setFormData({...formData, interests: e.target.value})}
+                placeholder="Enter your full address..." 
+                className="min-h-[100px]"
+                value={formData.address}
+                onChange={(e) => setFormData({...formData, address: e.target.value})}
                 required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Resume Content (Optional)</label>
-              <Textarea 
-                placeholder="Paste your resume text for deeper analysis..." 
-                className="min-h-[120px]"
-                value={formData.resumeText}
-                onChange={(e) => setFormData({...formData, resumeText: e.target.value})}
               />
             </div>
 
             <Button type="submit" disabled={loading} className="w-full bg-accent text-background hover:bg-accent/80 font-bold py-6 text-lg">
-              {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Generate Career Pathway"}
+              {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Submit Application"}
             </Button>
           </form>
         </CardContent>
@@ -144,7 +145,7 @@ export default function AICareerTool() {
           <Card className="glass-card">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg flex items-center gap-2">
-                <Info className="h-5 w-5 text-accent" /> Application Tips
+                <Info className="h-5 w-5 text-accent" /> Feedback for You
               </CardTitle>
             </CardHeader>
             <CardContent>
