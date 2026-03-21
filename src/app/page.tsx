@@ -21,7 +21,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {heroImg?.imageUrl && (
+          {heroImg?.imageUrl ? (
             <Image
               src={heroImg.imageUrl}
               alt={heroImg.description || "Hero"}
@@ -30,7 +30,7 @@ export default function Home() {
               priority
               data-ai-hint={heroImg.imageHint}
             />
-          )}
+          ) : null}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
         
@@ -47,7 +47,7 @@ export default function Home() {
                 <Link href="/contact">Book Test Ride</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
-                <Link href="/emi-calculator">Calculate EMI</Link>
+                <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function Home() {
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <Card className="overflow-hidden border-border bg-card/40 hover:border-primary/50 transition-all group">
                   <div className="relative h-64 w-full">
-                    {vehicle.image?.imageUrl && (
+                    {vehicle.image?.imageUrl ? (
                       <Image
                         src={vehicle.image.imageUrl}
                         alt={vehicle.name}
@@ -79,7 +79,7 @@ export default function Home() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         data-ai-hint={vehicle.image.imageHint}
                       />
-                    )}
+                    ) : null}
                     <div className="absolute top-4 left-4">
                       <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
                         {vehicle.type}
@@ -138,7 +138,7 @@ export default function Home() {
       {/* Promotions Section */}
       <section className="container mx-auto px-4">
         <div className="relative rounded-3xl overflow-hidden min-h-[400px] flex items-center">
-          {promoImg?.imageUrl && (
+          {promoImg?.imageUrl ? (
             <Image
               src={promoImg.imageUrl}
               alt="Promotion"
@@ -146,7 +146,7 @@ export default function Home() {
               className="object-cover"
               data-ai-hint={promoImg.imageHint}
             />
-          )}
+          ) : null}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
           <div className="relative z-10 p-8 md:p-16 space-y-6 max-w-2xl">
             <h2 className="text-4xl font-bold font-headline">Festival Festive <span className="text-accent">Dhamaka</span></h2>
