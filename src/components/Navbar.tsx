@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Bike, Calculator, Info, Phone, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/", icon: Bike },
@@ -53,6 +53,12 @@ export default function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="bg-background border-l border-border">
+                <SheetHeader>
+                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Main navigation links for Chhaya Bajaj Auto.
+                  </SheetDescription>
+                </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-12">
                   {NAV_ITEMS.map((item) => (
                     <Link
