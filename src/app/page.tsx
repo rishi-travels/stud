@@ -24,28 +24,11 @@ const HERO_SLIDES = [
   PlaceHolderImages.find(p => p.id === "hero-performance"),
 ];
 
-const FEATURED_PRODUCTS = [
-  {
-    name: "Bajaj Freedom 125",
-    price: "₹ 1 07 026/-*",
-    disclaimer: "*Ex-Showroom Price Delhi",
-    image: PlaceHolderImages.find(p => p.id === "freedom-125"),
-    themeColor: "#0070D2"
-  },
-  {
-    name: "Pulsar N250",
-    price: "₹ 1 50 845/-*",
-    disclaimer: "*Ex-Showroom Price Pune",
-    image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
-    themeColor: "#E31E24"
-  },
-  {
-    name: "Dominar 400",
-    price: "₹ 2 29 781/-*",
-    disclaimer: "*Ex-Showroom Price Mumbai",
-    image: PlaceHolderImages.find(p => p.id === "dominar-400"),
-    themeColor: "#1A5F1A"
-  }
+const GALLERY_IMAGES = [
+  PlaceHolderImages.find(p => p.id === "gallery-1"),
+  PlaceHolderImages.find(p => p.id === "gallery-2"),
+  PlaceHolderImages.find(p => p.id === "gallery-3"),
+  PlaceHolderImages.find(p => p.id === "hero-performance"),
 ];
 
 export default function Home() {
@@ -190,64 +173,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Gallery Section */}
-      <section className="bg-gray-50/50 py-16 overflow-hidden">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-block relative mb-12">
-            <h2 className="text-xl sm:text-3xl md:text-5xl font-bold font-headline tracking-tight uppercase italic flex justify-center flex-wrap">
-              {"FEATURED PRODUCTS".split("").map((char, i) => (
-                <span
-                  key={i}
-                  className={`inline-block animate-fade-in-out ${i >= 9 ? 'text-primary' : ''}`}
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </span>
-              ))}
-            </h2>
-            <div className="h-1.5 w-24 bg-accent mx-auto mt-4 rounded-full" />
+      {/* Gallery Frame Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-4xl font-bold font-headline">Showroom <span className="text-primary">Gallery</span></h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A glimpse of the premium experience and high-performance machines waiting for you.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[600px]">
+          {/* Main Large Frame */}
+          <div className="relative md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden group shadow-xl">
+            {GALLERY_IMAGES[0]?.imageUrl && (
+              <Image
+                src={GALLERY_IMAGES[0].imageUrl}
+                alt="Main Gallery"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                data-ai-hint={GALLERY_IMAGES[0].imageHint}
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6">
+              <span className="text-white text-xl font-bold font-headline italic">Modern Showroom</span>
+            </div>
           </div>
-          
-          <div className="relative max-w-5xl mx-auto">
-            <Carousel opts={{ loop: true }} className="w-full">
-              <CarouselContent>
-                {FEATURED_PRODUCTS.map((product, index) => (
-                  <CarouselItem key={index}>
-                    <div className="flex flex-col items-center justify-center py-4 md:py-8 space-y-6 md:space-y-8">
-                      {/* Product Image */}
-                      <div className="relative h-[200px] sm:h-[250px] md:h-[400px] w-full max-w-4xl px-4">
-                        {product.image?.imageUrl && (
-                          <Image
-                            src={product.image.imageUrl}
-                            alt={product.name}
-                            fill
-                            className="object-contain drop-shadow-2xl"
-                            data-ai-hint={product.image.imageHint}
-                          />
-                        )}
-                      </div>
-                      
-                      {/* Product Info & Button */}
-                      <div className="flex flex-row items-center justify-center gap-3 md:gap-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <h3 className="text-xl md:text-4xl font-bold font-headline tracking-tight text-foreground">{product.name}</h3>
-                        <Button asChild size="sm" className="rounded-full px-4 md:px-8 bg-primary hover:bg-primary/90 font-bold h-8 md:h-10 text-xs md:text-sm shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
-                          <Link href="/vehicles">More</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {/* Navigation Controls */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between z-20 pointer-events-none">
-                <CarouselPrevious className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 ml-2 md:ml-4">
-                  <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110" />
-                </CarouselPrevious>
-                <CarouselNext className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 mr-2 md:mr-4">
-                  <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110" />
-                </CarouselNext>
-              </div>
-            </Carousel>
+
+          {/* Top Right Frame */}
+          <div className="relative rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
+            {GALLERY_IMAGES[1]?.imageUrl && (
+              <Image
+                src={GALLERY_IMAGES[1].imageUrl}
+                alt="Gallery 2"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                data-ai-hint={GALLERY_IMAGES[1].imageHint}
+              />
+            )}
+          </div>
+
+          {/* Middle Right Frame */}
+          <div className="relative rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
+            {GALLERY_IMAGES[2]?.imageUrl && (
+              <Image
+                src={GALLERY_IMAGES[2].imageUrl}
+                alt="Gallery 3"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                data-ai-hint={GALLERY_IMAGES[2].imageHint}
+              />
+            )}
+          </div>
+
+          {/* Bottom Wide Frame */}
+          <div className="relative md:col-span-2 rounded-3xl overflow-hidden group shadow-lg min-h-[250px]">
+            {GALLERY_IMAGES[3]?.imageUrl && (
+              <Image
+                src={GALLERY_IMAGES[3].imageUrl}
+                alt="Gallery 4"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                data-ai-hint={GALLERY_IMAGES[3].imageHint}
+              />
+            )}
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <Button variant="secondary" asChild className="rounded-full font-bold">
+                <Link href="/about">View Full Journey</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
