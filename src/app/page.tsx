@@ -134,22 +134,22 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Welcome Section */}
-      <section className="py-8 md:py-12 bg-white">
-        <div className="container mx-auto px-4 text-center max-w-4xl space-y-6">
-          <div className="space-y-1">
-            <h2 className="text-2xl md:text-3xl font-bold font-headline text-accent uppercase tracking-wider italic">Welcome to</h2>
-            <h1 className="text-4xl md:text-6xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">Chhaya Bajaj</h1>
+      {/* Welcome Section - Reduced Size */}
+      <section className="py-4 md:py-8 bg-white">
+        <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
+          <div className="space-y-0">
+            <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Welcome to</h2>
+            <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">Chhaya Bajaj</h1>
           </div>
           
-          <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed font-medium max-w-3xl mx-auto">
+          <div className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
             <p>
               Chhaya Bajaj is one of the most respected, loved and renowned business house of Varanasi. We bring you the world-class performance and reliability of Bajaj vehicles.
             </p>
           </div>
           
-          <div className="pt-4">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-base h-12 px-10 rounded-full font-bold">
+          <div className="pt-2">
+            <Button size="default" asChild className="bg-primary hover:bg-primary/90 text-sm h-10 px-8 rounded-full font-bold">
               <Link href="/vehicles">Explore Collection</Link>
             </Button>
           </div>
