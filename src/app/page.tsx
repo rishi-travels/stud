@@ -156,66 +156,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Early Bird Offer Section */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
-          <div className="absolute inset-0 opacity-10">
-             {PlaceHolderImages.find(p => p.id === "hero-performance")?.imageUrl && (
-              <Image
-                src={PlaceHolderImages.find(p => p.id === "hero-performance")!.imageUrl}
-                alt="Promotion background"
-                fill
-                className="object-cover"
-              />
-            )}
-          </div>
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-8 md:p-16">
-            <div className="space-y-8">
-              <div className="inline-block bg-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase italic">
-                Exclusive Promotion
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-extrabold font-headline italic uppercase tracking-tighter leading-none">
-                  Early Bird <span className="text-accent">Offer</span>
-                </h2>
-                <p className="text-xl text-blue-100/80 font-medium">
-                  Be among the first 50 bookings this month and unlock exclusive benefits worth up to <span className="text-white font-bold">₹10,000*</span>.
-                </p>
-              </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  "Free Extended Warranty",
-                  "Complimentary Service Kit",
-                  "Loyalty Bonus Points",
-                  "Instant Delivery Option"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-semibold">
-                    <div className="bg-accent p-1 rounded-full shrink-0">
-                      <Zap className="h-3 w-3 text-white" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Button size="lg" asChild className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-10 rounded-full h-14 text-lg w-full sm:w-auto">
-                <Link href="/contact">Book Now & Save</Link>
-              </Button>
-            </div>
-            <div className="hidden lg:block relative h-[450px]">
-               {PlaceHolderImages.find(p => p.id === "promotion-1")?.imageUrl && (
-                <Image
-                  src={PlaceHolderImages.find(p => p.id === "promotion-1")!.imageUrl}
-                  alt="Special Offer"
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  data-ai-hint="motorcycle offer"
-                />
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Daring Collection */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
@@ -327,6 +267,66 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Early Bird Offer Section - Shifted below Advantage */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
+          <div className="absolute inset-0 opacity-10">
+             {PlaceHolderImages.find(p => p.id === "hero-performance")?.imageUrl && (
+              <Image
+                src={PlaceHolderImages.find(p => p.id === "hero-performance")!.imageUrl}
+                alt="Promotion background"
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-8 md:p-16">
+            <div className="space-y-8">
+              <div className="inline-block bg-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase italic">
+                Exclusive Promotion
+              </div>
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl font-extrabold font-headline italic uppercase tracking-tighter leading-none">
+                  Early Bird <span className="text-accent">Offer</span>
+                </h2>
+                <p className="text-xl text-blue-100/80 font-medium">
+                  Be among the first 50 bookings this month and unlock exclusive benefits worth up to <span className="text-white font-bold">₹10,000*</span>.
+                </p>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  "Free Extended Warranty",
+                  "Complimentary Service Kit",
+                  "Loyalty Bonus Points",
+                  "Instant Delivery Option"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-semibold">
+                    <div className="bg-accent p-1 rounded-full shrink-0">
+                      <Zap className="h-3 w-3 text-white" />
+                    </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Button size="lg" asChild className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-10 rounded-full h-14 text-lg w-full sm:w-auto">
+                <Link href="/contact">Book Now & Save</Link>
+              </Button>
+            </div>
+            <div className="hidden lg:block relative h-[450px]">
+               {PlaceHolderImages.find(p => p.id === "promotion-1")?.imageUrl && (
+                <Image
+                  src={PlaceHolderImages.find(p => p.id === "promotion-1")!.imageUrl}
+                  alt="Special Offer"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  data-ai-hint="motorcycle offer"
+                />
+              )}
+            </div>
           </div>
         </div>
       </section>
