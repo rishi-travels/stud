@@ -55,6 +55,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'cdn1.acedms.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 's1.cdn.autoevolution.com',
         port: '',
         pathname: '/**',
