@@ -18,8 +18,8 @@ export default function CareersPage() {
 
       {/* Application of Interest */}
       <section className="bg-primary/5 rounded-3xl p-8 md:p-16 text-center space-y-8">
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Send us your resume anyway! We're always looking for talented people to join our talent pool for future opportunities.
+        <p className="text-primary font-bold text-xl max-w-2xl mx-auto">
+          We're always looking for talented people to join our talent pool for future opportunities.
         </p>
         <Button size="lg" variant="outline" className="h-14 px-12 border-primary text-primary hover:bg-primary/10">
           Submit General Application
