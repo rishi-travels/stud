@@ -14,9 +14,9 @@ import {
 const TEAM_MEMBERS = [
   {
     name: "Raghvendra Mishra",
-    role: "Managing Director",
+    role: "Executive Director",
     image: PlaceHolderImages.find(p => p.id === "team-member-1"),
-    bio: "With over 25 years in the automotive industry, Raghvendra leads the vision of Chhaya Bajaj."
+    bio: "With over 5 years in the automotive industry, Raghvendra leads the vision of Chhaya Bajaj."
   },
   {
     name: "Ashwini Mishra",
