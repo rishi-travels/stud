@@ -192,8 +192,13 @@ export default function Home() {
 
       {/* Featured Products Gallery Section */}
       <section className="bg-gray-50/50 py-16 overflow-hidden">
-        <div className="container mx-auto px-4 text-center space-y-12">
-          <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
+        <div className="container mx-auto px-4 text-center">
+          <div className="inline-block relative mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
+              Featured <span className="text-primary">Products</span>
+            </h2>
+            <div className="h-1.5 w-24 bg-accent mx-auto mt-4 rounded-full" />
+          </div>
           
           <div className="relative max-w-5xl mx-auto">
             <Carousel opts={{ loop: true }} className="w-full">
@@ -270,7 +275,7 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Shipped Button to the right side */}
+        {/* Claim Offer Button to the right side */}
         <div className="flex justify-end">
           <Button className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-12 px-8 rounded-full text-base" asChild>
             <Link href="/contact">Claim Offer</Link>
