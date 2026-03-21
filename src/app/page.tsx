@@ -135,7 +135,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: ShieldCheck, title: "Trusted Service", desc: "Expert technicians with years of certified experience." },
-              { icon: Zap, title: "Swift Delivery", desc: "Minimal waiting times with our streamlined process." },
+              { icon: Zap, title: "Flash Delivery", desc: "Minimal waiting times with our streamlined process." },
               { icon: Bike, title: "Wide Selection", desc: "The complete range of Bajaj motorcycles and scooters." },
               { icon: Award, title: "Award Winning", desc: "Recognized multiple times for excellence in customer satisfaction." }
             ].map((feature, i) => (
