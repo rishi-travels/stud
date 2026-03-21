@@ -38,13 +38,6 @@ const TEAM_MEMBERS = [
   }
 ];
 
-const GALLERY_IMAGES = [
-  PlaceHolderImages.find(p => p.id === "gallery-1"),
-  PlaceHolderImages.find(p => p.id === "gallery-2"),
-  PlaceHolderImages.find(p => p.id === "gallery-3"),
-  PlaceHolderImages.find(p => p.id === "gallery-4"),
-];
-
 export default function AboutPage() {
   const introImg = PlaceHolderImages.find(p => p.id === "service-center");
 
@@ -82,7 +75,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team Carousel */}
-      <section className="container mx-auto px-4">
+      <section className="container mx-auto px-4 pb-20">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <h2 className="text-4xl font-bold font-headline">Meet Our <span className="text-primary">Leadership Team</span></h2>
           <p className="text-muted-foreground">The experts dedicated to delivering excellence at every touchpoint.</p>
@@ -123,33 +116,6 @@ export default function AboutPage() {
             <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
             <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border-none bg-primary text-white hover:bg-primary/90 shadow-lg" />
           </Carousel>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="container mx-auto px-4 pb-20">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <h2 className="text-4xl font-bold font-headline">Our Journey in <span className="text-primary">Pictures</span></h2>
-          <p className="text-muted-foreground">A glimpse into the life and energy at Chhaya Bajaj.</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {GALLERY_IMAGES.map((img, i) => (
-            <div key={i} className={`relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow group ${i === 0 || i === 3 ? 'md:col-span-1 lg:col-span-2' : ''} h-[300px]`}>
-              {img?.imageUrl && (
-                <Image
-                  src={img.imageUrl}
-                  alt={img.description}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  data-ai-hint={img.imageHint}
-                />
-              )}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                <p className="text-white font-bold text-center text-lg">{img?.description}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
     </div>
