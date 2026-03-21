@@ -46,21 +46,21 @@ const VEHICLE_DATA = [
     category: "Comfort",
     vehicles: [
       {
-        name: "CT110",
+        name: "C T",
         description: "A rugged and efficient commuter built for durability and long-lasting performance.",
         specs: { engine: "115.45cc", Mileage: "70 kmpl", "fuel tank": "10.5 L" },
         image: PlaceHolderImages.find(p => p.id === "ct-110"),
         tag: "Rugged"
       },
       {
-        name: "Platina 110",
+        name: "Platina",
         description: "Sleek, smart, and designed for the modern commuter with agile performance.",
         specs: { engine: "115.4cc", Mileage: "70 kmpl", "fuel tank": "11 L" },
         image: PlaceHolderImages.find(p => p.id === "platina-110"),
         tag: "Comfort"
       },
       {
-        name: "Freedom 125",
+        name: "Freedom",
         description: "The world's first integrated performance commuter with multiple fuel options.",
         specs: { engine: "125cc", Mileage: "65 kmpl", "fuel tank": "2 L (CNG + Petrol)" },
         image: PlaceHolderImages.find(p => p.id === "freedom-125"),
