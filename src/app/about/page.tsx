@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl font-bold tracking-tight font-headline">
-                Leading the way in <span className="text-primary">Automotive Excellence</span>
+                About <span className="text-primary">Chhaya Bajaj</span>
               </h1>
               <div className="h-1.5 w-24 bg-accent rounded-full" />
             </div>
