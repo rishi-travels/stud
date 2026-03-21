@@ -112,8 +112,8 @@
     {
       "id": "team-member-1",
       "description": "Rajesh Chhaya, Managing Director",
-      "imageUrl": "https://picsum.photos/seed/rajesh-chhaya-new/400/500",
-      "imageHint": "man white-shirt"
+      "imageUrl": "https://raw.githubusercontent.com/rishi-travels/img/main/kishan.jpeg",
+      "imageHint": "man portrait"
     },
     {
       "id": "team-member-2",
