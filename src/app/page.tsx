@@ -124,17 +124,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transition Page Status Dots - Moved below hero */}
-      <div className="flex justify-center gap-3 py-6 bg-white border-b border-border">
+      {/* Transition Page Status Indicators - Rectangular lines below hero */}
+      <div className="flex justify-center gap-2 py-4 bg-white border-b border-border">
         {HERO_IMAGES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setHeroIndex(idx)}
             className={cn(
-              "w-3 h-3 rounded-full transition-all border-2",
+              "h-1 rounded-full transition-all duration-300",
               idx === heroIndex 
-                ? "bg-accent scale-125 border-accent" 
-                : "bg-muted border-muted-foreground/20 hover:border-primary/40"
+                ? "w-10 bg-accent" 
+                : "w-4 bg-muted hover:bg-primary/40"
             )}
             aria-label={`Go to slide ${idx + 1}`}
           />
