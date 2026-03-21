@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
+import TestRidePopup from '@/components/TestRidePopup';
 
 export const metadata: Metadata = {
   title: 'Chhaya Bajaj | Premium Bajaj Dealership in Varanasi',
@@ -29,6 +30,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <TestRidePopup />
       </body>
     </html>
   );
