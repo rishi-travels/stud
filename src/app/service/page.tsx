@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -129,20 +128,6 @@ export default function ServicePage() {
                 </div>
               </div>
             </div>
-            
-            <Card className="glass-card">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <Clock className="h-6 w-6 text-primary shrink-0 mt-1" />
-                  <div>
-                    <h5 className="font-bold">Service Hours</h5>
-                    <p className="text-sm text-muted-foreground">Monday - Saturday</p>
-                    <p className="text-sm font-semibold">09:00 AM - 07:00 PM</p>
-                    <p className="text-xs text-destructive font-medium mt-1">Closed on Sundays</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
