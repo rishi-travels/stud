@@ -39,10 +39,23 @@ const GALLERY_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-performance"),
 ];
 
+const HERO_IMAGES = [
+  PlaceHolderImages.find(p => p.id === "hero-ns400"),
+  PlaceHolderImages.find(p => p.id === "hero-stunt"),
+  PlaceHolderImages.find(p => p.id === "hero-performance"),
+].filter((img): img is any => !!img);
+
 export default function Home() {
   const isMobile = useIsMobile();
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
-  const heroImg = PlaceHolderImages.find(p => p.id === "hero-ns400");
+  const [heroIndex, setHeroIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const autoplayPlugin = React.useMemo(
     () => Autoplay({ delay: 1500, stopOnInteraction: false }),
@@ -64,16 +77,23 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[85vh] w-full flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
-          {heroImg?.imageUrl ? (
-            <Image
-              src={heroImg.imageUrl}
-              alt={heroImg.description}
-              fill
-              className="object-cover opacity-90 transition-opacity duration-1000"
-              priority
-              data-ai-hint={heroImg.imageHint}
-            />
-          ) : null}
+          {HERO_IMAGES.map((img, idx) => (
+            <div
+              key={img.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                idx === heroIndex ? "opacity-90" : "opacity-0"
+              }`}
+            >
+              <Image
+                src={img.imageUrl}
+                alt={img.description}
+                fill
+                className="object-cover"
+                priority={idx === 0}
+                data-ai-hint={img.imageHint}
+              />
+            </div>
+          ))}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
         </div>
