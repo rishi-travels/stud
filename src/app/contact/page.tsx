@@ -103,9 +103,22 @@ export default function ContactPage() {
                 <label className="text-sm font-medium">Message</label>
                 <Textarea placeholder="Tell us more about your query..." className="min-h-[150px]" required />
               </div>
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 py-6 text-lg font-bold">
-                Send Message <Send className="ml-2 h-5 w-5" />
-              </Button>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 py-6 text-lg font-bold">
+                  Send Message <Send className="ml-2 h-5 w-5" />
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  className="flex-1 border-primary text-primary hover:bg-primary/10 py-6 text-lg font-bold"
+                  asChild
+                >
+                  <a href="https://wa.me/919628510443" target="_blank" rel="noopener noreferrer">
+                    Direct Message
+                  </a>
+                </Button>
+              </div>
             </form>
           </CardContent>
         </Card>
