@@ -8,6 +8,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { recommendCareerPathway, type AICareerPathwayOutput } from "@/ai/flows/ai-career-pathway-tool";
 
 export default function AICareerTool() {
@@ -15,9 +22,9 @@ export default function AICareerTool() {
   const [result, setResult] = useState<AICareerPathwayOutput | null>(null);
   const [formData, setFormData] = useState({
     name: "",
-    skills: "",
+    phoneNumber: "",
+    jobRole: "",
     interests: "",
-    currentJobRole: "",
     resumeText: ""
   });
 
@@ -25,11 +32,11 @@ export default function AICareerTool() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Prepending the name to the skills for better AI context
+      // Mapping the updated form data to the AI flow input
       const output = await recommendCareerPathway({
-        skills: `Applicant Name: ${formData.name}\n\nCore Skills: ${formData.skills}`,
+        skills: `Applicant Name: ${formData.name}\nPhone: ${formData.phoneNumber}\nApplying for: ${formData.jobRole}`,
         interests: formData.interests,
-        currentJobRole: formData.currentJobRole,
+        currentJobRole: formData.jobRole,
         resumeText: formData.resumeText
       });
       setResult(output);
@@ -45,7 +52,7 @@ export default function AICareerTool() {
       <Card className="glass-card overflow-hidden">
         <div className="bg-gradient-to-r from-primary/20 to-accent/20 h-2 w-full" />
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-2xl font-bold font-headline">
             <Sparkles className="h-6 w-6 text-accent" /> Apply For Job
           </CardTitle>
         </CardHeader>
@@ -62,32 +69,44 @@ export default function AICareerTool() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">Job Role</label>
+                <label className="text-sm font-medium">Phone Number</label>
                 <Input 
-                  placeholder="e.g. Sales Associate, Mechanic..." 
-                  value={formData.currentJobRole}
-                  onChange={(e) => setFormData({...formData, currentJobRole: e.target.value})}
+                  placeholder="+91 99999 99999" 
+                  value={formData.phoneNumber}
+                  onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+                  required 
                 />
               </div>
             </div>
+
             <div className="space-y-2">
-              <label className="text-sm font-medium">Your Core Skills</label>
-              <Input 
-                placeholder="e.g. Mechanical engineering, customer service..." 
-                value={formData.skills}
-                onChange={(e) => setFormData({...formData, skills: e.target.value})}
-                required 
-              />
+              <label className="text-sm font-medium">Job Role</label>
+              <Select 
+                onValueChange={(value) => setFormData({...formData, jobRole: value})}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a job role" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Manager">Manager</SelectItem>
+                  <SelectItem value="Mechanic">Mechanic</SelectItem>
+                  <SelectItem value="Salesman">Salesman</SelectItem>
+                  <SelectItem value="Computer Operator">Computer Operator</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
+
             <div className="space-y-2">
               <label className="text-sm font-medium">Career Interests & Preferences</label>
               <Textarea 
-                placeholder="What kind of work excites you? e.g. Electric vehicles, fleet management..." 
+                placeholder="What kind of work excites you? e.g. Electric vehicles, customer service..." 
                 value={formData.interests}
                 onChange={(e) => setFormData({...formData, interests: e.target.value})}
                 required
               />
             </div>
+
             <div className="space-y-2">
               <label className="text-sm font-medium">Resume Content (Optional)</label>
               <Textarea 
@@ -97,8 +116,9 @@ export default function AICareerTool() {
                 onChange={(e) => setFormData({...formData, resumeText: e.target.value})}
               />
             </div>
-            <Button type="submit" disabled={loading} className="w-full bg-accent text-background hover:bg-accent/80 font-bold py-6">
-              {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Analyzing...</> : "Generate Career Pathway"}
+
+            <Button type="submit" disabled={loading} className="w-full bg-accent text-background hover:bg-accent/80 font-bold py-6 text-lg">
+              {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Generate Career Pathway"}
             </Button>
           </form>
         </CardContent>
