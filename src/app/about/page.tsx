@@ -140,15 +140,19 @@ export default function AboutPage() {
 
       {/* Achievement Stats */}
       <section className="container mx-auto px-4 pb-20">
-        <div className="max-w-4xl mx-auto bg-primary text-primary-foreground rounded-[40px] p-12 md:p-16 shadow-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-center items-center">
+        <div className="max-w-5xl mx-auto bg-white text-primary rounded-[40px] p-12 md:p-16 shadow-xl border border-primary/5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center items-center">
             <div className="space-y-2">
               <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">25+</h4>
-              <p className="text-lg font-medium opacity-90 uppercase tracking-widest">Years of Experience</p>
+              <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Years of Experience</p>
             </div>
             <div className="space-y-2">
               <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">50k+</h4>
-              <p className="text-lg font-medium opacity-90 uppercase tracking-widest">Happy Customers</p>
+              <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Happy Customers</p>
+            </div>
+            <div className="space-y-2">
+              <h4 className="text-6xl md:text-7xl font-extrabold tracking-tighter italic">17+</h4>
+              <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Dedicated Employees</p>
             </div>
           </div>
         </div>
