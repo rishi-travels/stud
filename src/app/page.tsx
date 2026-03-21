@@ -142,14 +142,14 @@ export default function Home() {
       </div>
 
       {/* Welcome Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 text-center max-w-4xl space-y-12">
-          <div className="space-y-2">
-            <h2 className="text-3xl md:text-5xl font-bold font-headline text-accent">Welcome to</h2>
-            <h1 className="text-4xl md:text-7xl font-bold font-headline text-blue-950">Uday Autosales</h1>
+      <section className="py-8 md:py-12 bg-white">
+        <div className="container mx-auto px-4 text-center max-w-4xl space-y-6">
+          <div className="space-y-1">
+            <h2 className="text-2xl md:text-3xl font-bold font-headline text-accent">Welcome to</h2>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline text-blue-950">Uday Autosales</h1>
           </div>
           
-          <div className="space-y-6 text-muted-foreground text-lg md:text-xl leading-relaxed font-medium">
+          <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed font-medium">
             <p>
               Uday Autosales Pvt. Ltd. is founded by Udai Raj Singh. Uday Autosales Pvt. Ltd. is one of the most respected, loved and renowned business house of Varanasi.
             </p>
@@ -158,8 +158,8 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="pt-8">
-            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-lg h-14 px-12 rounded-full font-bold">
+          <div className="pt-4">
+            <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-base h-12 px-10 rounded-full font-bold">
               <Link href="/vehicles">Explore Collection</Link>
             </Button>
           </div>
