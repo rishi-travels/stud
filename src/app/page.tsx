@@ -194,9 +194,16 @@ export default function Home() {
       <section className="bg-gray-50/50 py-16 overflow-hidden">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-block relative mb-12 animate-in fade-in slide-in-from-top-4 duration-1000 animate-float">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase italic">
-              <span className="inline-block animate-fade-in-out">Featured</span>{" "}
-              <span className="inline-block animate-fade-in-out [animation-delay:1.5s] text-primary">Products</span>
+            <h2 className="text-xl sm:text-3xl md:text-5xl font-bold font-headline tracking-tight uppercase italic flex justify-center flex-wrap">
+              {"FEATURED PRODUCTS".split("").map((char, i) => (
+                <span
+                  key={i}
+                  className={`inline-block animate-fade-in-out ${i >= 9 ? 'text-primary' : ''}`}
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
             </h2>
             <div className="h-1.5 w-24 bg-accent mx-auto mt-4 rounded-full" />
           </div>
