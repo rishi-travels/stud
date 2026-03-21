@@ -142,8 +142,13 @@ export default function Home() {
                         </span>
                       </div>
                     </div>
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 flex items-center justify-between">
                       <h3 className="text-2xl font-bold">{vehicle.name}</h3>
+                      <Button variant="outline" size="sm" asChild className="border-primary text-primary hover:bg-primary hover:text-white font-bold rounded-full px-5 transition-all">
+                        <Link href="/vehicles">
+                          More
+                        </Link>
+                      </Button>
                     </CardContent>
                   </Card>
                 </CarouselItem>
