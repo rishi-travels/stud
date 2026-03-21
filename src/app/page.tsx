@@ -188,8 +188,8 @@ export default function Home() {
       </section>
 
       {/* Featured Products Gallery Section */}
-      <section className="bg-gray-50/50 py-10 overflow-hidden">
-        <div className="container mx-auto px-4 text-center space-y-8">
+      <section className="bg-gray-50/50 py-16 overflow-hidden">
+        <div className="container mx-auto px-4 text-center space-y-12">
           <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
           
           <div className="relative max-w-5xl mx-auto">
@@ -197,9 +197,9 @@ export default function Home() {
               <CarouselContent>
                 {FEATURED_PRODUCTS.map((product, index) => (
                   <CarouselItem key={index}>
-                    <div className="flex flex-col items-center justify-center py-4">
-                      {/* Product Image Only */}
-                      <div className="relative h-[250px] md:h-[350px] w-full max-w-4xl px-4">
+                    <div className="flex flex-col items-center justify-center py-8 space-y-8">
+                      {/* Product Image */}
+                      <div className="relative h-[250px] md:h-[400px] w-full max-w-4xl px-4">
                         {product.image?.imageUrl && (
                           <Image
                             src={product.image.imageUrl}
@@ -209,6 +209,18 @@ export default function Home() {
                             data-ai-hint={product.image.imageHint}
                           />
                         )}
+                      </div>
+                      
+                      {/* Product Info & Button */}
+                      <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <h3 className="text-3xl md:text-5xl font-bold font-headline tracking-tight">{product.name}</h3>
+                        <div className="space-y-1">
+                          <p className="text-2xl font-bold text-primary">{product.price}</p>
+                          <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">{product.disclaimer}</p>
+                        </div>
+                        <Button asChild size="lg" className="rounded-full px-12 bg-primary hover:bg-primary/90 font-bold h-12 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                          <Link href="/vehicles">More</Link>
+                        </Button>
                       </div>
                     </div>
                   </CarouselItem>
