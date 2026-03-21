@@ -31,10 +31,10 @@ const TEAM_MEMBERS = [
     bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
   },
   {
-    name: "Deepak Mishra",
-    role: "Sales Head",
+    name: "Diwakar Mishra",
+    role: "Analyst Director",
     image: PlaceHolderImages.find(p => p.id === "team-member-4"),
-    bio: "Deepak brings over a decade of sales leadership to help our customers drive home their dream Bajaj."
+    bio: "Diwakar specializes in strategic market analysis and operational excellence at Chhaya Bajaj."
   }
 ];
 
