@@ -27,10 +27,10 @@ const VEHICLE_DATA = [
         tag: "Iconic"
       },
       {
-        name: "Pulsar RS200",
-        description: "The fastest Pulsar yet with aerodynamic design and race-bred performance.",
-        specs: { engine: "199.5cc", Mileage: "35 kmpl", "fuel tank": "13 L" },
-        image: PlaceHolderImages.find(p => p.id === "hero-performance"),
+        name: "Pulsar 125",
+        description: "The fastest Pulsar in the entry segment with race-bred performance.",
+        specs: { engine: "124.4cc", Mileage: "51 kmpl", "fuel tank": "11.5 L" },
+        image: PlaceHolderImages.find(p => p.id === "pulsar-125"),
         tag: "Racing"
       },
       {
@@ -93,10 +93,10 @@ const VEHICLE_DATA = [
         tag: "EV"
       },
       {
-        name: "Chetak Urbane",
+        name: "Platina 110",
         description: "Sleek, smart, and designed for the modern commuter with agile performance.",
         specs: { range: "113 km", speed: "73 kmph", charge: "4.8 hrs" },
-        image: PlaceHolderImages.find(p => p.id === "chetak-urbane"),
+        image: PlaceHolderImages.find(p => p.id === "platina-110"),
         tag: "Smart EV"
       },
       {

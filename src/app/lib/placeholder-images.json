@@ -144,6 +144,12 @@
       "description": "Test Ride Event",
       "imageUrl": "https://picsum.photos/seed/gallery4/800/600",
       "imageHint": "bike event"
+    },
+    {
+      "id": "pulsar-125",
+      "description": "Bajaj Pulsar 125",
+      "imageUrl": "https://media.zigcdn.com/media/model/2025/Sep/bajaj-pulsar-ns-125-right-side-view_600x400.jpg",
+      "imageHint": "pulsar 125"
     }
   ]
 }
