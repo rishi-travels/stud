@@ -1,0 +1,47 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-showroom",
+      "description": "Modern automotive showroom with Bajaj motorcycles",
+      "imageUrl": "https://picsum.photos/seed/showroom-1/1200/600",
+      "imageHint": "automotive showroom"
+    },
+    {
+      "id": "pulsar-n250",
+      "description": "Bajaj Pulsar N250 in black",
+      "imageUrl": "https://picsum.photos/seed/pulsar-1/600/400",
+      "imageHint": "motorcycle sports"
+    },
+    {
+      "id": "dominar-400",
+      "description": "Bajaj Dominar 400 touring bike",
+      "imageUrl": "https://picsum.photos/seed/dominar-1/600/400",
+      "imageHint": "touring motorcycle"
+    },
+    {
+      "id": "chetak-electric",
+      "description": "Bajaj Chetak Electric Scooter",
+      "imageUrl": "https://picsum.photos/seed/chetak-1/600/400",
+      "imageHint": "electric scooter"
+    },
+    {
+      "id": "service-center",
+      "description": "State of the art Bajaj service center",
+      "imageUrl": "https://picsum.photos/seed/service-1/800/500",
+      "imageHint": "mechanic workshop"
+    },
+    {
+      "id": "team-members",
+      "description": "Professional team at Chhaya Bajaj",
+      "imageUrl": "https://picsum.photos/seed/team-1/800/500",
+      "imageHint": "business team"
+    },
+    {
+      "id": "promotion-1",
+      "description": "Festival offer promotion",
+      "imageUrl": "https://picsum.photos/seed/promo-1/800/400",
+      "imageHint": "sale promotion"
+    }
+  ]
+}
