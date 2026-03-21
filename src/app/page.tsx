@@ -14,7 +14,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
 const PERFORMANCE_VEHICLES = [
-  { name: "Dominar 400", type: "Sports Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
+  { name: "Pulsar 150", type: "Classic Performance", image: PlaceHolderImages.find(p => p.id === "pulsar-150") },
   { name: "Pulsar NS200", type: "Street Fighter", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
   { name: "Pulsar 125", type: "Racing", image: PlaceHolderImages.find(p => p.id === "pulsar-125") },
   { name: "Pulsar N160", type: "Street", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },

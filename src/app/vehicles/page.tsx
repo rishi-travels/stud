@@ -13,11 +13,11 @@ const VEHICLE_DATA = [
     category: "Daring",
     vehicles: [
       {
-        name: "Dominar 400",
-        description: "Engineered for those who want to dominate every road and landscape with touring-ready performance.",
-        specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
-        image: PlaceHolderImages.find(p => p.id === "dominar-400"),
-        tag: "Hyper-Tourer"
+        name: "Pulsar 150",
+        description: "The classic performance icon that redefined the 150cc segment in India. Perfect blend of power and economy.",
+        specs: { engine: "149.5cc", Mileage: "48 kmpl", "fuel tank": "15 L" },
+        image: PlaceHolderImages.find(p => p.id === "pulsar-150"),
+        tag: "Classic"
       },
       {
         name: "Pulsar NS200",
@@ -39,13 +39,6 @@ const VEHICLE_DATA = [
         specs: { engine: "160.3cc", Mileage: "45 kmpl", "fuel tank": "14 L" },
         image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
         tag: "Street"
-      },
-      {
-        name: "Pulsar 150",
-        description: "The classic performance icon that redefined the 150cc segment in India.",
-        specs: { engine: "149.5cc", Mileage: "48 kmpl", "fuel tank": "15 L" },
-        image: PlaceHolderImages.find(p => p.id === "hero-performance"),
-        tag: "Classic"
       }
     ]
   },

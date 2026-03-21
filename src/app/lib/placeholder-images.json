@@ -150,6 +150,12 @@
       "description": "Bajaj Pulsar 125",
       "imageUrl": "https://media.zigcdn.com/media/model/2025/Sep/bajaj-pulsar-ns-125-right-side-view_600x400.jpg",
       "imageHint": "pulsar 125"
+    },
+    {
+      "id": "pulsar-150",
+      "description": "Bajaj Pulsar 150",
+      "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2023/8/336517730/JO/GH/OG/3535906/bajaj-motorcycle-pulsar-150-500x500.png",
+      "imageHint": "pulsar 150"
     }
   ]
 }
