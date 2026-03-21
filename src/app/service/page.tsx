@@ -2,12 +2,8 @@
 "use client";
 
 import Image from "next/image";
-import { Wrench, Settings, ShieldCheck, Clock, CheckCircle2, Phone, Calendar, PenTool } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { Wrench, Settings, ShieldCheck, Clock, CheckCircle2, Phone } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const SERVICES = [
@@ -34,16 +30,7 @@ const SERVICES = [
 ];
 
 export default function ServicePage() {
-  const { toast } = useToast();
   const serviceImg = PlaceHolderImages.find(p => p.id === "service-center");
-
-  const handleBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Service Request Received",
-      description: "We will contact you shortly to confirm your appointment time.",
-    });
-  };
 
   return (
     <div className="space-y-24 pb-24">
@@ -95,13 +82,13 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Booking Form & Contact */}
+      {/* Benefits & Contact */}
       <section className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl font-bold font-headline">Book Your <span className="text-primary">Service</span></h2>
+            <h2 className="text-4xl font-bold font-headline">Quality <span className="text-primary">Service</span> Guaranteed</h2>
             <p className="text-lg text-muted-foreground">
-              Schedule your visit in less than a minute. Our team will verify the slot and get back to you with a confirmation.
+              We provide professional maintenance for all Bajaj vehicles. Our team of certified technicians ensures that your vehicle gets the best treatment using genuine parts.
             </p>
             
             <div className="space-y-6">
@@ -119,83 +106,44 @@ export default function ServicePage() {
                 </div>
               ))}
             </div>
-
-            <div className="bg-blue-50 p-8 rounded-3xl space-y-4 border border-blue-100">
-              <h4 className="font-bold text-xl flex items-center gap-2">
-                <Phone className="h-5 w-5 text-primary" /> Urgent Assistance?
-              </h4>
-              <p className="text-sm text-blue-900/70">
-                For roadside assistance or immediate technical help, call our 24/7 helpline:
-              </p>
-              <p className="text-2xl font-bold text-primary tracking-tight">+91 1800 200 1234</p>
-            </div>
           </div>
 
-          <Card className="shadow-2xl border-none">
-            <CardHeader className="bg-primary text-white rounded-t-lg">
-              <CardTitle>Service Appointment Form</CardTitle>
-              <CardDescription className="text-white/80">Please fill in your details and preferred date.</CardDescription>
-            </CardHeader>
-            <CardContent className="p-8">
-              <form onSubmit={handleBooking} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold flex items-center gap-2">
-                       Full Name
-                    </label>
-                    <Input placeholder="John Doe" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold flex items-center gap-2">
-                       Phone Number
-                    </label>
-                    <Input placeholder="+91 99999 99999" required />
-                  </div>
+          <div className="space-y-6">
+            <div className="bg-blue-50 p-8 rounded-3xl space-y-6 border border-blue-100 shadow-sm">
+              <div className="space-y-2">
+                <h4 className="font-bold text-2xl flex items-center gap-2">
+                  <Phone className="h-6 w-6 text-primary" /> Service Helpline
+                </h4>
+                <p className="text-blue-900/70">
+                  Contact us directly to schedule your service appointment or for any technical queries.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Call for Booking</p>
+                  <p className="text-3xl font-extrabold text-primary tracking-tight">+91 98765 43210</p>
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold flex items-center gap-2">
-                      <Calendar className="h-4 w-4" /> Preferred Date
-                    </label>
-                    <Input type="date" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold flex items-center gap-2">
-                      <PenTool className="h-4 w-4" /> Vehicle Model
-                    </label>
-                    <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                      <option>Pulsar N250</option>
-                      <option>Dominar 400</option>
-                      <option>Chetak Electric</option>
-                      <option>Freedom 125</option>
-                      <option>Other</option>
-                    </select>
+                <div className="pt-4 border-t border-blue-200">
+                  <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Emergency/Roadside Assistance</p>
+                  <p className="text-2xl font-bold text-accent tracking-tight">+91 1800 200 1234</p>
+                </div>
+              </div>
+            </div>
+            
+            <Card className="glass-card">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <Clock className="h-6 w-6 text-primary shrink-0 mt-1" />
+                  <div>
+                    <h5 className="font-bold">Service Hours</h5>
+                    <p className="text-sm text-muted-foreground">Monday - Saturday</p>
+                    <p className="text-sm font-semibold">09:00 AM - 07:00 PM</p>
+                    <p className="text-xs text-destructive font-medium mt-1">Closed on Sundays</p>
                   </div>
                 </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold">Service Type</label>
-                  <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                    <option>Free Service (Scheduled)</option>
-                    <option>Paid Service</option>
-                    <option>Accidental Repair</option>
-                    <option>Running Repair</option>
-                    <option>EV Health Check</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold">Additional Comments</label>
-                  <Textarea placeholder="Any specific issues you'd like us to look at?" className="min-h-[100px]" />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-7 text-lg">
-                  Submit Service Request
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
     </div>
