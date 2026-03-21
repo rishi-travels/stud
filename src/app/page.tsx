@@ -4,13 +4,14 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bike, ShieldCheck, Zap, Award } from "lucide-react";
+import { Bike, ShieldCheck, Zap, Award, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Autoplay from "embla-carousel-autoplay";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 const PERFORMANCE_VEHICLES = [
   { name: "Pulsar N250", type: "Naked Sports", image: PlaceHolderImages.find(p => p.id === "pulsar-n250") },
@@ -40,23 +41,25 @@ const HERO_IMAGES = [
 
 export default function Home() {
   const isMobile = useIsMobile();
-  const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
   const [heroIndex, setHeroIndex] = React.useState(0);
+
+  const nextHero = React.useCallback(() => {
+    setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+  }, []);
+
+  const prevHero = React.useCallback(() => {
+    setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+  }, []);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+      nextHero();
     }, 2000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextHero]);
 
   const autoplayPlugin = React.useMemo(
     () => Autoplay({ delay: 1500, stopOnInteraction: false }),
-    []
-  );
-
-  const autoplayPlugin2 = React.useMemo(
-    () => Autoplay({ delay: 2000, stopOnInteraction: false }),
     []
   );
 
@@ -67,15 +70,16 @@ export default function Home() {
 
   return (
     <div className="space-y-0 pb-24">
-      {/* Hero Section - Banner Mode */}
-      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center overflow-hidden bg-black">
+      {/* Hero Section - Banner Mode with Navigation */}
+      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center overflow-hidden bg-black group">
         <div className="absolute inset-0 z-0">
           {HERO_IMAGES.map((img, idx) => (
             <div
               key={img.id}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
+              className={cn(
+                "absolute inset-0 transition-opacity duration-1000",
                 idx === heroIndex ? "opacity-100" : "opacity-0"
-              }`}
+              )}
             >
               <Image
                 src={img.imageUrl}
@@ -90,8 +94,36 @@ export default function Home() {
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
         </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={(e) => { e.preventDefault(); prevHero(); }}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+        >
+          <ChevronLeft className="h-8 w-8" />
+        </button>
+        <button
+          onClick={(e) => { e.preventDefault(); nextHero(); }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+        >
+          <ChevronRight className="h-8 w-8" />
+        </button>
+
+        {/* Transition Page Status Dots */}
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {HERO_IMAGES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setHeroIndex(idx)}
+              className={cn(
+                "w-2.5 h-2.5 rounded-full transition-all border border-white/50",
+                idx === heroIndex ? "bg-accent scale-125 border-accent" : "bg-white/30 hover:bg-white/50"
+              )}
+            />
+          ))}
+        </div>
         
-        {/* Banner Badges Overlay (Optional stylistic element from image) */}
+        {/* Banner Badges Overlay */}
         <div className="absolute bottom-0 w-full bg-black/40 backdrop-blur-md py-3 hidden md:block">
           <div className="container mx-auto px-4 flex justify-between items-center text-white text-[10px] uppercase font-bold tracking-widest">
             <div className="flex items-center gap-4">
@@ -106,7 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Welcome Section - As per reference image */}
+      {/* Welcome Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 text-center max-w-4xl space-y-12">
           <div className="space-y-2">
@@ -131,7 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Performance Section */}
+      {/* Daring Collection */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 space-y-2">
           <h2 className="text-3xl font-bold font-headline">Daring <span className="text-primary">Collection</span></h2>
