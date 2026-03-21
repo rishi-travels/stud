@@ -55,7 +55,7 @@ export default function AboutPage() {
               <div className="h-1.5 w-24 bg-accent rounded-full" />
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Founded in 1998, Chhaya Bajaj has grown from a small dealership to one of the most respected names in the automotive industry. We believe that buying a vehicle is not just a transaction; it's the start of a lifelong journey.
+              Chhaya Bajaj has grown from a sub dealership to one of the most respected names in the automotive industry. We believe that buying a vehicle is not just a transaction; it's the start of a lifelong journey.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Our commitment to excellence is reflected in every aspect of our business, from the carefully selected range of Bajaj vehicles to our state-of-the-art service center.
