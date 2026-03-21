@@ -111,10 +111,9 @@ export default function Home() {
                 </div>
               </div>
               <CardContent className="p-4 flex justify-between items-center">
-                <Button variant="ghost" className="group-hover:text-primary p-0 h-auto font-bold" asChild>
-                  <Link href="/vehicles" className="flex items-center gap-2">
-                    Explore Details <ArrowRight className="h-4 w-4" />
-                  </Link>
+                <span className="font-bold text-primary text-lg">{vehicle.name}</span>
+                <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold" asChild>
+                  <Link href="/vehicles">More</Link>
                 </Button>
               </CardContent>
             </Card>
