@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 w-full border-b border-blue-100 bg-blue-50/90 backdrop-blur-lg">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
@@ -34,12 +34,12 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium transition-colors hover:text-accent"
+                className="text-sm font-semibold transition-colors text-blue-900 hover:text-accent"
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-primary hover:bg-primary/90">
+            <Button asChild className="bg-primary hover:bg-primary/90 font-bold">
               <Link href="/contact">Book a Test Ride</Link>
             </Button>
           </div>
@@ -48,15 +48,15 @@ export default function Navbar() {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-blue-900">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-background border-l border-border">
+              <SheetContent side="right" className="bg-blue-50 border-l border-blue-100">
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
-                    Main navigation links for Chhaya Bajaj Auto.
+                    Access all pages of Chhaya Bajaj Auto including Home, About, EMI Calculator, Careers, and Contact.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-12">
@@ -65,13 +65,13 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center space-x-4 text-lg font-medium hover:text-accent"
+                      className="flex items-center space-x-4 text-lg font-bold text-blue-900 hover:text-accent"
                     >
                       <item.icon className="h-5 w-5" />
                       <span>{item.name}</span>
                     </Link>
                   ))}
-                  <Button asChild className="w-full mt-4">
+                  <Button asChild className="w-full mt-4 font-bold">
                     <Link href="/contact" onClick={() => setIsOpen(false)}>
                       Book a Test Ride
                     </Link>
