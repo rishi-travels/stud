@@ -179,8 +179,10 @@ export default function Home() {
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h4 className="text-xl font-bold">{feature.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                <div className="space-y-2">
+                  <h4 className="text-xl font-bold">{feature.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -212,9 +214,9 @@ export default function Home() {
                       </div>
                       
                       {/* Product Info & Button */}
-                      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <h3 className="text-3xl md:text-5xl font-bold font-headline tracking-tight">{product.name}</h3>
-                        <Button asChild size="lg" className="rounded-full px-12 bg-primary hover:bg-primary/90 font-bold h-12 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <h3 className="text-2xl md:text-4xl font-bold font-headline tracking-tight">{product.name}</h3>
+                        <Button asChild size="default" className="rounded-full px-8 bg-primary hover:bg-primary/90 font-bold h-10 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                           <Link href="/vehicles">More</Link>
                         </Button>
                       </div>
