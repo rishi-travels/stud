@@ -6,8 +6,8 @@ import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Uday Autosales | Premium Bajaj Dealership in Varanasi',
-  description: 'Experience the thrill of Bajaj performance with Uday Autosales. Explore our range of motorcycles, scooters, and electric vehicles.',
+  title: 'Chhaya Bajaj | Premium Bajaj Dealership in Varanasi',
+  description: 'Experience the thrill of Bajaj performance with Chhaya Bajaj. Explore our range of motorcycles, scooters, and electric vehicles.',
 };
 
 export default function RootLayout({

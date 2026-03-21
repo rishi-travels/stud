@@ -146,12 +146,12 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center max-w-4xl space-y-6">
           <div className="space-y-1">
             <h2 className="text-2xl md:text-3xl font-bold font-headline text-accent">Welcome to</h2>
-            <h1 className="text-3xl md:text-5xl font-bold font-headline text-blue-950">Uday Autosales</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-headline text-blue-950">Chhaya Bajaj</h1>
           </div>
           
           <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed font-medium">
             <p>
-              Uday Autosales Pvt. Ltd. is founded by Udai Raj Singh. Uday Autosales Pvt. Ltd. is one of the most respected, loved and renowned business house of Varanasi.
+              Chhaya Bajaj is one of the most respected, loved and renowned business house of Varanasi. We bring you the world-class performance and reliability of Bajaj vehicles.
             </p>
           </div>
           
@@ -251,7 +251,7 @@ export default function Home() {
       <section className="bg-secondary/30 py-20">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl font-bold font-headline">The Uday <span className="text-primary">Advantage</span></h2>
+            <h2 className="text-4xl font-bold font-headline">The Chhaya <span className="text-primary">Advantage</span></h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Varanasi's most trusted destination for Bajaj performance and excellence.
             </p>
@@ -262,7 +262,7 @@ export default function Home() {
               { icon: ShieldCheck, title: "Trusted Service", desc: "Expert technicians with years of certified experience." },
               { icon: Zap, title: "Flash Delivery", desc: "Minimal waiting times with our streamlined process." },
               { icon: Bike, title: "Wide Selection", desc: "The complete range of Bajaj motorcycles and scooters." },
-              { icon: Award, title: "Legacy of Trust", desc: "Founded by Udai Raj Singh, building trust across Varanasi." }
+              { icon: Award, title: "Legacy of Trust", desc: "Building trust across Varanasi through excellence." }
             ].map((feature, i) => (
               <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-border space-y-4 hover:translate-y-[-5px] transition-transform">
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">

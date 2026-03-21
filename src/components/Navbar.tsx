@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold tracking-tighter text-white font-headline">
-              UDAY <span className="text-accent">AUTOSALES</span>
+              CHHAYA <span className="text-accent">BAJAJ</span>
             </span>
           </Link>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
-                    Access all pages of Uday Autosales including Home, Vehicles, Service, About, Careers, and Contact.
+                    Access all pages of Chhaya Bajaj including Home, Vehicles, Service, About, Careers, and Contact.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-12">
