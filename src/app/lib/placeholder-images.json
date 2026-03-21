@@ -54,6 +54,12 @@
       "description": "Festival offer promotion",
       "imageUrl": "https://picsum.photos/seed/bajaj-promo/800/400",
       "imageHint": "sale promotion"
+    },
+    {
+      "id": "freedom-125",
+      "description": "Bajaj Freedom 125 motorcycle in white and red",
+      "imageUrl": "https://picsum.photos/seed/freedom125/800/600",
+      "imageHint": "commuter motorcycle"
     }
   ]
 }

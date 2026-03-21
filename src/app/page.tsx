@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bike, ShieldCheck, Zap, Award } from "lucide-react";
+import { ArrowRight, Bike, ShieldCheck, Zap, Award, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -21,6 +21,7 @@ const HERO_SLIDES = [
 
 export default function Home() {
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
+  const freedomImg = PlaceHolderImages.find(p => p.id === "freedom-125");
 
   return (
     <div className="space-y-24 pb-24">
@@ -71,7 +72,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Vehicles */}
+      {/* Featured Vehicles Carousel */}
       <section className="container mx-auto px-4">
         <div className="flex items-end justify-between mb-12">
           <div className="space-y-4">
@@ -123,7 +124,7 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Why Choose Us - Chhaya Advantage */}
       <section className="bg-secondary/30 py-24">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
@@ -152,7 +153,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Promotions Section */}
+      {/* Featured Products Section - Added between Chhaya Advantage and Festival Dhamaka */}
+      <section className="bg-gray-50/50 py-20 overflow-hidden">
+        <div className="container mx-auto px-4 text-center space-y-12">
+          <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
+          
+          <div className="relative max-w-5xl mx-auto">
+            {/* Navigation Controls */}
+            <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between z-20 pointer-events-none">
+              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all">
+                <ChevronLeft className="h-6 w-6 text-primary group-hover:scale-110" />
+              </Button>
+              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all">
+                <ChevronRight className="h-6 w-6 text-primary group-hover:scale-110" />
+              </Button>
+            </div>
+
+            <div className="flex flex-col items-center">
+              {/* Product Image */}
+              <div className="relative h-[400px] w-full max-w-2xl mb-[-60px] z-10">
+                {freedomImg?.imageUrl && (
+                  <Image
+                    src={freedomImg.imageUrl}
+                    alt="Bajaj Freedom 125"
+                    fill
+                    className="object-contain"
+                    data-ai-hint={freedomImg.imageHint}
+                  />
+                )}
+              </div>
+
+              {/* Info Card */}
+              <div className="relative z-0 bg-white/60 backdrop-blur-xl rounded-[40px] p-12 pt-20 shadow-xl max-w-lg w-full space-y-6 border border-white/40">
+                <h3 className="text-3xl font-bold">Bajaj Freedom 125</h3>
+                <div className="space-y-2">
+                  <p className="text-xl font-medium text-gray-800">
+                    Price starting from <span className="font-bold">₹ 1 07 026/-*</span>
+                  </p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                    *Ex-Showroom Price Delhi
+                  </p>
+                </div>
+                <div className="pt-4">
+                  <Button asChild size="lg" className="bg-[#0070D2] hover:bg-[#005ba3] rounded-full px-12 h-14 text-lg font-bold text-white shadow-[0_10px_20px_-5px_rgba(0,112,210,0.4)] transition-all hover:-translate-y-1 active:scale-95">
+                    <Link href="/contact">Explore more</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Promotions Section - Festival Dhamaka */}
       <section className="container mx-auto px-4">
         <div className="relative rounded-3xl overflow-hidden min-h-[400px] flex items-center">
           {promoImg?.imageUrl ? (
