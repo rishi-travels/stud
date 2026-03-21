@@ -71,18 +71,6 @@ const VEHICLE_DATA = [
         specs: { engine: "115.45cc", Mileage: "70 kmpl", "fuel tank": "10.5 L" },
         image: PlaceHolderImages.find(p => p.id === "ct-110"),
         tag: "Rugged"
-      }
-    ]
-  },
-  {
-    category: "Electric",
-    vehicles: [
-      {
-        name: "Chetak Premium",
-        description: "The future of urban mobility. Timeless design, cutting-edge tech.",
-        specs: { range: "126 km", speed: "73 kmph", charge: "4.5 hrs" },
-        image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
-        tag: "Premium EV"
       },
       {
         name: "Platina 110",
@@ -97,6 +85,18 @@ const VEHICLE_DATA = [
         specs: { engine: "125cc", Mileage: "65 kmpl", "fuel tank": "2 L (CNG + Petrol)" },
         image: PlaceHolderImages.find(p => p.id === "freedom-125"),
         tag: "Innovative"
+      }
+    ]
+  },
+  {
+    category: "Electric",
+    vehicles: [
+      {
+        name: "Chetak Premium",
+        description: "The future of urban mobility. Timeless design, cutting-edge tech.",
+        specs: { range: "126 km", speed: "73 kmph", charge: "4.5 hrs" },
+        image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
+        tag: "Premium EV"
       }
     ]
   }
