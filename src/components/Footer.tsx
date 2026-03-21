@@ -15,7 +15,14 @@ export default function Footer() {
             <div className="flex space-x-4">
               <Link href="#" className="text-white/80 hover:text-accent transition-colors"><Facebook className="h-5 w-5" /></Link>
               <Link href="#" className="text-white/80 hover:text-accent transition-colors"><Twitter className="h-5 w-5" /></Link>
-              <Link href="#" className="text-white/80 hover:text-accent transition-colors"><Instagram className="h-5 w-5" /></Link>
+              <Link 
+                href="https://www.instagram.com/chhayabajajbhopapur/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/80 hover:text-accent transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </Link>
             </div>
           </div>
           
