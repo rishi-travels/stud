@@ -76,7 +76,7 @@ export default function Home() {
         
         <div className="container mx-auto px-4 relative z-10 space-y-8">
           <div className="max-w-3xl space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-white drop-shadow-2xl">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-white drop-shadow-2xl italic">
               Unleash the <span className="text-accent">Power</span> <br />
               Within
             </h1>
@@ -176,7 +176,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Gallery Section */}
+      {/* Featured Products Gallery Section - Simplified Gallery */}
       <section className="bg-gray-50/50 py-20 overflow-hidden">
         <div className="container mx-auto px-4 text-center space-y-12">
           <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
@@ -186,9 +186,9 @@ export default function Home() {
               <CarouselContent>
                 {FEATURED_PRODUCTS.map((product, index) => (
                   <CarouselItem key={index}>
-                    <div className="flex flex-col items-center pb-12">
-                      {/* Product Image */}
-                      <div className="relative h-[400px] w-full max-w-2xl mb-[-60px] z-10 px-4">
+                    <div className="flex flex-col items-center justify-center py-10">
+                      {/* Product Image Only */}
+                      <div className="relative h-[400px] md:h-[500px] w-full max-w-4xl px-4">
                         {product.image?.imageUrl && (
                           <Image
                             src={product.image.imageUrl}
@@ -198,29 +198,6 @@ export default function Home() {
                             data-ai-hint={product.image.imageHint}
                           />
                         )}
-                      </div>
-
-                      {/* Info Card */}
-                      <div className="relative z-0 bg-white/60 backdrop-blur-xl rounded-[40px] p-12 pt-24 shadow-xl max-w-lg w-full space-y-6 border border-white/40">
-                        <h3 className="text-3xl font-bold">{product.name}</h3>
-                        <div className="space-y-2">
-                          <p className="text-xl font-medium text-gray-800">
-                            Price starting from <span className="font-bold">{product.price}</span>
-                          </p>
-                          <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                            {product.disclaimer}
-                          </p>
-                        </div>
-                        <div className="pt-4">
-                          <Button 
-                            asChild 
-                            size="lg" 
-                            style={{ backgroundColor: product.themeColor }}
-                            className="hover:opacity-90 rounded-full px-12 h-14 text-lg font-bold text-white shadow-lg transition-all hover:-translate-y-1 active:scale-95 border-none"
-                          >
-                            <Link href="/contact">Explore more</Link>
-                          </Button>
-                        </div>
                       </div>
                     </div>
                   </CarouselItem>
