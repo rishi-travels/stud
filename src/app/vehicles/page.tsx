@@ -62,19 +62,6 @@ const VEHICLE_DATA = [
         tag: "EV"
       }
     ]
-  },
-  {
-    category: "Commuter",
-    vehicles: [
-      {
-        name: "Freedom 125",
-        price: "₹ 1.07 Lakh",
-        description: "Unmatched reliability and style for your daily city travels.",
-        specs: { engine: "125cc", mileage: "65 kmpl", gears: "5 Speed" },
-        image: PlaceHolderImages.find(p => p.id === "freedom-125"),
-        tag: "New Launch"
-      }
-    ]
   }
 ];
 
