@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <div className="space-y-0 pb-24">
       {/* Hero Section - Banner Mode with Navigation */}
-      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center overflow-hidden bg-black group">
+      <section className="relative w-full aspect-[4/3] md:aspect-[21/8] flex items-center overflow-hidden bg-black group">
         <div className="absolute inset-0 z-0">
           {HERO_IMAGES.map((img, idx) => (
             <div
