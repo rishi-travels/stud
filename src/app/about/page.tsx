@@ -25,7 +25,7 @@ const TEAM_MEMBERS = [
     bio: "Ashwini ensures every customer finds their perfect ride through personalized consultation."
   },
   {
-    name: "Amit Verma",
+    name: "Abhishek Mishra",
     role: "Technical Director",
     image: PlaceHolderImages.find(p => p.id === "team-member-3"),
     bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
