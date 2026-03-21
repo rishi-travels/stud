@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <div className="space-y-16 pb-24">
       {/* Hero Section */}
-      <section className="relative h-[85vh] w-full flex items-center overflow-hidden bg-black">
+      <section className="relative h-[60vh] md:h-[85vh] w-full flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           {HERO_IMAGES.map((img, idx) => (
             <div
@@ -90,6 +90,7 @@ export default function Home() {
                 fill
                 className="object-cover"
                 priority={idx === 0}
+                sizes="100vw"
                 data-ai-hint={img.imageHint}
               />
             </div>
@@ -100,11 +101,11 @@ export default function Home() {
         
         <div className="container mx-auto px-4 relative z-10 space-y-8">
           <div className="max-w-3xl space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-white drop-shadow-2xl italic">
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tighter leading-tight font-headline text-white drop-shadow-2xl italic">
               Unleash the <span className="text-accent">Power</span> <br />
               Within
             </h1>
-            <p className="text-xl text-white/90 md:text-2xl max-w-2xl font-medium drop-shadow-md">
+            <p className="text-lg text-white/90 md:text-2xl max-w-2xl font-medium drop-shadow-md">
               Experience the thrill of performance and the elegance of style. Chhaya Bajaj brings you the ultimate road machines.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
