@@ -19,7 +19,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-blue-200 bg-blue-100/90 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 w-full border-b border-blue-300 bg-blue-200/95 backdrop-blur-lg">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
@@ -52,7 +52,7 @@ export default function Navbar() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-blue-100 border-l border-blue-200">
+              <SheetContent side="right" className="bg-blue-200 border-l border-blue-300">
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">

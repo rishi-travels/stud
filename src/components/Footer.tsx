@@ -3,7 +3,7 @@ import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-100 border-t border-blue-200 mt-12">
+    <footer className="bg-blue-200 border-t border-blue-300 mt-12">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-blue-200 mt-12 pt-8 text-center text-sm text-blue-900/50">
+        <div className="border-t border-blue-300 mt-12 pt-8 text-center text-sm text-blue-900/50">
           <p>&copy; {new Date().getFullYear()} Chhaya Bajaj Auto. All rights reserved.</p>
         </div>
       </div>
