@@ -32,12 +32,6 @@ const ECO_VEHICLES = [
   { name: "Freedom 125", type: "Innovative", image: PlaceHolderImages.find(p => p.id === "freedom-125") },
 ];
 
-const HERO_SLIDES = [
-  PlaceHolderImages.find(p => p.id === "hero-stunt"),
-  PlaceHolderImages.find(p => p.id === "hero-style"),
-  PlaceHolderImages.find(p => p.id === "hero-performance"),
-];
-
 const GALLERY_IMAGES = [
   PlaceHolderImages.find(p => p.id === "gallery-1"),
   PlaceHolderImages.find(p => p.id === "gallery-2"),
@@ -48,6 +42,7 @@ const GALLERY_IMAGES = [
 export default function Home() {
   const isMobile = useIsMobile();
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
+  const heroImg = PlaceHolderImages.find(p => p.id === "hero-ns400");
 
   const autoplayPlugin = React.useMemo(
     () => Autoplay({ delay: 1500, stopOnInteraction: false }),
@@ -66,29 +61,21 @@ export default function Home() {
 
   return (
     <div className="space-y-16 pb-24">
-      {/* Hero Section with Slideshow */}
+      {/* Hero Section */}
       <section className="relative h-[85vh] w-full flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
-          <Carousel opts={{ loop: true }} plugins={[autoplayPlugin]} className="w-full h-full">
-            <CarouselContent className="h-[85vh]">
-              {HERO_SLIDES.map((slide, index) => (
-                <CarouselItem key={index} className="relative w-full h-full">
-                  {slide?.imageUrl ? (
-                    <Image
-                      src={slide.imageUrl}
-                      alt={slide.description || `Slide ${index + 1}`}
-                      fill
-                      className="object-cover opacity-80 transition-opacity duration-1000"
-                      priority={index === 0}
-                      data-ai-hint={slide.imageHint}
-                    />
-                  ) : null}
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
-          </Carousel>
+          {heroImg?.imageUrl ? (
+            <Image
+              src={heroImg.imageUrl}
+              alt={heroImg.description}
+              fill
+              className="object-cover opacity-90 transition-opacity duration-1000"
+              priority
+              data-ai-hint={heroImg.imageHint}
+            />
+          ) : null}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10 space-y-8">
@@ -151,7 +138,7 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Featured Daring Section */}
+      {/* Daring Collection */}
       <section className="container mx-auto px-4 py-8">
         <div className="mb-8 space-y-2">
           <h2 className="text-3xl font-bold font-headline">Daring <span className="text-primary">Collection</span></h2>
@@ -193,7 +180,7 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Featured Comfort Section */}
+      {/* Comfort Collection */}
       <section className="container mx-auto px-4 py-8">
         <div className="mb-8 space-y-2">
           <h2 className="text-3xl font-bold font-headline">Comfort <span className="text-primary">Collection</span></h2>

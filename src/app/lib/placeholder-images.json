@@ -1,6 +1,11 @@
-
 {
   "placeholderImages": [
+    {
+      "id": "hero-ns400",
+      "description": "The all-new Bajaj Pulsar NS400 in a cinematic urban setting",
+      "imageUrl": "https://cdn.bajajauto.com/-/media/assets/bajajauto/bikes/pulsar-ns400-2024/creativebanner/web-homepage.webp",
+      "imageHint": "premium motorcycle"
+    },
     {
       "id": "hero-stunt",
       "description": "Professional rider on a black Bajaj motorcycle performing a high-speed maneuver",
