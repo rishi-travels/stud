@@ -153,9 +153,6 @@ export default function Home() {
             <p>
               Uday Autosales Pvt. Ltd. is founded by Udai Raj Singh. Uday Autosales Pvt. Ltd. is one of the most respected, loved and renowned business house of Varanasi.
             </p>
-            <p>
-              With growth as the ultimate vision, the group has diversified into a variety of businesses, maintaining a focus on excellence and customer satisfaction.
-            </p>
           </div>
           
           <div className="pt-4">
