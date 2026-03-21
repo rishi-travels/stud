@@ -26,6 +26,30 @@ const VEHICLE_DATA = [
         specs: { engine: "199.5cc", power: "24.5 PS", torque: "18.74 Nm" },
         image: PlaceHolderImages.find(p => p.id === "hero-performance"),
         tag: "Iconic"
+      },
+      {
+        name: "Pulsar RS200",
+        price: "₹ 1.72 Lakh",
+        description: "The fastest Pulsar yet with aerodynamic design and race-bred performance.",
+        specs: { engine: "199.5cc", power: "24.5 PS", torque: "18.7 Nm" },
+        image: PlaceHolderImages.find(p => p.id === "hero-performance"),
+        tag: "Racing"
+      },
+      {
+        name: "Pulsar N160",
+        price: "₹ 1.30 Lakh",
+        description: "Precision power for the urban street racer with segment-first dual-channel ABS.",
+        specs: { engine: "160.3cc", power: "16 PS", torque: "14.65 Nm" },
+        image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
+        tag: "Street"
+      },
+      {
+        name: "Pulsar 150",
+        price: "₹ 1.15 Lakh",
+        description: "The classic performance icon that redefined the 150cc segment in India.",
+        specs: { engine: "149.5cc", power: "14 PS", torque: "13.25 Nm" },
+        image: PlaceHolderImages.find(p => p.id === "hero-performance"),
+        tag: "Classic"
       }
     ]
   },
