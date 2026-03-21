@@ -238,7 +238,7 @@ export default function Home() {
 
       {/* Promotions Section - Festival Dhamaka */}
       <section className="container mx-auto px-4">
-        <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center">
+        <div className="relative rounded-3xl overflow-hidden min-h-[350px] flex items-center mb-8">
           {promoImg?.imageUrl ? (
             <Image
               src={promoImg.imageUrl}
@@ -255,12 +255,13 @@ export default function Home() {
               Get exchange bonuses up to ₹5000 and low down payment starting at just ₹9,999. Valid until the end of this month!
             </p>
           </div>
-          {/* Shifted Button to Bottom Right with Animation */}
-          <div className="absolute bottom-8 right-8 z-20">
-            <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl" asChild>
-              <Link href="/contact">Claim Offer Now</Link>
-            </Button>
-          </div>
+        </div>
+        
+        {/* Repositioned Button - Center, below image, above footer */}
+        <div className="flex justify-center">
+          <Button size="lg" className="bg-accent text-white hover:bg-accent/80 font-bold animate-bounce shadow-2xl h-14 px-12 rounded-full text-lg" asChild>
+            <Link href="/contact">Claim Offer Now</Link>
+          </Button>
         </div>
       </section>
     </div>
