@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -70,6 +71,12 @@
       "id": "chetak-electric",
       "description": "Bajaj Chetak Electric Scooter",
       "imageUrl": "https://www.bikeleague.in/wp-content/uploads/2025/01/right_angle-2.png",
+      "imageHint": "electric scooter"
+    },
+    {
+      "id": "chetak-urbane",
+      "description": "Bajaj Chetak Urbane Electric Scooter",
+      "imageUrl": "https://imgd.aeplcdn.com/1280x720/n/bw/models/colors/bajaj-select-model-velluto-russo-1578996777259.jpg?q=75",
       "imageHint": "electric scooter"
     },
     {

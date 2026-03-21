@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bike, Zap, Shield, Gauge } from "lucide-react";
@@ -76,6 +77,13 @@ const VEHICLE_DATA = [
         specs: { range: "126 km", speed: "73 kmph", charge: "4.5 hrs" },
         image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
         tag: "Premium EV"
+      },
+      {
+        name: "Chetak Urbane",
+        description: "Stylish and efficient urban electric mobility for the modern city rider.",
+        specs: { range: "113 km", speed: "63 kmph", charge: "4.8 hrs" },
+        image: PlaceHolderImages.find(p => p.id === "chetak-urbane"),
+        tag: "Urban EV"
       }
     ]
   }
