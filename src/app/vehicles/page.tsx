@@ -77,12 +77,12 @@ export default function VehiclesPage() {
 
       <Tabs defaultValue="Pulsar" className="w-full">
         <div className="flex justify-center mb-12">
-          <TabsList className="bg-blue-50/50 p-1 border border-blue-100 h-auto flex flex-wrap justify-center">
+          <TabsList className="bg-blue-50/50 p-1 border border-blue-100 h-auto flex flex-nowrap justify-start md:justify-center overflow-x-auto no-scrollbar max-w-full">
             {VEHICLE_DATA.map((cat) => (
               <TabsTrigger 
                 key={cat.category} 
                 value={cat.category}
-                className="px-8 py-3 data-[state=active]:bg-primary data-[state=active]:text-white transition-all rounded-md font-bold"
+                className="px-6 md:px-8 py-3 data-[state=active]:bg-primary data-[state=active]:text-white transition-all rounded-md font-bold whitespace-nowrap"
               >
                 {cat.category}
               </TabsTrigger>
