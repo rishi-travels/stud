@@ -19,9 +19,32 @@ const HERO_SLIDES = [
   PlaceHolderImages.find(p => p.id === "hero-performance"),
 ];
 
+const FEATURED_PRODUCTS = [
+  {
+    name: "Bajaj Freedom 125",
+    price: "₹ 1 07 026/-*",
+    disclaimer: "*Ex-Showroom Price Delhi",
+    image: PlaceHolderImages.find(p => p.id === "freedom-125"),
+    themeColor: "#0070D2"
+  },
+  {
+    name: "Pulsar N250",
+    price: "₹ 1 50 845/-*",
+    disclaimer: "*Ex-Showroom Price Pune",
+    image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
+    themeColor: "#E31E24"
+  },
+  {
+    name: "Dominar 400",
+    price: "₹ 2 29 781/-*",
+    disclaimer: "*Ex-Showroom Price Mumbai",
+    image: PlaceHolderImages.find(p => p.id === "dominar-400"),
+    themeColor: "#1A5F1A"
+  }
+];
+
 export default function Home() {
   const promoImg = PlaceHolderImages.find(p => p.id === "promotion-1");
-  const freedomImg = PlaceHolderImages.find(p => p.id === "freedom-125");
 
   return (
     <div className="space-y-24 pb-24">
@@ -153,54 +176,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section - Added between Chhaya Advantage and Festival Dhamaka */}
+      {/* Featured Products Gallery Section */}
       <section className="bg-gray-50/50 py-20 overflow-hidden">
         <div className="container mx-auto px-4 text-center space-y-12">
           <h2 className="text-4xl font-bold font-headline">Featured <span className="text-primary">Products</span></h2>
           
           <div className="relative max-w-5xl mx-auto">
-            {/* Navigation Controls */}
-            <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between z-20 pointer-events-none">
-              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all">
-                <ChevronLeft className="h-6 w-6 text-primary group-hover:scale-110" />
-              </Button>
-              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all">
-                <ChevronRight className="h-6 w-6 text-primary group-hover:scale-110" />
-              </Button>
-            </div>
+            <Carousel opts={{ loop: true }} className="w-full">
+              <CarouselContent>
+                {FEATURED_PRODUCTS.map((product, index) => (
+                  <CarouselItem key={index}>
+                    <div className="flex flex-col items-center pb-12">
+                      {/* Product Image */}
+                      <div className="relative h-[400px] w-full max-w-2xl mb-[-60px] z-10 px-4">
+                        {product.image?.imageUrl && (
+                          <Image
+                            src={product.image.imageUrl}
+                            alt={product.name}
+                            fill
+                            className="object-contain drop-shadow-2xl"
+                            data-ai-hint={product.image.imageHint}
+                          />
+                        )}
+                      </div>
 
-            <div className="flex flex-col items-center">
-              {/* Product Image */}
-              <div className="relative h-[400px] w-full max-w-2xl mb-[-60px] z-10">
-                {freedomImg?.imageUrl && (
-                  <Image
-                    src={freedomImg.imageUrl}
-                    alt="Bajaj Freedom 125"
-                    fill
-                    className="object-contain"
-                    data-ai-hint={freedomImg.imageHint}
-                  />
-                )}
+                      {/* Info Card */}
+                      <div className="relative z-0 bg-white/60 backdrop-blur-xl rounded-[40px] p-12 pt-24 shadow-xl max-w-lg w-full space-y-6 border border-white/40">
+                        <h3 className="text-3xl font-bold">{product.name}</h3>
+                        <div className="space-y-2">
+                          <p className="text-xl font-medium text-gray-800">
+                            Price starting from <span className="font-bold">{product.price}</span>
+                          </p>
+                          <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                            {product.disclaimer}
+                          </p>
+                        </div>
+                        <div className="pt-4">
+                          <Button 
+                            asChild 
+                            size="lg" 
+                            style={{ backgroundColor: product.themeColor }}
+                            className="hover:opacity-90 rounded-full px-12 h-14 text-lg font-bold text-white shadow-lg transition-all hover:-translate-y-1 active:scale-95 border-none"
+                          >
+                            <Link href="/contact">Explore more</Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Navigation Controls */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between z-20 pointer-events-none">
+                <CarouselPrevious className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 ml-4">
+                  <ChevronLeft className="h-6 w-6 text-primary group-hover:scale-110" />
+                </CarouselPrevious>
+                <CarouselNext className="h-12 w-12 rounded-full bg-white shadow-lg pointer-events-auto border-none hover:bg-gray-100 group transition-all static translate-y-0 mr-4">
+                  <ChevronRight className="h-6 w-6 text-primary group-hover:scale-110" />
+                </CarouselNext>
               </div>
-
-              {/* Info Card */}
-              <div className="relative z-0 bg-white/60 backdrop-blur-xl rounded-[40px] p-12 pt-20 shadow-xl max-w-lg w-full space-y-6 border border-white/40">
-                <h3 className="text-3xl font-bold">Bajaj Freedom 125</h3>
-                <div className="space-y-2">
-                  <p className="text-xl font-medium text-gray-800">
-                    Price starting from <span className="font-bold">₹ 1 07 026/-*</span>
-                  </p>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                    *Ex-Showroom Price Delhi
-                  </p>
-                </div>
-                <div className="pt-4">
-                  <Button asChild size="lg" className="bg-[#0070D2] hover:bg-[#005ba3] rounded-full px-12 h-14 text-lg font-bold text-white shadow-[0_10px_20px_-5px_rgba(0,112,210,0.4)] transition-all hover:-translate-y-1 active:scale-95">
-                    <Link href="/contact">Explore more</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
+            </Carousel>
           </div>
         </div>
       </section>
