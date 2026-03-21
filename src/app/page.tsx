@@ -131,9 +131,6 @@ export default function Home() {
                       <h3 className="text-2xl font-bold">{vehicle.name}</h3>
                       <p className="text-accent font-semibold">{vehicle.price}</p>
                     </div>
-                    <Button variant="ghost" className="w-full justify-between hover:bg-primary/10 hover:text-primary p-0 h-auto py-2 px-4" asChild>
-                      <Link href="/contact">Learn More <ArrowRight className="h-4 w-4" /></Link>
-                    </Button>
                   </CardContent>
                 </Card>
               </CarouselItem>
