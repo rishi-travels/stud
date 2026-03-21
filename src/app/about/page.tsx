@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { Users, History, Target, Heart } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -37,13 +36,15 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src={serviceImg?.imageUrl || ""}
-              alt="Service Center"
-              fill
-              className="object-cover"
-              data-ai-hint={serviceImg?.imageHint}
-            />
+            {serviceImg?.imageUrl && (
+              <Image
+                src={serviceImg.imageUrl}
+                alt="Service Center"
+                fill
+                className="object-cover"
+                data-ai-hint={serviceImg.imageHint}
+              />
+            )}
           </div>
         </div>
       </section>
@@ -78,13 +79,15 @@ export default function AboutPage() {
       <section className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-3xl overflow-hidden">
-            <Image
-              src={teamImg?.imageUrl || ""}
-              alt="Our Team"
-              fill
-              className="object-cover"
-              data-ai-hint={teamImg?.imageHint}
-            />
+            {teamImg?.imageUrl && (
+              <Image
+                src={teamImg.imageUrl}
+                alt="Our Team"
+                fill
+                className="object-cover"
+                data-ai-hint={teamImg.imageHint}
+              />
+            )}
           </div>
           <div className="space-y-6 order-1 lg:order-2">
             <h2 className="text-4xl font-bold font-headline">The People <span className="text-primary">Behind the Brand</span></h2>
