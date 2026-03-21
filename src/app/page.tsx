@@ -134,8 +134,6 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-0 -translate-x-1/2 lg:-left-12 h-14 w-14 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/20 bg-transparent z-20" />
-            <CarouselNext className="absolute right-0 translate-x-1/2 lg:-right-12 h-14 w-14 rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-accent/20 bg-transparent z-20" />
           </Carousel>
         </div>
       </section>
