@@ -13,11 +13,11 @@ const VEHICLE_DATA = [
     category: "Daring",
     vehicles: [
       {
-        name: "Pulsar N250",
-        description: "The ultimate naked sports machine with DNA of performance.",
-        specs: { engine: "249cc", Mileage: "35 kmpl", "fuel tank": "14 L" },
-        image: PlaceHolderImages.find(p => p.id === "pulsar-n250"),
-        tag: "Best Seller"
+        name: "Dominar 400",
+        description: "Engineered for those who want to dominate every road and landscape with touring-ready performance.",
+        specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
+        image: PlaceHolderImages.find(p => p.id === "dominar-400"),
+        tag: "Hyper-Tourer"
       },
       {
         name: "Pulsar NS200",
@@ -52,13 +52,6 @@ const VEHICLE_DATA = [
   {
     category: "Comfort",
     vehicles: [
-      {
-        name: "Dominar 400",
-        description: "Engineered for those who want to dominate every road and landscape.",
-        specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
-        image: PlaceHolderImages.find(p => p.id === "dominar-400"),
-        tag: "Premium"
-      },
       {
         name: "Dominar 250",
         description: "The perfect entry into the world of sports touring.",
@@ -203,8 +196,7 @@ export default function VehiclesPage() {
             <span className="text-sm font-bold">5-Year Warranty</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Gauge className="h-10 w-10 text-accent" />
-            <span className="text-sm font-bold">Genuine Spares</span>
+            <Badge variant="outline" className="border-accent text-accent">Genuine Spares</Badge>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Zap className="h-10 w-10 text-accent" />
