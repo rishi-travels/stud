@@ -23,7 +23,6 @@ export default function Footer() {
             <h4 className="font-bold text-blue-900 mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-blue-900/70 font-medium">
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/emi-calculator" className="hover:text-primary transition-colors">EMI Calculator</Link></li>
               <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
             </ul>

@@ -3,14 +3,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Bike, Calculator, Info, Phone, Briefcase } from "lucide-react";
+import { Menu, X, Bike, Info, Phone, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/", icon: Bike },
   { name: "About", href: "/about", icon: Info },
-  { name: "EMI Calculator", href: "/emi-calculator", icon: Calculator },
   { name: "Careers", href: "/careers", icon: Briefcase },
   { name: "Contact", href: "/contact", icon: Phone },
 ];
@@ -56,7 +55,7 @@ export default function Navbar() {
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
-                    Access all pages of Chhaya Bajaj Auto including Home, About, EMI Calculator, Careers, and Contact.
+                    Access all pages of Chhaya Bajaj Auto including Home, About, Careers, and Contact.
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col space-y-6 mt-12">
