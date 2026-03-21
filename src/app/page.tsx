@@ -95,18 +95,18 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Navigation Arrows - Always Visible */}
         <button
           onClick={(e) => { e.preventDefault(); prevHero(); }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition-all opacity-100"
         >
-          <ChevronLeft className="h-8 w-8" />
+          <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
         </button>
         <button
           onClick={(e) => { e.preventDefault(); nextHero(); }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition-all opacity-100"
         >
-          <ChevronRight className="h-8 w-8" />
+          <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
         </button>
 
         {/* Transition Page Status Dots */}
