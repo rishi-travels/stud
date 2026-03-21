@@ -108,20 +108,6 @@ export default function Home() {
         >
           <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
         </button>
-
-        {/* Transition Page Status Dots */}
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-          {HERO_IMAGES.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setHeroIndex(idx)}
-              className={cn(
-                "w-2.5 h-2.5 rounded-full transition-all border border-white/50",
-                idx === heroIndex ? "bg-accent scale-125 border-accent" : "bg-white/30 hover:bg-white/50"
-              )}
-            />
-          ))}
-        </div>
         
         {/* Banner Badges Overlay */}
         <div className="absolute bottom-0 w-full bg-black/40 backdrop-blur-md py-3 hidden md:block">
@@ -137,6 +123,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Transition Page Status Dots - Moved below hero */}
+      <div className="flex justify-center gap-3 py-6 bg-white border-b border-border">
+        {HERO_IMAGES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setHeroIndex(idx)}
+            className={cn(
+              "w-3 h-3 rounded-full transition-all border-2",
+              idx === heroIndex 
+                ? "bg-accent scale-125 border-accent" 
+                : "bg-muted border-muted-foreground/20 hover:border-primary/40"
+            )}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Welcome Section */}
       <section className="py-16 md:py-24 bg-white">
