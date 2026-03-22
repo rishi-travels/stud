@@ -59,7 +59,7 @@ export default function AICareerTool() {
               <div className="space-y-2">
                 <label className="text-sm font-medium">Your Name</label>
                 <Input 
-                  placeholder="John Doe" 
+                  placeholder="e.g. Abhi Mishra" 
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required 
