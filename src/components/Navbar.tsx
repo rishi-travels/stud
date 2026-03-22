@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, Bike, Info, Phone, Briefcase, LayoutGrid, Wrench, MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
@@ -18,6 +18,11 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const triggerTestRide = () => {
     window.dispatchEvent(new CustomEvent('open-test-ride'));
@@ -45,12 +50,13 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Button 
+            {/* Using a standard button to avoid potential hydration conflicts with complex component wrappers */}
+            <button 
               onClick={triggerTestRide}
-              className="bg-accent hover:bg-accent/90 font-bold text-white border-0"
+              className="bg-accent hover:bg-accent/90 font-bold text-white px-4 py-2 rounded-md text-sm transition-colors"
             >
               Book a Test Ride
-            </Button>
+            </button>
           </div>
 
           {/* Mobile Navigation */}
@@ -86,20 +92,30 @@ export default function Navbar() {
                   <div className="pt-6 space-y-4 border-t border-white/10">
                     <Button 
                       onClick={triggerTestRide}
-                      className="w-full font-bold bg-accent hover:bg-accent/90"
+                      className="w-full font-bold bg-accent hover:bg-accent/90 h-12"
                     >
                       Book a Test Ride
                     </Button>
                     
                     <Button variant="outline" asChild className="w-full font-bold border-accent text-accent hover:bg-accent/10 h-12">
-                      <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="flex items-center justify-center">
-                        <MessageCircle className="mr-2 h-5 w-5" /> Chat on Whatsapp
+                      <a 
+                        href="https://wa.me/94153557605" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        onClick={() => setIsOpen(false)} 
+                        className="flex items-center justify-center text-accent"
+                      >
+                        <MessageCircle className="mr-2 h-5 w-5 text-accent" /> Chat on Whatsapp
                       </a>
                     </Button>
 
                     <Button variant="outline" asChild className="w-full font-bold border-accent text-accent hover:bg-accent/10 h-12">
-                      <a href="mailto:ashwanimishra3172001@gmail.com" onClick={() => setIsOpen(false)} className="flex items-center justify-center">
-                        <Mail className="mr-2 h-5 w-5" /> Chat on E-mail
+                      <a 
+                        href="mailto:ashwanimishra3172001@gmail.com" 
+                        onClick={() => setIsOpen(false)} 
+                        className="flex items-center justify-center text-accent"
+                      >
+                        <Mail className="mr-2 h-5 w-5 text-accent" /> Chat on E-mail
                       </a>
                     </Button>
                   </div>
