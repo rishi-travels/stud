@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Sparkles, CheckCircle2, CalendarDays } from "lucide-react";
+import { Send, Sparkles, CheckCircle2 } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -119,7 +119,7 @@ export default function TestRidePopup() {
               <Input 
                 id="phone" 
                 type="tel" 
-                placeholder="+91 96285 10443" 
+                placeholder="+919999999999" 
                 className="bg-muted/30 border-none focus-visible:ring-primary h-11" 
                 required 
               />
@@ -128,7 +128,7 @@ export default function TestRidePopup() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="vehicle" className="text-xs font-bold uppercase text-muted-foreground ml-1">Choose Machine</Label>
+              <Label htmlFor="vehicle" className="text-xs font-bold uppercase text-muted-foreground ml-1">Choose Model</Label>
               <Select required>
                 <SelectTrigger className="bg-muted/30 border-none h-11">
                   <SelectValue placeholder="Select Model" />
@@ -148,6 +148,7 @@ export default function TestRidePopup() {
                 <Input 
                   id="ride-date" 
                   type="date" 
+                  placeholder="choose date"
                   className="bg-muted/30 border-none focus-visible:ring-primary h-11" 
                   required 
                 />
