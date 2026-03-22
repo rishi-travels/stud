@@ -22,7 +22,6 @@ export default function AICareerTool() {
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
-    email: "",
     jobRole: "",
     address: ""
   });
@@ -32,7 +31,7 @@ export default function AICareerTool() {
     setLoading(true);
     try {
       const output = await recommendCareerPathway({
-        skills: `Applicant Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phoneNumber}\nAddress: ${formData.address}`,
+        skills: `Applicant Name: ${formData.name}\nPhone: ${formData.phoneNumber}\nAddress: ${formData.address}`,
         interests: `Highly interested in the ${formData.jobRole} position at Chhaya Bajaj Auto.`,
         currentJobRole: formData.jobRole,
       });
@@ -76,34 +75,23 @@ export default function AICareerTool() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Email Address</label>
-                <Input 
-                  type="email"
-                  placeholder="john@example.com" 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  required 
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Job Role</label>
-                <Select 
-                  onValueChange={(value) => setFormData({...formData, jobRole: value})}
-                  required
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a job role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Manager">Manager</SelectItem>
-                    <SelectItem value="Mechanic">Mechanic</SelectItem>
-                    <SelectItem value="Salesman">Salesman</SelectItem>
-                    <SelectItem value="Computer Operator">Computer Operator</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Job Role</label>
+              <Select 
+                onValueChange={(value) => setFormData({...formData, jobRole: value})}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a job role" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Manager">Manager</SelectItem>
+                  <SelectItem value="Mechanic">Mechanic</SelectItem>
+                  <SelectItem value="Salesman">Salesman</SelectItem>
+                  <SelectItem value="Computer Operator">Computer Operator</SelectItem>
+                  <SelectItem value="Other">Other</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
@@ -118,13 +106,13 @@ export default function AICareerTool() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button type="submit" disabled={loading} className="flex-1 bg-accent text-background hover:bg-accent/80 font-bold py-4 text-base sm:py-6 sm:text-lg">
+              <Button type="submit" disabled={loading} className="flex-1 bg-accent text-background hover:bg-accent/80 font-bold py-3 text-sm sm:py-6 sm:text-lg">
                 {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Submit"}
               </Button>
               <Button 
                 type="button" 
                 variant="outline" 
-                className="flex-1 border-primary text-primary hover:bg-primary/10 font-bold py-4 text-base sm:py-6 sm:text-lg"
+                className="flex-1 border-primary text-primary hover:bg-primary/10 font-bold py-3 text-sm sm:py-6 sm:text-lg"
                 asChild
               >
                 <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer">
