@@ -24,14 +24,17 @@ export default function AdminBookingsPage() {
     }
   }, [user, isUserLoading, auth]);
 
+  // We wait for the 'user' object to be available before creating the query.
+  // This ensures the query isn't fired until anonymous sign-in completes.
   const bookingsQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
+    if (!firestore || !user) return null;
     return query(collection(firestore, 'test_ride_bookings'), orderBy('submittedAt', 'desc'));
-  }, [firestore]);
+  }, [firestore, user]);
 
   const { data: bookings, isLoading, error } = useCollection(bookingsQuery);
 
-  if (isUserLoading || isLoading) {
+  // Show loading while auth is checking OR while data is being fetched for the first time
+  if (isUserLoading || (isLoading && !bookings)) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
