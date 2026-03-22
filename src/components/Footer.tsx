@@ -1,5 +1,6 @@
+
 import Link from "next/link";
-import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle, Lock } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -47,6 +48,11 @@ export default function Footer() {
               <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
               <li><Link href="/careers" className="hover:text-accent transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="hover:text-accent transition-colors">Contact Us</Link></li>
+              <li className="pt-2">
+                <Link href="/admin/bookings" className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white transition-colors">
+                  <Lock className="h-3 w-3" /> Admin Leads
+                </Link>
+              </li>
             </ul>
           </div>
 

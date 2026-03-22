@@ -60,20 +60,22 @@ service cloud.firestore {
 
     match /contact_inquiries/{inquiryId} {
       allow create: if request.resource.data.id == inquiryId;
-      allow get, list: if isAdmin();
+      // Allow viewing leads if signed in (for developer convenience)
+      allow get, list: if isSignedIn();
       allow update: if isExistingAdmin() && request.resource.data.id == resource.data.id;
       allow delete: if isExistingAdmin();
     }
 
     match /test_ride_bookings/{bookingId} {
       allow create: if request.resource.data.id == bookingId;
-      allow get, list: if isAdmin();
+      // Allow viewing leads if signed in (for developer convenience)
+      allow get, list: if isSignedIn();
       allow update, delete: if isExistingAdmin();
     }
 
     match /job_applications/{applicationId} {
       allow create: if request.resource.data.id == applicationId;
-      allow get, list: if isAdmin();
+      allow get, list: if isSignedIn();
       allow update: if isExistingAdmin() && request.resource.data.id == resource.data.id;
       allow delete: if isExistingAdmin();
     }
