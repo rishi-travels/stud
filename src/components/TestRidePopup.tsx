@@ -75,7 +75,10 @@ export default function TestRidePopup() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[440px] p-0 overflow-hidden border-none shadow-2xl rounded-3xl group/content">
+      <DialogContent 
+        className="sm:max-w-[440px] p-0 overflow-hidden border-none shadow-2xl rounded-3xl group/content"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         {/* Header with Background */}
         <div className="relative h-32 w-full bg-blue-950 flex flex-col items-center justify-center text-center p-4 overflow-hidden">
           {popupImg?.imageUrl && (
@@ -147,7 +150,7 @@ export default function TestRidePopup() {
               <Input 
                 id="ride-date" 
                 type="date" 
-                placeholder="choose date"
+                placeholder="select date"
                 className="bg-muted/30 border-none focus-visible:ring-primary h-10 text-sm" 
                 required 
               />
