@@ -90,7 +90,7 @@ export default function Navbar() {
 
                     <Button variant="outline" asChild className="w-full font-bold border-accent text-accent hover:bg-accent/10 h-12">
                       <a href="mailto:ashwanimishra3172001@gmail.com" onClick={() => setIsOpen(false)} className="flex items-center justify-center">
-                        <Mail className="mr-2 h-5 w-5" /> Email now
+                        <Mail className="mr-2 h-5 w-5" /> Chat on E-mail
                       </a>
                     </Button>
                   </div>
