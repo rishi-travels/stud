@@ -7,31 +7,83 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
-import { Loader2, ShieldAlert } from 'lucide-react';
-import { useEffect } from 'react';
+import { Loader2, ShieldAlert, Lock, ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { initiateAnonymousSignIn } from '@/firebase/non-blocking-login';
 import { useAuth } from '@/firebase';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export default function AdminBookingsPage() {
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passError, setPassError] = useState(false);
+
   const firestore = useFirestore();
   const auth = useAuth();
   const { user, isUserLoading } = useUser();
   
-  // Ensure the user is signed in to view leads
+  // Ensure the user is signed in anonymously only after password verification
   useEffect(() => {
-    if (!isUserLoading && !user && auth) {
+    if (!isUserLoading && !user && auth && isAdminAuthenticated) {
       initiateAnonymousSignIn(auth);
     }
-  }, [user, isUserLoading, auth]);
+  }, [user, isUserLoading, auth, isAdminAuthenticated]);
 
-  // We wait for the 'user' object to be available before creating the query.
-  // This ensures the query isn't fired until anonymous sign-in completes.
+  // We wait for the 'user' object and password verification to be available before creating the query.
   const bookingsQuery = useMemoFirebase(() => {
-    if (!firestore || !user) return null;
+    if (!firestore || !user || !isAdminAuthenticated) return null;
     return query(collection(firestore, 'test_ride_bookings'), orderBy('submittedAt', 'desc'));
-  }, [firestore, user]);
+  }, [firestore, user, isAdminAuthenticated]);
 
   const { data: bookings, isLoading, error } = useCollection(bookingsQuery);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === 'chhaya@vns') {
+      setIsAdminAuthenticated(true);
+      setPassError(false);
+    } else {
+      setPassError(true);
+      setPassword('');
+    }
+  };
+
+  if (!isAdminAuthenticated) {
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center p-4 bg-muted/30">
+        <Card className="w-full max-w-md shadow-2xl border-primary/20 glass-card">
+          <CardHeader className="text-center space-y-2">
+            <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-2">
+              <Lock className="h-8 w-8 text-primary" />
+            </div>
+            <CardTitle className="text-2xl font-black font-headline uppercase italic tracking-tighter">
+              Admin <span className="text-primary">Access</span>
+            </CardTitle>
+            <p className="text-muted-foreground text-sm font-medium">Please enter the administrative password to view leads.</p>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <Input 
+                  type="password" 
+                  placeholder="Enter Password" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className={passError ? "border-destructive ring-destructive" : "h-12"}
+                  required
+                />
+                {passError && <p className="text-xs font-bold text-destructive italic uppercase text-center animate-bounce">Incorrect Password. Access Denied.</p>}
+              </div>
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 font-bold h-12 text-lg">
+                Unlock Dashboard <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   // Show loading while auth is checking OR while data is being fetched for the first time
   if (isUserLoading || (isLoading && !bookings)) {
@@ -99,9 +151,9 @@ export default function AdminBookingsPage() {
                       {booking.submittedAt ? format(new Date(booking.submittedAt), 'MMM dd, yyyy • HH:mm') : 'N/A'}
                     </TableCell>
                     <TableCell className="font-bold text-blue-950">{booking.name}</TableCell>
-                    <TableCell className="font-mono text-primary">{booking.phone}</TableCell>
+                    <TableCell className="font-mono text-primary font-bold">{booking.phone}</TableCell>
                     <TableCell>
-                      <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20">
+                      <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20 font-bold uppercase text-[10px]">
                         {booking.model}
                       </Badge>
                     </TableCell>
