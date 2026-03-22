@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "Vehicle": {
@@ -281,11 +282,6 @@
         "isResolved": {
           "type": "boolean",
           "description": "A flag indicating if the inquiry has been addressed or resolved."
-        },
-        "resolvedDate": {
-          "type": "string",
-          "description": "The date and time when the inquiry was marked as resolved, if applicable.",
-          "format": "date-time"
         }
       },
       "required": [
@@ -297,6 +293,22 @@
         "submissionDate",
         "isResolved"
       ]
+    },
+    "TestRideBooking": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TestRideBooking",
+      "type": "object",
+      "description": "Represents a test ride booking request.",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "model": { "type": "string" },
+        "date": { "type": "string" },
+        "address": { "type": "string" },
+        "submittedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "phone", "model", "date", "address", "submittedAt"]
     },
     "BranchLocation": {
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -457,7 +469,7 @@
         },
         "jobOpeningId": {
           "type": "string",
-          "description": "Reference to the JobOpening entity to which this application pertains. (Relationship: JobOpening 1:N JobApplication)"
+          "description": "Reference to the JobOpening entity to which this application pertains."
         },
         "applicantName": {
           "type": "string",
@@ -474,44 +486,20 @@
         },
         "resumeUrl": {
           "type": "string",
-          "description": "A URL pointing to the applicant's resume stored externally (e.g., cloud storage).",
+          "description": "A URL pointing to the applicant's resume stored externally.",
           "format": "uri"
         },
         "coverLetter": {
           "type": "string",
           "description": "The optional cover letter text submitted by the applicant."
         },
-        "skills": {
-          "type": "array",
-          "description": "A list of skills provided by the applicant, used for the AI Career Pathway Tool.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "interests": {
-          "type": "array",
-          "description": "A list of interests provided by the applicant, used for the AI Career Pathway Tool.",
-          "items": {
-            "type": "string"
-          }
+        "status": {
+          "type": "string",
+          "description": "The current status of the job application."
         },
         "submissionDate": {
           "type": "string",
           "description": "The date and time when the job application was submitted.",
-          "format": "date-time"
-        },
-        "status": {
-          "type": "string",
-          "description": "The current status of the job application (e.g., 'Submitted', 'Under Review', 'Interview Scheduled', 'Rejected', 'Hired')."
-        },
-        "createdAt": {
-          "type": "string",
-          "description": "Timestamp when the job application record was created.",
-          "format": "date-time"
-        },
-        "updatedAt": {
-          "type": "string",
-          "description": "Timestamp when the job application record was last updated.",
           "format": "date-time"
         }
       },
@@ -522,9 +510,7 @@
         "email",
         "resumeUrl",
         "submissionDate",
-        "status",
-        "createdAt",
-        "updatedAt"
+        "status"
       ]
     }
   },
@@ -540,99 +526,82 @@
         "path": "/vehicles",
         "definition": {
           "entityName": "Vehicle",
-          "schema": {
-            "$ref": "#/backend/entities/Vehicle"
-          },
-          "description": "Stores all vehicle listings available for display and sale. Documents in this collection are publicly readable by anyone; write access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/Vehicle" },
+          "description": "Stores vehicle listings."
         }
       },
       {
         "path": "/news_articles",
         "definition": {
           "entityName": "NewsArticle",
-          "schema": {
-            "$ref": "#/backend/entities/NewsArticle"
-          },
-          "description": "Contains news articles and updates. Documents are publicly readable by anyone; write access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/NewsArticle" },
+          "description": "Contains news articles."
         }
       },
       {
         "path": "/promotions",
         "definition": {
           "entityName": "Promotion",
-          "schema": {
-            "$ref": "#/backend/entities/Promotion"
-          },
-          "description": "Holds ongoing offers and special events. Documents are publicly readable by anyone; write access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/Promotion" },
+          "description": "Holds ongoing offers."
         }
       },
       {
         "path": "/team_members",
         "definition": {
           "entityName": "TeamMember",
-          "schema": {
-            "$ref": "#/backend/entities/TeamMember"
-          },
-          "description": "Lists information about team members for the About Us page. Documents are publicly readable by anyone; write access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/TeamMember" },
+          "description": "Lists information about team members."
         }
       },
       {
         "path": "/branch_locations",
         "definition": {
           "entityName": "BranchLocation",
-          "schema": {
-            "$ref": "#/backend/entities/BranchLocation"
-          },
-          "description": "Details about physical branch locations, including contact and hours. Documents are publicly readable by anyone; write access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/BranchLocation" },
+          "description": "Details about branch locations."
         }
       },
       {
         "path": "/job_openings",
         "definition": {
           "entityName": "JobOpening",
-          "schema": {
-            "$ref": "#/backend/entities/JobOpening"
-          },
-          "description": "Advertises available job positions on the Careers page. Documents are publicly readable by anyone; write access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/JobOpening" },
+          "description": "Advertises available job positions."
         }
       },
       {
         "path": "/contact_inquiries",
         "definition": {
           "entityName": "ContactInquiry",
-          "schema": {
-            "$ref": "#/backend/entities/ContactInquiry"
-          },
-          "description": "Stores inquiries submitted through the contact form. Documents can be created by any user (authenticated or unauthenticated); read, update, and delete access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/ContactInquiry" },
+          "description": "Stores inquiries submitted through the contact form."
+        }
+      },
+      {
+        "path": "/test_ride_bookings",
+        "definition": {
+          "entityName": "TestRideBooking",
+          "schema": { "$ref": "#/backend/entities/TestRideBooking" },
+          "description": "Stores test ride bookings."
         }
       },
       {
         "path": "/job_applications",
         "definition": {
           "entityName": "JobApplication",
-          "schema": {
-            "$ref": "#/backend/entities/JobApplication"
-          },
-          "description": "Contains basic job applications submitted by candidates. Documents can be created by any user (authenticated or unauthenticated); read, update, and delete access is restricted to administrators."
+          "schema": { "$ref": "#/backend/entities/JobApplication" },
+          "description": "Contains job applications."
         }
       },
       {
         "path": "/roles_admin/{adminId}",
         "definition": {
           "entityName": "UserRole",
-          "schema": {
-            "$ref": "#/backend/entities/User"
-          },
-          "description": "A collection used for Database Access Control (DBAC). The existence of a document at `/roles_admin/{uid}` grants administrative privileges to the user with the matching UID. Read access is permitted for any authenticated user to check their own role; write access is restricted to existing administrators.",
-          "params": [
-            {
-              "name": "adminId",
-              "description": "The unique user ID (UID) of an administrator."
-            }
-          ]
+          "schema": { "$ref": "#/backend/entities/User" },
+          "description": "DBAC for administrators."
         }
       }
-    ],
-    "reasoning": "The recommended Firestore structure is designed to be secure, scalable, and debuggable by strictly adhering to the core design principles and strategy mandates. All collections are organized to enforce distinct security postures and ensure Authorization Independence.\n\n**Authorization Independence:** This structure primarily achieves Authorization Independence through two key strategies:\n1.  **Public Data Collections:** For entities like `Vehicle`, `NewsArticle`, `Promotion`, `TeamMember`, `BranchLocation`, and `JobOpening`, the data is inherently public. This means their security rules will simply allow `read: true` for all users (authenticated or unauthenticated), eliminating any need for `get()` operations in rules to determine access. Write access to these collections will be restricted to authenticated administrators, whose roles are checked independently.\n2.  **Administrator-Managed Collections:** For sensitive data like `ContactInquiry` and `JobApplication`, read and update access is strictly limited to users with an 'admin' role. This 'admin' role is denormalized into a dedicated top-level collection (`/roles_admin`). Authorization rules will check for the existence of `request.auth.uid` within the `/roles_admin/{uid}` path, without needing to `get()` any other document. This ensures that a user's administrative privilege is determined independently of the data they are trying to access. Submitting these inquiries/applications will be permitted for anyone (authenticated or unauthenticated), avoiding complex ownership rules for creation.\n\n**QAPs (Rules are not Filters):** This structure supports Query-Able Paths (QAPs) by ensuring that security rules do not act as filters. Each collection has a homogeneous security posture:\n*   **Public Collections:** All documents within `/vehicles`, `/news_articles`, `/promotions`, `/team_members`, `/branch_locations`, and `/job_openings` are publicly readable. Any `list` query on these collections will return all documents that match the query's criteria, as intended. There's no implicit filtering by security rules.\n*   **Admin-Only Collections:** All documents within `/contact_inquiries` and `/job_applications` are readable only by administrators. A `list` query by an admin will return all matching documents, and a `list` query by a non-admin will simply be denied at the collection level, preventing any accidental data exposure or incomplete results. The `jobOpeningId` in `JobApplication` is a data field, not an access control field, so `list` queries on `/job_applications` can directly filter by it without security rule complications.\n\n**Structural Segregation:** Data is segregated into distinct collections based on its security requirements. Publicly accessible information resides in open collections, while sensitive, internal-facing data (inquiries, applications) resides in admin-only collections. Administrator roles are also in their own dedicated collection. This radical consistency simplifies security rules, making them easier to write, understand, and debug."
+    ]
   }
 }

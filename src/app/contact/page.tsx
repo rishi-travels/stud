@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Mail, Phone, MapPin, Send } from "lucide-react";
@@ -6,16 +7,45 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useFirestore } from "@/firebase";
+import { collection, doc } from "firebase/firestore";
+import { setDocumentNonBlocking } from "@/firebase/non-blocking-updates";
+import { useState } from "react";
 
 export default function ContactPage() {
   const { toast } = useToast();
+  const firestore = useFirestore();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Our team will get back to you within 24 hours.",
-    });
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const inquiryRef = doc(collection(firestore, 'contact_inquiries'));
+    const inquiryId = inquiryRef.id;
+
+    const data = {
+      id: inquiryId,
+      applicantName: formData.get("fullName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      subject: formData.get("reason") as string,
+      message: formData.get("message") as string,
+      submissionDate: new Date().toISOString(),
+      isResolved: false
+    };
+
+    setDocumentNonBlocking(inquiryRef, data, { merge: true });
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Message Sent!",
+        description: "Our team will get back to you within 24 hours.",
+      });
+      (e.target as HTMLFormElement).reset();
+    }, 800);
   };
 
   return (
@@ -77,31 +107,35 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Full Name</label>
-                  <Input placeholder="e.g. Abhi Mishra" required />
+                  <Input name="fullName" placeholder="e.g. Abhi Mishra" required />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Email Address</label>
+                  <Input name="email" type="email" placeholder="abhi@example.com" required />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Phone Number</label>
-                  <Input placeholder="+91 96285 10443" required />
+                  <Input name="phone" placeholder="+91 96285 10443" required />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Reason for Inquiry</label>
+                  <select name="reason" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    <option value="New Vehicle Purchase">New Vehicle Purchase</option>
+                    <option value="Service Booking">Service Booking</option>
+                    <option value="Spare Parts">Spare Parts</option>
+                    <option value="Financing/EMI Query">Financing/EMI Query</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">Reason for Inquiry</label>
-                <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                  <option>New Vehicle Purchase</option>
-                  <option>Service Booking</option>
-                  <option>Spare Parts</option>
-                  <option>Financing/EMI Query</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
-                <Textarea placeholder="Tell us more about your query..." className="min-h-[150px]" required />
+                <Textarea name="message" placeholder="Tell us more about your query..." className="min-h-[150px]" required />
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 py-3 text-sm sm:py-4 sm:text-lg font-bold">
-                  Send Message <Send className="ml-2 h-5 w-5" />
+                <Button type="submit" disabled={isSubmitting} className="flex-1 bg-primary hover:bg-primary/90 py-3 text-sm sm:py-4 sm:text-lg font-bold">
+                  {isSubmitting ? "Sending..." : "Send Message"} <Send className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 
                   type="button" 

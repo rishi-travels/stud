@@ -1,63 +1,21 @@
-rules_version = '2';
 
-/**
- * Chhaya Bajaj Auto - Firestore Security Rules
- *
- * Core Philosophy:
- * This ruleset implements a centralized administrative control model combined with public 
- * accessibility for marketing content. Access is partitioned into three distinct tiers:
- * 1. Public Content: Marketing entities (Vehicles, News, etc.) are readable by anyone to 
- *    maximize reach, while modifications are strictly restricted to verified administrators.
- * 2. Open Submissions: Contact inquiries and job applications can be created by any visitor 
- *    (authenticated or anonymous) to facilitate lead generation and recruitment, but 
- *    browsing or managing these submissions is strictly admin-only.
- * 3. Administrative Roles: A dedicated '/roles_admin' collection serves as the source 
- *    of truth for elevated privileges, utilizing a Database Access Control (DBAC) pattern.
- *
- * Data Structure:
- * - /vehicles, /news_articles, /promotions, /team_members, /branch_locations, /job_openings: 
- *   Top-level collections for public-facing business data.
- * - /contact_inquiries, /job_applications: Top-level collections for incoming user data.
- * - /roles_admin/{uid}: Role mapping collection where the existence of a document grants 
- *   global administrative rights.
- *
- * Key Security Decisions:
- * - Admin validation is performed via an 'exists' check against the /roles_admin collection.
- * - To ensure relational integrity during the prototyping phase, we enforce that 
- *   document IDs within the data match the document path IDs where applicable.
- * - All update and delete operations require an explicit existence check to prevent 
- *   orphaned requests or unauthorized deletions of non-existent data.
- */
+rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // --- Helper Functions ---
-
-    /** @description Checks if the user is authenticated with Firebase Auth. */
     function isSignedIn() {
       return request.auth != null;
     }
 
-    /** @description Checks if the authenticated user has an entry in the admin roles collection. */
     function isAdmin() {
       return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
     }
 
-    /** @description Combines admin check with a verification that the document currently exists. */
     function isExistingAdmin() {
       return isAdmin() && resource != null;
     }
 
-    // --- Collection Rules ---
-
-    /**
-     * @description Rules for public marketing content (Vehicles, News, Promotions, Team, Branches, Job Openings).
-     * @path /vehicles/{vehicleId}, /news_articles/{articleId}, /promotions/{promoId}, /team_members/{memberId}, /branch_locations/{branchId}, /job_openings/{jobId}
-     * @allow (get, list) for any user. (create, update, delete) for verified administrators.
-     * @deny (write) if the user is not an administrator.
-     * @principle Public consumption with administrative-only content management.
-     */
     match /vehicles/{vehicleId} {
       allow get, list: if true;
       allow create: if isAdmin() && request.resource.data.id == vehicleId;
@@ -100,18 +58,17 @@ service cloud.firestore {
       allow delete: if isExistingAdmin();
     }
 
-    /**
-     * @description Rules for user-submitted inquiries and applications.
-     * @path /contact_inquiries/{inquiryId}, /job_applications/{applicationId}
-     * @allow (create) for any user to facilitate lead capture. (get, list, update, delete) for admins.
-     * @deny (get, list) for non-admin users to protect applicant privacy.
-     * @principle Open write access for data collection with restricted admin-only read/manage access.
-     */
     match /contact_inquiries/{inquiryId} {
       allow create: if request.resource.data.id == inquiryId;
       allow get, list: if isAdmin();
       allow update: if isExistingAdmin() && request.resource.data.id == resource.data.id;
       allow delete: if isExistingAdmin();
+    }
+
+    match /test_ride_bookings/{bookingId} {
+      allow create: if request.resource.data.id == bookingId;
+      allow get, list: if isAdmin();
+      allow update, delete: if isExistingAdmin();
     }
 
     match /job_applications/{applicationId} {
@@ -121,23 +78,11 @@ service cloud.firestore {
       allow delete: if isExistingAdmin();
     }
 
-    /**
-     * @description Rules for the admin roles definition collection.
-     * @path /roles_admin/{adminId}
-     * @allow (get) for the specific user to check their own role. (get, list, create, update, delete) for existing admins.
-     * @deny (write) for any non-admin user to prevent privilege escalation.
-     * @principle Database Access Control (DBAC) pattern for managing high-level authorization.
-     */
     match /roles_admin/{adminId} {
-      // Users can check their own admin status; admins can see all roles.
       allow get: if (isSignedIn() && request.auth.uid == adminId) || isAdmin();
       allow list: if isAdmin();
-      
-      // Only existing admins can promote or demote others.
       allow create: if isAdmin();
-      allow update: if isExistingAdmin();
-      allow delete: if isExistingAdmin();
+      allow update, delete: if isExistingAdmin();
     }
-
   }
 }
