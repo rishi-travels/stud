@@ -100,13 +100,13 @@ export default function ContactPage() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 py-3 text-sm sm:py-6 sm:text-lg font-bold">
+                <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 py-3 text-sm sm:py-4 sm:text-lg font-bold">
                   Send Message <Send className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 
                   type="button" 
                   variant="outline" 
-                  className="flex-1 border-primary text-primary hover:bg-primary/10 py-3 text-sm sm:py-6 sm:text-lg font-bold"
+                  className="flex-1 border-primary text-primary hover:bg-primary/10 py-3 text-sm sm:py-4 sm:text-lg font-bold"
                   asChild
                 >
                   <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer">
