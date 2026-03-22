@@ -149,7 +149,7 @@ export default function TestRidePopup() {
               </Select>
             </div>
             <div className="space-y-1">
-              <Label htmlFor="ride-date" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Ride Date</Label>
+              <Label htmlFor="ride-date" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Date</Label>
               <Input 
                 id="ride-date" 
                 type="date" 
