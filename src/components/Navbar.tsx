@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Bike, Info, Phone, Briefcase, LayoutGrid, Wrench, MessageCircle, Mail } from "lucide-react";
+import { Menu, Bike, Info, Phone, Briefcase, LayoutGrid, Wrench, MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
@@ -18,6 +18,11 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const triggerTestRide = () => {
+    window.dispatchEvent(new CustomEvent('open-test-ride'));
+    setIsOpen(false);
+  };
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-blue-950/95 backdrop-blur-lg">
@@ -40,8 +45,11 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-accent hover:bg-accent/90 font-bold text-white border-0">
-              <Link href="/contact">Book a Test Ride</Link>
+            <Button 
+              onClick={triggerTestRide}
+              className="bg-accent hover:bg-accent/90 font-bold text-white border-0"
+            >
+              Book a Test Ride
             </Button>
           </div>
 
@@ -76,10 +84,11 @@ export default function Navbar() {
                   </div>
                   
                   <div className="pt-6 space-y-4 border-t border-white/10">
-                    <Button asChild className="w-full font-bold bg-accent hover:bg-accent/90">
-                      <Link href="/contact" onClick={() => setIsOpen(false)}>
-                        Book a Test Ride
-                      </Link>
+                    <Button 
+                      onClick={triggerTestRide}
+                      className="w-full font-bold bg-accent hover:bg-accent/90"
+                    >
+                      Book a Test Ride
                     </Button>
                     
                     <Button variant="outline" asChild className="w-full font-bold border-accent text-accent hover:bg-accent/10 h-12">

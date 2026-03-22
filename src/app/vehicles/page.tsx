@@ -1,6 +1,9 @@
+
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bike, Zap, Shield, Gauge, Wrench } from "lucide-react";
+import { Bike, Zap, Shield, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -89,6 +92,10 @@ const VEHICLE_DATA = [
 ];
 
 export default function VehiclesPage() {
+  const triggerTestRide = () => {
+    window.dispatchEvent(new CustomEvent('open-test-ride'));
+  };
+
   return (
     <div className="container mx-auto px-4 py-20 space-y-16">
       <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -152,8 +159,8 @@ export default function VehiclesPage() {
                     </div>
 
                     <div className="flex gap-4 pt-6 mt-auto">
-                      <Button asChild className="flex-1 bg-primary hover:bg-primary/90 font-bold py-6">
-                        <Link href="/contact">Book Test Ride</Link>
+                      <Button onClick={triggerTestRide} className="flex-1 bg-primary hover:bg-primary/90 font-bold py-6">
+                        Book Test Ride
                       </Button>
                       <Button variant="outline" asChild className="flex-1 border-primary text-primary hover:bg-primary/5 font-bold py-6">
                         <Link href="/contact">Enquire Now</Link>

@@ -47,16 +47,20 @@ export default function TestRidePopup() {
   const popupImg = PlaceHolderImages.find(p => p.id === "hero-ns400");
 
   useEffect(() => {
+    // Timer-based popup
     const hasSeenPopup = sessionStorage.getItem("hasSeenTestRidePopup");
-    
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("hasSeenTestRidePopup", "true");
       }, 5000);
-
       return () => clearTimeout(timer);
     }
+
+    // Event-based trigger for buttons
+    const handleOpenPopup = () => setIsOpen(true);
+    window.addEventListener('open-test-ride', handleOpenPopup);
+    return () => window.removeEventListener('open-test-ride', handleOpenPopup);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -79,7 +83,6 @@ export default function TestRidePopup() {
         className="sm:max-w-[440px] p-0 overflow-hidden border-none shadow-2xl rounded-3xl group/content"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        {/* Header with Background */}
         <div className="relative h-32 w-full bg-blue-950 flex flex-col items-center justify-center text-center p-4 overflow-hidden">
           {popupImg?.imageUrl && (
             <Image

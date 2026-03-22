@@ -38,6 +38,10 @@ export default function Home() {
   const isMobile = useIsMobile();
   const [heroIndex, setHeroIndex] = React.useState(0);
 
+  const triggerTestRide = () => {
+    window.dispatchEvent(new CustomEvent('open-test-ride'));
+  };
+
   const nextHero = React.useCallback(() => {
     setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
   }, []);
@@ -314,8 +318,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button size="lg" asChild className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-10 rounded-full h-14 text-lg w-full sm:w-auto">
-                <Link href="/contact">Book Now & Save</Link>
+              <Button 
+                onClick={triggerTestRide}
+                size="lg" 
+                className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-10 rounded-full h-14 text-lg w-full sm:w-auto"
+              >
+                Book Now & Save
               </Button>
             </div>
             <div className="hidden lg:block relative h-[450px]">
