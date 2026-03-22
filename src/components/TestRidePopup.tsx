@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Bike, Send, Sparkles, CheckCircle2 } from "lucide-react";
+import { Send, Sparkles, CheckCircle2, CalendarDays } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -75,9 +75,9 @@ export default function TestRidePopup() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none shadow-2xl rounded-3xl">
+      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none shadow-2xl rounded-3xl group/content">
         {/* Header with Background */}
-        <div className="relative h-48 w-full bg-blue-950 flex flex-col items-center justify-center text-center p-6 overflow-hidden">
+        <div className="relative h-40 w-full bg-blue-950 flex flex-col items-center justify-center text-center p-6 overflow-hidden">
           {popupImg?.imageUrl && (
             <Image
               src={popupImg.imageUrl}
@@ -101,19 +101,15 @@ export default function TestRidePopup() {
               Experience the unmatched performance of Bajaj.
             </DialogDescription>
           </div>
-
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white p-3 rounded-full shadow-xl border-4 border-white animate-float">
-            <Bike className="h-8 w-8 text-primary" />
-          </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-8 pt-10 space-y-6 bg-white">
+        <form onSubmit={handleSubmit} className="p-8 space-y-5 bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="name" className="text-xs font-bold uppercase text-muted-foreground ml-1">Full Name</Label>
               <Input 
                 id="name" 
-                placeholder="John Doe" 
+                placeholder="Abhi Mishra" 
                 className="bg-muted/30 border-none focus-visible:ring-primary h-11" 
                 required 
               />
@@ -123,35 +119,48 @@ export default function TestRidePopup() {
               <Input 
                 id="phone" 
                 type="tel" 
-                placeholder="+91 94153557605" 
+                placeholder="+91 96285 10443" 
                 className="bg-muted/30 border-none focus-visible:ring-primary h-11" 
                 required 
               />
             </div>
           </div>
 
-          <div className="space-y-1.5">
-            <Label htmlFor="vehicle" className="text-xs font-bold uppercase text-muted-foreground ml-1">Choose Your Machine</Label>
-            <Select required>
-              <SelectTrigger className="bg-muted/30 border-none h-11">
-                <SelectValue placeholder="Select Model" />
-              </SelectTrigger>
-              <SelectContent>
-                {VEHICLE_MODELS.map((model) => (
-                  <SelectItem key={model} value={model} className="font-medium">
-                    {model}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-1.5">
+              <Label htmlFor="vehicle" className="text-xs font-bold uppercase text-muted-foreground ml-1">Choose Machine</Label>
+              <Select required>
+                <SelectTrigger className="bg-muted/30 border-none h-11">
+                  <SelectValue placeholder="Select Model" />
+                </SelectTrigger>
+                <SelectContent>
+                  {VEHICLE_MODELS.map((model) => (
+                    <SelectItem key={model} value={model} className="font-medium">
+                      {model}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="ride-date" className="text-xs font-bold uppercase text-muted-foreground ml-1">Ride Date</Label>
+              <div className="relative">
+                <Input 
+                  id="ride-date" 
+                  type="date" 
+                  className="bg-muted/30 border-none focus-visible:ring-primary h-11" 
+                  required 
+                />
+              </div>
+            </div>
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="address" className="text-xs font-bold uppercase text-muted-foreground ml-1">Pickup Address</Label>
+            <Label htmlFor="address" className="text-xs font-bold uppercase text-muted-foreground ml-1">Address</Label>
             <Textarea 
               id="address" 
               placeholder="Your area/landmark in Varanasi" 
-              className="min-h-[80px] bg-muted/30 border-none focus-visible:ring-primary" 
+              className="min-h-[70px] bg-muted/30 border-none focus-visible:ring-primary" 
               required 
             />
           </div>
@@ -178,7 +187,7 @@ export default function TestRidePopup() {
             </Button>
           </DialogFooter>
 
-          <div className="flex items-center justify-center gap-4 text-[10px] text-muted-foreground font-bold uppercase tracking-widest pt-2">
+          <div className="flex items-center justify-center gap-4 text-[10px] text-muted-foreground font-bold uppercase tracking-widest pt-1">
             <span className="flex items-center gap-1"><CheckCircle2 className="h-3 w-3 text-green-500" /> Free Test Ride</span>
             <span className="flex items-center gap-1"><CheckCircle2 className="h-3 w-3 text-green-500" /> Instant Confirmation</span>
           </div>
