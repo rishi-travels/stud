@@ -1,7 +1,6 @@
-
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bike, Zap, Shield, Gauge } from "lucide-react";
+import { ArrowRight, Bike, Zap, Shield, Gauge, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -182,7 +181,8 @@ export default function VehiclesPage() {
             <span className="text-sm font-bold">5-Year Warranty</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Badge variant="outline" className="border-accent text-accent">Genuine Spares</Badge>
+            <Wrench className="h-10 w-10 text-accent" />
+            <span className="text-sm font-bold">Genuine Spares</span>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Zap className="h-10 w-10 text-accent" />
