@@ -82,14 +82,14 @@ export default function Navbar() {
                       </Link>
                     </Button>
                     
-                    <Button variant="outline" asChild className="w-full font-bold border-white/20 text-white hover:bg-white/10 h-12">
-                      <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" asChild className="w-full font-bold border-white/40 text-white hover:bg-white/10 h-12">
+                      <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="flex items-center justify-center">
                         <MessageCircle className="mr-2 h-5 w-5" /> Chat on Whatsapp
                       </a>
                     </Button>
 
-                    <Button variant="outline" asChild className="w-full font-bold border-white/20 text-white hover:bg-white/10 h-12">
-                      <a href="mailto:ashwanimishra3172001@gmail.com" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" asChild className="w-full font-bold border-white/40 text-white hover:bg-white/10 h-12">
+                      <a href="mailto:ashwanimishra3172001@gmail.com" onClick={() => setIsOpen(false)} className="flex items-center justify-center">
                         <Mail className="mr-2 h-5 w-5" /> Email now
                       </a>
                     </Button>
