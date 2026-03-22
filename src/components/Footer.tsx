@@ -53,11 +53,11 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-white/70 font-medium">
-              <li><Link href="/service" className="hover:text-accent transition-colors">Service Booking</Link></li>
-              <li><Link href="/service" className="hover:text-accent transition-colors">Maintenance Tips</Link></li>
-              <li><Link href="#" className="hover:text-accent transition-colors">Spare Parts</Link></li>
-              <li><Link href="#" className="hover:text-accent transition-colors">Warranty Info</Link></li>
-              <li><Link href="#" className="hover:text-accent transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Service Booking</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Maintenance Tips</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Spare Parts</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Warranty Info</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
