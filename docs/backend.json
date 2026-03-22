@@ -1,0 +1,638 @@
+{
+  "entities": {
+    "Vehicle": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Vehicle",
+      "type": "object",
+      "description": "Represents a vehicle offered by Chhaya Bajaj Auto, including motorcycles and cars, available for display and sale.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Vehicle entity."
+        },
+        "make": {
+          "type": "string",
+          "description": "The manufacturer of the vehicle, e.g., Bajaj."
+        },
+        "model": {
+          "type": "string",
+          "description": "The specific model name of the vehicle, e.g., Pulsar 150."
+        },
+        "year": {
+          "type": "number",
+          "description": "The manufacturing year of the vehicle."
+        },
+        "price": {
+          "type": "number",
+          "description": "The listed price of the vehicle."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the vehicle, highlighting its features and benefits."
+        },
+        "features": {
+          "type": "array",
+          "description": "A list of key features or specifications of the vehicle.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "imageUrls": {
+          "type": "array",
+          "description": "An array of URLs pointing to images of the vehicle.",
+          "format": "uri",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isFeatured": {
+          "type": "boolean",
+          "description": "A flag indicating if the vehicle should be highlighted on the homepage."
+        },
+        "vehicleType": {
+          "type": "string",
+          "description": "The type of vehicle, e.g., 'Motorcycle', 'Scooter', 'Car'."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the vehicle record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the vehicle record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "make",
+        "model",
+        "year",
+        "price",
+        "description",
+        "features",
+        "imageUrls",
+        "isFeatured",
+        "vehicleType",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "NewsArticle": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "NewsArticle",
+      "type": "object",
+      "description": "Represents an article or update displayed on the Chhaya Bajaj Auto website, such as company news or industry updates.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the NewsArticle entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The headline or title of the news article."
+        },
+        "content": {
+          "type": "string",
+          "description": "The full body content of the news article."
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "The date and time when the article was published.",
+          "format": "date-time"
+        },
+        "author": {
+          "type": "string",
+          "description": "The author or source of the news article."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "An optional URL to a featured image for the news article.",
+          "format": "uri"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the news article record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the news article record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "content",
+        "publishDate",
+        "author",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Promotion": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Promotion",
+      "type": "object",
+      "description": "Represents an ongoing offer, discount, or special event from Chhaya Bajaj Auto.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Promotion entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the promotion."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the promotion."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "The date and time when the promotion begins.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The date and time when the promotion ends.",
+          "format": "date-time"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "An optional URL to an image associated with the promotion.",
+          "format": "uri"
+        },
+        "termsAndConditions": {
+          "type": "string",
+          "description": "Optional legal terms and conditions applicable to the promotion."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the promotion record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the promotion record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "startDate",
+        "endDate",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "TeamMember": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TeamMember",
+      "type": "object",
+      "description": "Represents an individual team member of Chhaya Bajaj Auto, featured on the About Us page.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the TeamMember entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the team member."
+        },
+        "role": {
+          "type": "string",
+          "description": "The professional role or position of the team member."
+        },
+        "bio": {
+          "type": "string",
+          "description": "A short biographical summary of the team member."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "An optional URL to the team member's profile picture.",
+          "format": "uri"
+        },
+        "email": {
+          "type": "string",
+          "description": "The official email address of the team member for contact, if public.",
+          "format": "email"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the team member record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the team member record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "role",
+        "bio",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "ContactInquiry": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactInquiry",
+      "type": "object",
+      "description": "Represents an inquiry submitted by a user through the contact form on the Chhaya Bajaj Auto website.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the ContactInquiry entity."
+        },
+        "applicantName": {
+          "type": "string",
+          "description": "The full name of the person submitting the inquiry."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the inquirer for follow-up.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The optional phone number of the inquirer."
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject line or topic of the inquiry."
+        },
+        "message": {
+          "type": "string",
+          "description": "The full message content of the inquiry."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "The date and time when the inquiry was submitted.",
+          "format": "date-time"
+        },
+        "isResolved": {
+          "type": "boolean",
+          "description": "A flag indicating if the inquiry has been addressed or resolved."
+        },
+        "resolvedDate": {
+          "type": "string",
+          "description": "The date and time when the inquiry was marked as resolved, if applicable.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "applicantName",
+        "email",
+        "subject",
+        "message",
+        "submissionDate",
+        "isResolved"
+      ]
+    },
+    "BranchLocation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "BranchLocation",
+      "type": "object",
+      "description": "Represents a physical branch or showroom location of Chhaya Bajaj Auto, including contact details and operating hours.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the BranchLocation entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the branch, e.g., 'Main Showroom', 'Service Center - East'."
+        },
+        "address": {
+          "type": "string",
+          "description": "The street address of the branch."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city where the branch is located."
+        },
+        "state": {
+          "type": "string",
+          "description": "The state or region where the branch is located."
+        },
+        "zipCode": {
+          "type": "string",
+          "description": "The postal code of the branch location."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The primary contact phone number for the branch."
+        },
+        "email": {
+          "type": "string",
+          "description": "The primary contact email address for the branch.",
+          "format": "email"
+        },
+        "googleMapsUrl": {
+          "type": "string",
+          "description": "An optional URL to the branch's location on Google Maps.",
+          "format": "uri"
+        },
+        "hoursOfOperation": {
+          "type": "array",
+          "description": "An array of strings describing the daily operating hours, e.g., 'Mon-Fri: 9 AM - 6 PM'.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the branch location record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the branch location record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "address",
+        "city",
+        "state",
+        "zipCode",
+        "phone",
+        "email",
+        "hoursOfOperation",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "JobOpening": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "JobOpening",
+      "type": "object",
+      "description": "Represents an available job position at Chhaya Bajaj Auto, listed on the Careers page.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the JobOpening entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the job position, e.g., 'Sales Executive'."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the job responsibilities and duties."
+        },
+        "requirements": {
+          "type": "array",
+          "description": "A list of qualifications, skills, and experience required for the role.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "department": {
+          "type": "string",
+          "description": "The department or team to which the job opening belongs."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geographical location of the job, e.g., 'Pune', 'Remote'."
+        },
+        "postedDate": {
+          "type": "string",
+          "description": "The date and time when the job opening was posted.",
+          "format": "date-time"
+        },
+        "applicationDeadline": {
+          "type": "string",
+          "description": "The optional deadline for submitting applications for this job opening.",
+          "format": "date-time"
+        },
+        "isActive": {
+          "type": "boolean",
+          "description": "A flag indicating if the job opening is currently active and accepting applications."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the job opening record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the job opening record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "requirements",
+        "department",
+        "location",
+        "postedDate",
+        "isActive",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "JobApplication": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "JobApplication",
+      "type": "object",
+      "description": "Represents a basic application of interest submitted by a candidate for a specific job opening at Chhaya Bajaj Auto.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the JobApplication entity."
+        },
+        "jobOpeningId": {
+          "type": "string",
+          "description": "Reference to the JobOpening entity to which this application pertains. (Relationship: JobOpening 1:N JobApplication)"
+        },
+        "applicantName": {
+          "type": "string",
+          "description": "The full name of the job applicant."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the applicant for correspondence.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The optional phone number of the applicant."
+        },
+        "resumeUrl": {
+          "type": "string",
+          "description": "A URL pointing to the applicant's resume stored externally (e.g., cloud storage).",
+          "format": "uri"
+        },
+        "coverLetter": {
+          "type": "string",
+          "description": "The optional cover letter text submitted by the applicant."
+        },
+        "skills": {
+          "type": "array",
+          "description": "A list of skills provided by the applicant, used for the AI Career Pathway Tool.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "interests": {
+          "type": "array",
+          "description": "A list of interests provided by the applicant, used for the AI Career Pathway Tool.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "The date and time when the job application was submitted.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the job application (e.g., 'Submitted', 'Under Review', 'Interview Scheduled', 'Rejected', 'Hired')."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the job application record was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the job application record was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "jobOpeningId",
+        "applicantName",
+        "email",
+        "resumeUrl",
+        "submissionDate",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/vehicles",
+        "definition": {
+          "entityName": "Vehicle",
+          "schema": {
+            "$ref": "#/backend/entities/Vehicle"
+          },
+          "description": "Stores all vehicle listings available for display and sale. Documents in this collection are publicly readable by anyone; write access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/news_articles",
+        "definition": {
+          "entityName": "NewsArticle",
+          "schema": {
+            "$ref": "#/backend/entities/NewsArticle"
+          },
+          "description": "Contains news articles and updates. Documents are publicly readable by anyone; write access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/promotions",
+        "definition": {
+          "entityName": "Promotion",
+          "schema": {
+            "$ref": "#/backend/entities/Promotion"
+          },
+          "description": "Holds ongoing offers and special events. Documents are publicly readable by anyone; write access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/team_members",
+        "definition": {
+          "entityName": "TeamMember",
+          "schema": {
+            "$ref": "#/backend/entities/TeamMember"
+          },
+          "description": "Lists information about team members for the About Us page. Documents are publicly readable by anyone; write access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/branch_locations",
+        "definition": {
+          "entityName": "BranchLocation",
+          "schema": {
+            "$ref": "#/backend/entities/BranchLocation"
+          },
+          "description": "Details about physical branch locations, including contact and hours. Documents are publicly readable by anyone; write access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/job_openings",
+        "definition": {
+          "entityName": "JobOpening",
+          "schema": {
+            "$ref": "#/backend/entities/JobOpening"
+          },
+          "description": "Advertises available job positions on the Careers page. Documents are publicly readable by anyone; write access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/contact_inquiries",
+        "definition": {
+          "entityName": "ContactInquiry",
+          "schema": {
+            "$ref": "#/backend/entities/ContactInquiry"
+          },
+          "description": "Stores inquiries submitted through the contact form. Documents can be created by any user (authenticated or unauthenticated); read, update, and delete access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/job_applications",
+        "definition": {
+          "entityName": "JobApplication",
+          "schema": {
+            "$ref": "#/backend/entities/JobApplication"
+          },
+          "description": "Contains basic job applications submitted by candidates. Documents can be created by any user (authenticated or unauthenticated); read, update, and delete access is restricted to administrators."
+        }
+      },
+      {
+        "path": "/roles_admin/{adminId}",
+        "definition": {
+          "entityName": "UserRole",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "A collection used for Database Access Control (DBAC). The existence of a document at `/roles_admin/{uid}` grants administrative privileges to the user with the matching UID. Read access is permitted for any authenticated user to check their own role; write access is restricted to existing administrators.",
+          "params": [
+            {
+              "name": "adminId",
+              "description": "The unique user ID (UID) of an administrator."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The recommended Firestore structure is designed to be secure, scalable, and debuggable by strictly adhering to the core design principles and strategy mandates. All collections are organized to enforce distinct security postures and ensure Authorization Independence.\n\n**Authorization Independence:** This structure primarily achieves Authorization Independence through two key strategies:\n1.  **Public Data Collections:** For entities like `Vehicle`, `NewsArticle`, `Promotion`, `TeamMember`, `BranchLocation`, and `JobOpening`, the data is inherently public. This means their security rules will simply allow `read: true` for all users (authenticated or unauthenticated), eliminating any need for `get()` operations in rules to determine access. Write access to these collections will be restricted to authenticated administrators, whose roles are checked independently.\n2.  **Administrator-Managed Collections:** For sensitive data like `ContactInquiry` and `JobApplication`, read and update access is strictly limited to users with an 'admin' role. This 'admin' role is denormalized into a dedicated top-level collection (`/roles_admin`). Authorization rules will check for the existence of `request.auth.uid` within the `/roles_admin/{uid}` path, without needing to `get()` any other document. This ensures that a user's administrative privilege is determined independently of the data they are trying to access. Submitting these inquiries/applications will be permitted for anyone (authenticated or unauthenticated), avoiding complex ownership rules for creation.\n\n**QAPs (Rules are not Filters):** This structure supports Query-Able Paths (QAPs) by ensuring that security rules do not act as filters. Each collection has a homogeneous security posture:\n*   **Public Collections:** All documents within `/vehicles`, `/news_articles`, `/promotions`, `/team_members`, `/branch_locations`, and `/job_openings` are publicly readable. Any `list` query on these collections will return all documents that match the query's criteria, as intended. There's no implicit filtering by security rules.\n*   **Admin-Only Collections:** All documents within `/contact_inquiries` and `/job_applications` are readable only by administrators. A `list` query by an admin will return all matching documents, and a `list` query by a non-admin will simply be denied at the collection level, preventing any accidental data exposure or incomplete results. The `jobOpeningId` in `JobApplication` is a data field, not an access control field, so `list` queries on `/job_applications` can directly filter by it without security rule complications.\n\n**Structural Segregation:** Data is segregated into distinct collections based on its security requirements. Publicly accessible information resides in open collections, while sensitive, internal-facing data (inquiries, applications) resides in admin-only collections. Administrator roles are also in their own dedicated collection. This radical consistency simplifies security rules, making them easier to write, understand, and debug."
+  }
+}
