@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -129,7 +128,7 @@ export default function AICareerTool() {
                 asChild
               >
                 <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer">
-                  Direct Message
+                  Chat on Whatsapp
                 </a>
               </Button>
             </div>
