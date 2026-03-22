@@ -7,12 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
-import { Loader2, ShieldAlert, Lock, ArrowRight } from 'lucide-react';
+import { Loader2, ShieldAlert, Lock, ArrowRight, MessageSquare, Bike } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { initiateAnonymousSignIn } from '@/firebase/non-blocking-login';
 import { useAuth } from '@/firebase';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function AdminBookingsPage() {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
@@ -23,20 +24,26 @@ export default function AdminBookingsPage() {
   const auth = useAuth();
   const { user, isUserLoading } = useUser();
   
-  // Ensure the user is signed in anonymously only after password verification
   useEffect(() => {
     if (!isUserLoading && !user && auth && isAdminAuthenticated) {
       initiateAnonymousSignIn(auth);
     }
   }, [user, isUserLoading, auth, isAdminAuthenticated]);
 
-  // We wait for the 'user' object and password verification to be available before creating the query.
+  // Query for Test Ride Bookings
   const bookingsQuery = useMemoFirebase(() => {
     if (!firestore || !user || !isAdminAuthenticated) return null;
     return query(collection(firestore, 'test_ride_bookings'), orderBy('submittedAt', 'desc'));
   }, [firestore, user, isAdminAuthenticated]);
 
-  const { data: bookings, isLoading, error } = useCollection(bookingsQuery);
+  // Query for Contact Inquiries
+  const inquiriesQuery = useMemoFirebase(() => {
+    if (!firestore || !user || !isAdminAuthenticated) return null;
+    return query(collection(firestore, 'contact_inquiries'), orderBy('submissionDate', 'desc'));
+  }, [firestore, user, isAdminAuthenticated]);
+
+  const { data: bookings, isLoading: isLoadingBookings } = useCollection(bookingsQuery);
+  const { data: inquiries, isLoading: isLoadingInquiries, error: inquiriesError } = useCollection(inquiriesQuery);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -85,30 +92,11 @@ export default function AdminBookingsPage() {
     );
   }
 
-  // Show loading while auth is checking OR while data is being fetched for the first time
-  if (isUserLoading || (isLoading && !bookings)) {
+  if (isUserLoading || (isLoadingBookings && !bookings)) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
         <p className="text-muted-foreground font-medium animate-pulse">Loading secure leads...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto p-8 max-w-2xl">
-        <Card className="border-destructive/50 bg-destructive/5">
-          <CardContent className="pt-6 flex flex-col items-center text-center space-y-4">
-            <ShieldAlert className="h-12 w-12 text-destructive" />
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold">Access Denied</h3>
-              <p className="text-muted-foreground">
-                You do not have the required permissions to view Lead data. Please ensure you are authorized.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     );
   }
@@ -118,66 +106,133 @@ export default function AdminBookingsPage() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="space-y-1">
           <h1 className="text-3xl font-black font-headline uppercase italic tracking-tighter">
-            Test Ride <span className="text-primary">Leads</span>
+            Leads <span className="text-primary">Dashboard</span>
           </h1>
-          <p className="text-muted-foreground text-sm font-medium">Manage and track your customer interest in real-time.</p>
+          <p className="text-muted-foreground text-sm font-medium">Manage all customer inquiries and bookings in one place.</p>
         </div>
-        <Badge variant="outline" className="text-lg px-6 py-2 border-primary/20 bg-primary/5 text-primary font-bold">
-          {bookings?.length || 0} Leads Found
-        </Badge>
       </div>
 
-      <Card className="glass-card shadow-2xl border-none">
-        <CardHeader className="border-b border-border/50">
-          <CardTitle className="text-xl font-bold">Lead Management Table</CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader className="bg-muted/30">
-                <TableRow>
-                  <TableHead className="font-bold">Submission Time</TableHead>
-                  <TableHead className="font-bold">Customer Name</TableHead>
-                  <TableHead className="font-bold">Phone Number</TableHead>
-                  <TableHead className="font-bold">Vehicle Model</TableHead>
-                  <TableHead className="font-bold">Preferred Date</TableHead>
-                  <TableHead className="font-bold">Residential Address</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {bookings?.map((booking) => (
-                  <TableRow key={booking.id} className="hover:bg-muted/20 transition-colors">
-                    <TableCell className="text-xs font-medium text-muted-foreground">
-                      {booking.submittedAt ? format(new Date(booking.submittedAt), 'MMM dd, yyyy • HH:mm') : 'N/A'}
-                    </TableCell>
-                    <TableCell className="font-bold text-blue-950">{booking.name}</TableCell>
-                    <TableCell className="font-mono text-primary font-bold">{booking.phone}</TableCell>
-                    <TableCell>
-                      <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20 font-bold uppercase text-[10px]">
-                        {booking.model}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="font-semibold text-blue-900">{booking.date}</TableCell>
-                    <TableCell className="max-w-[200px] truncate text-muted-foreground italic">
-                      {booking.address}
-                    </TableCell>
-                  </TableRow>
-                ))}
-                {(!bookings || bookings.length === 0) && (
-                  <TableRow>
-                    <TableCell colSpan={6} className="text-center py-20">
-                      <div className="flex flex-col items-center space-y-2">
-                        <p className="text-lg font-bold text-muted-foreground">No leads yet</p>
-                        <p className="text-sm text-muted-foreground/60">Lead details will appear here as customers book test rides.</p>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
+      <Tabs defaultValue="test-rides" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 max-w-md mb-8">
+          <TabsTrigger value="test-rides" className="flex items-center gap-2">
+            <Bike className="h-4 w-4" /> Test Rides
+          </TabsTrigger>
+          <TabsTrigger value="inquiries" className="flex items-center gap-2">
+            <MessageSquare className="h-4 w-4" /> Enquiries
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="test-rides">
+          <Card className="glass-card shadow-2xl border-none">
+            <CardHeader className="border-b border-border/50 flex flex-row items-center justify-between">
+              <CardTitle className="text-xl font-bold">Test Ride Bookings</CardTitle>
+              <Badge variant="outline" className="border-primary/20 bg-primary/5 text-primary font-bold">
+                {bookings?.length || 0} Leads
+              </Badge>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader className="bg-muted/30">
+                    <TableRow>
+                      <TableHead className="font-bold">Submission Time</TableHead>
+                      <TableHead className="font-bold">Customer Name</TableHead>
+                      <TableHead className="font-bold">Phone Number</TableHead>
+                      <TableHead className="font-bold">Vehicle Model</TableHead>
+                      <TableHead className="font-bold">Preferred Date</TableHead>
+                      <TableHead className="font-bold">Address</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {bookings?.map((booking) => (
+                      <TableRow key={booking.id} className="hover:bg-muted/20 transition-colors">
+                        <TableCell className="text-xs font-medium text-muted-foreground">
+                          {booking.submittedAt ? format(new Date(booking.submittedAt), 'MMM dd, yyyy • HH:mm') : 'N/A'}
+                        </TableCell>
+                        <TableCell className="font-bold text-blue-950">{booking.name}</TableCell>
+                        <TableCell className="font-mono text-primary font-bold">{booking.phone}</TableCell>
+                        <TableCell>
+                          <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20 font-bold uppercase text-[10px]">
+                            {booking.model}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="font-semibold text-blue-900">{booking.date}</TableCell>
+                        <TableCell className="max-w-[200px] truncate text-muted-foreground italic">
+                          {booking.address}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    {(!bookings || bookings.length === 0) && (
+                      <TableRow>
+                        <TableCell colSpan={6} className="text-center py-20">
+                          <p className="text-lg font-bold text-muted-foreground">No test ride leads yet</p>
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="inquiries">
+          <Card className="glass-card shadow-2xl border-none">
+            <CardHeader className="border-b border-border/50 flex flex-row items-center justify-between">
+              <CardTitle className="text-xl font-bold">Contact Form Inquiries</CardTitle>
+              <Badge variant="outline" className="border-accent/20 bg-accent/5 text-accent font-bold">
+                {inquiries?.length || 0} Inquiries
+              </Badge>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader className="bg-muted/30">
+                    <TableRow>
+                      <TableHead className="font-bold">Date</TableHead>
+                      <TableHead className="font-bold">Customer Name</TableHead>
+                      <TableHead className="font-bold">Contact Info</TableHead>
+                      <TableHead className="font-bold">Subject</TableHead>
+                      <TableHead className="font-bold">Message</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {inquiries?.map((inquiry) => (
+                      <TableRow key={inquiry.id} className="hover:bg-muted/20 transition-colors">
+                        <TableCell className="text-xs font-medium text-muted-foreground">
+                          {inquiry.submissionDate ? format(new Date(inquiry.submissionDate), 'MMM dd, yyyy') : 'N/A'}
+                        </TableCell>
+                        <TableCell className="font-bold text-blue-950">{inquiry.applicantName}</TableCell>
+                        <TableCell>
+                          <div className="flex flex-col text-xs">
+                            <span className="font-bold text-primary">{inquiry.phone}</span>
+                            <span className="text-muted-foreground truncate max-w-[150px]">{inquiry.email}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="text-[10px] font-bold uppercase whitespace-nowrap">
+                            {inquiry.subject}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="max-w-[300px] text-xs text-muted-foreground italic leading-relaxed">
+                          {inquiry.message}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    {(!inquiries || inquiries.length === 0) && (
+                      <TableRow>
+                        <TableCell colSpan={5} className="text-center py-20">
+                          <p className="text-lg font-bold text-muted-foreground">No contact inquiries yet</p>
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
