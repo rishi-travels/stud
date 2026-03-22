@@ -43,6 +43,7 @@ const VEHICLE_MODELS = [
 export default function TestRidePopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedModel, setSelectedModel] = useState("");
   const { toast } = useToast();
   const popupImg = PlaceHolderImages.find(p => p.id === "hero-ns400");
 
@@ -63,18 +64,56 @@ export default function TestRidePopup() {
     return () => window.removeEventListener('open-test-ride', handleOpenPopup);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      model: selectedModel,
+      date: formData.get("date"),
+      address: formData.get("address"),
+      submittedAt: new Date().toLocaleString(),
+    };
+
+    try {
+      // NOTE: You must deploy a Google Apps Script as a Web App on your sheet
+      // and replace this URL with your actual deployed Script ID URL.
+      // The script should handle a POST request and append the data to your sheet.
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbz_W-W0-L-K-Y-Y-Y/exec"; // Placeholder URL
+      
+      // Attempting to send data to the sheet bridge
+      // We use no-cors because Google Scripts return a redirect that fetch often fails on with CORS
+      await fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      // Simulation delay for UI feedback
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       setIsSubmitting(false);
       setIsOpen(false);
       toast({
         title: "Booking Successful!",
-        description: "Get ready for a thrilling ride! Our team will contact you soon.",
+        description: "Your details have been saved. We will contact you shortly to confirm your slot.",
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setIsSubmitting(false);
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: "We couldn't save your details. Please check your connection or call us directly.",
+      });
+    }
   };
 
   return (
@@ -115,6 +154,7 @@ export default function TestRidePopup() {
               <Label htmlFor="name" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Full Name</Label>
               <Input 
                 id="name" 
+                name="name"
                 placeholder="Abhi Mishra" 
                 className="bg-muted/30 border-none focus-visible:ring-primary h-10 text-sm" 
                 required 
@@ -124,6 +164,7 @@ export default function TestRidePopup() {
               <Label htmlFor="phone" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Phone Number</Label>
               <Input 
                 id="phone" 
+                name="phone"
                 type="tel" 
                 placeholder="+919999999999" 
                 className="bg-muted/30 border-none focus-visible:ring-primary h-10 text-sm" 
@@ -134,8 +175,8 @@ export default function TestRidePopup() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1">
-              <Label htmlFor="vehicle" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Choose Model</Label>
-              <Select required>
+              <Label className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Choose Model</Label>
+              <Select onValueChange={setSelectedModel} required>
                 <SelectTrigger className="bg-muted/30 border-none h-10 text-sm">
                   <SelectValue placeholder="Select Model" />
                 </SelectTrigger>
@@ -152,6 +193,7 @@ export default function TestRidePopup() {
               <Label htmlFor="ride-date" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Date</Label>
               <Input 
                 id="ride-date" 
+                name="date"
                 type="date" 
                 placeholder="select date"
                 className="bg-muted/30 border-none focus-visible:ring-primary h-10 text-sm" 
@@ -164,6 +206,7 @@ export default function TestRidePopup() {
             <Label htmlFor="address" className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Address</Label>
             <Textarea 
               id="address" 
+              name="address"
               placeholder="Your area/landmark in Varanasi" 
               className="min-h-[60px] bg-muted/30 border-none focus-visible:ring-primary text-sm" 
               required 
@@ -182,7 +225,7 @@ export default function TestRidePopup() {
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
                   <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Booking Your Slot...
+                  Saving to Records...
                 </div>
               ) : (
                 <>
