@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Bike, Info, Phone, Briefcase, LayoutGrid, Wrench } from "lucide-react";
+import { Menu, X, Bike, Info, Phone, Briefcase, LayoutGrid, Wrench, MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
@@ -53,30 +53,47 @@ export default function Navbar() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-blue-950 border-l border-white/10 text-white">
+              <SheetContent side="right" className="bg-blue-950 border-l border-white/10 text-white overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <SheetDescription className="sr-only">
                     Access all pages of Chhaya Bajaj including Home, Vehicles, Service, About, Careers, and Contact.
                   </SheetDescription>
                 </SheetHeader>
-                <div className="flex flex-col space-y-6 mt-12">
-                  {NAV_ITEMS.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center space-x-4 text-lg font-bold text-white/90 hover:text-accent"
-                    >
-                      <item.icon className="h-5 w-5" />
-                      <span>{item.name}</span>
-                    </Link>
-                  ))}
-                  <Button asChild className="w-full mt-4 font-bold bg-accent hover:bg-accent/90">
-                    <Link href="/contact" onClick={() => setIsOpen(false)}>
-                      Book a Test Ride
-                    </Link>
-                  </Button>
+                <div className="flex flex-col space-y-6 mt-12 pb-8">
+                  <div className="space-y-4">
+                    {NAV_ITEMS.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center space-x-4 text-lg font-bold text-white/90 hover:text-accent"
+                      >
+                        <item.icon className="h-5 w-5" />
+                        <span>{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                  
+                  <div className="pt-6 space-y-4 border-t border-white/10">
+                    <Button asChild className="w-full font-bold bg-accent hover:bg-accent/90">
+                      <Link href="/contact" onClick={() => setIsOpen(false)}>
+                        Book a Test Ride
+                      </Link>
+                    </Button>
+                    
+                    <Button variant="outline" asChild className="w-full font-bold border-white/20 text-white hover:bg-white/10 h-12">
+                      <a href="https://wa.me/94153557605" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                        <MessageCircle className="mr-2 h-5 w-5" /> Chat on Whatsapp
+                      </a>
+                    </Button>
+
+                    <Button variant="outline" asChild className="w-full font-bold border-white/20 text-white hover:bg-white/10 h-12">
+                      <a href="mailto:ashwanimishra3172001@gmail.com" onClick={() => setIsOpen(false)}>
+                        <Mail className="mr-2 h-5 w-5" /> Email now
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
