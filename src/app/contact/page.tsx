@@ -60,7 +60,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold">Email Us</h4>
-                  <p className="text-muted-foreground text-sm">intelcorei5136@gmail.com</p>
+                  <p className="text-muted-foreground text-sm">ashwanimishra3172001@gmail.com</p>
                 </div>
               </div>
             </CardContent>

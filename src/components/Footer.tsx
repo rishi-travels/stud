@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
@@ -74,7 +73,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-3 text-sm text-white/70 font-medium">
               <Mail className="h-5 w-5 text-accent shrink-0" />
-              <span>intelcorei5136@gmail.com</span>
+              <span>ashwanimishra3172001@gmail.com</span>
             </div>
           </div>
         </div>
