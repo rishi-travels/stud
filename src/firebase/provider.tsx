@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { DependencyList, createContext, useContext, ReactNode, useMemo, useState, useEffect } from 'react';
@@ -94,7 +95,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
   useEffect(() => {
     // Check if the API key exists and is not a placeholder
     const apiKey = firebaseApp?.options?.apiKey;
-    const isValidKey = apiKey && apiKey !== "" && !apiKey.includes("YOUR_");
+    const isValidKey = apiKey && apiKey !== "" && apiKey !== "your-api-key";
 
     if (typeof window !== 'undefined' && firebaseApp && isValidKey) {
       isSupported().then((supported) => {
