@@ -3,10 +3,12 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bike, ShieldCheck, Zap, ChevronLeft, ChevronRight } from "lucide-react";
+import { Bike, ShieldCheck, Zap, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-1"),
@@ -14,6 +16,36 @@ const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-3"),
   PlaceHolderImages.find(p => p.id === "hero-4"),
 ].filter((img): img is any => !!img);
+
+const DARING_VEHICLES = [
+  {
+    name: "Pulsar NS200",
+    image: PlaceHolderImages.find(p => p.id === "hero-performance"),
+    tag: "Street Fighter",
+    desc: "Raw power for the modern street fighter."
+  },
+  {
+    name: "Dominar 400",
+    image: PlaceHolderImages.find(p => p.id === "dominar-400"),
+    tag: "Hyper Tourer",
+    desc: "Experience ultimate touring performance."
+  }
+];
+
+const COMFORT_VEHICLES = [
+  {
+    name: "Platina 110",
+    image: PlaceHolderImages.find(p => p.id === "platina-110"),
+    tag: "Comfort",
+    desc: "Smooth rides for your daily commute."
+  },
+  {
+    name: "Freedom 125",
+    image: PlaceHolderImages.find(p => p.id === "freedom-125"),
+    tag: "Innovative",
+    desc: "The world's first multi-fuel performance bike."
+  }
+];
 
 export default function Home() {
   const [heroIndex, setHeroIndex] = React.useState(0);
@@ -105,22 +137,103 @@ export default function Home() {
       </div>
 
       {/* Welcome Section */}
-      <section className="py-8 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
           <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Welcome to</h2>
           <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">Chhaya Bajaj</h1>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
             Chhaya Bajaj is one of the most respected and renowned business houses of Varanasi, bringing you world-class Bajaj performance and reliability.
           </p>
-          <div className="pt-2">
-            <Button size="default" asChild className="bg-primary hover:bg-primary/90 rounded-full font-bold">
-              <Link href="/vehicles">Explore Collection</Link>
+        </div>
+      </section>
+
+      {/* Daring Collection Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div className="space-y-2">
+              <Badge variant="outline" className="border-primary text-primary font-bold">Performance Series</Badge>
+              <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
+                The <span className="text-primary">Daring</span> Collection
+              </h2>
+              <p className="text-muted-foreground font-medium">Engineered for those who thrive on adrenaline.</p>
+            </div>
+            <Button variant="ghost" asChild className="text-primary font-bold hover:text-primary/80">
+              <Link href="/vehicles" className="flex items-center gap-2">View All <ArrowRight className="h-4 w-4" /></Link>
             </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {DARING_VEHICLES.map((vehicle, idx) => (
+              <Card key={idx} className="overflow-hidden border-none shadow-xl glass-card group">
+                <div className="relative h-[300px] md:h-[400px]">
+                  {vehicle.image?.imageUrl && (
+                    <Image
+                      src={vehicle.image.imageUrl}
+                      alt={vehicle.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      data-ai-hint={vehicle.image.imageHint}
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                    <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
+                    <p className="text-white/80 mb-6">{vehicle.desc}</p>
+                    <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-fit">
+                      Book Test Ride
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Early Bird Offer Section - Centered Content Optimized for Laptop */}
+      {/* Comfort Collection Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            <div className="space-y-2">
+              <Badge variant="outline" className="border-accent text-accent font-bold">Commuter Series</Badge>
+              <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
+                The <span className="text-accent">Comfort</span> Collection
+              </h2>
+              <p className="text-muted-foreground font-medium">Reliability meets luxury for your everyday journey.</p>
+            </div>
+            <Button variant="ghost" asChild className="text-accent font-bold hover:text-accent/80">
+              <Link href="/vehicles" className="flex items-center gap-2">View All <ArrowRight className="h-4 w-4" /></Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {COMFORT_VEHICLES.map((vehicle, idx) => (
+              <Card key={idx} className="overflow-hidden border-none shadow-xl glass-card group">
+                <div className="relative h-[300px] md:h-[400px]">
+                  {vehicle.image?.imageUrl && (
+                    <Image
+                      src={vehicle.image.imageUrl}
+                      alt={vehicle.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      data-ai-hint={vehicle.image.imageHint}
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                    <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
+                    <p className="text-white/80 mb-6">{vehicle.desc}</p>
+                    <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-fit">
+                      Book Test Ride
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Early Bird Offer Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
           <div className="relative z-10 p-8 md:p-20 max-w-4xl mx-auto text-center flex flex-col items-center">

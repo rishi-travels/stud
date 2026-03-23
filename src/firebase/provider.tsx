@@ -5,8 +5,7 @@ import { FirebaseApp } from 'firebase/app';
 import { Firestore } from 'firebase/firestore';
 import { Auth, User, onAuthStateChanged } from 'firebase/auth';
 import { getAnalytics, isSupported } from 'firebase/analytics';
-import { FirebaseErrorListener } from '@/components/FirebaseErrorListener'
-import { firebaseConfig } from '@/firebase/config';
+import { FirebaseErrorListener } from '@/components/FirebaseErrorListener';
 
 interface FirebaseProviderProps {
   children: ReactNode;
@@ -75,16 +74,19 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
 
   useEffect(() => {
     // Safe initialization for Analytics to prevent crash on invalid/missing keys
+    if (typeof window === 'undefined') return;
+
     const apiKey = firebaseApp?.options?.apiKey;
+    const measurementId = firebaseApp?.options?.measurementId;
     const isValidKey = apiKey && apiKey !== "" && apiKey !== "your-api-key";
 
-    if (typeof window !== 'undefined' && isValidKey) {
+    if (isValidKey && measurementId) {
       isSupported().then((supported) => {
-        if (supported && firebaseApp.options.measurementId) {
+        if (supported) {
           try {
             getAnalytics(firebaseApp);
           } catch (e) {
-            console.warn("Analytics initialization failed (likely API key issue): ", e);
+            console.warn("Analytics initialization failed: ", e);
           }
         }
       }).catch((err) => {
@@ -130,9 +132,20 @@ export const useFirebase = (): FirebaseServicesAndUser => {
   };
 };
 
-export const useAuth = () => useFirebase().auth;
-export const useFirestore = () => useFirebase().firestore;
-export const useFirebaseApp = () => useFirebase().firebaseApp;
+export const useAuth = () => {
+  const { auth } = useFirebase();
+  return auth;
+};
+
+export const useFirestore = () => {
+  const { firestore } = useFirebase();
+  return firestore;
+};
+
+export const useFirebaseApp = () => {
+  const { firebaseApp } = useFirebase();
+  return firebaseApp;
+};
 
 type MemoFirebase <T> = T & {__memo?: boolean};
 
