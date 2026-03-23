@@ -37,7 +37,7 @@ const HERO_IMAGES = [
 
 const DARING_VEHICLES = [
   {
-    name: "Pulsar NS200",
+    name: "Pulsar NS",
     image: PlaceHolderImages.find(p => p.id === "hero-performance"),
     tag: "Street Fighter",
     desc: "Raw power for the modern street fighter."

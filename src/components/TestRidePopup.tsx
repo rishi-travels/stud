@@ -34,7 +34,7 @@ import { setDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 
 const VEHICLE_MODELS = [
   "Pulsar 150",
-  "Pulsar NS200",
+  "Pulsar NS",
   "Pulsar N160",
   "Pulsar N250",
   "Dominar",
