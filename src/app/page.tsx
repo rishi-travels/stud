@@ -344,7 +344,7 @@ export default function Home() {
           <div className="mt-16 text-center">
             <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-border shadow-sm">
               <ThumbsUp className="h-5 w-5 text-accent" />
-              <span className="text-sm font-bold text-blue-950">Trusted by 50,000+ Happy Riders in Varanasi</span>
+              <span className="text-sm font-bold text-blue-950">Trusted by customer</span>
             </div>
           </div>
         </div>
@@ -394,15 +394,15 @@ export default function Home() {
       </section>
 
       {/* Moving Text Section */}
-      <section className="py-4 md:py-6 bg-white overflow-hidden whitespace-nowrap border-y border-primary/10 relative">
+      <section className="py-2 md:py-3 bg-white overflow-hidden whitespace-nowrap border-y border-primary/10 relative">
         <div className="flex animate-marquee gap-4 md:gap-8 items-center min-w-full">
           {[...Array(12)].map((_, i) => (
-            <span key={i} className="text-2xl md:text-5xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
+            <span key={i} className="text-xl md:text-3xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
               Book Now & Save
             </span>
           ))}
           {[...Array(12)].map((_, i) => (
-            <span key={i + 12} className="text-2xl md:text-5xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
+            <span key={i + 12} className="text-xl md:text-3xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
               Book Now & Save
             </span>
           ))}
