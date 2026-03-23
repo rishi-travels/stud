@@ -33,13 +33,11 @@ const TEAM_MEMBERS = [
     name: "Diwakar Mishra",
     role: "Marketing Head",
     image: PlaceHolderImages.find(p => p.id === "team-member-4"),
-    bio: "Diwakar specializes in strategic market analysis and operational excellence at Chhaya Bajaj."
+    bio: "Diwakar specializes in strategic market analysis and marketing excellence at Chhaya Bajaj."
   }
 ];
 
 export default function AboutPage() {
-  const introImg = PlaceHolderImages.find(p => p.id === "service-center");
-
   return (
     <div className="py-20 space-y-32">
       {/* Introduction */}
