@@ -1,23 +1,25 @@
 'use client';
 
-import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
-import { collection, query, orderBy } from 'firebase/firestore';
+import { useCollection, useFirestore, useMemoFirebase, useUser, deleteDocumentNonBlocking } from '@/firebase';
+import { collection, query, orderBy, doc } from 'firebase/firestore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
-import { Loader2, Lock, ArrowRight, MessageSquare, Bike, Briefcase, Mail } from 'lucide-react';
+import { Loader2, Lock, ArrowRight, MessageSquare, Bike, Briefcase, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { initiateAnonymousSignIn } from '@/firebase/non-blocking-login';
 import { useAuth } from '@/firebase';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
 
 export default function AdminBookingsPage() {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [passError, setPassError] = useState(false);
+  const { toast } = useToast();
 
   const firestore = useFirestore();
   const auth = useAuth();
@@ -53,7 +55,6 @@ export default function AdminBookingsPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Use environment variable for password check
     const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
     if (password === adminPassword) {
       setIsAdminAuthenticated(true);
@@ -61,6 +62,17 @@ export default function AdminBookingsPage() {
     } else {
       setPassError(true);
       setPassword('');
+    }
+  };
+
+  const handleDelete = (collectionName: string, id: string) => {
+    if (window.confirm('Are you sure you want to delete this lead permanently?')) {
+      const docRef = doc(firestore, collectionName, id);
+      deleteDocumentNonBlocking(docRef);
+      toast({
+        title: "Lead Deleted",
+        description: "The record has been successfully removed.",
+      });
     }
   };
 
@@ -152,6 +164,7 @@ export default function AdminBookingsPage() {
                       <TableHead className="font-bold">Vehicle Model</TableHead>
                       <TableHead className="font-bold">Preferred Date</TableHead>
                       <TableHead className="font-bold">Address</TableHead>
+                      <TableHead className="font-bold text-center">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -171,11 +184,21 @@ export default function AdminBookingsPage() {
                         <TableCell className="max-w-[200px] truncate text-muted-foreground italic">
                           {booking.address}
                         </TableCell>
+                        <TableCell className="text-center">
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => handleDelete('test_ride_bookings', booking.id)}
+                            className="text-muted-foreground hover:text-destructive transition-colors"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
                       </TableRow>
                     ))}
                     {(!bookings || bookings.length === 0) && (
                       <TableRow>
-                        <TableCell colSpan={6} className="text-center py-20">
+                        <TableCell colSpan={7} className="text-center py-20">
                           <p className="text-lg font-bold text-muted-foreground">No test ride leads yet</p>
                         </TableCell>
                       </TableRow>
@@ -205,6 +228,7 @@ export default function AdminBookingsPage() {
                       <TableHead className="font-bold">Contact Info</TableHead>
                       <TableHead className="font-bold">Subject</TableHead>
                       <TableHead className="font-bold">Message</TableHead>
+                      <TableHead className="font-bold text-center">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -228,11 +252,21 @@ export default function AdminBookingsPage() {
                         <TableCell className="max-w-[300px] text-xs text-muted-foreground italic leading-relaxed">
                           {inquiry.message}
                         </TableCell>
+                        <TableCell className="text-center">
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => handleDelete('contact_inquiries', inquiry.id)}
+                            className="text-muted-foreground hover:text-destructive transition-colors"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
                       </TableRow>
                     ))}
                     {(!inquiries || inquiries.length === 0) && (
                       <TableRow>
-                        <TableCell colSpan={5} className="text-center py-20">
+                        <TableCell colSpan={6} className="text-center py-20">
                           <p className="text-lg font-bold text-muted-foreground">No contact inquiries yet</p>
                         </TableCell>
                       </TableRow>
@@ -262,6 +296,7 @@ export default function AdminBookingsPage() {
                       <TableHead className="font-bold">Contact Info</TableHead>
                       <TableHead className="font-bold">Role Interested</TableHead>
                       <TableHead className="font-bold">Address/Info</TableHead>
+                      <TableHead className="font-bold text-center">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -285,11 +320,21 @@ export default function AdminBookingsPage() {
                         <TableCell className="max-w-[300px] text-xs text-muted-foreground italic leading-relaxed">
                           {job.coverLetter}
                         </TableCell>
+                        <TableCell className="text-center">
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => handleDelete('job_applications', job.id)}
+                            className="text-muted-foreground hover:text-destructive transition-colors"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
                       </TableRow>
                     ))}
                     {(!jobs || jobs.length === 0) && (
                       <TableRow>
-                        <TableCell colSpan={5} className="text-center py-20">
+                        <TableCell colSpan={6} className="text-center py-20">
                           <p className="text-lg font-bold text-muted-foreground">No job applications yet</p>
                         </TableCell>
                       </TableRow>
