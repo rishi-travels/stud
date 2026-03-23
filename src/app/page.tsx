@@ -7,8 +7,14 @@ import { Bike, ShieldCheck, Zap, ChevronLeft, ChevronRight, ArrowRight } from "l
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-1"),
@@ -163,30 +169,38 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {DARING_VEHICLES.map((vehicle, idx) => (
-              <Card key={idx} className="overflow-hidden border-none shadow-xl glass-card group">
-                <div className="relative h-[300px] md:h-[400px]">
-                  {vehicle.image?.imageUrl && (
-                    <Image
-                      src={vehicle.image.imageUrl}
-                      alt={vehicle.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      data-ai-hint={vehicle.image.imageHint}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                    <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
-                    <p className="text-white/80 mb-6">{vehicle.desc}</p>
-                    <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-fit">
-                      Book Test Ride
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <Carousel 
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+            opts={{ align: "start", loop: true }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {DARING_VEHICLES.map((vehicle, idx) => (
+                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2">
+                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full">
+                    <div className="relative h-[300px] md:h-[400px]">
+                      {vehicle.image?.imageUrl && (
+                        <Image
+                          src={vehicle.image.imageUrl}
+                          alt={vehicle.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          data-ai-hint={vehicle.image.imageHint}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                        <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
+                        <p className="text-white/80 mb-6">{vehicle.desc}</p>
+                        <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-fit">
+                          Book Test Ride
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
@@ -206,30 +220,38 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {COMFORT_VEHICLES.map((vehicle, idx) => (
-              <Card key={idx} className="overflow-hidden border-none shadow-xl glass-card group">
-                <div className="relative h-[300px] md:h-[400px]">
-                  {vehicle.image?.imageUrl && (
-                    <Image
-                      src={vehicle.image.imageUrl}
-                      alt={vehicle.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      data-ai-hint={vehicle.image.imageHint}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                    <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
-                    <p className="text-white/80 mb-6">{vehicle.desc}</p>
-                    <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-fit">
-                      Book Test Ride
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <Carousel 
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+            opts={{ align: "start", loop: true }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {COMFORT_VEHICLES.map((vehicle, idx) => (
+                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2">
+                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full">
+                    <div className="relative h-[300px] md:h-[400px]">
+                      {vehicle.image?.imageUrl && (
+                        <Image
+                          src={vehicle.image.imageUrl}
+                          alt={vehicle.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          data-ai-hint={vehicle.image.imageHint}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                        <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
+                        <p className="text-white/80 mb-6">{vehicle.desc}</p>
+                        <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-fit">
+                          Book Test Ride
+                        </Button>
+                      </div>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
