@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -29,6 +28,7 @@ export default function AICareerTool() {
 
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phoneNumber: "",
     jobRole: "",
     address: ""
@@ -41,7 +41,7 @@ export default function AICareerTool() {
     try {
       // 1. Get AI Analysis/Recommendations
       const output = await recommendCareerPathway({
-        skills: `Applicant Name: ${formData.name}\nPhone: ${formData.phoneNumber}\nAddress: ${formData.address}`,
+        skills: `Applicant Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phoneNumber}\nAddress: ${formData.address}`,
         interests: `Highly interested in the ${formData.jobRole} position at Chhaya Bajaj Auto.`,
         currentJobRole: formData.jobRole,
       });
@@ -53,8 +53,8 @@ export default function AICareerTool() {
         id: applicationRef.id,
         jobOpeningId: formData.jobRole,
         applicantName: formData.name,
+        email: formData.email,
         phone: formData.phoneNumber,
-        email: "not-provided@example.com", // Form doesn't have email field currently
         resumeUrl: "manual-entry",
         coverLetter: `Address: ${formData.address}`,
         status: "pending",
@@ -102,6 +102,19 @@ export default function AICareerTool() {
                 />
               </div>
               <div className="space-y-2">
+                <label className="text-sm font-medium">Email Address</label>
+                <Input 
+                  type="email"
+                  placeholder="abhi@example.com" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required 
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
                 <label className="text-sm font-medium">Phone Number</label>
                 <Input 
                   placeholder="+91 99999 99999" 
@@ -110,25 +123,24 @@ export default function AICareerTool() {
                   required 
                 />
               </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Job Role</label>
-              <Select 
-                onValueChange={(value) => setFormData({...formData, jobRole: value})}
-                required
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a job role" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Manager">Manager</SelectItem>
-                  <SelectItem value="Mechanic">Mechanic</SelectItem>
-                  <SelectItem value="Salesman">Salesman</SelectItem>
-                  <SelectItem value="Computer Operator">Computer Operator</SelectItem>
-                  <SelectItem value="Other">Other</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Job Role</label>
+                <Select 
+                  onValueChange={(value) => setFormData({...formData, jobRole: value})}
+                  required
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a job role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Manager">Manager</SelectItem>
+                    <SelectItem value="Mechanic">Mechanic</SelectItem>
+                    <SelectItem value="Salesman">Salesman</SelectItem>
+                    <SelectItem value="Computer Operator">Computer Operator</SelectItem>
+                    <SelectItem value="Other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -144,7 +156,7 @@ export default function AICareerTool() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button type="submit" disabled={loading} className="flex-1 bg-accent text-background hover:bg-accent/80 font-bold py-3 text-sm sm:py-6 sm:text-lg">
-                {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Submit"}
+                {loading ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Submitting...</> : "Submit Application"}
               </Button>
               <Button 
                 type="button" 

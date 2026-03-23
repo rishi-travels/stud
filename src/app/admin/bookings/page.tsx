@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useCollection, useFirestore, useMemoFirebase, useUser } from '@/firebase';
@@ -7,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
-import { Loader2, Lock, ArrowRight, MessageSquare, Bike, Briefcase } from 'lucide-react';
+import { Loader2, Lock, ArrowRight, MessageSquare, Bike, Briefcase, Mail } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { initiateAnonymousSignIn } from '@/firebase/non-blocking-login';
 import { useAuth } from '@/firebase';
@@ -258,7 +257,7 @@ export default function AdminBookingsPage() {
                     <TableRow>
                       <TableHead className="font-bold">Date</TableHead>
                       <TableHead className="font-bold">Applicant Name</TableHead>
-                      <TableHead className="font-bold">Phone</TableHead>
+                      <TableHead className="font-bold">Contact Info</TableHead>
                       <TableHead className="font-bold">Role Interested</TableHead>
                       <TableHead className="font-bold">Address/Info</TableHead>
                     </TableRow>
@@ -270,7 +269,12 @@ export default function AdminBookingsPage() {
                           {job.submissionDate ? format(new Date(job.submissionDate), 'MMM dd, yyyy') : 'N/A'}
                         </TableCell>
                         <TableCell className="font-bold text-blue-950">{job.applicantName}</TableCell>
-                        <TableCell className="font-mono text-primary font-bold">{job.phone}</TableCell>
+                        <TableCell>
+                          <div className="flex flex-col text-xs">
+                            <span className="font-bold text-primary">{job.phone}</span>
+                            <span className="text-muted-foreground truncate max-w-[150px]">{job.email}</span>
+                          </div>
+                        </TableCell>
                         <TableCell>
                           <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100 font-bold uppercase text-[10px]">
                             {job.jobOpeningId}
