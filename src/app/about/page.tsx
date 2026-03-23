@@ -31,7 +31,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diwakar Mishra",
-    role: "Analyst Director",
+    role: "Operational Head",
     image: PlaceHolderImages.find(p => p.id === "team-member-4"),
     bio: "Diwakar specializes in strategic market analysis and operational excellence at Chhaya Bajaj."
   }
