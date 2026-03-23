@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -15,10 +16,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { recommendCareerPathway, type AICareerPathwayOutput } from "@/ai/flows/ai-career-pathway-tool";
+import { useFirestore } from "@/firebase";
+import { collection, doc } from "firebase/firestore";
+import { setDocumentNonBlocking } from "@/firebase/non-blocking-updates";
+import { useToast } from "@/hooks/use-toast";
 
 export default function AICareerTool() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AICareerPathwayOutput | null>(null);
+  const { toast } = useToast();
+  const firestore = useFirestore();
+
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -29,15 +37,44 @@ export default function AICareerTool() {
   const handleAnalyze = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    
     try {
+      // 1. Get AI Analysis/Recommendations
       const output = await recommendCareerPathway({
         skills: `Applicant Name: ${formData.name}\nPhone: ${formData.phoneNumber}\nAddress: ${formData.address}`,
         interests: `Highly interested in the ${formData.jobRole} position at Chhaya Bajaj Auto.`,
         currentJobRole: formData.jobRole,
       });
       setResult(output);
+
+      // 2. Save Application to Firestore
+      const applicationRef = doc(collection(firestore, 'job_applications'));
+      const applicationData = {
+        id: applicationRef.id,
+        jobOpeningId: formData.jobRole,
+        applicantName: formData.name,
+        phone: formData.phoneNumber,
+        email: "not-provided@example.com", // Form doesn't have email field currently
+        resumeUrl: "manual-entry",
+        coverLetter: `Address: ${formData.address}`,
+        status: "pending",
+        submissionDate: new Date().toISOString()
+      };
+
+      setDocumentNonBlocking(applicationRef, applicationData, { merge: true });
+
+      toast({
+        title: "Application Submitted!",
+        description: "Your details have been saved and analyzed.",
+      });
+
     } catch (error) {
-      console.error("Analysis failed:", error);
+      console.error("Submission failed:", error);
+      toast({
+        variant: "destructive",
+        title: "Submission failed",
+        description: "Please try again later.",
+      });
     } finally {
       setLoading(false);
     }

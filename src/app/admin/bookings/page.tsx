@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
-import { Loader2, ShieldAlert, Lock, ArrowRight, MessageSquare, Bike } from 'lucide-react';
+import { Loader2, Lock, ArrowRight, MessageSquare, Bike, Briefcase } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { initiateAnonymousSignIn } from '@/firebase/non-blocking-login';
 import { useAuth } from '@/firebase';
@@ -42,8 +42,15 @@ export default function AdminBookingsPage() {
     return query(collection(firestore, 'contact_inquiries'), orderBy('submissionDate', 'desc'));
   }, [firestore, user, isAdminAuthenticated]);
 
+  // Query for Job Applications
+  const jobsQuery = useMemoFirebase(() => {
+    if (!firestore || !user || !isAdminAuthenticated) return null;
+    return query(collection(firestore, 'job_applications'), orderBy('submissionDate', 'desc'));
+  }, [firestore, user, isAdminAuthenticated]);
+
   const { data: bookings, isLoading: isLoadingBookings } = useCollection(bookingsQuery);
-  const { data: inquiries, isLoading: isLoadingInquiries, error: inquiriesError } = useCollection(inquiriesQuery);
+  const { data: inquiries, isLoading: isLoadingInquiries } = useCollection(inquiriesQuery);
+  const { data: jobs, isLoading: isLoadingJobs } = useCollection(jobsQuery);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,17 +115,20 @@ export default function AdminBookingsPage() {
           <h1 className="text-3xl font-black font-headline uppercase italic tracking-tighter">
             Leads <span className="text-primary">Dashboard</span>
           </h1>
-          <p className="text-muted-foreground text-sm font-medium">Manage all customer inquiries and bookings in one place.</p>
+          <p className="text-muted-foreground text-sm font-medium">Manage all customer inquiries, bookings, and job applications.</p>
         </div>
       </div>
 
       <Tabs defaultValue="test-rides" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 max-w-md mb-8">
+        <TabsList className="grid w-full grid-cols-3 max-w-lg mb-8">
           <TabsTrigger value="test-rides" className="flex items-center gap-2">
             <Bike className="h-4 w-4" /> Test Rides
           </TabsTrigger>
           <TabsTrigger value="inquiries" className="flex items-center gap-2">
             <MessageSquare className="h-4 w-4" /> Enquiries
+          </TabsTrigger>
+          <TabsTrigger value="jobs" className="flex items-center gap-2">
+            <Briefcase className="h-4 w-4" /> Job Apps
           </TabsTrigger>
         </TabsList>
 
@@ -223,6 +233,58 @@ export default function AdminBookingsPage() {
                       <TableRow>
                         <TableCell colSpan={5} className="text-center py-20">
                           <p className="text-lg font-bold text-muted-foreground">No contact inquiries yet</p>
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="jobs">
+          <Card className="glass-card shadow-2xl border-none">
+            <CardHeader className="border-b border-border/50 flex flex-row items-center justify-between">
+              <CardTitle className="text-xl font-bold">Job Applications</CardTitle>
+              <Badge variant="outline" className="border-green-200 bg-green-50 text-green-700 font-bold">
+                {jobs?.length || 0} Applicants
+              </Badge>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader className="bg-muted/30">
+                    <TableRow>
+                      <TableHead className="font-bold">Date</TableHead>
+                      <TableHead className="font-bold">Applicant Name</TableHead>
+                      <TableHead className="font-bold">Phone</TableHead>
+                      <TableHead className="font-bold">Role Interested</TableHead>
+                      <TableHead className="font-bold">Address/Info</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {jobs?.map((job) => (
+                      <TableRow key={job.id} className="hover:bg-muted/20 transition-colors">
+                        <TableCell className="text-xs font-medium text-muted-foreground">
+                          {job.submissionDate ? format(new Date(job.submissionDate), 'MMM dd, yyyy') : 'N/A'}
+                        </TableCell>
+                        <TableCell className="font-bold text-blue-950">{job.applicantName}</TableCell>
+                        <TableCell className="font-mono text-primary font-bold">{job.phone}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100 font-bold uppercase text-[10px]">
+                            {job.jobOpeningId}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="max-w-[300px] text-xs text-muted-foreground italic leading-relaxed">
+                          {job.coverLetter}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    {(!jobs || jobs.length === 0) && (
+                      <TableRow>
+                        <TableCell colSpan={5} className="text-center py-20">
+                          <p className="text-lg font-bold text-muted-foreground">No job applications yet</p>
                         </TableCell>
                       </TableRow>
                     )}
