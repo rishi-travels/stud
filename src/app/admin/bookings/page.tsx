@@ -53,7 +53,9 @@ export default function AdminBookingsPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'chhaya@vns') {
+    // Use environment variable for password check
+    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+    if (password === adminPassword) {
       setIsAdminAuthenticated(true);
       setPassError(false);
     } else {
@@ -121,7 +123,7 @@ export default function AdminBookingsPage() {
       <Tabs defaultValue="test-rides" className="w-full">
         <TabsList className="grid w-full grid-cols-3 max-w-lg mb-8">
           <TabsTrigger value="test-rides" className="flex items-center gap-2">
-            <Bike className="h-4 w-4" /> Test Rides
+            < Bike className="h-4 w-4" /> Test Rides
           </TabsTrigger>
           <TabsTrigger value="inquiries" className="flex items-center gap-2">
             <MessageSquare className="h-4 w-4" /> Enquiries
