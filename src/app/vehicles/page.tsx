@@ -40,7 +40,7 @@ const VEHICLE_DATA = [
         description: "Born to tour. Experience ultimate performance with the most powerful Bajaj yet.",
         specs: { engine: "373.3cc", Mileage: "27 kmpl", "fuel tank": "13 L" },
         image: PlaceHolderImages.find(p => p.id === "dominar-400"),
-        tag: "Hyper Tourer"
+        tag: "Hyper"
       }
     ]
   },
