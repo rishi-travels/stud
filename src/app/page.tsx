@@ -47,6 +47,18 @@ const DARING_VEHICLES = [
     image: PlaceHolderImages.find(p => p.id === "dominar-400"),
     tag: "Hyper Tourer",
     desc: "Experience ultimate touring performance."
+  },
+  {
+    name: "Pulsar",
+    image: PlaceHolderImages.find(p => p.id === "pulsar-150"),
+    tag: "Classic",
+    desc: "The iconic sports bike that redefined performance."
+  },
+  {
+    name: "Pulsar N",
+    image: PlaceHolderImages.find(p => p.id === "pulsar-125"),
+    tag: "Racing",
+    desc: "Race-bred performance for the urban rider."
   }
 ];
 
@@ -62,6 +74,18 @@ const COMFORT_VEHICLES = [
     image: PlaceHolderImages.find(p => p.id === "freedom-125"),
     tag: "Innovative",
     desc: "The world's first multi-fuel performance bike."
+  },
+  {
+    name: "CT",
+    image: PlaceHolderImages.find(p => p.id === "ct-110"),
+    tag: "Rugged",
+    desc: "Built for durability and every tough terrain."
+  },
+  {
+    name: "Chetak",
+    image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
+    tag: "Electric",
+    desc: "Sustainable and stylish urban mobility."
   }
 ];
 
@@ -211,9 +235,9 @@ export default function Home() {
           >
             <CarouselContent className="-ml-4">
               {DARING_VEHICLES.map((vehicle, idx) => (
-                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2">
+                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                   <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col">
-                    <div className="relative h-[250px] md:h-[350px]">
+                    <div className="relative h-[250px] md:h-[300px]">
                       {vehicle.image?.imageUrl && (
                         <Image
                           src={vehicle.image.imageUrl}
@@ -230,7 +254,7 @@ export default function Home() {
                       </div>
                     </div>
                     <CardContent className="p-6 md:p-8 flex flex-col space-y-4">
-                      <h3 className="text-2xl md:text-3xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
+                      <h3 className="text-2xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
                         {vehicle.name}
                       </h3>
                       <p className="text-muted-foreground text-sm font-medium line-clamp-2">
@@ -271,9 +295,9 @@ export default function Home() {
           >
             <CarouselContent className="-ml-4">
               {COMFORT_VEHICLES.map((vehicle, idx) => (
-                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2">
+                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                   <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col">
-                    <div className="relative h-[250px] md:h-[350px]">
+                    <div className="relative h-[250px] md:h-[300px]">
                       {vehicle.image?.imageUrl && (
                         <Image
                           src={vehicle.image.imageUrl}
@@ -290,7 +314,7 @@ export default function Home() {
                       </div>
                     </div>
                     <CardContent className="p-6 md:p-8 flex flex-col space-y-4">
-                      <h3 className="text-2xl md:text-3xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
+                      <h3 className="text-2xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
                         {vehicle.name}
                       </h3>
                       <p className="text-muted-foreground text-sm font-medium line-clamp-2">
