@@ -43,7 +43,7 @@ const DARING_VEHICLES = [
     desc: "Raw power for the modern street fighter."
   },
   {
-    name: "Dominar 400",
+    name: "Dominar",
     image: PlaceHolderImages.find(p => p.id === "dominar-400"),
     tag: "Hyper Tourer",
     desc: "Experience ultimate touring performance."

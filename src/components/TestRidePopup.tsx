@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -36,7 +37,7 @@ const VEHICLE_MODELS = [
   "Pulsar NS200",
   "Pulsar N160",
   "Pulsar N250",
-  "Dominar 400",
+  "Dominar",
   "Platina 110",
   "CT 110X",
   "Freedom 125 (CNG)",
