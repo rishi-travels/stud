@@ -5,7 +5,6 @@ import { FirebaseApp } from 'firebase/app';
 import { Firestore } from 'firebase/firestore';
 import { Auth, User, onAuthStateChanged } from 'firebase/auth';
 import { getAnalytics, isSupported } from 'firebase/analytics';
-import { getPerformance } from 'firebase/performance';
 import { FirebaseErrorListener } from '@/components/FirebaseErrorListener'
 
 interface FirebaseProviderProps {
@@ -91,7 +90,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
     return () => unsubscribe(); // Cleanup
   }, [auth]); // Depends on the auth instance
 
-  // Effect to initialize Analytics and Performance monitoring on the client
+  // Effect to initialize Analytics on the client
   useEffect(() => {
     if (typeof window !== 'undefined' && firebaseApp) {
       // Initialize Analytics if supported
@@ -100,13 +99,6 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
           getAnalytics(firebaseApp);
         }
       });
-
-      // Initialize Performance Monitoring
-      try {
-        getPerformance(firebaseApp);
-      } catch (e) {
-        // Silently fail performance if already initialized or restricted
-      }
     }
   }, [firebaseApp]);
 
