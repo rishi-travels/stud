@@ -25,7 +25,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Abhishek Mishra",
-    role: "Tech Lead",
+    role: "Technical Head",
     image: PlaceHolderImages.find(p => p.id === "team-member-3"),
     bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
   },
