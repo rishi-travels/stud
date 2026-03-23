@@ -96,12 +96,17 @@ export default {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         float: 'float 4s ease-in-out infinite',
         'fade-in-out': 'fade-in-out 3s ease-in-out infinite',
+        marquee: 'marquee 25s linear infinite',
       },
     },
   },

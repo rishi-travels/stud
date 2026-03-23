@@ -111,7 +111,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="space-y-0 pb-24">
+    <div className="space-y-0 pb-0">
       {/* Hero Section */}
       <section className="relative w-full aspect-[4/3] md:aspect-[21/8] flex items-center overflow-hidden bg-black group">
         <div className="absolute inset-0 z-0">
@@ -390,6 +390,22 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Moving Text Section */}
+      <section className="py-12 bg-accent overflow-hidden whitespace-nowrap border-y border-white/10 relative">
+        <div className="flex animate-marquee gap-8 items-center min-w-full">
+          {[...Array(12)].map((_, i) => (
+            <span key={i} className="text-3xl md:text-5xl font-black font-headline uppercase italic text-white tracking-tighter px-4">
+              Book Now & Save
+            </span>
+          ))}
+          {[...Array(12)].map((_, i) => (
+            <span key={i + 12} className="text-3xl md:text-5xl font-black font-headline uppercase italic text-white tracking-tighter px-4">
+              Book Now & Save
+            </span>
+          ))}
         </div>
       </section>
     </div>
