@@ -6,6 +6,7 @@ import { Firestore } from 'firebase/firestore';
 import { Auth, User, onAuthStateChanged } from 'firebase/auth';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 import { FirebaseErrorListener } from '@/components/FirebaseErrorListener'
+import { firebaseConfig } from '@/firebase/config';
 
 interface FirebaseProviderProps {
   children: ReactNode;
@@ -92,12 +93,18 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
 
   // Effect to initialize Analytics on the client
   useEffect(() => {
-    if (typeof window !== 'undefined' && firebaseApp) {
-      // Initialize Analytics if supported
+    if (typeof window !== 'undefined' && firebaseApp && firebaseConfig.apiKey) {
+      // Initialize Analytics if supported and config looks valid
       isSupported().then((supported) => {
-        if (supported) {
-          getAnalytics(firebaseApp);
+        if (supported && firebaseConfig.measurementId) {
+          try {
+            getAnalytics(firebaseApp);
+          } catch (err) {
+            console.warn("Firebase Analytics initialization failed:", err);
+          }
         }
+      }).catch(err => {
+        console.warn("Firebase Analytics support check failed:", err);
       });
     }
   }, [firebaseApp]);
