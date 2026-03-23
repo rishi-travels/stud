@@ -90,14 +90,22 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
     return () => unsubscribe(); // Cleanup
   }, [auth]); // Depends on the auth instance
 
-  // Effect to initialize Analytics on the client
+  // Effect to initialize Analytics on the client safely
   useEffect(() => {
-    if (typeof window !== 'undefined' && firebaseApp) {
-      // Initialize Analytics if supported
+    if (typeof window !== 'undefined' && firebaseApp && firebaseApp.options.apiKey) {
       isSupported().then((supported) => {
         if (supported) {
-          getAnalytics(firebaseApp);
+          try {
+            // Attempt to initialize Analytics. This can fail if the API key is 
+            // invalid or blocked by ad-blockers/network issues.
+            getAnalytics(firebaseApp);
+          } catch (e) {
+            // Suppress the error so it doesn't crash the UI
+            console.warn("Firebase Analytics initialization skipped due to an error. This usually happens if the API key is missing or invalid.", e);
+          }
         }
+      }).catch(e => {
+        // Silently handle isSupported failures
       });
     }
   }, [firebaseApp]);
