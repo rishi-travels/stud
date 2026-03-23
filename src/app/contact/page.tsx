@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Mail, Phone, MapPin, Send } from "lucide-react";
@@ -7,14 +6,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { useFirestore } from "@/firebase";
+import { useFirestore, useFirebaseApp } from "@/firebase";
 import { collection, doc } from "firebase/firestore";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import { setDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 import { useState } from "react";
 
 export default function ContactPage() {
   const { toast } = useToast();
   const firestore = useFirestore();
+  const firebaseApp = useFirebaseApp();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,6 +38,16 @@ export default function ContactPage() {
     };
 
     setDocumentNonBlocking(inquiryRef, data, { merge: true });
+
+    // Log analytics event
+    try {
+      const analytics = getAnalytics(firebaseApp);
+      logEvent(analytics, 'contact_form_submission', {
+        subject: data.subject
+      });
+    } catch (err) {
+      // Analytics might be blocked or not supported
+    }
 
     setTimeout(() => {
       setIsSubmitting(false);

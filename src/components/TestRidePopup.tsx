@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -27,8 +26,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, Sparkles, CheckCircle2, X } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-import { useFirestore } from "@/firebase";
+import { useFirestore, useFirebaseApp } from "@/firebase";
 import { collection, doc } from "firebase/firestore";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import { setDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 
 const VEHICLE_MODELS = [
@@ -50,6 +50,7 @@ export default function TestRidePopup() {
   const [selectedModel, setSelectedModel] = useState("");
   const { toast } = useToast();
   const firestore = useFirestore();
+  const firebaseApp = useFirebaseApp();
   const popupImg = PlaceHolderImages.find(p => p.id === "hero-ns400");
 
   useEffect(() => {
@@ -86,6 +87,16 @@ export default function TestRidePopup() {
     };
 
     setDocumentNonBlocking(bookingRef, data, { merge: true });
+
+    // Log analytics event
+    try {
+      const analytics = getAnalytics(firebaseApp);
+      logEvent(analytics, 'test_ride_submission', {
+        vehicle_model: selectedModel
+      });
+    } catch (err) {
+      // Analytics might be blocked
+    }
 
     setTimeout(() => {
       setIsSubmitting(false);

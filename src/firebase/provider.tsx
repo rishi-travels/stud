@@ -4,6 +4,8 @@ import React, { DependencyList, createContext, useContext, ReactNode, useMemo, u
 import { FirebaseApp } from 'firebase/app';
 import { Firestore } from 'firebase/firestore';
 import { Auth, User, onAuthStateChanged } from 'firebase/auth';
+import { getAnalytics, isSupported } from 'firebase/analytics';
+import { getPerformance } from 'firebase/performance';
 import { FirebaseErrorListener } from '@/components/FirebaseErrorListener'
 
 interface FirebaseProviderProps {
@@ -43,7 +45,7 @@ export interface FirebaseServicesAndUser {
 }
 
 // Return type for useUser() - specific to user auth state
-export interface UserHookResult { // Renamed from UserAuthHookResult for consistency if desired, or keep as UserAuthHookResult
+export interface UserHookResult { 
   user: User | null;
   isUserLoading: boolean;
   userError: Error | null;
@@ -88,6 +90,25 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
     );
     return () => unsubscribe(); // Cleanup
   }, [auth]); // Depends on the auth instance
+
+  // Effect to initialize Analytics and Performance monitoring on the client
+  useEffect(() => {
+    if (typeof window !== 'undefined' && firebaseApp) {
+      // Initialize Analytics if supported
+      isSupported().then((supported) => {
+        if (supported) {
+          getAnalytics(firebaseApp);
+        }
+      });
+
+      // Initialize Performance Monitoring
+      try {
+        getPerformance(firebaseApp);
+      } catch (e) {
+        // Silently fail performance if already initialized or restricted
+      }
+    }
+  }, [firebaseApp]);
 
   // Memoize the context value
   const contextValue = useMemo((): FirebaseContextState => {
@@ -170,7 +191,7 @@ export function useMemoFirebase<T>(factory: () => T, deps: DependencyList): T | 
  * This provides the User object, loading status, and any auth errors.
  * @returns {UserHookResult} Object with user, isUserLoading, userError.
  */
-export const useUser = (): UserHookResult => { // Renamed from useAuthUser
-  const { user, isUserLoading, userError } = useFirebase(); // Leverages the main hook
+export const useUser = (): UserHookResult => { 
+  const { user, isUserLoading, userError } = useFirebase(); 
   return { user, isUserLoading, userError };
 };
