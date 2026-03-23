@@ -4,7 +4,18 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bike, ShieldCheck, Zap, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { 
+  Bike, 
+  ShieldCheck, 
+  Zap, 
+  ChevronLeft, 
+  ChevronRight, 
+  ArrowRight, 
+  Wrench, 
+  BadgeCheck, 
+  Coins,
+  ThumbsUp
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
@@ -54,20 +65,43 @@ const COMFORT_VEHICLES = [
   }
 ];
 
+const ADVANTAGES = [
+  {
+    title: "5-Year Warranty",
+    desc: "Unmatched peace of mind with our extensive warranty coverage on all new vehicles.",
+    icon: ShieldCheck,
+    color: "text-blue-600",
+    bg: "bg-blue-100"
+  },
+  {
+    title: "Genuine Spares",
+    desc: "We use only 100% authentic Bajaj Genuine Parts to ensure your ride's longevity.",
+    icon: BadgeCheck,
+    color: "text-accent",
+    bg: "bg-red-100"
+  },
+  {
+    title: "Expert Service",
+    desc: "Certified technicians with state-of-the-art diagnostic tools for perfect maintenance.",
+    icon: Wrench,
+    color: "text-primary",
+    bg: "bg-blue-50"
+  },
+  {
+    title: "Easy Finance",
+    desc: "Quick loan approvals and flexible EMI schemes tailored to your budget.",
+    icon: Coins,
+    color: "text-green-600",
+    bg: "bg-green-100"
+  }
+];
+
 export default function Home() {
   const [heroIndex, setHeroIndex] = React.useState(0);
 
   const triggerTestRide = () => {
     window.dispatchEvent(new CustomEvent('open-test-ride'));
   };
-
-  const nextHero = React.useCallback(() => {
-    setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-  }, []);
-
-  const prevHero = React.useCallback(() => {
-    setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % heroIndex);
-  }, [heroIndex]);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -271,6 +305,48 @@ export default function Home() {
               ))}
             </CarouselContent>
           </Carousel>
+        </div>
+      </section>
+
+      {/* Chhaya Advantage Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
+              The <span className="text-primary">Chhaya</span> Advantage
+            </h2>
+            <p className="text-muted-foreground font-medium text-lg">
+              Why thousands of riders trust Chhaya Bajaj for their ultimate automotive journey.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {ADVANTAGES.map((advantage, i) => (
+              <Card key={i} className="border-none shadow-lg glass-card hover:shadow-xl transition-all duration-300 group">
+                <CardContent className="p-8 space-y-6 text-center">
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-3",
+                    advantage.bg
+                  )}>
+                    <advantage.icon className={cn("h-8 w-8", advantage.color)} />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-blue-950">{advantage.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {advantage.desc}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-border shadow-sm">
+              <ThumbsUp className="h-5 w-5 text-accent" />
+              <span className="text-sm font-bold text-blue-950">Trusted by 50,000+ Happy Riders in Varanasi</span>
+            </div>
+          </div>
         </div>
       </section>
 
