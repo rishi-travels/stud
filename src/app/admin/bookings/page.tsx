@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useCollection, useFirestore, useMemoFirebase, useUser, deleteDocumentNonBlocking } from '@/firebase';
@@ -25,6 +26,14 @@ export default function AdminBookingsPage() {
   const auth = useAuth();
   const { user, isUserLoading } = useUser();
   
+  useEffect(() => {
+    // Check if we already have an admin session in this browser session
+    const sessionAuth = sessionStorage.getItem('isAdminAuthenticated');
+    if (sessionAuth === 'true') {
+      setIsAdminAuthenticated(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (!isUserLoading && !user && auth && isAdminAuthenticated) {
       initiateAnonymousSignIn(auth);
@@ -55,24 +64,44 @@ export default function AdminBookingsPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+    // Use env variable or fallback for local testing
+    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'Admin123';
+    
     if (password === adminPassword) {
       setIsAdminAuthenticated(true);
+      sessionStorage.setItem('isAdminAuthenticated', 'true');
       setPassError(false);
+      toast({
+        title: "Access Granted",
+        description: "Welcome to the Leads Dashboard.",
+      });
     } else {
       setPassError(true);
       setPassword('');
+      toast({
+        variant: "destructive",
+        title: "Access Denied",
+        description: "Incorrect administrative password.",
+      });
     }
   };
 
   const handleDelete = (collectionName: string, id: string) => {
-    if (window.confirm('Are you sure you want to delete this lead permanently?')) {
-      const docRef = doc(firestore, collectionName, id);
-      deleteDocumentNonBlocking(docRef);
-      toast({
-        title: "Lead Deleted",
-        description: "The record has been successfully removed.",
-      });
+    if (window.confirm('Are you sure you want to delete this record permanently?')) {
+      try {
+        const docRef = doc(firestore, collectionName, id);
+        deleteDocumentNonBlocking(docRef);
+        toast({
+          title: "Deleted",
+          description: "The record has been successfully removed.",
+        });
+      } catch (err) {
+        toast({
+          variant: "destructive",
+          title: "Delete Failed",
+          description: "An error occurred while trying to delete the record.",
+        });
+      }
     }
   };
 
@@ -100,7 +129,7 @@ export default function AdminBookingsPage() {
                   className={passError ? "border-destructive ring-destructive" : "h-12"}
                   required
                 />
-                {passError && <p className="text-xs font-bold text-destructive italic uppercase text-center animate-bounce">Incorrect Password. Access Denied.</p>}
+                {passError && <p className="text-xs font-bold text-destructive italic uppercase text-center animate-pulse">Access Denied</p>}
               </div>
               <Button type="submit" className="w-full bg-primary hover:bg-primary/90 font-bold h-12 text-lg">
                 Unlock Dashboard <ArrowRight className="ml-2 h-5 w-5" />
@@ -135,7 +164,7 @@ export default function AdminBookingsPage() {
       <Tabs defaultValue="test-rides" className="w-full">
         <TabsList className="grid w-full grid-cols-3 max-w-lg mb-8">
           <TabsTrigger value="test-rides" className="flex items-center gap-2">
-            < Bike className="h-4 w-4" /> Test Rides
+            <Bike className="h-4 w-4" /> Test Rides
           </TabsTrigger>
           <TabsTrigger value="inquiries" className="flex items-center gap-2">
             <MessageSquare className="h-4 w-4" /> Enquiries
@@ -189,7 +218,7 @@ export default function AdminBookingsPage() {
                             variant="ghost" 
                             size="icon" 
                             onClick={() => handleDelete('test_ride_bookings', booking.id)}
-                            className="text-muted-foreground hover:text-destructive transition-colors"
+                            className="text-muted-foreground hover:text-destructive transition-colors h-8 w-8"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
@@ -257,7 +286,7 @@ export default function AdminBookingsPage() {
                             variant="ghost" 
                             size="icon" 
                             onClick={() => handleDelete('contact_inquiries', inquiry.id)}
-                            className="text-muted-foreground hover:text-destructive transition-colors"
+                            className="text-muted-foreground hover:text-destructive transition-colors h-8 w-8"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
@@ -325,7 +354,7 @@ export default function AdminBookingsPage() {
                             variant="ghost" 
                             size="icon" 
                             onClick={() => handleDelete('job_applications', job.id)}
-                            className="text-muted-foreground hover:text-destructive transition-colors"
+                            className="text-muted-foreground hover:text-destructive transition-colors h-8 w-8"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
