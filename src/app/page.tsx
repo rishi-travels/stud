@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -7,7 +8,7 @@ import { Bike, ShieldCheck, Zap, ChevronLeft, ChevronRight, ArrowRight } from "l
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
@@ -65,15 +66,15 @@ export default function Home() {
   }, []);
 
   const prevHero = React.useCallback(() => {
-    setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
-  }, []);
+    setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % heroIndex);
+  }, [heroIndex]);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      nextHero();
+      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [nextHero]);
+  }, []);
 
   return (
     <div className="space-y-0 pb-24">
@@ -103,13 +104,13 @@ export default function Home() {
         </div>
 
         <button
-          onClick={(e) => { e.preventDefault(); prevHero(); }}
+          onClick={(e) => { e.preventDefault(); setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length); }}
           className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition-all"
         >
           <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
         </button>
         <button
-          onClick={(e) => { e.preventDefault(); nextHero(); }}
+          onClick={(e) => { e.preventDefault(); setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length); }}
           className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition-all"
         >
           <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
@@ -177,8 +178,8 @@ export default function Home() {
             <CarouselContent className="-ml-4">
               {DARING_VEHICLES.map((vehicle, idx) => (
                 <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2">
-                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full">
-                    <div className="relative h-[300px] md:h-[400px]">
+                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col">
+                    <div className="relative h-[250px] md:h-[350px]">
                       {vehicle.image?.imageUrl && (
                         <Image
                           src={vehicle.image.imageUrl}
@@ -188,24 +189,23 @@ export default function Home() {
                           data-ai-hint={vehicle.image.imageHint}
                         />
                       )}
-                      {/* Badge positioned at upper right */}
                       <div className="absolute top-4 right-4 z-10">
-                        <Badge className="bg-primary/40 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
+                        <Badge className="bg-primary/90 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
                           {vehicle.tag}
                         </Badge>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
-                        <h3 className="text-2xl md:text-4xl font-bold text-white font-headline italic uppercase tracking-tighter mb-1 md:mb-2">
-                          {vehicle.name}
-                        </h3>
-                        <p className="text-white/80 text-xs md:text-sm font-medium mb-4 md:mb-6 line-clamp-2 max-w-sm">
-                          {vehicle.desc}
-                        </p>
-                        <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-fit text-xs md:text-sm">
-                          Book Test Ride
-                        </Button>
-                      </div>
                     </div>
+                    <CardContent className="p-6 md:p-8 flex flex-col space-y-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
+                        {vehicle.name}
+                      </h3>
+                      <p className="text-muted-foreground text-sm font-medium line-clamp-2">
+                        {vehicle.desc}
+                      </p>
+                      <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-full sm:w-fit">
+                        Book Test Ride
+                      </Button>
+                    </CardContent>
                   </Card>
                 </CarouselItem>
               ))}
@@ -238,8 +238,8 @@ export default function Home() {
             <CarouselContent className="-ml-4">
               {COMFORT_VEHICLES.map((vehicle, idx) => (
                 <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2">
-                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full">
-                    <div className="relative h-[300px] md:h-[400px]">
+                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col">
+                    <div className="relative h-[250px] md:h-[350px]">
                       {vehicle.image?.imageUrl && (
                         <Image
                           src={vehicle.image.imageUrl}
@@ -249,24 +249,23 @@ export default function Home() {
                           data-ai-hint={vehicle.image.imageHint}
                         />
                       )}
-                      {/* Badge positioned at upper right */}
                       <div className="absolute top-4 right-4 z-10">
-                        <Badge className="bg-accent/40 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
+                        <Badge className="bg-accent/90 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
                           {vehicle.tag}
                         </Badge>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
-                        <h3 className="text-2xl md:text-4xl font-bold text-white font-headline italic uppercase tracking-tighter mb-1 md:mb-2">
-                          {vehicle.name}
-                        </h3>
-                        <p className="text-white/80 text-xs md:text-sm font-medium mb-4 md:mb-6 line-clamp-2 max-w-sm">
-                          {vehicle.desc}
-                        </p>
-                        <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-fit text-xs md:text-sm">
-                          Book Test Ride
-                        </Button>
-                      </div>
                     </div>
+                    <CardContent className="p-6 md:p-8 flex flex-col space-y-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
+                        {vehicle.name}
+                      </h3>
+                      <p className="text-muted-foreground text-sm font-medium line-clamp-2">
+                        {vehicle.desc}
+                      </p>
+                      <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-full sm:w-fit">
+                        Book Test Ride
+                      </Button>
+                    </CardContent>
                   </Card>
                 </CarouselItem>
               ))}
