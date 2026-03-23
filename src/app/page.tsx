@@ -394,15 +394,15 @@ export default function Home() {
       </section>
 
       {/* Moving Text Section */}
-      <section className="py-12 bg-accent overflow-hidden whitespace-nowrap border-y border-white/10 relative">
+      <section className="py-6 bg-white overflow-hidden whitespace-nowrap border-y border-primary/10 relative">
         <div className="flex animate-marquee gap-8 items-center min-w-full">
           {[...Array(12)].map((_, i) => (
-            <span key={i} className="text-3xl md:text-5xl font-black font-headline uppercase italic text-white tracking-tighter px-4">
+            <span key={i} className="text-3xl md:text-5xl font-black font-headline uppercase italic text-primary tracking-tighter px-4">
               Book Now & Save
             </span>
           ))}
           {[...Array(12)].map((_, i) => (
-            <span key={i + 12} className="text-3xl md:text-5xl font-black font-headline uppercase italic text-white tracking-tighter px-4">
+            <span key={i + 12} className="text-3xl md:text-5xl font-black font-headline uppercase italic text-primary tracking-tighter px-4">
               Book Now & Save
             </span>
           ))}
