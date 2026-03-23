@@ -188,10 +188,13 @@ export default function Home() {
                           data-ai-hint={vehicle.image.imageHint}
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
-                        <Badge className="bg-primary/20 backdrop-blur-md text-white border-white/20 w-fit mb-2 md:mb-4">
+                      {/* Badge positioned at upper right */}
+                      <div className="absolute top-4 right-4 z-10">
+                        <Badge className="bg-primary/40 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
                           {vehicle.tag}
                         </Badge>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
                         <h3 className="text-2xl md:text-4xl font-bold text-white font-headline italic uppercase tracking-tighter mb-1 md:mb-2">
                           {vehicle.name}
                         </h3>
@@ -246,10 +249,13 @@ export default function Home() {
                           data-ai-hint={vehicle.image.imageHint}
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
-                        <Badge className="bg-accent/20 backdrop-blur-md text-white border-white/20 w-fit mb-2 md:mb-4">
+                      {/* Badge positioned at upper right */}
+                      <div className="absolute top-4 right-4 z-10">
+                        <Badge className="bg-accent/40 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
                           {vehicle.tag}
                         </Badge>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
                         <h3 className="text-2xl md:text-4xl font-bold text-white font-headline italic uppercase tracking-tighter mb-1 md:mb-2">
                           {vehicle.name}
                         </h3>
