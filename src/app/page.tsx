@@ -188,10 +188,17 @@ export default function Home() {
                           data-ai-hint={vehicle.image.imageHint}
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                        <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
-                        <p className="text-white/80 mb-6">{vehicle.desc}</p>
-                        <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-fit">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
+                        <Badge className="bg-primary/20 backdrop-blur-md text-white border-white/20 w-fit mb-2 md:mb-4">
+                          {vehicle.tag}
+                        </Badge>
+                        <h3 className="text-2xl md:text-4xl font-bold text-white font-headline italic uppercase tracking-tighter mb-1 md:mb-2">
+                          {vehicle.name}
+                        </h3>
+                        <p className="text-white/80 text-xs md:text-sm font-medium mb-4 md:mb-6 line-clamp-2 max-w-sm">
+                          {vehicle.desc}
+                        </p>
+                        <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-fit text-xs md:text-sm">
                           Book Test Ride
                         </Button>
                       </div>
@@ -239,10 +246,17 @@ export default function Home() {
                           data-ai-hint={vehicle.image.imageHint}
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                        <h3 className="text-3xl font-bold text-white mb-2">{vehicle.name}</h3>
-                        <p className="text-white/80 mb-6">{vehicle.desc}</p>
-                        <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-fit">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 md:p-8 flex flex-col justify-end">
+                        <Badge className="bg-accent/20 backdrop-blur-md text-white border-white/20 w-fit mb-2 md:mb-4">
+                          {vehicle.tag}
+                        </Badge>
+                        <h3 className="text-2xl md:text-4xl font-bold text-white font-headline italic uppercase tracking-tighter mb-1 md:mb-2">
+                          {vehicle.name}
+                        </h3>
+                        <p className="text-white/80 text-xs md:text-sm font-medium mb-4 md:mb-6 line-clamp-2 max-w-sm">
+                          {vehicle.desc}
+                        </p>
+                        <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-fit text-xs md:text-sm">
                           Book Test Ride
                         </Button>
                       </div>
