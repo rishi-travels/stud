@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -20,7 +19,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Ashwini Mishra",
-    role: "Managing Director",
+    role: "Management Head",
     image: PlaceHolderImages.find(p => p.id === "team-member-2"),
     bio: "Ashwini ensures every customer finds their perfect ride through personalized consultation."
   },
