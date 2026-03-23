@@ -31,45 +31,30 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Diwakar Mishra",
-    role: "Operational Head",
+    role: "Marketing Head",
     image: PlaceHolderImages.find(p => p.id === "team-member-4"),
-    bio: "Diwakar specializes in strategic market analysis and operational excellence at Chhaya Bajaj."
+    bio: "Diwakar specializes in strategic market analysis and marketing excellence at Chhaya Bajaj."
   }
 ];
 
 export default function AboutPage() {
-  const introImg = PlaceHolderImages.find(p => p.id === "service-center");
-
   return (
     <div className="py-20 space-y-32">
       {/* Introduction */}
-      <section className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl font-bold tracking-tight font-headline">
-                About <span className="text-primary">Chhaya Bajaj</span>
-              </h1>
-              <div className="h-1.5 w-24 bg-accent rounded-full" />
-            </div>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Chhaya Bajaj has grown from a sub dealership to one of the most respected names in the automotive industry. We believe that buying a vehicle is not just a transaction; it's the start of a lifelong journey.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our commitment to excellence is reflected in every aspect of our business, from the carefully selected range of Bajaj vehicles to our state-of-the-art service center.
-            </p>
+      <section className="container mx-auto px-4 text-center max-w-4xl">
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <h1 className="text-5xl font-bold tracking-tight font-headline">
+              About <span className="text-primary">Chhaya Bajaj</span>
+            </h1>
+            <div className="h-1.5 w-24 bg-accent rounded-full mx-auto" />
           </div>
-          <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-            {introImg?.imageUrl && (
-              <Image
-                src={introImg.imageUrl}
-                alt="Chhaya Bajaj Showroom"
-                fill
-                className="object-cover"
-                data-ai-hint={introImg.imageHint}
-              />
-            )}
-          </div>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Chhaya Bajaj has grown from a sub dealership to one of the most respected names in the automotive industry. We believe that buying a vehicle is not just a transaction; it's the start of a lifelong journey.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Our commitment to excellence is reflected in every aspect of our business, from the carefully selected range of Bajaj vehicles to our state-of-the-art service center.
+          </p>
         </div>
       </section>
 
