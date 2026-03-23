@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useCollection, useFirestore, useMemoFirebase, useUser, deleteDocumentNonBlocking } from '@/firebase';
@@ -26,14 +25,7 @@ export default function AdminBookingsPage() {
   const auth = useAuth();
   const { user, isUserLoading } = useUser();
   
-  useEffect(() => {
-    // Check if we already have an admin session in this browser session
-    const sessionAuth = sessionStorage.getItem('isAdminAuthenticated');
-    if (sessionAuth === 'true') {
-      setIsAdminAuthenticated(true);
-    }
-  }, []);
-
+  // Strictly require password every time - No session persistence
   useEffect(() => {
     if (!isUserLoading && !user && auth && isAdminAuthenticated) {
       initiateAnonymousSignIn(auth);
@@ -69,7 +61,6 @@ export default function AdminBookingsPage() {
     
     if (password === adminPassword) {
       setIsAdminAuthenticated(true);
-      sessionStorage.setItem('isAdminAuthenticated', 'true');
       setPassError(false);
       toast({
         title: "Access Granted",

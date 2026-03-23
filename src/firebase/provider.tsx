@@ -80,26 +80,15 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
 
     if (typeof window !== 'undefined' && isValidKey) {
       isSupported().then((supported) => {
-        if (supported) {
+        if (supported && firebaseApp.options.measurementId) {
           try {
             getAnalytics(firebaseApp);
           } catch (e) {
             console.warn("Analytics initialization failed (likely API key issue): ", e);
           }
         }
-      }).catch(() => {});
-    if (typeof window !== 'undefined' && firebaseApp && firebaseConfig.apiKey) {
-      // Initialize Analytics if supported and config looks valid
-      isSupported().then((supported) => {
-        if (supported && firebaseConfig.measurementId) {
-          try {
-            getAnalytics(firebaseApp);
-          } catch (err) {
-            console.warn("Firebase Analytics initialization failed:", err);
-          }
-        }
-      }).catch(err => {
-        console.warn("Firebase Analytics support check failed:", err);
+      }).catch((err) => {
+        console.warn("Analytics support check failed:", err);
       });
     }
   }, [firebaseApp]);
@@ -143,7 +132,7 @@ export const useFirebase = (): FirebaseServicesAndUser => {
 
 export const useAuth = () => useFirebase().auth;
 export const useFirestore = () => useFirebase().firestore;
-export const useFirebaseApp = () => useFirebaseApp().firebaseApp;
+export const useFirebaseApp = () => useFirebase().firebaseApp;
 
 type MemoFirebase <T> = T & {__memo?: boolean};
 
