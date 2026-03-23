@@ -73,7 +73,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
   }, [auth]);
 
   useEffect(() => {
-    // Safe initialization for Analytics to prevent crash on invalid keys
+    // Safe initialization for Analytics to prevent crash on invalid/missing keys
     const apiKey = firebaseApp?.options?.apiKey;
     const isValidKey = apiKey && apiKey !== "" && apiKey !== "your-api-key";
 
@@ -83,7 +83,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
           try {
             getAnalytics(firebaseApp);
           } catch (e) {
-            console.warn("Analytics initialization failed: ", e);
+            console.warn("Analytics initialization failed (likely API key issue): ", e);
           }
         }
       }).catch(() => {});
@@ -129,7 +129,7 @@ export const useFirebase = (): FirebaseServicesAndUser => {
 
 export const useAuth = () => useFirebase().auth;
 export const useFirestore = () => useFirebase().firestore;
-export const useFirebaseApp = () => useFirebase().firebaseApp;
+export const useFirebaseApp = () => useFirebaseApp().firebaseApp;
 
 type MemoFirebase <T> = T & {__memo?: boolean};
 

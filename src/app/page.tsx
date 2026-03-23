@@ -3,28 +3,10 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bike, ShieldCheck, Zap, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Bike, ShieldCheck, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import Autoplay from "embla-carousel-autoplay";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
-
-const PERFORMANCE_VEHICLES = [
-  { name: "Pulsar", type: "Classic Performance", image: PlaceHolderImages.find(p => p.id === "pulsar-150") },
-  { name: "Pulsar NS", type: "Street Fighter", image: PlaceHolderImages.find(p => p.id === "hero-performance") },
-  { name: "Pulsar N", type: "Racing", image: PlaceHolderImages.find(p => p.id === "pulsar-125") },
-  { name: "Dominar", type: "Hyper Tourer", image: PlaceHolderImages.find(p => p.id === "dominar-400") },
-];
-
-const ECO_VEHICLES = [
-  { name: "Chetak Premium", type: "Electric Scooter", image: PlaceHolderImages.find(p => p.id === "chetak-electric") },
-  { name: "Platina", type: "Comfort Commuter", image: PlaceHolderImages.find(p => p.id === "platina-110") },
-  { name: "Freedom", type: "Innovative", image: PlaceHolderImages.find(p => p.id === "freedom-125") },
-  { name: "C T", type: "Rugged Commuter", image: PlaceHolderImages.find(p => p.id === "ct-110") },
-];
 
 const HERO_IMAGES = [
   PlaceHolderImages.find(p => p.id === "hero-1"),
@@ -34,7 +16,6 @@ const HERO_IMAGES = [
 ].filter((img): img is any => !!img);
 
 export default function Home() {
-  const isMobile = useIsMobile();
   const [heroIndex, setHeroIndex] = React.useState(0);
 
   const triggerTestRide = () => {
@@ -55,16 +36,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, [nextHero]);
-
-  const autoplayPlugin = React.useMemo(
-    () => Autoplay({ delay: 3000, stopOnInteraction: false }),
-    []
-  );
-
-  const autoplayPlugin3 = React.useMemo(
-    () => Autoplay({ delay: 4000, stopOnInteraction: false }),
-    []
-  );
 
   return (
     <div className="space-y-0 pb-24">
@@ -149,7 +120,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Early Bird Offer Section - Centered Content, Image Removed for Laptop Cleanliness */}
+      {/* Early Bird Offer Section - Centered Content Optimized for Laptop */}
       <section className="container mx-auto px-4 py-12">
         <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
           <div className="relative z-10 p-8 md:p-20 max-w-4xl mx-auto text-center flex flex-col items-center">
