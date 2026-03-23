@@ -290,7 +290,7 @@ export default function Home() {
               />
             )}
           </div>
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-8 md:p-16">
+          <div className="relative z-10 p-8 md:p-16 max-w-4xl mx-auto text-center flex flex-col items-center">
             <div className="space-y-8">
               <div className="inline-block bg-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase italic">
                 Exclusive Promotion
@@ -303,14 +303,14 @@ export default function Home() {
                   Be among the first 50 bookings this month and unlock exclusive benefits worth up to <span className="text-white font-bold">₹10,000*</span>.
                 </p>
               </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
                 {[
                   "Free Extended Warranty",
                   "Complimentary Service Kit",
                   "Loyalty Bonus Points",
                   "Instant Delivery Option"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-semibold">
+                  <li key={i} className="flex items-center gap-3 text-sm font-semibold justify-center sm:justify-start">
                     <div className="bg-accent p-1 rounded-full shrink-0">
                       <Zap className="h-3 w-3 text-white" />
                     </div>
@@ -325,17 +325,6 @@ export default function Home() {
               >
                 Book Now & Save
               </Button>
-            </div>
-            <div className="hidden lg:block relative h-[450px]">
-               {PlaceHolderImages.find(p => p.id === "promotion-1")?.imageUrl && (
-                <Image
-                  src={PlaceHolderImages.find(p => p.id === "promotion-1")!.imageUrl}
-                  alt="Special Offer"
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  data-ai-hint="motorcycle offer"
-                />
-              )}
             </div>
           </div>
         </div>
