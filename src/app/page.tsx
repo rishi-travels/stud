@@ -64,7 +64,7 @@ const DARING_VEHICLES = [
 
 const COMFORT_VEHICLES = [
   {
-    name: "Platina 110",
+    name: "Platina",
     image: PlaceHolderImages.find(p => p.id === "platina-110"),
     tag: "Comfort",
     desc: "Smooth rides for your daily commute."

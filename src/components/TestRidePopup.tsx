@@ -33,16 +33,14 @@ import { getAnalytics, logEvent } from "firebase/analytics";
 import { setDocumentNonBlocking } from "@/firebase/non-blocking-updates";
 
 const VEHICLE_MODELS = [
-  "Pulsar 150",
+  "Pulsar",
   "Pulsar NS",
-  "Pulsar N160",
-  "Pulsar N250",
+  "Pulsar N",
   "Dominar",
-  "Platina 110",
-  "CT 110X",
+  "Platina",
+  "CT",
   "Freedom 125 (CNG)",
-  "Chetak Premium (EV)",
-  "Chetak Urbane (EV)"
+  "Chetak (EV)"
 ];
 
 export default function TestRidePopup() {
