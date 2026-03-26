@@ -82,7 +82,7 @@ export default function RootLayout({
     "name": "Chhaya Bajaj",
     "image": "https://chhayabajaj.in/hero-image.jpg",
     "url": "https://chhayabajaj.in",
-    "telephone": "+919628510443",
+    "telephone": "+919415357605",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Kachare, Bhopapur",

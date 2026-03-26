@@ -120,7 +120,7 @@ export default function ServicePage() {
               <div className="space-y-4">
                 <div>
                   <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Call for Booking</p>
-                  <p className="text-3xl font-extrabold text-primary tracking-tight">+91 96285 10443</p>
+                  <p className="text-3xl font-extrabold text-primary tracking-tight">+91 94153 57605</p>
                 </div>
                 <div className="pt-4 border-t border-blue-200">
                   <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Emergency/Roadside Assistance</p>

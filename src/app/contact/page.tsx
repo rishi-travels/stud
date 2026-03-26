@@ -90,7 +90,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold">Call Us</h4>
-                  <p className="text-muted-foreground text-sm">+91 96285 10443</p>
+                  <p className="text-muted-foreground text-sm">+91 94153 57605</p>
                   <p className="text-muted-foreground text-sm">+91 96285 10575</p>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Phone Number</label>
-                  <Input name="phone" placeholder="+91 96285 10443" required />
+                  <Input name="phone" placeholder="+91 94153 57605" required />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Reason for Inquiry</label>

@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle, Lock } from "lucide-react";
 
@@ -75,7 +74,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-3 text-sm text-white/70 font-medium">
               <Phone className="h-5 w-5 text-accent shrink-0" />
-              <span>+91 96285 10443</span>
+              <span>+91 94153 57605</span>
             </div>
             <div className="flex items-center space-x-3 text-sm text-white/70 font-medium">
               <Mail className="h-5 w-5 text-accent shrink-0" />
