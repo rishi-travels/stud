@@ -14,10 +14,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/vehicles`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/service`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/emi-calculator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -26,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/contact`,
@@ -36,12 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/careers`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/emi-calculator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
