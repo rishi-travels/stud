@@ -79,6 +79,9 @@ export const metadata: Metadata = {
     images: ['https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d4170217053.5b9bd43b46c8c.jpg'],
     site: '@chhayabajajbhopapur',
   },
+  verification: {
+    google: 'ADD_YOUR_GOOGLE_VERIFICATION_CODE_HERE',
+  },
   robots: {
     index: true,
     follow: true,
