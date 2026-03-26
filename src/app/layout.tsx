@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     site: '@chhayabajajbhopapur',
   },
   verification: {
-    google: 'ADD_YOUR_GOOGLE_VERIFICATION_CODE_HERE',
+    google: '<meta name="google-site-verification" content="v275HAlZehz4q-EmHT6E4dUM9C0_ABiM8sHDGdYJtNM" />',
   },
   robots: {
     index: true,
