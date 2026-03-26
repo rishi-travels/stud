@@ -1,5 +1,5 @@
-# Firebase Studio -:-
+# Chhaya Bajaj  -:-
 
-This is a NextJS starter in Firebase Studio.
+This is a NextJS based website for Chhaya enterprises.
 
-To get started, take a look at src/app/page.tsx.
+To get started, click chhayabajaj.in
