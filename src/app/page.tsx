@@ -201,7 +201,7 @@ export default function Home() {
       </div>
 
       {/* Welcome Section */}
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white">
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
           <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Experience Excellence</h2>
           <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">
