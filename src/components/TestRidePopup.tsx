@@ -53,18 +53,25 @@ export default function TestRidePopup() {
   const popupImg = PlaceHolderImages.find(p => p.id === "hero-ns400");
 
   useEffect(() => {
+    // 1. Always register the manual trigger listener
+    const handleOpenPopup = () => setIsOpen(true);
+    window.addEventListener('open-test-ride', handleOpenPopup);
+
+    // 2. Handle automatic popup logic
     const hasSeenPopup = sessionStorage.getItem("hasSeenTestRidePopup");
+    let timer: NodeJS.Timeout;
+    
     if (!hasSeenPopup) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("hasSeenTestRidePopup", "true");
       }, 5000);
-      return () => clearTimeout(timer);
     }
 
-    const handleOpenPopup = () => setIsOpen(true);
-    window.addEventListener('open-test-ride', handleOpenPopup);
-    return () => window.removeEventListener('open-test-ride', handleOpenPopup);
+    return () => {
+      window.removeEventListener('open-test-ride', handleOpenPopup);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
