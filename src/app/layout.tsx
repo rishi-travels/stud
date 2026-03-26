@@ -15,24 +15,26 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://chhayabajaj.in'),
   title: {
-    default: 'Chhaya Bajaj | Authorized Bajaj Showroom in Varanasi',
+    default: 'Chhaya Bajaj | Official Bajaj Bike Showroom in Varanasi',
     template: '%s | Chhaya Bajaj Varanasi',
   },
-  description: 'Chhaya Bajaj is the leading authorized Bajaj automobile showroom in Varanasi. Explore Pulsar, Dominar, Chetak EV, and more. Best Bajaj bikes and service near you.',
+  description: 'Chhaya Bajaj is the premier authorized Bajaj automobile showroom in Varanasi. Explore Pulsar, Dominar, Chetak EV, and more. Visit chhayabajaj.in for the best Bajaj bikes near you.',
   keywords: [
     'chhayabajaj',
-    'chhaya',
+    'chhaya bajaj',
+    'bajaj bikes',
+    '@chhayabajajbhopapur',
+    'Chhaya',
     'Bajaj',
-    'Bajajautombile',
-    'Showroom near me',
-    'Bajajbike',
+    'Bajaj near me',
     'chhayabajaj.in',
     'Bajaj Varanasi',
     'Pulsar Varanasi',
     'Dominar Varanasi',
     'Chetak EV Varanasi',
     'Bajaj service center Varanasi',
-    'best bike showroom in Varanasi'
+    'best bike showroom in Varanasi',
+    'Bajaj automobile Varanasi'
   ],
   authors: [{ name: 'Chhaya Bajaj' }],
   creator: 'Chhaya Bajaj',
@@ -46,17 +48,27 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Chhaya Bajaj | Authorized Bajaj Showroom in Varanasi',
-    description: 'Premier Bajaj dealership in Varanasi. Test ride Pulsar, Dominar, and Chetak EV today.',
+    title: 'Chhaya Bajaj | Official Bajaj Showroom in Varanasi',
+    description: 'Premier Bajaj dealership in Varanasi. Explore the latest Bajaj bikes and electric vehicles at chhayabajaj.in.',
     url: 'https://chhayabajaj.in',
     siteName: 'Chhaya Bajaj',
+    images: [
+      {
+        url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d4170217053.5b9bd43b46c8c.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Chhaya Bajaj Varanasi Showroom',
+      },
+    ],
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Chhaya Bajaj | Authorized Bajaj Showroom in Varanasi',
-    description: 'Premier Bajaj dealership in Varanasi. Explore the latest Bajaj bikes and electric vehicles.',
+    description: 'Official Bajaj dealership in Varanasi. Discover Pulsar, Dominar, and Chetak EV at chhayabajaj.in.',
+    images: ['https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d4170217053.5b9bd43b46c8c.jpg'],
+    site: '@chhayabajajbhopapur',
   },
   robots: {
     index: true,
@@ -80,6 +92,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "AutoDealer",
     "name": "Chhaya Bajaj",
+    "alternateName": ["Chhaya Bajaj Bhopapur", "Chhaya Bajaj Varanasi"],
     "image": "https://chhayabajaj.in/hero-image.jpg",
     "url": "https://chhayabajaj.in",
     "telephone": "+919415357605",
@@ -106,7 +119,8 @@ export default function RootLayout({
     ],
     "sameAs": [
       "https://m.facebook.com/profile.php?id=111457522057376",
-      "https://www.instagram.com/chhayabajajbhopapur/"
+      "https://www.instagram.com/chhayabajajbhopapur/",
+      "https://wa.me/94153557605"
     ]
   };
 

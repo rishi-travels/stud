@@ -40,19 +40,19 @@ const DARING_VEHICLES = [
     name: "Pulsar NS",
     image: PlaceHolderImages.find(p => p.id === "hero-performance"),
     tag: "Street Fighter",
-    desc: "Raw power for the modern street fighter."
+    desc: "Experience the raw power of Bajaj bikes in Varanasi."
   },
   {
     name: "Dominar",
     image: PlaceHolderImages.find(p => p.id === "dominar-400"),
     tag: "Hyper",
-    desc: "Experience ultimate touring performance."
+    desc: "The ultimate hyper tourer for daring riders."
   },
   {
     name: "Pulsar",
     image: PlaceHolderImages.find(p => p.id === "pulsar-150"),
     tag: "Classic",
-    desc: "The iconic sports bike that redefined performance."
+    desc: "The iconic sports bike from Chhaya Bajaj."
   },
   {
     name: "Pulsar N",
@@ -67,7 +67,7 @@ const COMFORT_VEHICLES = [
     name: "Platina",
     image: PlaceHolderImages.find(p => p.id === "platina-110"),
     tag: "Comfort",
-    desc: "Smooth rides for your daily commute."
+    desc: "Smooth rides for your daily commute in Varanasi."
   },
   {
     name: "Freedom 125",
@@ -85,35 +85,35 @@ const COMFORT_VEHICLES = [
     name: "Chetak",
     image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
     tag: "Electric",
-    desc: "Sustainable and stylish urban mobility."
+    desc: "Sustainable urban mobility from chhayabajaj.in."
   }
 ];
 
 const ADVANTAGES = [
   {
     title: "5-Year Warranty",
-    desc: "Unmatched peace of mind with our extensive warranty coverage on all new vehicles.",
+    desc: "Extensive warranty coverage on all new Bajaj bikes.",
     icon: ShieldCheck,
     color: "text-blue-600",
     bg: "bg-blue-100"
   },
   {
     title: "Genuine Spares",
-    desc: "We use only 100% authentic Bajaj Genuine Parts to ensure your ride's longevity.",
+    desc: "We use only 100% authentic Bajaj Genuine Parts.",
     icon: BadgeCheck,
     color: "text-accent",
     bg: "bg-red-100"
   },
   {
     title: "Expert Service",
-    desc: "Certified technicians with state-of-the-art diagnostic tools for perfect maintenance.",
+    desc: "Certified technicians at your service in Varanasi.",
     icon: Wrench,
     color: "text-primary",
     bg: "bg-blue-50"
   },
   {
     title: "Easy Finance",
-    desc: "Quick loan approvals and flexible EMI schemes tailored to your budget.",
+    desc: "Flexible EMI schemes tailored to your budget.",
     icon: Coins,
     color: "text-green-600",
     bg: "bg-green-100"
@@ -177,9 +177,9 @@ export default function Home() {
         <div className="absolute bottom-0 w-full bg-black/40 backdrop-blur-md py-3 hidden md:block">
           <div className="container mx-auto px-4 flex justify-between items-center text-white text-[10px] uppercase font-bold tracking-widest">
             <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Fastest In Segment</span>
-              <span className="flex items-center gap-1"><Bike className="h-3 w-3 text-accent" /> Most Powerful Engine</span>
-              <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-accent" /> Dual Channel ABS</span>
+              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Chhaya Bajaj Varanasi</span>
+              <span className="flex items-center gap-1"><Bike className="h-3 w-3 text-accent" /> Best Bajaj Bikes Near Me</span>
+              <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-accent" /> Authorized Dealer</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-white/60">DEFINITELY DARING</span>
@@ -204,10 +204,12 @@ export default function Home() {
       {/* Welcome Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
-          <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Welcome to</h2>
-          <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">Chhaya Bajaj</h1>
+          <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Experience Chhaya</h2>
+          <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">
+            Chhaya Bajaj <span className="text-primary">Varanasi</span>
+          </h1>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
-            Chhaya Bajaj is one of the most respected and renowned business houses of Varanasi, bringing you world-class Bajaj performance and reliability.
+            Welcome to chhayabajaj.in, your official destination for Bajaj bikes in Varanasi. Chhaya Bajaj is one of the most trusted names for Bajaj automobile sales and service near you.
           </p>
         </div>
       </section>
@@ -217,14 +219,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div className="space-y-2">
-              <Badge variant="outline" className="border-primary text-primary font-bold">Performance Series</Badge>
+              <Badge variant="outline" className="border-primary text-primary font-bold">Bajaj Bikes Varanasi</Badge>
               <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-primary">Daring</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Engineered for those who thrive on adrenaline.</p>
+              <p className="text-muted-foreground font-medium">Engineered for those who thrive on Bajaj performance.</p>
             </div>
             <Button variant="ghost" asChild className="text-primary font-bold hover:text-primary/80">
-              <Link href="/vehicles" className="flex items-center gap-2">View All <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/vehicles" className="flex items-center gap-2">Explore All Bikes <ArrowRight className="h-4 w-4" /></Link>
             </Button>
           </div>
 
@@ -277,14 +279,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div className="space-y-2">
-              <Badge variant="outline" className="border-accent text-accent font-bold">Commuter Series</Badge>
+              <Badge variant="outline" className="border-accent text-accent font-bold">Bajaj Near Me</Badge>
               <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-accent">Comfort</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Reliability meets luxury for your everyday journey.</p>
+              <p className="text-muted-foreground font-medium">Chhaya Bajaj reliability for your everyday journey.</p>
             </div>
             <Button variant="ghost" asChild className="text-accent font-bold hover:text-accent/80">
-              <Link href="/vehicles" className="flex items-center gap-2">View All <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/vehicles" className="flex items-center gap-2">Browse Comfort Models <ArrowRight className="h-4 w-4" /></Link>
             </Button>
           </div>
 
@@ -332,7 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chhaya Advantage Section */}
+      {/* Advantage Section */}
       <section className="py-24 bg-muted/20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -340,7 +342,7 @@ export default function Home() {
               The <span className="text-primary">Chhaya</span> Advantage
             </h2>
             <p className="text-muted-foreground font-medium text-lg">
-              Why thousands of riders trust Chhaya Bajaj for their ultimate automotive journey.
+              Visit chhayabajaj.in for the best Bajaj bikes and service in Varanasi.
             </p>
           </div>
 
@@ -368,43 +370,28 @@ export default function Home() {
           <div className="mt-16 text-center">
             <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-border shadow-sm">
               <ThumbsUp className="h-5 w-5 text-accent" />
-              <span className="text-sm font-bold text-blue-950">Trusted by customer</span>
+              <span className="text-sm font-bold text-blue-950">Trusted by customer - Chhaya Bajaj</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Early Bird Offer Section */}
+      {/* Early Bird Offer */}
       <section className="container mx-auto px-4 py-12">
         <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
           <div className="relative z-10 p-8 md:p-20 max-w-4xl mx-auto text-center flex flex-col items-center">
             <div className="space-y-8">
               <div className="inline-block bg-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase italic">
-                Exclusive Promotion
+                Exclusive Promotion @chhayabajajbhopapur
               </div>
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-extrabold font-headline italic uppercase tracking-tighter leading-none">
                   Early Bird <span className="text-accent">Offer</span>
                 </h2>
                 <p className="text-xl text-blue-100/80 font-medium">
-                  Be among the first 50 bookings this month and unlock exclusive benefits worth up to <span className="text-white font-bold">₹10,000*</span>.
+                  Book your Bajaj bike today at Chhaya Bajaj and unlock benefits worth ₹10,000*.
                 </p>
               </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
-                {[
-                  "Free Extended Warranty",
-                  "Complimentary Service Kit",
-                  "Loyalty Bonus Points",
-                  "Instant Delivery Option"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-semibold">
-                    <div className="bg-accent p-1 rounded-full shrink-0">
-                      <Zap className="h-3 w-3 text-white" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
               <Button 
                 onClick={triggerTestRide}
                 size="lg" 
@@ -417,17 +404,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Moving Text Section */}
+      {/* Marquee */}
       <section className="py-2 md:py-3 bg-white overflow-hidden whitespace-nowrap border-y border-primary/10 relative">
         <div className="flex animate-marquee gap-4 md:gap-8 items-center min-w-full">
           {[...Array(12)].map((_, i) => (
             <span key={i} className="text-xl md:text-3xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
-              Book Now & Save
+              Book Now & Save - Chhaya Bajaj
             </span>
           ))}
           {[...Array(12)].map((_, i) => (
             <span key={i + 12} className="text-xl md:text-3xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
-              Book Now & Save
+              Book Now & Save - chhayabajaj.in
             </span>
           ))}
         </div>
