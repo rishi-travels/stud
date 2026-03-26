@@ -39,25 +39,25 @@ const DARING_VEHICLES = [
     name: "Pulsar NS",
     image: PlaceHolderImages.find(p => p.id === "hero-performance"),
     tag: "Street Fighter",
-    desc: "Experience the raw power of Bajaj pulsar bikes in Varanasi at Chhaya Bajaj."
+    desc: "Experience the raw power of Bajaj bikes in Varanasi."
   },
   {
     name: "Dominar",
     image: PlaceHolderImages.find(p => p.id === "dominar-400"),
     tag: "Hyper",
-    desc: "The ultimate hyper tourer for daring riders at your favorite bajaj showroom."
+    desc: "The ultimate hyper tourer for daring riders."
   },
   {
     name: "Pulsar",
     image: PlaceHolderImages.find(p => p.id === "pulsar-150"),
     tag: "Classic",
-    desc: "The iconic bajaj pulsar sports bike from Chhaya Bajaj Bhopapur."
+    desc: "The iconic sports bike from Chhaya Bajaj."
   },
   {
     name: "Pulsar N",
     image: PlaceHolderImages.find(p => p.id === "pulsar-125"),
     tag: "Racing",
-    desc: "Race-bred performance at the best bajaj showroom near me."
+    desc: "Race-bred performance for the urban rider."
   }
 ];
 
@@ -66,53 +66,53 @@ const COMFORT_VEHICLES = [
     name: "Platina",
     image: PlaceHolderImages.find(p => p.id === "platina-110"),
     tag: "Comfort",
-    desc: "Smooth rides for your daily commute from Chaya Bajaj Varanasi."
+    desc: "Smooth rides for your daily commute in Varanasi."
   },
   {
     name: "Freedom 125",
     image: PlaceHolderImages.find(p => p.id === "freedom-125"),
     tag: "Innovative",
-    desc: "The world's first multi-fuel bajaj bike performance."
+    desc: "The world's first multi-fuel performance bike."
   },
   {
     name: "CT",
     image: PlaceHolderImages.find(p => p.id === "ct-110"),
     tag: "Rugged",
-    desc: "Built for durability at Chhaya Enterprises bajaj showroom."
+    desc: "Built for durability and every tough terrain."
   },
   {
     name: "Chetak",
     image: PlaceHolderImages.find(p => p.id === "chetak-electric"),
     tag: "Electric",
-    desc: "Sustainable bajaj chetak urban mobility from chhayabajaj.in."
+    desc: "Sustainable urban mobility from chhayabajaj.in."
   }
 ];
 
 const ADVANTAGES = [
   {
     title: "5-Year Warranty",
-    desc: "Extensive warranty coverage on all new Bajaj bikes and pulsar models.",
+    desc: "Extensive warranty coverage on all new Bajaj bikes.",
     icon: ShieldCheck,
     color: "text-blue-600",
     bg: "bg-blue-100"
   },
   {
     title: "Genuine Spares",
-    desc: "We use only 100% authentic spares at our bajaj service center.",
+    desc: "We use only 100% authentic Bajaj Genuine Parts.",
     icon: BadgeCheck,
     color: "text-accent",
     bg: "bg-red-100"
   },
   {
     title: "Expert Service",
-    desc: "Certified technicians at the premier Chhaya Bajaj service center.",
+    desc: "Certified technicians at your service in Varanasi.",
     icon: Wrench,
     color: "text-primary",
     bg: "bg-blue-50"
   },
   {
     title: "Easy Finance",
-    desc: "Flexible EMI schemes at Varanasi's leading bajaj showroom.",
+    desc: "Flexible EMI schemes tailored to your budget.",
     icon: Coins,
     color: "text-green-600",
     bg: "bg-green-100"
@@ -208,7 +208,7 @@ export default function Home() {
             Chhaya Bajaj <span className="text-primary">Bhopapur</span>
           </h1>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
-            Welcome to Chhaya Bajaj (Chhaya Enterprises), your official destination for bajaj showroom services and bajaj service center in Varanasi. We are the most trusted name for bajaj pulsar, chetak, and all bajaj bikes near you.
+            Welcome to Chhaya Bajaj Bhopapur, your official destination for Bajaj showroom services in Varanasi. We are one of the most trusted names for Bajaj automobile sales and service near you.
           </p>
         </div>
       </section>
@@ -222,7 +222,7 @@ export default function Home() {
               <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-primary">Daring</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Engineered for those who thrive on bajaj pulsar performance at our showroom.</p>
+              <p className="text-muted-foreground font-medium">Engineered for those who thrive on Bajaj performance at our showroom.</p>
             </div>
             <Button variant="ghost" asChild className="text-primary font-bold hover:text-primary/80">
               <Link href="/vehicles" className="flex items-center gap-2">Explore All Bikes <ArrowRight className="h-4 w-4" /></Link>
@@ -278,11 +278,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div className="space-y-2">
-              <Badge variant="outline" className="border-accent text-accent font-bold">Bajaj bhopapur</Badge>
+              <Badge variant="outline" className="border-accent text-accent font-bold">Bajaj Bhopapur</Badge>
               <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-accent">Comfort</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Chaya bajaj reliability for your everyday journey in Varanasi.</p>
+              <p className="text-muted-foreground font-medium">Chhaya Bajaj reliability for your everyday journey in Varanasi.</p>
             </div>
             <Button variant="ghost" asChild className="text-accent font-bold hover:text-accent/80">
               <Link href="/vehicles" className="flex items-center gap-2">Browse Comfort Models <ArrowRight className="h-4 w-4" /></Link>
@@ -341,7 +341,7 @@ export default function Home() {
               The <span className="text-primary">Chhaya</span> Advantage
             </h2>
             <p className="text-muted-foreground font-medium text-lg">
-              Visit Chhaya Bajaj Bhopapur for the best bajaj chetak, pulsar, and bajaj showroom experience in Varanasi.
+              Visit Chhaya Bajaj Bhopapur for the best Bajaj bikes and showroom experience in Varanasi.
             </p>
           </div>
 
@@ -388,7 +388,7 @@ export default function Home() {
                   Early Bird <span className="text-accent">Offer</span>
                 </h2>
                 <p className="text-xl text-blue-100/80 font-medium">
-                  Book your bajaj bike today at Chhaya Enterprises and unlock benefits worth ₹10,000*.
+                  Book your Bajaj bike today at Chhaya Bajaj Bhopapur and unlock benefits worth ₹10,000*.
                 </p>
               </div>
               <Button 
