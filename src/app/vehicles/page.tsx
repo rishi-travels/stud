@@ -48,7 +48,7 @@ const VEHICLE_DATA = [
     category: "Comfort",
     vehicles: [
       {
-        name: "C T",
+        name: "CT",
         description: "A rugged and efficient commuter built for durability and long-lasting performance.",
         specs: { engine: "115.45cc", Mileage: "70 kmpl", "fuel tank": "10.5 L" },
         image: PlaceHolderImages.find(p => p.id === "ct-110"),
