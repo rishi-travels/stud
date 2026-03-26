@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Chhaya Bajaj | Official Bajaj Bike Showroom in Varanasi',
     template: '%s | Chhaya Bajaj Varanasi',
   },
-  description: 'Chhaya Bajaj is the premier authorized Bajaj automobile showroom in Varanasi. Explore Pulsar, Dominar, Chetak EV, and more. Visit chhayabajaj.in for the best Bajaj bikes near you.',
+  description: 'Chhaya Bajaj is the premier authorized Bajaj automobile showroom in Varanasi. Explore Pulsar, Dominar, Chetak EV, and more at our Bhopapur branch. Visit chhayabajaj.in for the best Bajaj bikes near you.',
   keywords: [
     'chhayabajaj',
     'chhaya bajaj',
@@ -34,7 +34,11 @@ export const metadata: Metadata = {
     'Chetak EV Varanasi',
     'Bajaj service center Varanasi',
     'best bike showroom in Varanasi',
-    'Bajaj automobile Varanasi'
+    'Bajaj automobile Varanasi',
+    'Chhaya Bajaj Bhopapur',
+    'Bajaj bhopapur',
+    'bajaj showroom',
+    'official bajaj showroom varanasi'
   ],
   authors: [{ name: 'Chhaya Bajaj' }],
   creator: 'Chhaya Bajaj',
@@ -49,7 +53,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Chhaya Bajaj | Official Bajaj Showroom in Varanasi',
-    description: 'Premier Bajaj dealership in Varanasi. Explore the latest Bajaj bikes and electric vehicles at chhayabajaj.in.',
+    description: 'Premier Bajaj dealership in Varanasi at Bhopapur. Explore the latest Bajaj bikes and electric vehicles at chhayabajaj.in.',
     url: 'https://chhayabajaj.in',
     siteName: 'Chhaya Bajaj',
     images: [
@@ -92,7 +96,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "AutoDealer",
     "name": "Chhaya Bajaj",
-    "alternateName": ["Chhaya Bajaj Bhopapur", "Chhaya Bajaj Varanasi"],
+    "alternateName": ["Chhaya Bajaj Bhopapur", "Chhaya Bajaj Varanasi", "Bajaj Bhopapur", "Bajaj Showroom Varanasi"],
     "image": "https://chhayabajaj.in/hero-image.jpg",
     "url": "https://chhayabajaj.in",
     "telephone": "+919415357605",

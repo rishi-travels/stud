@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -177,8 +176,8 @@ export default function Home() {
         <div className="absolute bottom-0 w-full bg-black/40 backdrop-blur-md py-3 hidden md:block">
           <div className="container mx-auto px-4 flex justify-between items-center text-white text-[10px] uppercase font-bold tracking-widest">
             <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Chhaya Bajaj Varanasi</span>
-              <span className="flex items-center gap-1"><Bike className="h-3 w-3 text-accent" /> Best Bajaj Bikes Near Me</span>
+              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Chhaya Bajaj Bhopapur</span>
+              <span className="flex items-center gap-1"><Bike className="h-3 w-3 text-accent" /> Best Bajaj Showroom Varanasi</span>
               <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-accent" /> Authorized Dealer</span>
             </div>
             <div className="flex items-center gap-2">
@@ -204,12 +203,12 @@ export default function Home() {
       {/* Welcome Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
-          <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Experience Chhaya</h2>
+          <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Experience Excellence</h2>
           <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">
-            Chhaya Bajaj <span className="text-primary">Varanasi</span>
+            Chhaya Bajaj <span className="text-primary">Bhopapur</span>
           </h1>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
-            Welcome to chhayabajaj.in, your official destination for Bajaj bikes in Varanasi. Chhaya Bajaj is one of the most trusted names for Bajaj automobile sales and service near you.
+            Welcome to Chhaya Bajaj Bhopapur, your official destination for Bajaj showroom services in Varanasi. We are one of the most trusted names for Bajaj automobile sales and service near you.
           </p>
         </div>
       </section>
@@ -219,11 +218,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div className="space-y-2">
-              <Badge variant="outline" className="border-primary text-primary font-bold">Bajaj Bikes Varanasi</Badge>
+              <Badge variant="outline" className="border-primary text-primary font-bold">Bajaj bikes Varanasi</Badge>
               <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-primary">Daring</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Engineered for those who thrive on Bajaj performance.</p>
+              <p className="text-muted-foreground font-medium">Engineered for those who thrive on Bajaj performance at our showroom.</p>
             </div>
             <Button variant="ghost" asChild className="text-primary font-bold hover:text-primary/80">
               <Link href="/vehicles" className="flex items-center gap-2">Explore All Bikes <ArrowRight className="h-4 w-4" /></Link>
@@ -279,11 +278,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div className="space-y-2">
-              <Badge variant="outline" className="border-accent text-accent font-bold">Bajaj Near Me</Badge>
+              <Badge variant="outline" className="border-accent text-accent font-bold">Bajaj Bhopapur</Badge>
               <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-accent">Comfort</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Chhaya Bajaj reliability for your everyday journey.</p>
+              <p className="text-muted-foreground font-medium">Chhaya Bajaj reliability for your everyday journey in Varanasi.</p>
             </div>
             <Button variant="ghost" asChild className="text-accent font-bold hover:text-accent/80">
               <Link href="/vehicles" className="flex items-center gap-2">Browse Comfort Models <ArrowRight className="h-4 w-4" /></Link>
@@ -342,7 +341,7 @@ export default function Home() {
               The <span className="text-primary">Chhaya</span> Advantage
             </h2>
             <p className="text-muted-foreground font-medium text-lg">
-              Visit chhayabajaj.in for the best Bajaj bikes and service in Varanasi.
+              Visit Chhaya Bajaj Bhopapur for the best Bajaj bikes and showroom experience in Varanasi.
             </p>
           </div>
 
@@ -370,7 +369,7 @@ export default function Home() {
           <div className="mt-16 text-center">
             <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-border shadow-sm">
               <ThumbsUp className="h-5 w-5 text-accent" />
-              <span className="text-sm font-bold text-blue-950">Trusted by customer - Chhaya Bajaj</span>
+              <span className="text-sm font-bold text-blue-950">Trusted by customer - Chhaya Bajaj Bhopapur</span>
             </div>
           </div>
         </div>
@@ -389,7 +388,7 @@ export default function Home() {
                   Early Bird <span className="text-accent">Offer</span>
                 </h2>
                 <p className="text-xl text-blue-100/80 font-medium">
-                  Book your Bajaj bike today at Chhaya Bajaj and unlock benefits worth ₹10,000*.
+                  Book your Bajaj bike today at Chhaya Bajaj Bhopapur and unlock benefits worth ₹10,000*.
                 </p>
               </div>
               <Button 
