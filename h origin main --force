@@ -1,0 +1,260 @@
+[33me07c6f1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Revert "Update README with new project details"
+[33mc4cbd31[m book test drive button link redirection not work properly
+[33mf16fcdd[m make this website google SEO optimize for searches like : chhayabajaj, c
+[33ma7006a2[m add more keywords like : Chhaya Bajaj Bhopapur, Bajaj bhopapur, bajaj sh
+[33me796443[m make this website google SEO optimize for searches like : chhayabajaj, c
+[33m7cf1eb8[m change 9628510443 to 9415357605
+[33m70d58a5[m make this website fully google SEO optimize, when anyone  search chhayab
+[33m1a807c0[m rename with Hyper (_for element <Badge>_)
+[33m38a5b14[m rename with platina (_for element h3_)
+[33m9991de6[m in home pg, in daring collection section add two more model one is pulsa
+[33mf4a8174[m rename with Pulsar NS (_for element h3_)
+[33m7f428fe[m rename with Dominar (_for element h3_)
+[33ma48ed5b[m Make the following changes:
+[33m053bba9[m make this more responsive for mobile view (_for element section_)
+[33m8b9a3ed[m make this speed in mobile view also (_for element section_)
+[33m031bd6c[m increse the speed (_for element section_)
+[33m067f233[m increase the speed (_for element section_)
+[33m1aed851[m reduce the scrolling height and bg is white and font color is blue  (_fo
+[33m1c8d0a6[m in home pg add new section below the early bird offer and above the foot
+[33mda9a2b2[m in home pg, add section of chhaya advantage below thecomfort collection
+[33m9f54843[m in home pg, remove model name from image and add it to below
+[33m1e88a7a[m in home pg, shift image badge on upper right side of image
+[33m5aea6ef[m in home pg, in daring collections, model name not shown on image it show
+[33m448edcd[m in home pg, in daring collection section, in mobile view  align images a
+[33m19c725d[m in home page, add two previous sections one Daring collection and second
+[33mfb9d2df[m Try fixing this error: `Build Error: Parsing ecmascript source code fail
+[33m674de2e[m radme
+[33m1b9a5e9[m readme
+[33m8db2718[m read
+[33md8f11fc[m Merge pull request #1 from rishi-travels/diverted-final
+[33me4b1d3f[m[33m ([m[1;31morigin/diverted-final[m[33m)[m Merge branch 'main' into diverted-final
+[33mb30b91b[m[33m ([m[1;32mdiverted-final[m[33m)[m diverted
+[33m3c2a777[m why i can't sync the changes with github repo
+[33m46b1b5a[m push the changes over github repo
+[33m58f7bce[m in about pg,in diwakar mishra, rename operational with marketing
+[33mddbcd02[m in admin lead, delete button not work properly
+[33mcd2f4cc[m in admin lead,add button to delete the data
+[33m8621464[m setup all data in env file yourself
+[33m12e9372[m Try fixing this error: `Console FirebaseError: Analytics: Dynamic config
+[33m0e99fa9[m Set up a Firebase project
+[33m3a7d00f[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m6b43699[m Try fixing this error: `Console FirebaseError: Analytics: Dynamic config
+[33m842278a[m explain me in this project what is the use of gemini api key and google
+[33m26c2583[m in source code, secure the credentials like passwords,api key or other c
+[33mf2056d1[m in laptop view,in home page , in early bird offer section , remove the y
+[33m74df08a[m rename with operational head (_for element p_)
+[33m09dfab7[m rename with Technical Head (_for element p_)
+[33mfb338fc[m rename with Tech Lead (_for element p_)
+[33me2c4d43[m rename with Management Head (_for element p_)
+[33mba1bd59[m Try fixing this error: `Runtime FirebaseError: Performance: Attribute va
+[33mab09cca[m why is need of gemini api
+[33md0e5bc7[m Try fixing this error: `Console GenkitError: UNKNOWN: Error fetching fro
+[33m873254f[m ## Error Type Console GenkitError
+[33mc1b353f[m setup firebase store to store job applictaion details
+[33m9bea63e[m integrate the firebase analytics and monitering
+[33m31e737f[m in admin lead, only test ride booking detail shown not show contact deta
+[33m572a52d[m "chhaya@vns"set as pass on admin lead
+[33m91709c3[m ## Error Type Runtime FirebaseError
+[33m586b5d7[m i submit the details throught popup so where i can see my stored details
+[33m01504a4[m is firebase data store is configured and can data stored in firebase
+[33mb215146[m Try fixing this error: `Runtime Error: useFirebase must be used within a
+[33m4828adc[m Set up a Firebase backend
+[33mddfcc56[m when user submit their details in popup save the  detail in my google sh
+[33md8f189b[m I see this error with the app, reported by NextJS, please fix it. The er
+[33m541a900[m Try fixing this error: `Recoverable Error: Hydration failed because the
+[33m754bd65[m in pop ui, rename ride date with Date and "select date" as placeholder
+[33md48e9c0[m when user clicked th button book test drive then button redirect to popu
+[33mb8ffb50[m in pop ui, write "select date" in placeholder of ride date and when popu
+[33m17841dd[m in pop ui ,slightly reduce the size of pop ui by it look like popped ui
+[33m5e7f8fa[m in pop ui, rename choose machine with chosse model and write "choose dat
+[33m44e5827[m in pop ui , make visible cross button at right upper side and remove jum
+[33m891017f[m make good looking, intractive and animated ui of popup (which is poped a
+[33mc0bc5c2[m rename the recently added button from email now to chat on E-mail
+[33m8bbf2df[m as in recently added buttons chat on whatsapp and E-main now , make font
+[33m224d886[m as in recently added buttons chat on whatsapp and E-main now , name not
+[33m7d565dd[m in mobile view add 2 more buttons in side bar (hamburger button ) chat o
+[33mc72109d[m from all pg update the footer, redirect all links in the support section
+[33me72b263[m in footer section, redirect service booking,warranty info, privacy polic
+[33m193c9b5[m change with ashwanimishra3172001@gmail.com  (_for element span_)
+[33m98f9199[m change this with ashwanimishra3172001@gmail.com (_for element span_)
+[33m940d71c[m remane with E-mail now, add mail with this button : ashwanimishra3172001
+[33mf16aa68[m add a line : For quick response drop a mail. (_for element p_)
+[33m3a7d4f4[m fix it with icon (_for element div_)
+[33m13efdc5[m add one more option name as Other (_for element <Primitive.button>_)
+[33ma67c944[m in career pg , slightly reduce the size of submit and chat on whatsapp b
+[33mfc42a1b[m rename with e.g Abhi Mishra (_for element <Input>_)
+[33mef478cb[m in contact pg , slightly reduce the size of  send msg and chat on whatsa
+[33m0c1d918[m remove this  (_for element div_)
+[33m2c23717[m change the name of Direct Message with Chat on Whatsapp
+[33m622c6ae[m when user open the website then after 5 sec pop shown for book test ride
+[33md1ebff6[m https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d417021705
+[33m55c0055[m in home page align the comfort collection heading in one line in mobile
+[33m83cb8b1[m in footer add https://m.facebook.com/profile.php?id=111457522057376 as l
+[33m7dd3e9b[m add 94153557605 as whatsapp number on direct message button
+[33ma765b80[m add 94153557605 as whatsapp number in chat on whatsapp button in career
+[33m6596e25[m in career pg replace contact button with Chat on whatsapp
+[33mb3d71cf[m in contact pg, replace submit button with 2 button one is send message b
+[33mf4559c7[m in footer add the link with instagram icon : https://www.instagram.com/c
+[33m23de50b[m remove the journey section from the about page
+[33m7d719e0[m in this section of about pg ,change img with https://github.com/rishi-tr
+[33m9ba7e2a[m in about page, in team section change the image of Diwakar with https://
+[33ma19364e[m in about page, in team section change the image of Deepak with https://g
+[33mb469f1b[m in about pg, add one more card in tean section
+[33m47a51b3[m in about page , remove Founded in 1988 and change small with sub
+[33m53d2ec4[m in about page, in team section change the image of Abhishekwith https://
+[33m62fec8c[m in about page, in team section change the image of ashwini with https://
+[33m8d31890[m in about page, in team section change the name Head of sale with Managin
+[33m03319ea[m in about page, in team section change the name managing with Executive a
+[33mcb4241b[m in about page, in team section change the name of  Amit Verma with Abhis
+[33mfb2fc8c[m in about page, in team section change the name of  Priya sharma with Ash
+[33m83f55d1[m in about page, in team section change the name of  Rajesh chhaya with Ra
+[33mfcdb090[m in about page, in team section change image of Rajesh chhaya with https:
+[33mb349ec4[m in about page, in team section change image of Rajesh chhaya with given
+[33meda7489[m in contact page ,in place holder name, change name john Doe to e.g Abhi
+[33ma160282[m in vehicle page ,in comfort section , change name ct110 to C T,platina11
+[33m0929f9b[m in vehicle , in daring section, change name pulsar 150 to pulsar,  chang
+[33ma59183a[m in vehicle page ,in electric section add one more card with image https:
+[33m2c3e901[m in vehicle page , from comfort section remove avenger street 160,avenger
+[33m5abea12[m in vehicle page  from electric section move platina 110 and freedom 125
+[33me5603f3[m in comfort collection add one more card with img  https://cdn1.acedms.co
+[33m05856bc[m in daring collection change the img of pulsar N160 with https://expomoto
+[33mcf2eb00[m in daring collection change the img of Dominar 400 with https://5.imimg.
+[33me4bc15f[m in daring collection rename the pulsarN250 with Dominar 400
+[33m17f129a[m in daring collection change the img of pulsar RS200 with https://media.z
+[33m40f5ae5[m in comfort collection change the img of chetak urbane with https://media
+[33mdd70e27[m in comfort collection change the img of chetak premium  with https://www
+[33mcffb014[m in comfort collection change the img of chetak premium  with https://aut
+[33m2777680[m in comfort collection change the img of chetak urbane with data:image/we
+[33mbea898e[m in daring collection change the img of pulasar ns 250 with https://th.bi
+[33mee9f90d[m in comfort collection change the img of freedom 125 with https://th.bing
+[33m799d83c[m change this img with https://th.bing.com/th/id/OIP.6mUnee7fc51A4QcWkD8H8
+[33md08af33[m change img with https://th.bing.com/th/id/OIP.8QI5XX8kG5JfizWua3JfsgHaE8
+[33mf106c45[m change img with https://cdn1.acedms.com/uploads/category/Bajaj/202009291
+[33m4a8866f[m change image with https://somosmoto.pe/images/models/gallery/bajaj-pulsa
+[33mbd1b5b0[m https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d417021705
+[33mbcabcfb[m https://th.bing.com/th/id/R.a55bcd39ac12b8768b20ebc8068bf670?rik=%2b3DhB
+[33md708dc1[m https://tse4.mm.bing.net/th/id/OIP.lR_ZHdUP-mx8PkDyDgciogHaE8?pid=ImgDet
+[33mde2a569[m https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar
+[33mb9fa4ff[m https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar
+[33m3d38caf[m https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/345d417021705
+[33m7ec6b84[m https://s1.cdn.autoevolution.com/images/moto_gallery/BAJAJ-MOTORS-Pulsar
+[33mfc4be19[m https://cdn.bajajauto.com/-/media/assets/bajajauto/bikes/pulsar-k-2024/h
+[33m887dff0[m change clor from red to blue (_for element div_)
+[33m5506a64[m reduce the size (_for element section_)
+[33mef35495[m shift to above of footer and below the chhaya advantage (_for element di
+[33mb1bfb36[m restore the Early Bird Offer section in the home page
+[33m440ae96[m Try fixing this error: `Recoverable Error: Hydration failed because the
+[33m4584fdd[m change Uday autosale with Chhaya Bajaj from everywhere
+[33m6c2a108[m reduce the size and change the shape as 3 rectangular line (_for element
+[33m028cc25[m make hero bg transition with 3sec
+[33m2276268[m remove it (_for element p_)
+[33m9951b06[m reduce the size (_for element section_)
+[33m7ef3ae0[m slightly increse the size of hero section
+[33m1e62367[m shift it to below the hero section (_for element div_)
+[33md9b16b2[m angular button show everytime
+[33mdc2ff35[m add angular bracket as side button and also add three small button that
+[33m3b9cf29[m make hero section as given image and fully responsible for smartphones v
+[33md5dfc5f[m make hero bg image responsive for mobile view
+[33m0416c40[m make dark blue nav bar  and footer bg color
+[33mbaa3329[m make slighter more dark nav bar  and footer bg color
+[33m4384552[m make slighter more dark nav bar  and footer bg color
+[33m97454fd[m hero bg transition take place after 2 sec
+[33m2b42522[m https://imgd.aeplcdn.com/1056x594/n/cw/ec/206496/pulsar-ns400-right-side
+[33m9a37bb4[m add 2 more images as hero bg and slide one by one after 1sec
+[33m8a7d9dd[m https://cdn.bajajauto.com/-/media/assets/bajajauto/home-page/banners/web
+[33md90c05c[m https://english.onlinekhabar.com/wp-content/uploads/2023/07/Screenshot-2
+[33m640e4e8[m https://cdn.bajajauto.com/-/media/assets/bajajauto/bikes/pulsar-ns400-20
+[33m9351e4d[m in vehicle page , remove price from every cards and change power with Mi
+[33mdf9023f[m Comfort Collection (_for element h2_)
+[33m3620716[m Daring Collection (_for element h2_)
+[33mca5de3b[m add 2 more section below as similar this ( 2more feature vechicle sectio
+[33mf6bb19e[m in mobile view each 3 card change slide with another 3 in every 1.5 sec
+[33mc9dc565[m remove model name from image (_for element section_)
+[33m4857791[m remove Explore Detail and write the model name in that place and add but
+[33mb9f2e95[m Flash Delivery (_for element h4_)
+[33mfbe9634[m add the previous section whisch is between the chhaya advantage and hero
+[33mbbe03c9[m add 2 more cards (_for element div_)
+[33m9aa5ff7[m add 2 more cards (_for element div_)
+[33m3d0a180[m add 3 more cards  (_for element div_)
+[33m928352c[m Daring (_for element <Primitive.button>_)
+[33mdf963ec[m remove bussiness hour section
+[33m677c3a7[m add this coordinate in map 25°27'14.4"N 82°56'30.5"E
+[33mb202952[m add this coordinate in map 25.4542317,82.9401267
+[33mbe907c5[m https://maps.app.goo.gl/oxrX6sH1JRGd4yad7 add location in map
+[33ma033559[m Our Location is :Kachare, Bhopapur, Varanasi, Uttar Pradesh, Contact Us
+[33m383fd78[m Bajaj Family (_for element span_)
+[33m4876752[m remove with Contact  (_for element button_)
+[33m3ca75ae[m add two button in that place one is submit and other is Direct Message (
+[33m569c051[m change with Direct Message (_for element button_)
+[33m696feb9[m remove Send us your resume anyway! and highlight the rest message (_for
+[33ma87931c[m remove it (_for element h2_)
+[33m3255133[m remove career interest and resume section and add email and address sect
+[33m069279a[m In job Role ,put the drop box which contains Manager,Mechanic,Salesman,C
+[33mef4118e[m Job Role (_for element label_)
+[33ma539fb1[m Your Name (_for element label_)
+[33m2b00d83[m remove it (_for element <CardDescription>_)
+[33maa7cf37[m change heading with Apply For Job (_for element <CardHeader>_)
+[33m05c59bd[m remove this section (_for element section_)
+[33m18f1f78[m align this in same line in mobile view (_for element <Primitive.div>_)
+[33m17a5f4d[m change name with Glimpse Gallary (_for element h2_)
+[33mf05fbcc[m reduce the size between early bird offer and festival dhamaka
+[33m2bd6a76[m remove this section and add gallary frame (_for element section_)
+[33m0276031[m change name with  Pulsar,Comfort,Electric (_for element <Primitive.div>_
+[33m2d8ce36[m remove it (_for element <Primitive.button>_)
+[33m196e079[m remove the animation which looks like heartbeat (_for element div_)
+[33mcd91639[m reduce the size by which full heading appear in same line in mobile view
+[33mbe7a606[m each word dissapear and then appear one by one (_for element h2_)
+[33m8828278[m add continuous animation (_for element h2_)
+[33m7f92392[m add animation  (_for element h2_)
+[33mbe69762[m make heading more stylish (_for element div_)
+[33m39fff68[m change name as Claim Offer and reduce size (_for element <LinkComponent>
+[33m65a8907[m shift this button to right side (_for element <LinkComponent>_)
+[33m26696c6[m add the heading section between festival dhamaka section and featured mo
+[33m67a17db[m the model name and the style of button should also shown in mobile view
+[33mbd6c29c[m reduce the size and the changes also shown in mobile view (_for element
+[33md2b2981[m shift the more button to the right side of model name (_for element div_
+[33m1d60b18[m shift it to above the footer and below image (_for element <LinkComponen
+[33mef0a85c[m Make the following changes:
+[33m4071acf[m fix button diassapearing on once clicking (_for element <Button>_)
+[33m99bc175[m remove it (_for element p_)
+[33mc9b4cd0[m add model name and more button that redirect to vehicle page on that mod
+[33mb85e4ea[m add button named more that redirect vehicle page on that model  (_for el
+[33m3e9005f[m in mobile ,cards continuously perform slide show after 1.5 sec (_for ele
+[33m55360f5[m remove buttons  (_for element <Button>_)
+[33m0d82b04[m make button transparent (_for element <Button>_)
+[33mf1b8ffa[m remove price and add the side button in that place (_for element <Carous
+[33m81bdfc1[m remove it from all card (_for element <LinkComponent>_)
+[33m8ffac31[m make it more animated and good looking (_for element div_)
+[33m90a79cd[m reduce the scolling size (_for element section_)
+[33m32ec9a9[m remove this and add gallary section (_for element div_)
+[33m7d9bd5e[m remove this section (_for element div_)
+[33m50cf504[m change name with About (_for element h1_)
+[33ma334854[m add 17+ employee and font color is blue and bg color is white (_for elem
+[33m7621338[m shift this section between the team member section and footer (_for elem
+[33ma6aeac9[m remove this photo section (_for element div_)
+[33m7537121[m add side button to change frame and 1 more section (_for element section
+[33mbed95da[m Make the following changes:
+[33m7323b62[m remove service hour section
+[33m6dc0685[m remove the service appointment form
+[33m118372b[m add service page
+[33m615b136[m reduce the scroll height (_for element section_)
+[33m85cea43[m remove this ,only left images (_for element div_)
+[33mda23333[m add vehicle page
+[33m0018654[m add multiple images in featured product section
+[33m6ca66b4[m remove emi page
+[33mb7db51c[m in emi page don't show chart and total interest
+[33m78bd480[m Try fixing this error: `Runtime Error: useChart must be used within a <C
+[33m7fb4822[m add a section in about page for team memmbers(3 members)
+[33m8f8a326[m add section between festival dhamaka and chhaya advantage, section named
+[33m0028c68[m change the colour of nav bar and footer with light blue
+[33mba6bec8[m herosection  bg img not updated, please change the bg img with my give i
+[33m836d405[m use this image as background of herosection
+[33m80b1936[m change the header background image (bajaj bike shows stunt and style )an
+[33md865c59[m noo, change theme and it looks like the theme on website of bajajauto.co
+[33m4e0f411[m change the theme with blue and white
+[33m3114aee[m redirect this button with contact page and change name with Contact Us (
+[33m313df28[m fix ## Error Type Console Error
+[33m029cf16[m fix ## Error Type Console Error
+[33m67d9ed0[m Initial prototype
+[33m710df1f[m Initialized workspace with Firebase Studio
