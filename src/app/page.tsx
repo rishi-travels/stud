@@ -205,7 +205,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
           <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Experience Excellence</h2>
           <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">
-            Chhaya Bajaj <span className="text-primary">Bhopapur</span>
+            Chhaya Bajaj
           </h1>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
             Welcome to Chhaya Bajaj Bhopapur, your official destination for Bajaj showroom services in Varanasi. We are one of the most trusted names for Bajaj automobile sales and service near you.
