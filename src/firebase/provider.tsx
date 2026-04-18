@@ -9,9 +9,9 @@ import { FirebaseErrorListener } from '@/components/FirebaseErrorListener';
 
 interface FirebaseProviderProps {
   children: ReactNode;
-  firebaseApp: FirebaseApp;
-  firestore: Firestore;
-  auth: Auth;
+  firebaseApp: FirebaseApp | null;
+  firestore: Firestore | null;
+  auth: Auth | null;
 }
 
 interface UserAuthState {
@@ -61,7 +61,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
 
   useEffect(() => {
     if (!auth) {
-      setUserAuthState({ user: null, isUserLoading: false, userError: new Error("Auth service not provided.") });
+      setUserAuthState({ user: null, isUserLoading: false, userError: null });
       return;
     }
     const unsubscribe = onAuthStateChanged(
@@ -74,7 +74,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
 
   useEffect(() => {
     // Safe initialization for Analytics to prevent crash on invalid/missing keys
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || !firebaseApp) return;
 
     const apiKey = firebaseApp?.options?.apiKey;
     const measurementId = firebaseApp?.options?.measurementId;
@@ -120,7 +120,7 @@ export const useFirebase = (): FirebaseServicesAndUser => {
   const context = useContext(FirebaseContext);
   if (context === undefined) throw new Error('useFirebase must be used within a FirebaseProvider.');
   if (!context.areServicesAvailable || !context.firebaseApp || !context.firestore || !context.auth) {
-    throw new Error('Firebase core services not available. Check your environment variables.');
+    throw new Error('Firebase core services not available. Check your environment variables (API Key, Project ID, etc.).');
   }
   return {
     firebaseApp: context.firebaseApp,
@@ -133,18 +133,18 @@ export const useFirebase = (): FirebaseServicesAndUser => {
 };
 
 export const useAuth = () => {
-  const { auth } = useFirebase();
-  return auth;
+  const context = useContext(FirebaseContext);
+  return context?.auth || null;
 };
 
 export const useFirestore = () => {
-  const { firestore } = useFirebase();
-  return firestore;
+  const context = useContext(FirebaseContext);
+  return context?.firestore || null;
 };
 
 export const useFirebaseApp = () => {
-  const { firebaseApp } = useFirebase();
-  return firebaseApp;
+  const context = useContext(FirebaseContext);
+  return context?.firebaseApp || null;
 };
 
 type MemoFirebase <T> = T & {__memo?: boolean};
@@ -157,6 +157,10 @@ export function useMemoFirebase<T>(factory: () => T, deps: DependencyList): T | 
 }
 
 export const useUser = (): UserHookResult => { 
-  const { user, isUserLoading, userError } = useFirebase(); 
-  return { user, isUserLoading, userError };
+  const context = useContext(FirebaseContext);
+  return { 
+    user: context?.user || null, 
+    isUserLoading: context?.isUserLoading ?? true, 
+    userError: context?.userError || null 
+  };
 };
