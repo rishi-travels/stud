@@ -39,8 +39,29 @@ const TEAM_MEMBERS = [
 ];
 
 export default function AboutPage() {
+  const teamJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": TEAM_MEMBERS.map((member, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Person",
+        "name": member.name,
+        "jobTitle": member.role,
+        "description": member.bio,
+        "image": member.image?.imageUrl,
+        "sameAs": member.website ? [member.website] : []
+      }
+    }))
+  };
+
   return (
     <div className="py-20 space-y-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamJsonLd) }}
+      />
       {/* Introduction */}
       <section className="container mx-auto px-4 text-center max-w-4xl">
         <div className="space-y-8">
