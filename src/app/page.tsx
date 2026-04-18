@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -135,8 +136,8 @@ export default function Home() {
 
   return (
     <div className="space-y-0 pb-0">
-      {/* Hero Section */}
-      <section className="relative w-full aspect-[4/3] md:aspect-[21/8] flex items-center overflow-hidden bg-black group">
+      {/* Improved Hero Section */}
+      <section className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[750px] flex items-center overflow-hidden bg-black group">
         <div className="absolute inset-0 z-0">
           {HERO_IMAGES.map((img, idx) => (
             <div
@@ -157,57 +158,68 @@ export default function Home() {
               />
             </div>
           ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
         </div>
 
-        <button
-          onClick={(e) => { e.preventDefault(); setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length); }}
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition-all"
-        >
-          <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
-        </button>
-        <button
-          onClick={(e) => { e.preventDefault(); setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length); }}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/50 text-white transition-all"
-        >
-          <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
-        </button>
+        {/* Navigation Controls */}
+        <div className="container relative mx-auto px-4 h-full flex items-center justify-between z-20 pointer-events-none">
+          <button
+            onClick={(e) => { e.preventDefault(); setHeroIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length); }}
+            className="pointer-events-auto p-3 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm transition-all transform hover:scale-110 active:scale-95 border border-white/10"
+          >
+            <ChevronLeft className="h-6 w-6 md:h-10 md:w-10" />
+          </button>
+          
+          <div className="flex-1 flex flex-col items-center justify-end h-full pb-20 text-center text-white space-y-4">
+             {/* Text over hero could go here in future if needed */}
+          </div>
+
+          <button
+            onClick={(e) => { e.preventDefault(); setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length); }}
+            className="pointer-events-auto p-3 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm transition-all transform hover:scale-110 active:scale-95 border border-white/10"
+          >
+            <ChevronRight className="h-6 w-6 md:h-10 md:w-10" />
+          </button>
+        </div>
         
-        <div className="absolute bottom-0 w-full bg-black/40 backdrop-blur-md py-3 hidden md:block">
-          <div className="container mx-auto px-4 flex justify-between items-center text-white text-[10px] uppercase font-bold tracking-widest">
-            <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Chhaya Bajaj Bhopapur</span>
-              <span className="flex items-center gap-1"><Bike className="h-3 w-3 text-accent" /> Best Bajaj Showroom Varanasi</span>
-              <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-accent" /> Authorized Dealer</span>
+        {/* Bottom Info Bar */}
+        <div className="absolute bottom-0 w-full bg-black/60 backdrop-blur-lg py-4 hidden md:block border-t border-white/5">
+          <div className="container mx-auto px-6 flex justify-between items-center text-white text-[11px] lg:text-xs uppercase font-bold tracking-[0.2em]">
+            <div className="flex items-center gap-8 lg:gap-12">
+              <span className="flex items-center gap-2 drop-shadow-sm"><Zap className="h-4 w-4 text-accent fill-accent" /> Chhaya Bajaj Bhopapur</span>
+              <span className="flex items-center gap-2 drop-shadow-sm"><Bike className="h-4 w-4 text-accent fill-accent" /> Premium Showroom Varanasi</span>
+              <span className="flex items-center gap-2 drop-shadow-sm"><ShieldCheck className="h-4 w-4 text-accent fill-accent" /> Authorized Dealer</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-white/60">DEFINITELY DARING</span>
+              <span className="text-white/80 animate-pulse">DEFINITELY DARING</span>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="flex justify-center gap-2 py-4 bg-white border-b border-border">
+      {/* Hero Indicator Dots */}
+      <div className="flex justify-center gap-3 py-6 bg-white border-b border-border/50">
         {HERO_IMAGES.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setHeroIndex(idx)}
             className={cn(
-              "h-1 rounded-full transition-all duration-300",
-              idx === heroIndex ? "w-10 bg-primary" : "w-4 bg-muted"
+              "h-1.5 rounded-full transition-all duration-500 ease-out",
+              idx === heroIndex ? "w-12 bg-primary" : "w-4 bg-muted hover:bg-muted-foreground/30"
             )}
+            aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
       </div>
 
       {/* Welcome Section */}
-      <section className="py-8 bg-white">
-        <div className="container mx-auto px-4 text-center max-w-3xl space-y-4">
-          <h2 className="text-xl md:text-2xl font-bold font-headline text-accent uppercase tracking-wider italic">Experience Excellence</h2>
-          <h1 className="text-3xl md:text-5xl font-black font-headline text-blue-950 uppercase italic tracking-tighter">
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 text-center max-w-4xl space-y-6">
+          <h2 className="text-lg md:text-xl font-bold font-headline text-accent uppercase tracking-[0.3em] italic animate-in fade-in slide-in-from-bottom-2 duration-500">Experience Excellence</h2>
+          <h1 className="text-4xl md:text-6xl font-black font-headline text-blue-950 uppercase italic tracking-tighter leading-none animate-in fade-in slide-in-from-bottom-4 duration-700">
             Chhaya Bajaj
           </h1>
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-medium max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-medium max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-1000">
             Welcome to Chhaya Bajaj Bhopapur, your official destination for Bajaj showroom services in Varanasi. We are one of the most trusted names for Bajaj automobile sales and service near you.
           </p>
         </div>
@@ -216,16 +228,16 @@ export default function Home() {
       {/* Daring Collection Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-            <div className="space-y-2">
-              <Badge variant="outline" className="border-primary text-primary font-bold">Bajaj bikes Varanasi</Badge>
-              <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="space-y-3">
+              <Badge variant="outline" className="border-primary text-primary font-bold px-4 py-1">Bajaj bikes Varanasi</Badge>
+              <h2 className="text-4xl lg:text-5xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-primary">Daring</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Engineered for those who thrive on Bajaj performance at our showroom.</p>
+              <p className="text-muted-foreground font-medium text-lg">Engineered for those who thrive on Bajaj performance at our showroom.</p>
             </div>
-            <Button variant="ghost" asChild className="text-primary font-bold hover:text-primary/80">
-              <Link href="/vehicles" className="flex items-center gap-2">Explore All Bikes <ArrowRight className="h-4 w-4" /></Link>
+            <Button variant="ghost" asChild className="text-primary font-bold hover:text-primary/80 hover:bg-primary/5 text-lg h-12">
+              <Link href="/vehicles" className="flex items-center gap-2">Explore All Bikes <ArrowRight className="h-5 w-5" /></Link>
             </Button>
           </div>
 
@@ -234,11 +246,11 @@ export default function Home() {
             opts={{ align: "start", loop: true }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 md:-ml-6">
               {DARING_VEHICLES.map((vehicle, idx) => (
-                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col">
-                    <div className="relative h-[250px] md:h-[300px]">
+                <CarouselItem key={idx} className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col hover:shadow-2xl transition-all duration-500">
+                    <div className="relative h-[250px] md:h-[350px]">
                       {vehicle.image?.imageUrl && (
                         <Image
                           src={vehicle.image.imageUrl}
@@ -249,19 +261,19 @@ export default function Home() {
                         />
                       )}
                       <div className="absolute top-4 right-4 z-10">
-                        <Badge className="bg-primary/90 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
+                        <Badge className="bg-primary/90 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider px-3 py-1">
                           {vehicle.tag}
                         </Badge>
                       </div>
                     </div>
-                    <CardContent className="p-6 md:p-8 flex flex-col space-y-4">
-                      <h3 className="text-2xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
+                    <CardContent className="p-8 flex flex-col space-y-5">
+                      <h3 className="text-3xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
                         {vehicle.name}
                       </h3>
-                      <p className="text-muted-foreground text-sm font-medium line-clamp-2">
+                      <p className="text-muted-foreground text-sm md:text-base font-medium line-clamp-2">
                         {vehicle.desc}
                       </p>
-                      <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-full sm:w-fit">
+                      <Button onClick={triggerTestRide} className="bg-primary hover:bg-primary/90 text-white font-bold w-full sm:w-fit h-12 px-8">
                         Book Test Ride
                       </Button>
                     </CardContent>
@@ -276,29 +288,29 @@ export default function Home() {
       {/* Comfort Collection Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-            <div className="space-y-2">
-              <Badge variant="outline" className="border-accent text-accent font-bold">Bajaj Bhopapur</Badge>
-              <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="space-y-3">
+              <Badge variant="outline" className="border-accent text-accent font-bold px-4 py-1">Bajaj Bhopapur</Badge>
+              <h2 className="text-4xl lg:text-5xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
                 The <span className="text-accent">Comfort</span> Collection
               </h2>
-              <p className="text-muted-foreground font-medium">Chhaya Bajaj reliability for your everyday journey in Varanasi.</p>
+              <p className="text-muted-foreground font-medium text-lg">Chhaya Bajaj reliability for your everyday journey in Varanasi.</p>
             </div>
-            <Button variant="ghost" asChild className="text-accent font-bold hover:text-accent/80">
-              <Link href="/vehicles" className="flex items-center gap-2">Browse Comfort Models <ArrowRight className="h-4 w-4" /></Link>
+            <Button variant="ghost" asChild className="text-accent font-bold hover:text-accent/80 hover:bg-accent/5 text-lg h-12">
+              <Link href="/vehicles" className="flex items-center gap-2">Browse Comfort Models <ArrowRight className="h-5 w-5" /></Link>
             </Button>
           </div>
 
           <Carousel 
-            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+            plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
             opts={{ align: "start", loop: true }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 md:-ml-6">
               {COMFORT_VEHICLES.map((vehicle, idx) => (
-                <CarouselItem key={idx} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col">
-                    <div className="relative h-[250px] md:h-[300px]">
+                <CarouselItem key={idx} className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="overflow-hidden border-none shadow-xl glass-card group h-full flex flex-col hover:shadow-2xl transition-all duration-500">
+                    <div className="relative h-[250px] md:h-[350px]">
                       {vehicle.image?.imageUrl && (
                         <Image
                           src={vehicle.image.imageUrl}
@@ -309,19 +321,19 @@ export default function Home() {
                         />
                       )}
                       <div className="absolute top-4 right-4 z-10">
-                        <Badge className="bg-accent/90 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider">
+                        <Badge className="bg-accent/90 backdrop-blur-md text-white border-white/20 font-bold uppercase tracking-wider px-3 py-1">
                           {vehicle.tag}
                         </Badge>
                       </div>
                     </div>
-                    <CardContent className="p-6 md:p-8 flex flex-col space-y-4">
-                      <h3 className="text-2xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
+                    <CardContent className="p-8 flex flex-col space-y-5">
+                      <h3 className="text-3xl font-bold text-blue-950 font-headline italic uppercase tracking-tighter">
                         {vehicle.name}
                       </h3>
-                      <p className="text-muted-foreground text-sm font-medium line-clamp-2">
+                      <p className="text-muted-foreground text-sm md:text-base font-medium line-clamp-2">
                         {vehicle.desc}
                       </p>
-                      <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-full sm:w-fit">
+                      <Button onClick={triggerTestRide} className="bg-accent hover:bg-accent/90 text-white font-bold w-full sm:w-fit h-12 px-8">
                         Book Test Ride
                       </Button>
                     </CardContent>
@@ -340,24 +352,24 @@ export default function Home() {
             <h2 className="text-4xl font-black font-headline uppercase italic tracking-tighter text-blue-950">
               The <span className="text-primary">Chhaya</span> Advantage
             </h2>
-            <p className="text-muted-foreground font-medium text-lg">
+            <p className="text-muted-foreground font-medium text-xl">
               Visit Chhaya Bajaj Bhopapur for the best Bajaj bikes and showroom experience in Varanasi.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {ADVANTAGES.map((advantage, i) => (
-              <Card key={i} className="border-none shadow-lg glass-card hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8 space-y-6 text-center">
+              <Card key={i} className="border-none shadow-lg glass-card hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+                <CardContent className="p-10 space-y-6 text-center">
                   <div className={cn(
-                    "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-3",
+                    "w-20 h-20 rounded-[2rem] mx-auto flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
                     advantage.bg
                   )}>
-                    <advantage.icon className={cn("h-8 w-8", advantage.color)} />
+                    <advantage.icon className={cn("h-10 w-10", advantage.color)} />
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-blue-950">{advantage.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-bold text-blue-950">{advantage.title}</h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                       {advantage.desc}
                     </p>
                   </div>
@@ -367,34 +379,35 @@ export default function Home() {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-border shadow-sm">
-              <ThumbsUp className="h-5 w-5 text-accent" />
-              <span className="text-sm font-bold text-blue-950">Trusted by customer - Chhaya Bajaj Bhopapur</span>
+            <div className="inline-flex items-center gap-3 bg-white px-8 py-4 rounded-full border border-border/50 shadow-md transform hover:scale-105 transition-transform">
+              <ThumbsUp className="h-6 w-6 text-accent" />
+              <span className="text-base font-bold text-blue-950">Trusted by 10,000+ customers - Chhaya Bajaj Bhopapur</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Early Bird Offer */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="relative rounded-[40px] overflow-hidden bg-blue-950 text-white shadow-2xl">
-          <div className="relative z-10 p-8 md:p-20 max-w-4xl mx-auto text-center flex flex-col items-center">
-            <div className="space-y-8">
-              <div className="inline-block bg-accent px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase italic">
+      <section className="container mx-auto px-4 py-16">
+        <div className="relative rounded-[3rem] overflow-hidden bg-blue-950 text-white shadow-2xl group">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-black/40 mix-blend-overlay" />
+          <div className="relative z-10 p-10 md:p-24 max-w-5xl mx-auto text-center flex flex-col items-center">
+            <div className="space-y-10">
+              <div className="inline-block bg-accent px-6 py-2 rounded-full text-sm font-bold tracking-[0.2em] uppercase italic shadow-lg transform group-hover:scale-110 transition-transform">
                 Exclusive Promotion @chhayabajajbhopapur
               </div>
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-extrabold font-headline italic uppercase tracking-tighter leading-none">
+              <div className="space-y-6">
+                <h2 className="text-5xl md:text-7xl font-extrabold font-headline italic uppercase tracking-tighter leading-none drop-shadow-lg">
                   Early Bird <span className="text-accent">Offer</span>
                 </h2>
-                <p className="text-xl text-blue-100/80 font-medium">
+                <p className="text-xl md:text-2xl text-blue-100/90 font-medium max-w-2xl mx-auto">
                   Book your Bajaj bike today at Chhaya Bajaj Bhopapur and unlock benefits worth ₹10,000*.
                 </p>
               </div>
               <Button 
                 onClick={triggerTestRide}
                 size="lg" 
-                className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-10 rounded-full h-14 text-lg w-full sm:w-auto mt-4"
+                className="bg-white text-blue-950 hover:bg-blue-50 font-bold px-12 rounded-full h-16 text-xl w-full sm:w-auto mt-6 shadow-2xl transition-all hover:px-16"
               >
                 Book Now & Save
               </Button>
@@ -404,15 +417,15 @@ export default function Home() {
       </section>
 
       {/* Marquee */}
-      <section className="py-2 md:py-3 bg-white overflow-hidden whitespace-nowrap border-y border-primary/10 relative">
-        <div className="flex animate-marquee gap-4 md:gap-8 items-center min-w-full">
-          {[...Array(12)].map((_, i) => (
-            <span key={i} className="text-xl md:text-3xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
+      <section className="py-4 md:py-6 bg-white overflow-hidden whitespace-nowrap border-y border-primary/10 relative">
+        <div className="flex animate-marquee gap-8 md:gap-16 items-center min-w-full">
+          {[...Array(8)].map((_, i) => (
+            <span key={i} className="text-2xl md:text-4xl font-black font-headline uppercase italic text-primary tracking-tighter px-4">
               Book Now & Save - Chhaya Bajaj
             </span>
           ))}
-          {[...Array(12)].map((_, i) => (
-            <span key={i + 12} className="text-xl md:text-3xl font-black font-headline uppercase italic text-primary tracking-tighter px-2 md:px-4">
+          {[...Array(8)].map((_, i) => (
+            <span key={i + 8} className="text-2xl md:text-4xl font-black font-headline uppercase italic text-primary tracking-tighter px-4">
               Book Now & Save - chhayabajaj.in
             </span>
           ))}
