@@ -60,6 +60,7 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
   });
 
   useEffect(() => {
+    // Don't setup auth listener if auth service isn't available
     if (!auth) {
       setUserAuthState({ user: null, isUserLoading: false, userError: null });
       return;
@@ -73,11 +74,11 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
   }, [auth]);
 
   useEffect(() => {
-    // Safe initialization for Analytics to prevent crash on invalid/missing keys
-    if (typeof window === 'undefined' || !firebaseApp) return;
+    // Safe initialization for Analytics
+    if (typeof window === 'undefined' || !firebaseApp || !firebaseApp.options.apiKey) return;
 
-    const apiKey = firebaseApp?.options?.apiKey;
-    const measurementId = firebaseApp?.options?.measurementId;
+    const apiKey = firebaseApp.options.apiKey;
+    const measurementId = firebaseApp.options.measurementId;
     const isValidKey = apiKey && apiKey !== "" && apiKey !== "your-api-key";
 
     if (isValidKey && measurementId) {
@@ -86,11 +87,11 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
           try {
             getAnalytics(firebaseApp);
           } catch (e) {
-            // Silently fail analytics in environments where it might be blocked
+            // Silently fail analytics
           }
         }
       }).catch(() => {
-        // Silently fail if browser doesn't support analytics
+        // Silently fail
       });
     }
   }, [firebaseApp]);

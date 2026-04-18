@@ -10,33 +10,47 @@ import { getFirestore } from 'firebase/firestore'
  * Prevents crashes during build-time pre-rendering if keys are missing.
  */
 export function initializeFirebase() {
+  // 1. Check if an app is already initialized
   if (getApps().length > 0) {
     return getSdks(getApp());
   }
 
-  let firebaseApp: FirebaseApp;
+  // 2. Determine if we have a valid configuration to attempt initialization
+  const hasConfig = !!(firebaseConfig.apiKey && firebaseConfig.apiKey !== "");
 
   try {
-    // 1. Attempt to initialize via Firebase App Hosting automatic environment variables
-    firebaseApp = initializeApp();
-  } catch (e) {
-    // 2. Fallback to manual configuration
-    const isConfigValid = firebaseConfig.apiKey && firebaseConfig.apiKey !== "";
+    let app: FirebaseApp;
     
-    // During production build, we log a warning but don't crash the whole process
-    if (!isConfigValid && process.env.NODE_ENV === "production") {
-      console.warn("Firebase configuration is missing or invalid. Deployment may fail at runtime if Firebase is accessed.");
+    if (!hasConfig) {
+      // If no config, try parameterless init (only works in Firebase App Hosting environments)
+      try {
+        app = initializeApp();
+      } catch (e) {
+        // Build-time fallback: Return null SDKs if no config is available
+        return {
+          firebaseApp: null as any,
+          auth: null as any,
+          firestore: null as any
+        };
+      }
+    } else {
+      app = initializeApp(firebaseConfig);
     }
-    
-    firebaseApp = initializeApp(firebaseConfig);
-  }
 
-  return getSdks(firebaseApp);
+    return getSdks(app);
+  } catch (err) {
+    // Graceful failure for build-time or invalid configuration
+    return {
+      firebaseApp: null as any,
+      auth: null as any,
+      firestore: null as any
+    };
+  }
 }
 
 /**
- * Safely retrieves SDK instances. If initialization fails (e.g. invalid-api-key),
- * it returns nulls to be handled by the FirebaseProvider.
+ * Safely retrieves SDK instances. 
+ * Firebase SDKs like getAuth() will throw if the API key is invalid/missing.
  */
 export function getSdks(firebaseApp: FirebaseApp) {
   try {
@@ -46,9 +60,9 @@ export function getSdks(firebaseApp: FirebaseApp) {
       firestore: getFirestore(firebaseApp)
     };
   } catch (err) {
-    // This often happens during build/export if environment variables are missing
+    // This catches 'auth/invalid-api-key' specifically
     if (process.env.NODE_ENV === 'production') {
-      console.warn("Firebase SDK initialization failed (likely due to missing build-time secrets).", err);
+      console.warn("Firebase SDK initialization failed (likely due to missing/invalid build-time secrets).", err);
     }
     return {
       firebaseApp,
