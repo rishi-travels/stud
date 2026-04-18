@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, ExternalLink } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -27,7 +27,8 @@ const TEAM_MEMBERS = [
     name: "Abhishek Mishra",
     role: "Technical Head",
     image: PlaceHolderImages.find(p => p.id === "team-member-3"),
-    bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations."
+    bio: "An engineering veteran who oversees our state-of-the-art service and maintenance operations.",
+    website: "https://www.abhimishra.me"
   },
   {
     name: "Diwakar Mishra",
@@ -89,7 +90,19 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <CardContent className="p-6 space-y-2 text-center">
-                      <h3 className="text-xl font-bold">{member.name}</h3>
+                      <h3 className="text-xl font-bold flex items-center justify-center gap-2">
+                        {member.name}
+                        {member.website && (
+                          <a 
+                            href={member.website} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        )}
+                      </h3>
                       <p className="text-primary font-semibold text-xs uppercase tracking-wider">{member.role}</p>
                       <p className="text-muted-foreground text-xs pt-2 line-clamp-3">{member.bio}</p>
                     </CardContent>
