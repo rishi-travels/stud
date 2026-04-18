@@ -58,7 +58,7 @@ service cloud.firestore {
       allow delete: if isExistingAdmin();
     }
 
-    // Leads collections - Allow delete if signed in (Admin Dashboard uses anonymous auth)
+    // Leads collections - Allow create for public leads, restrict access to authorized users (admins)
     match /contact_inquiries/{inquiryId} {
       allow create: if request.resource.data.id == inquiryId;
       allow get, list: if isSignedIn();

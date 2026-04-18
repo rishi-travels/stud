@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -78,6 +77,16 @@ export default function TestRidePopup() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    if (!firestore) {
+      toast({
+        variant: "destructive",
+        title: "Booking Failed",
+        description: "Database service is offline. Please call us directly to book.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     const formData = new FormData(e.currentTarget);
     const bookingRef = doc(collection(firestore, 'test_ride_bookings'));

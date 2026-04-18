@@ -35,6 +35,16 @@ export default function AICareerTool() {
     e.preventDefault();
     setLoading(true);
     
+    if (!firestore) {
+      toast({
+        variant: "destructive",
+        title: "Submission failed",
+        description: "Firestore service is currently unavailable. Please try again later.",
+      });
+      setLoading(false);
+      return;
+    }
+
     try {
       // Save Application to Firestore
       const applicationRef = doc(collection(firestore, 'job_applications'));
@@ -71,7 +81,7 @@ export default function AICareerTool() {
       toast({
         variant: "destructive",
         title: "Submission failed",
-        description: "Please try again later.",
+        description: "An unexpected error occurred. Please try again later.",
       });
     } finally {
       setLoading(false);

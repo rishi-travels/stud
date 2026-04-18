@@ -22,6 +22,16 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     
+    if (!firestore) {
+      toast({
+        variant: "destructive",
+        title: "Service Unavailable",
+        description: "The contact service is currently offline. Please try again later.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     const formData = new FormData(e.currentTarget);
     const inquiryRef = doc(collection(firestore, 'contact_inquiries'));
     const inquiryId = inquiryRef.id;
