@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle, Lock } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-blue-950 border-t border-white/10 mt-12 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -84,7 +93,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-white/40">
-          <p>&copy; {new Date().getFullYear()} Chhaya Bajaj. All rights reserved.</p>
+          <p>&copy; {year || "..."} Chhaya Bajaj. All rights reserved.</p>
         </div>
       </div>
     </footer>

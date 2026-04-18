@@ -86,11 +86,11 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({
           try {
             getAnalytics(firebaseApp);
           } catch (e) {
-            console.warn("Analytics initialization failed: ", e);
+            // Silently fail analytics in environments where it might be blocked
           }
         }
-      }).catch((err) => {
-        console.warn("Analytics support check failed:", err);
+      }).catch(() => {
+        // Silently fail if browser doesn't support analytics
       });
     }
   }, [firebaseApp]);
@@ -120,7 +120,7 @@ export const useFirebase = (): FirebaseServicesAndUser => {
   const context = useContext(FirebaseContext);
   if (context === undefined) throw new Error('useFirebase must be used within a FirebaseProvider.');
   if (!context.areServicesAvailable || !context.firebaseApp || !context.firestore || !context.auth) {
-    throw new Error('Firebase core services not available. Check your .env configuration.');
+    throw new Error('Firebase core services not available. Check your environment variables.');
   }
   return {
     firebaseApp: context.firebaseApp,
