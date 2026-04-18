@@ -43,10 +43,12 @@ export const metadata: Metadata = {
     'Chetak EV Varanasi',
     'best bike showroom in Varanasi',
     'Bajaj automobile Varanasi',
-    'official bajaj showroom varanasi'
+    'official bajaj showroom varanasi',
+    'Abhishek Mishra',
+    'abhimishra.me'
   ],
-  authors: [{ name: 'Chhaya Bajaj' }],
-  creator: 'Chhaya Enterprises',
+  authors: [{ name: 'Chhaya Bajaj' }, { name: 'Abhishek Mishra', url: 'https://www.abhimishra.me' }],
+  creator: 'Abhishek Mishra',
   publisher: 'Chhaya Bajaj',
   formatDetection: {
     email: false,
@@ -80,7 +82,6 @@ export const metadata: Metadata = {
     site: '@chhayabajajbhopapur',
   },
   verification: {
-    // Correctly formatted for Next.js Metadata: Provide ONLY the code string.
     google: 'v275HAlZehz4q-EmHT6E4dUM9C0_ABiM8sHDGdYJtNM',
   },
   robots: {
@@ -142,7 +143,22 @@ export default function RootLayout({
     "sameAs": [
       "https://m.facebook.com/profile.php?id=111457522057376",
       "https://www.instagram.com/chhayabajajbhopapur/",
-      "https://wa.me/94153557605"
+      "https://wa.me/94153557605",
+      "https://www.abhimishra.me"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Abhishek Mishra",
+      "url": "https://www.abhimishra.me",
+      "sameAs": ["https://www.abhimishra.me"]
+    },
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Abhishek Mishra",
+        "url": "https://www.abhimishra.me",
+        "sameAs": ["https://www.abhimishra.me"]
+      }
     ]
   };
 

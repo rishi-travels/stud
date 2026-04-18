@@ -51,6 +51,7 @@ export default function AboutPage() {
         "jobTitle": member.role,
         "description": member.bio,
         "image": member.image?.imageUrl,
+        "url": member.website || `https://chhayabajaj.in/about#${member.name.replace(/\s+/g, '-').toLowerCase()}`,
         "sameAs": member.website ? [member.website] : []
       }
     }))
@@ -92,7 +93,7 @@ export default function AboutPage() {
             <CarouselContent>
               {TEAM_MEMBERS.map((member, i) => (
                 <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow group h-full">
+                  <Card id={member.name.replace(/\s+/g, '-').toLowerCase()} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow group h-full">
                     <div className="relative h-[350px] w-full">
                       {member.image?.imageUrl && (
                         <Image
